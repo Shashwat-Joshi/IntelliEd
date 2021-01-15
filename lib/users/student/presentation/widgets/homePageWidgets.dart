@@ -1,8 +1,35 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
+import 'package:IntelliEd/users/student/presentation/widgets/assignmetsCardWidget.dart';
 import 'package:IntelliEd/widgets/rowOfViewAll.dart';
 import 'package:flutter/material.dart';
 import 'analyticsCardWidget.dart';
+
+Widget announcementWidget() => Container(
+      child: Column(
+        children: [
+          SizedBox(height: 27.0),
+          rowofViewAll('Announcements'),
+          SizedBox(height: 14.0),
+          Text(
+            announcementText['0'],
+            style: viewAllStyle.apply(
+              color: Color(0xFFACACAC),
+            ),
+          ),
+          Divider(
+            thickness: 1.5,
+          ),
+          Text(
+            announcementText['0'],
+            style: viewAllStyle.apply(
+              color: Color(0xFFACACAC),
+            ),
+          ),
+          Divider(thickness: 1.5),
+        ],
+      ),
+    );
 
 class AnalyticsWidget extends StatefulWidget {
   final Function onTapArrow;
@@ -80,28 +107,40 @@ class _AnalyticsWidgetState extends State<AnalyticsWidget> {
   }
 }
 
-Widget announcementWidget() => Container(
+Widget assignmentWidget(Size size) => Container(
       child: Column(
         children: [
           SizedBox(height: 27.0),
-          rowofViewAll('Announcements'),
+          rowofViewAll('Assignments'),
           SizedBox(height: 14.0),
-          Text(
-            announcementText['0'],
-            style: viewAllStyle.apply(
-              color: Color(0xFFACACAC),
+          Container(
+            height: 210.0,
+            child: Column(
+              children: [
+                Container(
+                  height: 100.0,
+                  child: ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 2,
+                    itemBuilder: (context, index) =>
+                        assignmentsCard(size, index),
+                  ),
+                ),
+                SizedBox(height: 10.0),
+                Container(
+                  height: 100.0,
+                  child: ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 2,
+                    itemBuilder: (context, index) =>
+                        assignmentsCard(size, index, 'second'),
+                  ),
+                ),
+              ],
             ),
           ),
-          Divider(
-            thickness: 1.5,
-          ),
-          Text(
-            announcementText['0'],
-            style: viewAllStyle.apply(
-              color: Color(0xFFACACAC),
-            ),
-          ),
-          Divider(thickness: 1.5),
         ],
       ),
     );
@@ -121,6 +160,43 @@ Widget calendarWidget() => Container(
           Divider(
             thickness: 1.5,
           ),
+        ],
+      ),
+    );
+
+Widget todaysClasses() => Container(
+      child: Column(
+        children: [
+          SizedBox(height: 27.0),
+          rowofViewAll('Today’s Classes'),
+          SizedBox(height: 14.0),
+          for (int i = 0; i < sampleTimeTable.length; i++)
+            Container(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        sampleTimeTable[i].subjectAndTeacherName,
+                        style: viewAllStyle.apply(
+                          color: Color(0xFFACACAC),
+                        ),
+                      ),
+                      Spacer(),
+                      Text(
+                        sampleTimeTable[i].timePeriod,
+                        style: viewAllStyle.apply(
+                          color: Color(0xFFACACAC),
+                        ),
+                      )
+                    ],
+                  ),
+                  Divider(
+                    thickness: 1.5,
+                  ),
+                ],
+              ),
+            ),
         ],
       ),
     );

@@ -58,6 +58,7 @@ analyticsCardWidget(
             ),
           ),
         ),
+        SizedBox(width: 2.0),
       ],
     ),
   );

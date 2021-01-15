@@ -58,31 +58,88 @@ List<AnalyticsFeatures> analyticsFeatures = [
     textColor: Color(0xFF477AFF),
   ),
   AnalyticsFeatures(
-    heading: 'Behaviour',
+    heading: 'Behavior',
     subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
-    imagePath: 'assets/student/images/analyticsVectors/1.png',
+    imagePath: 'assets/student/images/analyticsVectors/3.png',
     color: Color(0xFFFFF2CA),
     textColor: Color(0xFFE3AE01),
   ),
   AnalyticsFeatures(
     heading: 'Skills',
     subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
-    imagePath: 'assets/student/images/analyticsVectors/1.png',
+    imagePath: 'assets/student/images/analyticsVectors/4.png',
     color: Color(0xFFAFFFD9),
     textColor: Color(0xFF00C968),
   ),
   AnalyticsFeatures(
     heading: 'Attendance',
     subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
-    imagePath: 'assets/student/images/analyticsVectors/1.png',
+    imagePath: 'assets/student/images/analyticsVectors/5.png',
     color: Color(0xFFFCDCFF),
     textColor: Color(0xFFF14CFF),
   ),
   AnalyticsFeatures(
     heading: 'Quiz',
     subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
-    imagePath: 'assets/student/images/analyticsVectors/1.png',
+    imagePath: 'assets/student/images/analyticsVectors/6.png',
     color: Color(0xFFFFE2C7),
     textColor: Color(0xFFFA861C),
   ),
 ];
+
+// For Assignments features
+class AssignmentsModelData {
+  final String subName, submissionDate, timeLeft;
+  AssignmentsModelData(this.subName, this.submissionDate, this.timeLeft);
+}
+
+List<AssignmentsModelData> assignmentModelData = [
+  AssignmentsModelData('Maths', '23 January 2020 | 12:00', '1 day Left'),
+  AssignmentsModelData('Physics', '23 January 2020 | 12:00', '2 days Left'),
+  AssignmentsModelData('Chemistry', '23 January 2020 | 12:00', '2 days Left'),
+  AssignmentsModelData('Maths', '21 January 2020 | 12:00', 'Submitted'),
+];
+
+// For Today's class feature
+class TodaysClass {
+  final String subjectAndTeacherName, timePeriod;
+  TodaysClass(this.subjectAndTeacherName, this.timePeriod);
+}
+
+List<TodaysClass> sampleTimeTable = [
+  TodaysClass('Maths | Mr. Aman Jagdev', '12:00 - 14:00'),
+  TodaysClass('Physics | Mr. Anant Jakhmola', '12:00 - 14:00'),
+  TodaysClass('Chemistry | Mr. Adhyansh', '12:00 - 14:00'),
+  TodaysClass('English | Mr. Shashwat Joshi', '12:00 - 14:00'),
+  TodaysClass('C.S | Ms. Shayna Kapoor', '12:00 - 14:00'),
+  TodaysClass('Hindi | Mr. Mukesh Arthur', '12:00 - 14:00'),
+];
+
+// For Profile Page Details
+class StudentDetails {
+  final String name,
+      age,
+      fatherName,
+      motherName,
+      bloodGroup,
+      email,
+      emergencyContact;
+  final List<String> phoneNumbers;
+
+  StudentDetails(this.name, this.age, this.fatherName, this.motherName,
+      this.bloodGroup, this.email, this.emergencyContact, this.phoneNumbers);
+}
+
+StudentDetails studentDetails = StudentDetails(
+  'Shashwat Joshi',
+  '18',
+  'Mr. J.C Joshi',
+  'Monika Joshi',
+  'A+',
+  'shashwat2002joshi@gmail.com',
+  '+91 91345 XXXXX',
+  [
+    '+91 91345 XXXXX',
+    '+91 91345 XXXXX',
+  ],
+);
