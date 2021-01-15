@@ -7,14 +7,33 @@ sliverAppBarWidget(
   String name,
   String techSummary,
   String imagePath,
+  BuildContext context,
 ) {
   return SliverAppBar(
     actions: [
-      profileIcon(),
+      Container(
+        margin: EdgeInsets.only(right: 10.0, bottom: 10.0),
+        child: Hero(
+          tag: "profilepic",
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () {
+                Navigator.pushNamed(context, '/student/profile');
+              },
+              child: profileIcon(),
+            ),
+          ),
+        ),
+      ),
     ],
+    pinned: true,
+    floating: false,
+    snap: false,
     primary: true,
-    snap: true,
-    floating: true,
+    stretch: true,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
         bottomLeft: Radius.circular(20.0),
@@ -23,20 +42,19 @@ sliverAppBarWidget(
     ),
     forceElevated: false,
     elevation: 0.0,
+    toolbarHeight: 80.0,
     onStretchTrigger: () {
       return;
     },
-    stretch: true,
-    pinned: true,
-    collapsedHeight: 110.0,
+    collapsedHeight: 90.0,
+    expandedHeight: 240.0,
     flexibleSpace: FlexibleSpaceBar(
       stretchModes: [
         StretchMode.zoomBackground,
-        StretchMode.blurBackground,
         StretchMode.fadeTitle,
       ],
       centerTitle: false,
-      titlePadding: EdgeInsetsDirectional.only(start: 18.0, bottom: 20.0),
+      titlePadding: EdgeInsetsDirectional.only(start: 10.0, bottom: 10.0),
       collapseMode: CollapseMode.pin,
       title: Container(
         padding: EdgeInsets.all(7.0),
@@ -63,13 +81,15 @@ sliverAppBarWidget(
           bottomLeft: Radius.circular(20.0),
           bottomRight: Radius.circular(20.0),
         ),
-        child: Image.asset(
-          imagePath,
-          height: 240.0,
-          fit: BoxFit.cover,
+        child: Hero(
+          tag: imagePath,
+          child: Image.asset(
+            imagePath,
+            height: 240.0,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     ),
-    expandedHeight: 240.0,
   );
 }

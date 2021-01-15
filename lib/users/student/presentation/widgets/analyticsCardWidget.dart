@@ -1,27 +1,33 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:flutter/material.dart';
 
-analyticsCardWidget(String heading, String subheading, Color color,
-    Color textColor, Size size) {
-  print('H-${size.height} W-${size.width}');
+analyticsCardWidget(
+  String heading,
+  String subheading,
+  String imagePath,
+  Color color,
+  Color textColor,
+  Size size,
+) {
   return Container(
     margin: EdgeInsets.only(bottom: 21.0),
-    padding: EdgeInsets.symmetric(horizontal: 22.0),
+    padding: EdgeInsets.only(left: 22.0),
     height: 140.0,
-    width: size.width,
+    width: size.width - 0.0,
     decoration: BoxDecoration(
       color: color,
       borderRadius: BorderRadius.circular(20.0),
     ),
     child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          width: size.width / 2,
+          width: size.width / 2 - 44.0,
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   heading,
@@ -38,6 +44,17 @@ analyticsCardWidget(String heading, String subheading, Color color,
                       color: Color(0xFF717171), fontSize: 15.0),
                 ),
               ],
+            ),
+          ),
+        ),
+        Container(
+          width: size.width / 2 - 44.0,
+          height: 100.0,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              alignment: Alignment.centerRight,
+              fit: BoxFit.contain,
+              image: AssetImage(imagePath),
             ),
           ),
         ),
