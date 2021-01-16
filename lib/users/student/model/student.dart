@@ -167,3 +167,13 @@ StudentAverageMarks modelStudentAverageMarks = StudentAverageMarks(
 
 // To store the final subjects for future use
 List<String> finalSubjects = [];
+
+Map<String, List> english = {
+  "general": [
+    [88, 73, 95, 77],
+    [90, 87, 77, 89],
+  ],
+  "UT1": [38, 36, 37, 39, 36, 40],
+  "UT2": [38, 36, 37, 39, 36, 40],
+  "SA1": [38, 36, 37, 39, 36, 40],
+};

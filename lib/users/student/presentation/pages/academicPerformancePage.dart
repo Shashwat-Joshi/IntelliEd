@@ -1,5 +1,6 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
+import 'package:IntelliEd/users/student/presentation/pages/subjectWiseAcademicPage.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/AcademicsbarChart.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/academicSliverAppBar.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +16,11 @@ class _AcademicPerformanceState extends State<AcademicPerformance> {
   @override
   void initState() {
     super.initState();
-    modelStudentAverageMarks.studentMarks.keys.forEach((key) {
-      finalSubjects.add(key.toString());
-    });
+    if (finalSubjects.isEmpty) {
+      modelStudentAverageMarks.studentMarks.keys.forEach((key) {
+        finalSubjects.add(key.toString());
+      });
+    }
   }
 
   @override
@@ -101,6 +104,7 @@ class _AcademicPerformanceState extends State<AcademicPerformance> {
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 26.0),
                     child: Wrap(
+                      alignment: WrapAlignment.center,
                       children: createSubjectCardsWidget(size),
                     ),
                   ),
@@ -125,9 +129,18 @@ class _AcademicPerformanceState extends State<AcademicPerformance> {
           ),
           margin: EdgeInsets.all(7.0),
           height: 50.0,
-          width: size.width / 2 < 165 ? size.width / 2 : 165,
+          width: size.width / 2 - 40,
           child: FlatButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, _, __) => SubjectWiseAcademicPage(
+                    index: i,
+                  ),
+                ),
+              );
+            },
             child: Center(
               child: Text(
                 finalSubjects[i],

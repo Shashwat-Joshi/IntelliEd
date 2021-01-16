@@ -1,13 +1,12 @@
 import 'dart:ui';
-
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/widgets/profileIcon.dart';
 import 'package:flutter/material.dart';
 
-academicsliverAppBar(
+subjectWiseAcademicsliverAppBar(
   Size size,
   String headingText,
-  String subheadingtext,
   String imagePath,
   Color bgColor,
   Color textColor,
@@ -52,37 +51,18 @@ academicsliverAppBar(
     onStretchTrigger: () {
       return;
     },
-    collapsedHeight: 90.0,
+    // collapsedHeight: 90.0,
     expandedHeight: 240.0,
     flexibleSpace: FlexibleSpaceBar(
       stretchModes: [
         StretchMode.zoomBackground,
         StretchMode.fadeTitle,
       ],
-      centerTitle: subheadingtext.isEmpty ? true : false,
-      titlePadding: EdgeInsetsDirectional.only(start: 10.0, bottom: 10.0),
+      centerTitle: true,
       collapseMode: CollapseMode.pin,
-      title: Container(
-        padding: EdgeInsets.all(7.0),
-        width: size.width - 27 - 9 - profileIconWidth - 10.0,
-        child: RichText(
-          softWrap: true,
-          textAlign: TextAlign.start,
-          text: TextSpan(
-            children: [
-              TextSpan(text: '\n'),
-              TextSpan(
-                text: '$headingText',
-                style: heading1.copyWith(color: textColor),
-              ),
-              TextSpan(
-                text: '\n$subheadingtext',
-                style: subheading.copyWith(color: Colors.white),
-              ),
-              TextSpan(text: '\n'),
-            ],
-          ),
-        ),
+      title: Text(
+        '$headingText',
+        style: heading1.copyWith(color: textColor),
       ),
       background: ClipRRect(
         borderRadius: BorderRadius.only(
@@ -94,14 +74,15 @@ academicsliverAppBar(
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(imagePath),
+                image: AssetImage(
+                    'assets/student/images/academicSubjects/${headingText.toLowerCase()}.png'),
                 fit: BoxFit.cover,
               ),
             ),
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
+              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
               child: Container(
-                decoration: BoxDecoration(color: Colors.white.withOpacity(0.2)),
+                decoration: BoxDecoration(color: Colors.white.withOpacity(0.1)),
               ),
             ),
           ),
