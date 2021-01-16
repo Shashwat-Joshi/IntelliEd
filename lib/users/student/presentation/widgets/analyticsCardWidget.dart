@@ -47,14 +47,17 @@ analyticsCardWidget(
             ),
           ),
         ),
-        Container(
-          width: size.width / 2 - 44.0,
-          height: 100.0,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              alignment: Alignment.centerRight,
-              fit: BoxFit.contain,
-              image: AssetImage(imagePath),
+        Hero(
+          tag: imagePath,
+          child: Container(
+            width: size.width / 2 - 44.0,
+            height: 100.0,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                alignment: Alignment.centerRight,
+                fit: BoxFit.contain,
+                image: AssetImage(imagePath),
+              ),
             ),
           ),
         ),

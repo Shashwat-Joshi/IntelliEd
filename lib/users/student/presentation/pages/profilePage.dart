@@ -148,6 +148,8 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
       SizedBox(height: 30.0),
       emergencyWidget(size),
       SizedBox(height: 30.0),
+      Divider(thickness: 1.5),
+      SizedBox(height: 30.0),
     ];
   }
 
@@ -333,14 +335,14 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Icon(
-          Icons.mail_outline,
+          Icons.call_rounded,
           color: Color(0xFFFF6060),
         ),
         SizedBox(width: 25.0),
         Container(
           width: 100.0,
           child: Text(
-            'Email',
+            'Emergency',
             style: subheading.copyWith(
               color: Color(0xFFFF6060),
               fontSize: 14,
@@ -351,7 +353,7 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
         Container(
           width: size.width - 250.0,
           child: Text(
-            studentDetails.email,
+            studentDetails.emergencyContact,
           ),
         ),
       ],

@@ -143,3 +143,27 @@ StudentDetails studentDetails = StudentDetails(
     '+91 91345 XXXXX',
   ],
 );
+
+// For Academic Performance page 1
+class StudentAverageMarks {
+  final Map<String, List<double>> studentMarks;
+  StudentAverageMarks({
+    @required this.studentMarks,
+  });
+}
+
+StudentAverageMarks modelStudentAverageMarks = StudentAverageMarks(
+  studentMarks: {
+    'Maths': [88.5, 80.8],
+    'Physics': [92.4, 95.1],
+    'Chemistry': [85.2, 88.6],
+    'Biology': [81.7, 88.4],
+    'CS': [97.3, 92.2],
+    'English': [81.6, 90.3],
+    'Hindi': [87.9, 91.4],
+    'SST': [78.3, 84.6],
+  },
+);
+
+// To store the final subjects for future use
+List<String> finalSubjects = [];

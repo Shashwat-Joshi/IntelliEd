@@ -1,7 +1,7 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:flutter/material.dart';
 
-Widget rowofViewAll(String headingText) {
+Widget rowofViewAll(String headingText, BuildContext context, String route) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
@@ -12,7 +12,9 @@ Widget rowofViewAll(String headingText) {
       InkWell(
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, route);
+        },
         child: Text(
           'View All',
           style: viewAllStyle,

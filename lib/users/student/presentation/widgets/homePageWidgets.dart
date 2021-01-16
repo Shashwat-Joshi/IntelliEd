@@ -5,11 +5,11 @@ import 'package:IntelliEd/widgets/rowOfViewAll.dart';
 import 'package:flutter/material.dart';
 import 'analyticsCardWidget.dart';
 
-Widget announcementWidget() => Container(
+Widget announcementWidget(BuildContext context) => Container(
       child: Column(
         children: [
           SizedBox(height: 27.0),
-          rowofViewAll('Announcements'),
+          rowofViewAll('Announcements', context, '/student/announcements'),
           SizedBox(height: 14.0),
           Text(
             announcementText['0'],
@@ -92,13 +92,21 @@ class _AnalyticsWidgetState extends State<AnalyticsWidget> {
             ),
             SizedBox(height: 14.0),
             for (int i = 0; i < listLength; i++)
-              analyticsCardWidget(
-                analyticsFeatures[i].heading,
-                analyticsFeatures[i].subHeading,
-                analyticsFeatures[i].imagePath,
-                analyticsFeatures[i].color,
-                analyticsFeatures[i].textColor,
-                widget.size,
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/student/analytics/$i',
+                  );
+                },
+                child: analyticsCardWidget(
+                  analyticsFeatures[i].heading,
+                  analyticsFeatures[i].subHeading,
+                  analyticsFeatures[i].imagePath,
+                  analyticsFeatures[i].color,
+                  analyticsFeatures[i].textColor,
+                  widget.size,
+                ),
               ),
           ],
         ),
@@ -107,11 +115,11 @@ class _AnalyticsWidgetState extends State<AnalyticsWidget> {
   }
 }
 
-Widget assignmentWidget(Size size) => Container(
+Widget assignmentWidget(Size size, BuildContext context) => Container(
       child: Column(
         children: [
           SizedBox(height: 27.0),
-          rowofViewAll('Assignments'),
+          rowofViewAll('Assignments', context, null),
           SizedBox(height: 14.0),
           Container(
             height: 210.0,
@@ -145,11 +153,11 @@ Widget assignmentWidget(Size size) => Container(
       ),
     );
 
-Widget calendarWidget() => Container(
+Widget calendarWidget(BuildContext context) => Container(
       child: Column(
         children: [
           SizedBox(height: 27.0),
-          rowofViewAll('Calander'),
+          rowofViewAll('Calander', context, null),
           SizedBox(height: 14.0),
           Text(
             announcementText['0'],
@@ -164,11 +172,11 @@ Widget calendarWidget() => Container(
       ),
     );
 
-Widget todaysClasses() => Container(
+Widget todaysClasses(BuildContext context) => Container(
       child: Column(
         children: [
           SizedBox(height: 27.0),
-          rowofViewAll('Today’s Classes'),
+          rowofViewAll('Today’s Classes', context, null),
           SizedBox(height: 14.0),
           for (int i = 0; i < sampleTimeTable.length; i++)
             Container(

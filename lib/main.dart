@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: onGeneratedRoutes,
       theme: ThemeData(
         primaryColor: Color(0xFF36865F),
+        canvasColor: Colors.white,
       ),
     );
   }

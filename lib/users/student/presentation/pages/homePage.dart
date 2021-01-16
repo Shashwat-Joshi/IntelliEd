@@ -52,7 +52,7 @@ class _StudentHomePageState extends State<StudentHomePage> {
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 20.0),
                       child: Column(
-                        children: homeScreenWidgets(size),
+                        children: homeScreenWidgets(size, context),
                       ),
                     ),
                   ),
@@ -65,9 +65,9 @@ class _StudentHomePageState extends State<StudentHomePage> {
     );
   }
 
-  List<Widget> homeScreenWidgets(Size size) {
+  List<Widget> homeScreenWidgets(Size size, BuildContext context) {
     return [
-      announcementWidget(),
+      announcementWidget(context),
       AnalyticsWidget(
         size: size,
         onTapArrow: (int turns) {
@@ -80,9 +80,9 @@ class _StudentHomePageState extends State<StudentHomePage> {
           });
         },
       ),
-      assignmentWidget(size),
-      calendarWidget(),
-      todaysClasses(),
+      assignmentWidget(size, context),
+      calendarWidget(context),
+      todaysClasses(context),
     ];
   }
 }
