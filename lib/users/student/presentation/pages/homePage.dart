@@ -1,5 +1,5 @@
 import 'package:IntelliEd/users/student/presentation/widgets/homePageWidgets.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/sliverAppBar.dart';
+import 'package:IntelliEd/users/student/presentation/widgets/slivers/homePageSliverAppBar.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ class StudentHomePage extends StatefulWidget {
 class _StudentHomePageState extends State<StudentHomePage> {
   final ScrollController _scrollController = ScrollController();
   //FIXME: Change the height
-  double homePageHeight = 1340.0;
+  double homePageHeight = 1330.0;
 
   @override
   void dispose() {
@@ -73,9 +73,9 @@ class _StudentHomePageState extends State<StudentHomePage> {
         onTapArrow: (int turns) {
           setState(() {
             if (turns == 3) {
-              homePageHeight = 2000.0;
+              homePageHeight = 1850.0;
             } else {
-              homePageHeight = 1340.0;
+              homePageHeight = 1330.0;
             }
           });
         },

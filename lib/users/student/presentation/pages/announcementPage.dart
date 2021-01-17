@@ -26,7 +26,7 @@ class _AnnouncementPageState extends State<AnnouncementPage> {
             ),
           ),
           Container(
-            height: size.height - 182.0,
+            height: size.height - 200.0,
             child: SingleChildScrollView(
               physics: BouncingScrollPhysics(),
               child: Column(

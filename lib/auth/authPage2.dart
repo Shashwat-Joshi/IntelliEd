@@ -52,9 +52,9 @@ class _AuthPage2State extends State<AuthPage2> {
                   ),
                   SizedBox(height: 35.0),
                   TextFormField(
-                    style: TextStyle(
+                    style: heading1.copyWith(
                       color: Color(0xFF1CAAFA),
-                      decoration: TextDecoration.none,
+                      fontSize: 16.0,
                     ),
                     decoration: customInputDecoration(
                       label: 'School ID',
@@ -70,8 +70,8 @@ class _AuthPage2State extends State<AuthPage2> {
                   ),
                   SizedBox(height: 20.0),
                   TextFormField(
-                    style: TextStyle(
-                      decoration: TextDecoration.none,
+                    style: heading1.copyWith(
+                      fontSize: 16.0,
                     ),
                     decoration: customInputDecoration(
                       label: 'User ID',
@@ -87,8 +87,8 @@ class _AuthPage2State extends State<AuthPage2> {
                   ),
                   SizedBox(height: 20.0),
                   TextFormField(
-                    style: TextStyle(
-                      decoration: TextDecoration.none,
+                    style: heading1.copyWith(
+                      fontSize: 16.0,
                     ),
                     obscureText: !isVisible,
                     decoration: customInputDecoration(
@@ -116,7 +116,7 @@ class _AuthPage2State extends State<AuthPage2> {
                             'User Type',
                             style: subheading.copyWith(
                               fontSize: 15.0,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.w500,
                               decoration: TextDecoration.none,
                             ),
                             textAlign: TextAlign.left,
@@ -165,7 +165,7 @@ class _AuthPage2State extends State<AuthPage2> {
                         ),
                         TextSpan(
                           text: 'CONTACT SUPPORT',
-                          style: subheading.copyWith(
+                          style: heading2.copyWith(
                             color: Color(0xFF1CAAFA),
                             fontSize: 15.0,
                             fontWeight: FontWeight.w500,
@@ -195,8 +195,9 @@ class _AuthPage2State extends State<AuthPage2> {
       filled: true,
       fillColor: bgColor,
       hintText: label,
-      hintStyle: TextStyle(
+      hintStyle: heading1.copyWith(
         color: textColor,
+        fontSize: 16.0,
       ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(30.0),

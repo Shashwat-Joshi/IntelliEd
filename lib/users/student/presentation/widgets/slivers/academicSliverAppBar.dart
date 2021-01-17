@@ -1,16 +1,21 @@
+import 'dart:ui';
+
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/widgets/profileIcon.dart';
 import 'package:flutter/material.dart';
 
-sliverAppBarWidget(
+academicsliverAppBar(
   Size size,
-  String name,
-  String techSummary,
+  String headingText,
+  String subheadingtext,
   String imagePath,
+  Color bgColor,
+  Color textColor,
   BuildContext context,
 ) {
   return SliverAppBar(
     automaticallyImplyLeading: false,
+    backgroundColor: bgColor,
     actions: [
       Container(
         margin: EdgeInsets.only(right: 23.0, bottom: 10.0),
@@ -48,7 +53,7 @@ sliverAppBarWidget(
       return;
     },
     collapsedHeight: 90.0,
-    expandedHeight: 240.0,
+    expandedHeight: 220.0,
     flexibleSpace: FlexibleSpaceBar(
       stretchModes: [
         StretchMode.zoomBackground,
@@ -65,14 +70,16 @@ sliverAppBarWidget(
           textAlign: TextAlign.start,
           text: TextSpan(
             children: [
+              TextSpan(text: '\n'),
               TextSpan(
-                text: 'Good Morning, $name',
-                style: heading1,
+                text: '$headingText',
+                style: heading1.copyWith(color: textColor),
               ),
               TextSpan(
-                text: '\n$techSummary',
-                style: subheading,
+                text: '\n$subheadingtext',
+                style: subheading.copyWith(color: Colors.white),
               ),
+              TextSpan(text: '\n'),
             ],
           ),
         ),
@@ -82,12 +89,18 @@ sliverAppBarWidget(
           bottomLeft: Radius.circular(20.0),
           bottomRight: Radius.circular(20.0),
         ),
-        child: Hero(
-          tag: imagePath,
-          child: Image.asset(
-            imagePath,
-            height: 240.0,
-            fit: BoxFit.cover,
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(imagePath),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
+            child: Container(
+              decoration: BoxDecoration(color: Colors.white.withOpacity(0.2)),
+            ),
           ),
         ),
       ),

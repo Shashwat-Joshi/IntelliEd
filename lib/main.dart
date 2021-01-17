@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xFF36865F),
         canvasColor: Colors.white,
+        fontFamily: 'Nunito',
       ),
     );
   }

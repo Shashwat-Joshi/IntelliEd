@@ -68,7 +68,7 @@ class _AnalyticsWidgetState extends State<AnalyticsWidget> {
                     setState(() {
                       (turns == 1) ? turns = 3 : turns = 1;
                       analyticsHeight == 400.0
-                          ? analyticsHeight = 1045.0
+                          ? analyticsHeight = 920.0
                           : analyticsHeight = 400.0;
                       widget.onTapArrow(turns);
                       listLength == 2

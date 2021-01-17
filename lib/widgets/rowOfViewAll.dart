@@ -17,7 +17,7 @@ Widget rowofViewAll(String headingText, BuildContext context, String route) {
         },
         child: Text(
           'View All',
-          style: viewAllStyle,
+          style: viewAllStyle.copyWith(fontWeight: FontWeight.w600),
         ),
       ),
     ],

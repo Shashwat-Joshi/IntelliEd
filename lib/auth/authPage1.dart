@@ -89,16 +89,17 @@ class _AuthPage1State extends State<AuthPage1> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Divider(thickness: 1.5),
-                  SizedBox(height: 10.0),
+                  SizedBox(height: 0.0),
                   Text(
                     '© Copyright | Team intelli-ed | 2020',
                     style: subheading.copyWith(
                       color: Color(0xFFA2A2A2),
+                      fontSize: 13.0,
                       fontWeight: FontWeight.normal,
                       decoration: TextDecoration.none,
                     ),
                   ),
-                  SizedBox(height: 15.0),
+                  SizedBox(height: 10.0),
                 ],
               ),
             ),

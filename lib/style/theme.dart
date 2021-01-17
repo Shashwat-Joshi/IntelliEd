@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 
 TextStyle heading1 = TextStyle(
-  fontFamily: 'Nunito Bold',
+  fontFamily: 'Nunito',
   fontWeight: FontWeight.w500,
-  fontSize: 23.0,
+  fontSize: 22.0,
 );
 
 TextStyle subheading = TextStyle(
-  fontFamily: 'Nunito Light',
-  fontSize: 12.0,
+  fontFamily: 'NunitoLight',
+  fontSize: 11.0,
 );
 
 TextStyle heading2 = TextStyle(
-  fontFamily: 'Nunito SemiBold',
-  fontSize: 23.0,
+  fontFamily: 'NunitoSemiBold',
+  fontSize: 22.0,
   fontWeight: FontWeight.w400,
 );
 
 TextStyle viewAllStyle = TextStyle(
-  fontFamily: 'Nunito Regular',
-  fontSize: 15.0,
+  fontFamily: 'Nunito',
+  fontSize: 14.0,
   color: Color(0xFF00C968),
 );

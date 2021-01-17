@@ -1,8 +1,8 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/users/student/presentation/pages/subjectWiseAcademicPage.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/AcademicsbarChart.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/academicSliverAppBar.dart';
+import 'package:IntelliEd/users/student/presentation/widgets/graphs/AcademicsbarChart.dart';
+import 'package:IntelliEd/users/student/presentation/widgets/slivers/academicSliverAppBar.dart';
 import 'package:flutter/material.dart';
 
 class AcademicPerformance extends StatefulWidget {
@@ -66,29 +66,40 @@ class _AcademicPerformanceState extends State<AcademicPerformance> {
                     height: 15.0,
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          height: 15.0,
-                          width: 15.0,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xff1CAAFA),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(right: 10.0),
+                                height: 15.0,
+                                width: 15.0,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color(0xff1CAAFA),
+                                ),
+                              ),
+                              Text('Your percentage', style: subheading),
+                            ],
                           ),
                         ),
-                        SizedBox(width: 10.0),
-                        Text('Your percentage', style: subheading),
-                        SizedBox(width: 30.0),
                         Container(
-                          height: 15.0,
-                          width: 15.0,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xff00C968),
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(right: 10.0),
+                                height: 15.0,
+                                width: 15.0,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color(0xff00C968),
+                                ),
+                              ),
+                              Text('Class Average', style: subheading),
+                            ],
                           ),
                         ),
-                        SizedBox(width: 10.0),
-                        Text('Class Average', style: subheading),
                       ],
                     ),
                   ),
@@ -97,7 +108,7 @@ class _AcademicPerformanceState extends State<AcademicPerformance> {
                     margin: EdgeInsets.symmetric(horizontal: 26.0 + 7.0),
                     child: Text(
                       'Subjects',
-                      style: heading1.copyWith(fontSize: 24.0),
+                      style: heading2,
                     ),
                   ),
                   SizedBox(height: 20.0),
@@ -136,8 +147,8 @@ class _AcademicPerformanceState extends State<AcademicPerformance> {
             onPressed: () {
               Navigator.push(
                 context,
-                PageRouteBuilder(
-                  pageBuilder: (context, _, __) => SubjectWiseAcademicPage(
+                MaterialPageRoute(
+                  builder: (context) => SubjectWiseAcademicPage(
                     index: i,
                   ),
                 ),

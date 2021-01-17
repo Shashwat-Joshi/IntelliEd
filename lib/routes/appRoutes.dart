@@ -4,13 +4,14 @@ import 'package:IntelliEd/users/student/presentation/pages/academicPerformancePa
 import 'package:IntelliEd/users/student/presentation/pages/announcementPage.dart';
 import 'package:IntelliEd/users/student/presentation/pages/homePage.dart';
 import 'package:IntelliEd/users/student/presentation/pages/profilePage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Route onGeneratedRoutes(RouteSettings settings) {
   switch (settings.name) {
     // case '/':
     //   return PageRouteBuilder(
-    //     transitionDuration: Duration(milliseconds: 300),
+    //     transitionDuration: Duration(milliseconds: 0),
     //     pageBuilder: (context, _, __) => AuthPage1(),
     //   );
     //   break;
@@ -23,7 +24,7 @@ Route onGeneratedRoutes(RouteSettings settings) {
     //make the below route /student
     case '/':
       return PageRouteBuilder(
-        transitionDuration: Duration(milliseconds: 300),
+        transitionDuration: Duration(milliseconds: 0),
         pageBuilder: (context, _, __) => StudentHomePage(),
       );
       break;
@@ -37,16 +38,14 @@ Route onGeneratedRoutes(RouteSettings settings) {
       break;
 
     case '/student/announcements':
-      return PageRouteBuilder(
-        transitionDuration: Duration(milliseconds: 300),
-        pageBuilder: (context, _, __) => AnnouncementPage(),
+      return CupertinoPageRoute(
+        builder: (context) => AnnouncementPage(),
       );
       break;
     case '/student/analytics/0':
-      return PageRouteBuilder(
-        transitionDuration: Duration(milliseconds: 400),
-        reverseTransitionDuration: Duration(milliseconds: 250),
-        pageBuilder: (context, _, __) => AcademicPerformance(),
+      return CupertinoPageRoute(
+        maintainState: true,
+        builder: (context) => AcademicPerformance(),
       );
       break;
     default:

@@ -88,13 +88,15 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                         Text(
                           '12-C',
                           style: viewAllStyle.copyWith(
-                              fontWeight: FontWeight.w600),
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(width: 20.0),
                         Text(
                           '3455',
                           style: viewAllStyle.copyWith(
-                              fontWeight: FontWeight.w600),
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ],
                     ),
@@ -118,7 +120,13 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                   SizedBox(height: 30.0),
                   Text('Summary', style: heading2),
                   SizedBox(height: 6.0),
-                  Text(testAppBar.techSummary),
+                  Text(
+                    testAppBar.techSummary,
+                    style: heading1.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                   SizedBox(height: 25.0),
                   Divider(thickness: 1.5),
                   SizedBox(height: 25.0),
@@ -171,7 +179,7 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                 SizedBox(height: 2.0),
                 Text(
                   'Age',
-                  style: subheading.copyWith(
+                  style: heading1.copyWith(
                     color: Color(0xFF6C63FF),
                     fontSize: 14,
                   ),
@@ -179,7 +187,7 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                 SizedBox(height: 18.0),
                 Text(
                   'Father\'s Name',
-                  style: subheading.copyWith(
+                  style: heading1.copyWith(
                     color: Color(0xFF6C63FF),
                     fontSize: 14,
                   ),
@@ -187,7 +195,7 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                 SizedBox(height: 18.0),
                 Text(
                   'Mother\'s Name',
-                  style: subheading.copyWith(
+                  style: heading1.copyWith(
                     color: Color(0xFF6C63FF),
                     fontSize: 14,
                   ),
@@ -201,7 +209,7 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
             children: [
               Text(
                 studentDetails.name,
-                style: subheading.copyWith(
+                style: heading1.copyWith(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                 ),
@@ -209,17 +217,17 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
               SizedBox(height: 18.0),
               Text(
                 studentDetails.fatherName,
-                style: subheading.copyWith(
-                  fontWeight: FontWeight.w400,
+                style: heading1.copyWith(
                   fontSize: 14,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               SizedBox(height: 18.0),
               Text(
                 studentDetails.motherName,
-                style: subheading.copyWith(
-                  fontWeight: FontWeight.w400,
+                style: heading1.copyWith(
                   fontSize: 14,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
             ],
@@ -248,14 +256,20 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
           width: 100.0,
           child: Text(
             'Blood Group',
-            style: subheading.copyWith(
+            style: heading1.copyWith(
               color: Color(0xFFFF5252),
               fontSize: 14,
             ),
           ),
         ),
         SizedBox(width: 50.0),
-        Text(studentDetails.bloodGroup),
+        Text(
+          studentDetails.bloodGroup,
+          style: heading1.copyWith(
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
       ],
     );
   }
@@ -273,9 +287,10 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
           width: 100.0,
           child: Text(
             'Email',
-            style: subheading.copyWith(
-              color: Color(0xFF28C077),
+            style: heading1.copyWith(
               fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: Color(0xFF28C077),
             ),
           ),
         ),
@@ -284,6 +299,10 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
           width: size.width - 250.0,
           child: Text(
             studentDetails.email,
+            style: heading1.copyWith(
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+            ),
           ),
         ),
       ],
@@ -303,7 +322,7 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
           width: 100.0,
           child: Text(
             'Phone',
-            style: subheading.copyWith(
+            style: heading1.copyWith(
               color: Color(0xFF1CAAFA),
               fontSize: 14,
             ),
@@ -321,6 +340,10 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                       i != 0 ? EdgeInsets.only(top: 10.0) : EdgeInsets.all(0.0),
                   child: Text(
                     studentDetails.phoneNumbers[i],
+                    style: heading1.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
             ],
@@ -343,7 +366,7 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
           width: 100.0,
           child: Text(
             'Emergency',
-            style: subheading.copyWith(
+            style: heading1.copyWith(
               color: Color(0xFFFF6060),
               fontSize: 14,
             ),
@@ -354,6 +377,10 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
           width: size.width - 250.0,
           child: Text(
             studentDetails.emergencyContact,
+            style: heading1.copyWith(
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+            ),
           ),
         ),
       ],

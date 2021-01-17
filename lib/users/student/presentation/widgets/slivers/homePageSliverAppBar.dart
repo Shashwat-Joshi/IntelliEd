@@ -1,20 +1,16 @@
-import 'dart:ui';
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/widgets/profileIcon.dart';
 import 'package:flutter/material.dart';
 
-subjectWiseAcademicsliverAppBar(
+sliverAppBarWidget(
   Size size,
-  String headingText,
+  String name,
+  String techSummary,
   String imagePath,
-  Color bgColor,
-  Color textColor,
   BuildContext context,
 ) {
   return SliverAppBar(
     automaticallyImplyLeading: false,
-    backgroundColor: bgColor,
     actions: [
       Container(
         margin: EdgeInsets.only(right: 23.0, bottom: 10.0),
@@ -51,18 +47,37 @@ subjectWiseAcademicsliverAppBar(
     onStretchTrigger: () {
       return;
     },
-    // collapsedHeight: 90.0,
+    collapsedHeight: 100.0,
     expandedHeight: 240.0,
     flexibleSpace: FlexibleSpaceBar(
       stretchModes: [
         StretchMode.zoomBackground,
         StretchMode.fadeTitle,
       ],
-      centerTitle: true,
+      centerTitle: false,
+      titlePadding: EdgeInsetsDirectional.only(start: 10.0, bottom: 10.0),
       collapseMode: CollapseMode.pin,
-      title: Text(
-        '$headingText',
-        style: heading1.copyWith(color: textColor),
+      title: Container(
+        padding: EdgeInsets.all(7.0),
+        width: size.width - 27 - 9 - profileIconWidth - 10.0,
+        child: RichText(
+          softWrap: true,
+          textAlign: TextAlign.start,
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: 'Good Morning, $name',
+                style: heading1.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              TextSpan(
+                text: '\n$techSummary',
+                style: subheading,
+              ),
+            ],
+          ),
+        ),
       ),
       background: ClipRRect(
         borderRadius: BorderRadius.only(
@@ -71,20 +86,10 @@ subjectWiseAcademicsliverAppBar(
         ),
         child: Hero(
           tag: imagePath,
-          child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                    'assets/student/images/academicSubjects/${headingText.toLowerCase()}.png'),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-              child: Container(
-                decoration: BoxDecoration(color: Colors.white.withOpacity(0.1)),
-              ),
-            ),
+          child: Image.asset(
+            imagePath,
+            height: 240.0,
+            fit: BoxFit.cover,
           ),
         ),
       ),
