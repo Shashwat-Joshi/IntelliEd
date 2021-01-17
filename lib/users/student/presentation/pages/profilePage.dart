@@ -216,7 +216,7 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
               ),
               SizedBox(height: 18.0),
               Text(
-                'Mother\'s Name',
+                studentDetails.motherName,
                 style: subheading.copyWith(
                   fontWeight: FontWeight.w400,
                   fontSize: 14,

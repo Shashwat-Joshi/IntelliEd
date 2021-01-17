@@ -8,12 +8,12 @@ import 'package:flutter/material.dart';
 
 Route onGeneratedRoutes(RouteSettings settings) {
   switch (settings.name) {
-    case '/':
-      return PageRouteBuilder(
-        transitionDuration: Duration(milliseconds: 300),
-        pageBuilder: (context, _, __) => AuthPage1(),
-      );
-      break;
+    // case '/':
+    //   return PageRouteBuilder(
+    //     transitionDuration: Duration(milliseconds: 300),
+    //     pageBuilder: (context, _, __) => AuthPage1(),
+    //   );
+    //   break;
     case '/login':
       return PageRouteBuilder(
         transitionDuration: Duration(milliseconds: 300),
@@ -21,7 +21,7 @@ Route onGeneratedRoutes(RouteSettings settings) {
       );
       break;
     //make the below route /student
-    case '/student':
+    case '/':
       return PageRouteBuilder(
         transitionDuration: Duration(milliseconds: 300),
         pageBuilder: (context, _, __) => StudentHomePage(),

@@ -131,6 +131,8 @@ class _AcademicPerformanceState extends State<AcademicPerformance> {
           height: 50.0,
           width: size.width / 2 - 40,
           child: FlatButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
             onPressed: () {
               Navigator.push(
                 context,

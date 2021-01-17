@@ -93,6 +93,8 @@ class _AnalyticsWidgetState extends State<AnalyticsWidget> {
             SizedBox(height: 14.0),
             for (int i = 0; i < listLength; i++)
               InkWell(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () {
                   Navigator.pushNamed(
                     context,

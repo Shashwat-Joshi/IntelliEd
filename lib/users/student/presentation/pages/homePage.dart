@@ -11,7 +11,7 @@ class StudentHomePage extends StatefulWidget {
 class _StudentHomePageState extends State<StudentHomePage> {
   final ScrollController _scrollController = ScrollController();
   //FIXME: Change the height
-  double homePageHeight = 790.0 + 550.0;
+  double homePageHeight = 1340.0;
 
   @override
   void dispose() {
@@ -73,9 +73,9 @@ class _StudentHomePageState extends State<StudentHomePage> {
         onTapArrow: (int turns) {
           setState(() {
             if (turns == 3) {
-              homePageHeight = 1450.0 + 550.0;
+              homePageHeight = 2000.0;
             } else {
-              homePageHeight = 790.0 + 550.0;
+              homePageHeight = 1340.0;
             }
           });
         },

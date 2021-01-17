@@ -134,7 +134,7 @@ StudentDetails studentDetails = StudentDetails(
   'Shashwat Joshi',
   '18',
   'Mr. J.C Joshi',
-  'Monika Joshi',
+  'Ms. Monika Joshi',
   'A+',
   'shashwat2002joshi@gmail.com',
   '+91 91345 XXXXX',
@@ -168,12 +168,68 @@ StudentAverageMarks modelStudentAverageMarks = StudentAverageMarks(
 // To store the final subjects for future use
 List<String> finalSubjects = [];
 
-Map<String, List> english = {
-  "general": [
-    [88, 73, 95, 77],
-    [90, 87, 77, 89],
-  ],
-  "UT1": [38, 36, 37, 39, 36, 40],
-  "UT2": [38, 36, 37, 39, 36, 40],
-  "SA1": [38, 36, 37, 39, 36, 40],
-};
+// SubjectWise Data and Logic
+class SubjectWiseData {
+  final Map<String, List> subjectWiseData;
+  final String subjectName;
+  SubjectWiseData({
+    @required this.subjectWiseData,
+    @required this.subjectName,
+  });
+}
+
+List<SubjectWiseData> subjectData = [
+  SubjectWiseData(
+    subjectWiseData: {
+      "general": [
+        [88, 73, 95, 77],
+        [90, 87, 77, 89],
+      ],
+      "UT1": [
+        [38, 36, 37, 39, 36, 40],
+        50
+      ],
+      "UT2": [
+        [38, 36, 37, 39, 36, 40],
+        50
+      ],
+      "SA1": [
+        [38, 36, 37, 39, 36, 40],
+        100
+      ],
+    },
+    subjectName: "English",
+  ),
+  SubjectWiseData(
+    subjectWiseData: {
+      "general": [
+        [88, 73, 95, 77],
+        [90, 87, 77, 89],
+      ],
+      "UT1": [
+        [38, 36, 37, 39, 36, 40],
+        50
+      ],
+      "UT2": [
+        [38, 36, 37, 39, 36, 40],
+        50
+      ],
+      "SA1": [
+        [38, 36, 37, 39, 36, 40],
+        100
+      ],
+    },
+    subjectName: "English",
+  ),
+];
+
+int isSubjectWisedataAvailable(String subject) {
+  // Returns index if data is available, returns -1 is data is not available !
+  int index;
+  for (int i = 0; i < subjectData.length; i++) {
+    index = subjectData[i].subjectName.toLowerCase() == subject.toLowerCase()
+        ? i
+        : -1;
+  }
+  return index;
+}
