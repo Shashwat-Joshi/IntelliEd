@@ -43,11 +43,11 @@ sliverAppBarWidget(
     ),
     forceElevated: false,
     elevation: 0.0,
-    toolbarHeight: 80.0,
+    toolbarHeight: 70.0,
     onStretchTrigger: () {
       return;
     },
-    collapsedHeight: 100.0,
+    collapsedHeight: 80.0,
     expandedHeight: 240.0,
     flexibleSpace: FlexibleSpaceBar(
       stretchModes: [

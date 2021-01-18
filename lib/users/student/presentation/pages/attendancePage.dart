@@ -1,6 +1,5 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/graphs/AcademicsbarChart.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/graphs/attendanceGraphChart.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/graphs/previousAttendanceGraph.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/slivers/academicSliverAppBar.dart';

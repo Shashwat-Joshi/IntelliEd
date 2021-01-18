@@ -159,7 +159,7 @@ Widget calendarWidget(BuildContext context) => Container(
       child: Column(
         children: [
           SizedBox(height: 27.0),
-          rowofViewAll('Calender', context, null),
+          rowofViewAll('Calendar', context, '/student/calender'),
           SizedBox(height: 14.0),
           Text(
             announcementText['0'],

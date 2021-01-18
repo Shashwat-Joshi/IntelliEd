@@ -45,10 +45,7 @@ class _SubjectWiseAcademicPageState extends State<SubjectWiseAcademicPage> {
               delegate: SliverChildListDelegate(
                 [
                   Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: 26.0,
-                    ),
-                    height: height,
+                    margin: EdgeInsets.symmetric(horizontal: 26.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -71,7 +68,15 @@ class _SubjectWiseAcademicPageState extends State<SubjectWiseAcademicPage> {
                                 getExamNames(finalSubjects[widget.index]),
                           ),
                         ),
-                        SizedBox(height: 19.0),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 19.0),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 26.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
                         Container(
                           width: size.width,
                           margin: EdgeInsets.symmetric(horizontal: 26.0),
@@ -154,6 +159,7 @@ class _SubjectWiseAcademicPageState extends State<SubjectWiseAcademicPage> {
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
+                                SizedBox(height: 20.0),
                               ],
                             ),
                           ),

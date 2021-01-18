@@ -3,6 +3,8 @@ import 'package:IntelliEd/auth/authPage2.dart';
 import 'package:IntelliEd/users/student/presentation/pages/academicPerformancePage.dart';
 import 'package:IntelliEd/users/student/presentation/pages/announcementPage.dart';
 import 'package:IntelliEd/users/student/presentation/pages/attendancePage.dart';
+import 'package:IntelliEd/users/student/presentation/pages/calendarPage.dart';
+import 'package:IntelliEd/users/student/presentation/pages/coCurricularPage.dart';
 import 'package:IntelliEd/users/student/presentation/pages/homePage.dart';
 import 'package:IntelliEd/users/student/presentation/pages/profilePage.dart';
 import 'package:flutter/cupertino.dart';
@@ -54,11 +56,26 @@ Route onGeneratedRoutes(RouteSettings settings) {
       );
       break;
 
-    //Route to attendance Page
+    // Route to co curricular Page
+    case '/student/analytics/1':
+      return CupertinoPageRoute(
+        maintainState: true,
+        builder: (context) => CoCurricularPage(),
+      );
+      break;
+
+    // Route to attendance Page
     case '/student/analytics/3':
       return CupertinoPageRoute(
         maintainState: true,
         builder: (context) => AttendancePage(),
+      );
+      break;
+
+    case '/student/calender':
+      return CupertinoPageRoute(
+        maintainState: true,
+        builder: (context) => CalendarPage(),
       );
       break;
     default:

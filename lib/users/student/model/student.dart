@@ -428,3 +428,23 @@ Map<String, Object> attendanceData = {
 Map getPreviousAttendanceData() {
   return attendanceData['previous'];
 }
+
+Map calendarData = {
+  'physics':
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+  'maths': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+  'english':
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+  'hindi':
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+  'chemistry':
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+};
+
+Map<String, double> coCurricularMainPageData = {
+  'Art & Craft': 97.3,
+  'Sports': 77.6,
+  'Music': 97.3,
+  'Club Activity': 25.7,
+  'Others': 95.6,
+};

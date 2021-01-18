@@ -84,11 +84,8 @@ academicsliverAppBar(
           ),
         ),
       ),
-      background: ClipRRect(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20.0),
-          bottomRight: Radius.circular(20.0),
-        ),
+      background: ClipPath(
+        clipper: CustomClipperWidget(),
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -106,4 +103,21 @@ academicsliverAppBar(
       ),
     ),
   );
+}
+
+class CustomClipperWidget extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    double curve = 0.6;
+    Path path = Path();
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width, size.height);
+    path.quadraticBezierTo(size.width / 2 - ((size.width / 2) * curve),
+        size.height / 2 + ((size.height / 2) * curve), 0, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }

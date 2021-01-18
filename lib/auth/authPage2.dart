@@ -54,7 +54,7 @@ class _AuthPage2State extends State<AuthPage2> {
                   TextFormField(
                     style: heading1.copyWith(
                       color: Color(0xFF1CAAFA),
-                      fontSize: 16.0,
+                      fontSize: 14.0,
                     ),
                     decoration: customInputDecoration(
                       label: 'School ID',
@@ -71,7 +71,7 @@ class _AuthPage2State extends State<AuthPage2> {
                   SizedBox(height: 20.0),
                   TextFormField(
                     style: heading1.copyWith(
-                      fontSize: 16.0,
+                      fontSize: 14.0,
                     ),
                     decoration: customInputDecoration(
                       label: 'User ID',
@@ -88,7 +88,7 @@ class _AuthPage2State extends State<AuthPage2> {
                   SizedBox(height: 20.0),
                   TextFormField(
                     style: heading1.copyWith(
-                      fontSize: 16.0,
+                      fontSize: 14.0,
                     ),
                     obscureText: !isVisible,
                     decoration: customInputDecoration(
@@ -123,7 +123,7 @@ class _AuthPage2State extends State<AuthPage2> {
                           ),
                         ),
                         SizedBox(height: 10.0),
-                        userSelectingWidget(),
+                        userSelectingWidget(size),
                       ],
                     ),
                   ),
@@ -197,7 +197,7 @@ class _AuthPage2State extends State<AuthPage2> {
       hintText: label,
       hintStyle: heading1.copyWith(
         color: textColor,
-        fontSize: 16.0,
+        fontSize: 13.0,
       ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(30.0),
@@ -222,9 +222,11 @@ class _AuthPage2State extends State<AuthPage2> {
     );
   }
 
-  Widget userSelectingWidget() {
+  Widget userSelectingWidget(Size size) {
+    double width = (size.width - 81.42) < 330.0 ? size.width - 81.42 : 330.0;
+    print(width);
     return Container(
-      width: 330.0,
+      width: width,
       height: 40.0,
       decoration: BoxDecoration(
         color: Color(0xFF00C968).withOpacity(0.3),
@@ -239,17 +241,17 @@ class _AuthPage2State extends State<AuthPage2> {
             left: selected == 0
                 ? 0.0
                 : selected == 1
-                    ? 110.0
-                    : 220.0,
+                    ? width / 3
+                    : 2 * (width / 3),
             bottom: 0.0,
             right: selected == 0
-                ? 220.0
+                ? 2 * (width / 3)
                 : selected == 1
-                    ? 110.0
+                    ? width / 3
                     : 0.0,
             top: 0.0,
             child: Container(
-              width: 110.0,
+              width: width / 3,
               decoration: BoxDecoration(
                 color: Color(0xFF00C968).withOpacity(0.8),
                 borderRadius: BorderRadius.circular(30.0),
@@ -265,7 +267,7 @@ class _AuthPage2State extends State<AuthPage2> {
                   });
                 },
                 child: Container(
-                  width: 110.0,
+                  width: width / 3,
                   child: Center(
                     child: Text(
                       'Student',
@@ -284,7 +286,7 @@ class _AuthPage2State extends State<AuthPage2> {
                   });
                 },
                 child: Container(
-                  width: 110.0,
+                  width: width / 3,
                   child: Center(
                     child: Text(
                       'Teacher',
@@ -303,7 +305,7 @@ class _AuthPage2State extends State<AuthPage2> {
                   });
                 },
                 child: Container(
-                  width: 110.0,
+                  width: width / 3,
                   child: Center(
                     child: Text(
                       'Parent',
