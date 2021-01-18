@@ -12,20 +12,15 @@ class CustomSliverAppBar {
 
 CustomSliverAppBar testAppBar = CustomSliverAppBar(
     name: 'Shashwat',
-    techSummary:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean donec sagittis, eget ac aliquet. Eros gravida mauris sit enim',
+    techSummary: 'Student of class 9th A at ABC School',
     imagePath: 'assets/student/images/appBar-bg.png');
 
 // For announcement section
 Map<String, String> announcementText = {
-  '0':
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue a ut nisl blandit sagittis nunc porttitor.',
-  '1':
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue a ut nisl blandit sagittis nunc porttitor.',
-  '2':
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue a ut nisl blandit sagittis nunc porttitor.',
-  '3':
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue a ut nisl blandit sagittis nunc porttitor.',
+  '0': 'Winter Vacation Holiday from 25-December-2020 to 20-January-2021',
+  '1': 'Unit Test Will be starting from 30 January 2021.',
+  '2': 'New lecture uploaded on platform on Energy and Resources.',
+  '3': 'Assignment for Science to be submitted by 26th Jan',
 };
 
 // For Analytics features
@@ -45,35 +40,38 @@ class AnalyticsFeatures {
 List<AnalyticsFeatures> analyticsFeatures = [
   AnalyticsFeatures(
     heading: 'Academic Performance',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading: 'Want to know where to improve. Check your performance here!!',
     imagePath: 'assets/student/images/analyticsVectors/1.png',
     color: Color(0xFFD0EEFF),
     textColor: Color(0xFF1CAAFA),
   ),
   AnalyticsFeatures(
     heading: 'Co-Curricular and Skills',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading:
+        'Embrace yourself for all the skills you possess. Check your skillset here!!',
     imagePath: 'assets/student/images/analyticsVectors/2.png',
     color: Color(0xFFAFFFD9),
     textColor: Color(0xFF00C968),
   ),
   AnalyticsFeatures(
     heading: 'Behavior',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading:
+        'Your behaviour is your identity and your character is your certificate. Keep it up!!',
     imagePath: 'assets/student/images/analyticsVectors/3.png',
     color: Color(0xFFFFF2CA),
     textColor: Color(0xFFE3AE01),
   ),
   AnalyticsFeatures(
     heading: 'Attendance',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading: 'Punctuality is key to success. Check how regular you are!!',
     imagePath: 'assets/student/images/analyticsVectors/4.png',
     color: Color(0xFFFCDCFF),
     textColor: Color(0xFFF14CFF),
   ),
   AnalyticsFeatures(
     heading: 'Quiz',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading:
+        'The best way to learn is continuous learning. Try to score well!!',
     imagePath: 'assets/student/images/analyticsVectors/5.png',
     color: Color(0xFFFFE2C7),
     textColor: Color(0xFFFA861C),
@@ -100,12 +98,12 @@ class TodaysClass {
 }
 
 List<TodaysClass> sampleTimeTable = [
-  TodaysClass('Maths | Mr. Aman Jagdev', '12:00 - 14:00'),
-  TodaysClass('Physics | Mr. Anant Jakhmola', '12:00 - 14:00'),
-  TodaysClass('Chemistry | Mr. Adhyansh', '12:00 - 14:00'),
-  TodaysClass('English | Mr. Shashwat Joshi', '12:00 - 14:00'),
-  TodaysClass('C.S | Ms. Shayna Kapoor', '12:00 - 14:00'),
-  TodaysClass('Hindi | Mr. Mukesh Arthur', '12:00 - 14:00'),
+  TodaysClass('Maths | Mr. Aman Jagdev', '09:00 - 9:45'),
+  TodaysClass('Physics | Mr. Anant Jakhmola', '9:50 - 10:25'),
+  TodaysClass('Chemistry | Mr. Adhyansh', '10:30 - 11:15'),
+  TodaysClass('English | Mr. Shashwat Joshi', '12:00 - 12:45'),
+  TodaysClass('C.S | Ms. Shayna Kapoor', '12:50 - 13:25'),
+  TodaysClass('Hindi | Mr. Mukesh Arthur', '13:30 - 14:15'),
 ];
 
 // For Profile Page Details
@@ -127,7 +125,7 @@ StudentDetails studentDetails = StudentDetails(
   'Shashwat Joshi',
   '18',
   'Mr. J.C Joshi',
-  'Ms. Monika Joshi',
+  'Mrs. Monika Joshi',
   'A+',
   'shashwat2002joshi@gmail.com',
   '+91 91345 XXXXX',
@@ -410,7 +408,7 @@ perExamData(String subject, String examName) {
 
 // Lorem Ipsum
 String loremIpsum =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue a ut nisl blandit sagittis nunc porttitor.";
+    "Here is the score card for.... Keep learning, keep growing !!";
 
 // For Attendance data
 Map<String, Object> attendanceData = {
