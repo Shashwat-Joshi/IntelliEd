@@ -1,5 +1,8 @@
+import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/graphs/CoCurricularGraphs/coCurricularMainGraph.dart';
+import 'package:IntelliEd/users/student/presentation/widgets/graphs/CoCurricularGraphs/donutGraph1.dart';
+import 'package:IntelliEd/users/student/presentation/widgets/graphs/CoCurricularGraphs/pieChartNo2.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/slivers/academicSliverAppBar.dart';
 import 'package:flutter/material.dart';
 
@@ -50,8 +53,64 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
                       size: size,
                     ),
                   ),
-                  Container(),
-                  SizedBox(height: 1000.0),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 26.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Lorem ipsum dolor',
+                          style: heading2,
+                        ),
+                        SizedBox(height: 26.0),
+                        Container(
+                          child: DonutGraph1(
+                            data: coCurricularDonut1Data,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 26.0),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 26.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Lorem ipsum dolor',
+                          style: heading2,
+                        ),
+                        SizedBox(height: 26.0),
+                        Container(
+                          child: PieChartNo2(
+                            data: coCurricularPieNo2Data,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 26.0),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 26.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Lorem ipsum dolor',
+                          style: heading2,
+                        ),
+                        SizedBox(height: 26.0),
+                        Text(
+                          bigLoremText,
+                          style: viewAllStyle.apply(
+                            color: Color(0xFFACACAC),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 26.0),
                 ],
               ),
             ),

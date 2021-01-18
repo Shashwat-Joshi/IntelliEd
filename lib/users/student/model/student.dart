@@ -429,6 +429,7 @@ Map getPreviousAttendanceData() {
   return attendanceData['previous'];
 }
 
+// Data for calendar Page
 Map calendarData = {
   'physics':
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
@@ -441,6 +442,7 @@ Map calendarData = {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
 };
 
+// Data for Co-Curricular main graph
 Map<String, double> coCurricularMainPageData = {
   'Art & Craft': 97.3,
   'Sports': 77.6,
@@ -448,3 +450,33 @@ Map<String, double> coCurricularMainPageData = {
   'Club Activity': 25.7,
   'Others': 95.6,
 };
+
+// Data for Co-curricular donut graph
+Map<String, int> coCurricularDonut1Data = {
+  'Work Habit': 50,
+  'Respect': 10,
+  'Initiatives': 35,
+  'Collaboration': 5,
+};
+
+// Data for Co-curricular Pie graph
+Map<String, int> coCurricularPieNo2Data = {
+  'Leadership': 20,
+  'Communication': 40,
+  'Problem Solving': 30,
+  'Creativity': 10,
+};
+
+// Color Palette for pie and donut charts
+List<Color> colorPalette = [
+  Color(0xff1CAAFA),
+  Color(0xffFF5252),
+  Color(0xff00C968),
+  Color(0xffFA861C),
+  Color(0xff6C63FF),
+];
+
+// Text for co-curricular page (LOREM)
+
+String bigLoremText =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At proin nisi nunc quam. Non sit metus fermentum eget semper non nullam. Placerat orci lorem gravida at purus et. Lectus commodo donec consectetur odio amet, facilisi dolor viverra. Facilisis sit malesuada ultricies scelerisque nec.";
