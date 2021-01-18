@@ -1,27 +1,24 @@
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class PerExamChartGraph extends StatefulWidget {
-  final int totalMarks;
-  final List<int> marksList;
-
-  PerExamChartGraph({
-    @required this.totalMarks,
-    @required this.marksList,
+class AttendanceGraphChart extends StatefulWidget {
+  final StudentAverageMarks studentAverageMarks;
+  AttendanceGraphChart({
+    @required this.studentAverageMarks,
   });
   @override
-  State<StatefulWidget> createState() => PerExamChartGraphState();
+  State<StatefulWidget> createState() => AttendanceGraphChartState();
 }
 
-class PerExamChartGraphState extends State<PerExamChartGraph> {
+class AttendanceGraphChartState extends State<AttendanceGraphChart> {
   final Color leftBarColor = const Color(0xff1CAAFA);
   final Color rightBarColor = const Color(0xff00C968);
-  final double width = 7;
+  final double width = 30;
 
-  List<BarChartGroupData> rawBarGroups;
-  List<BarChartGroupData> showingBarGroups;
-
+  List<BarChartGroupData> rawBarGroups = [];
+  List<BarChartGroupData> showingBarGroups = [];
   int touchedGroupIndex;
 
   @override
@@ -29,14 +26,13 @@ class PerExamChartGraphState extends State<PerExamChartGraph> {
     super.initState();
     List<BarChartGroupData> items = [];
 
-    for (int i = 0; i < widget.marksList.length; i++) {
-      items.add(
-        makeGroupData(
-          i,
-          widget.marksList[i].toDouble(),
-        ),
-      );
-    }
+    items.add(
+      makeGroupData(0, 45.5),
+    );
+
+    items.add(
+      makeGroupData(1, 75.5),
+    );
     rawBarGroups = items;
     showingBarGroups = rawBarGroups;
   }
@@ -51,7 +47,7 @@ class PerExamChartGraphState extends State<PerExamChartGraph> {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         color: const Color(0xffE8F7FF),
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: EdgeInsets.symmetric(horizontal: 26.0, vertical: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -60,10 +56,12 @@ class PerExamChartGraphState extends State<PerExamChartGraph> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const SizedBox(
-                    width: 38,
+                  Text(
+                    'Your attendance vs Average',
+                    style: subheading.copyWith(
+                        color: Color(0xff1CAAFA), fontSize: 18),
                   ),
                 ],
               ),
@@ -75,7 +73,9 @@ class PerExamChartGraphState extends State<PerExamChartGraph> {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: BarChart(
                     BarChartData(
-                      maxY: widget.totalMarks + 1.0,
+                      alignment: BarChartAlignment.center,
+                      groupsSpace: 120,
+                      maxY: 101,
                       barTouchData: BarTouchData(
                           touchTooltipData: BarTouchTooltipData(
                               tooltipBgColor: Colors.white,
@@ -101,6 +101,7 @@ class PerExamChartGraphState extends State<PerExamChartGraph> {
                               });
                               return;
                             }
+
                             touchedGroupIndex =
                                 response.spot.touchedBarGroupIndex;
                           }),
@@ -115,14 +116,10 @@ class PerExamChartGraphState extends State<PerExamChartGraph> {
                           ),
                           margin: 20,
                           getTitles: (double value) {
-                            for (int i = 0; i < widget.marksList.length; i++) {
-                              if (value.toInt() == i) {
-                                if (i == 0) {
-                                  return "Your\nMarks";
-                                } else {
-                                  return String.fromCharCode(64 + i);
-                                }
-                              }
+                            if (value == 0) {
+                              return 'Your Attendance';
+                            } else if (value == 1) {
+                              return 'Class Average';
                             }
                             return '';
                           },
@@ -137,10 +134,21 @@ class PerExamChartGraphState extends State<PerExamChartGraph> {
                           margin: 32,
                           reservedSize: 14,
                           getTitles: (value) {
-                            if (value % 10 == 0) {
-                              return value.toInt().toString();
+                            if (value == 0) {
+                              return '0';
+                            } else if (value == 20) {
+                              return '20';
+                            } else if (value == 40) {
+                              return '40';
+                            } else if (value == 60) {
+                              return '60';
+                            } else if (value == 80) {
+                              return '80';
+                            } else if (value == 100) {
+                              return '100';
+                            } else {
+                              return '';
                             }
-                            return '';
                           },
                         ),
                       ),
@@ -164,12 +172,12 @@ class PerExamChartGraphState extends State<PerExamChartGraph> {
 
   BarChartGroupData makeGroupData(int x, double y1) {
     return BarChartGroupData(
-      barsSpace: 4,
+      barsSpace: 0,
       x: x,
       barRods: [
         BarChartRodData(
           y: y1,
-          colors: [leftBarColor],
+          colors: x == 0 ? [leftBarColor] : [rightBarColor],
           width: width,
         ),
       ],

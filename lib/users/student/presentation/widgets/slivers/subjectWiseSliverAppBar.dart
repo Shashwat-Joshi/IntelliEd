@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/widgets/profileIcon.dart';
 import 'package:flutter/material.dart';
 

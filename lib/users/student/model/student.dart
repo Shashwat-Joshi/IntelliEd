@@ -411,3 +411,22 @@ perExamData(String subject, String examName) {
 // Lorem Ipsum
 String loremIpsum =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue a ut nisl blandit sagittis nunc porttitor.";
+
+// For Attendance data
+Map<String, Object> attendanceData = {
+  'studentAverage': 82.2,
+  'classAverage': 90.0,
+  'previous': {
+    'jan': 34.0,
+    'feb': 60.0,
+    'mar': 77.0,
+    'apr': 70.0,
+    'may': 88.0,
+    'jun': 60.0,
+    'jul': 92.0,
+  }
+};
+
+Map getPreviousAttendanceData() {
+  return attendanceData['previous'];
+}

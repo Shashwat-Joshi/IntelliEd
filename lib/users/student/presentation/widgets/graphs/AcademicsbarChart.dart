@@ -3,16 +3,16 @@ import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class BarChartSample2 extends StatefulWidget {
+class AcademicsBarGraph extends StatefulWidget {
   final StudentAverageMarks studentAverageMarks;
-  BarChartSample2({
+  AcademicsBarGraph({
     @required this.studentAverageMarks,
   });
   @override
-  State<StatefulWidget> createState() => BarChartSample2State();
+  State<StatefulWidget> createState() => AcademicsBarGraphState();
 }
 
-class BarChartSample2State extends State<BarChartSample2> {
+class AcademicsBarGraphState extends State<AcademicsBarGraph> {
   final Color leftBarColor = const Color(0xff1CAAFA);
   final Color rightBarColor = const Color(0xff00C968);
   final double width = 7;
@@ -77,7 +77,7 @@ class BarChartSample2State extends State<BarChartSample2> {
                       maxY: 101,
                       barTouchData: BarTouchData(
                           touchTooltipData: BarTouchTooltipData(
-                              tooltipBgColor: Color(0xFF1CAAFA),
+                              tooltipBgColor: Colors.white,
                               getTooltipItem: (
                                 BarChartGroupData group,
                                 int groupIndex,
@@ -87,7 +87,7 @@ class BarChartSample2State extends State<BarChartSample2> {
                                 return BarTooltipItem(
                                   rod.y.toString(),
                                   TextStyle(
-                                    color: Colors.white,
+                                    color: Color(0xFF1CAAFA),
                                     fontWeight: FontWeight.bold,
                                   ),
                                 );
@@ -124,6 +124,7 @@ class BarChartSample2State extends State<BarChartSample2> {
                                         .substring(0, 3);
                               }
                             }
+                            return '';
                           },
                         ),
                         leftTitles: SideTitles(
