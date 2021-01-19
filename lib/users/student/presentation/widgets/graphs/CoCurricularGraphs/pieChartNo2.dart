@@ -1,3 +1,4 @@
+import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -56,34 +57,6 @@ class _PieChartNo2State extends State<PieChartNo2> {
                 ),
               ),
             ),
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                for (int i = 0; i < widget.data.length; i++)
-                  Container(
-                    child: Column(
-                      children: [
-                        DonutIndicator(
-                          color: colorPalette[i],
-                          text: widget.data.keys.toList()[i].toString(),
-                          isSquare: false,
-                        ),
-                        SizedBox(
-                          height: 4,
-                        ),
-                      ],
-                    ),
-                  ),
-                SizedBox(
-                  height: 18,
-                ),
-              ],
-            ),
-            const SizedBox(
-              width: 28,
-            ),
           ],
         ),
       ),
@@ -94,21 +67,19 @@ class _PieChartNo2State extends State<PieChartNo2> {
     return List.generate(
       4,
       (index) {
-        final isTouched = index == touchedIndex;
-        final double opacity = isTouched ? 1 : 0.6;
         for (int i = 0; i < widget.data.length; i++) {
           if (i == index) {
             return PieChartSectionData(
-              color: colorPalette[i].withOpacity(opacity),
+              titlePositionPercentageOffset: 0.7,
+              color: colorPalette[i],
               value: widget.data.values.toList()[i].toDouble(),
-              title: '',
-              radius: 80,
-              titleStyle: TextStyle(
-                fontSize: 18,
+              title: "${widget.data.values.toList()[i].toString()}%",
+              radius: 100,
+              titleStyle: heading2.copyWith(
+                fontSize: 18.0,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xff044d7c),
+                color: const Color(0xffffffff),
               ),
-              titlePositionPercentageOffset: 0.55,
             );
           }
         }

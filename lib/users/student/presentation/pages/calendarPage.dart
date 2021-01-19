@@ -128,7 +128,6 @@ class _CalendarPageState extends State<CalendarPage> {
                                     ),
                                     lastDate: DateTime(
                                       DateTime.now().year,
-                                      DateTime.april,
                                     ),
                                     initialDate: DateTime(
                                       DateTime.now().year,

@@ -11,8 +11,8 @@ analyticsCardWidget(
 ) {
   return Container(
     margin: EdgeInsets.only(bottom: 21.0),
-    padding: EdgeInsets.only(left: 22.0),
-    height: 150.0,
+    padding: EdgeInsets.only(left: 22.0, top: 10.0, bottom: 10.0),
+    height: 165.0,
     width: size.width - 0.0,
     decoration: BoxDecoration(
       color: color,

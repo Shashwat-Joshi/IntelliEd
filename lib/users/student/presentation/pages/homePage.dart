@@ -10,7 +10,6 @@ class StudentHomePage extends StatefulWidget {
 
 class _StudentHomePageState extends State<StudentHomePage> {
   final ScrollController _scrollController = ScrollController();
-  //FIXME: Change the height
   double homePageHeight = 1330.0;
 
   @override
@@ -42,20 +41,37 @@ class _StudentHomePageState extends State<StudentHomePage> {
               delegate: SliverChildListDelegate(
                 [
                   Container(
-                    height: homePageHeight,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20.0),
-                        topRight: Radius.circular(20.0),
-                      ),
-                    ),
-                    child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Column(
-                        children: homeScreenWidgets(size, context),
-                      ),
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: announcementWidget(context),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: AnalyticsWidget(
+                      size: size,
+                      onTapArrow: (int turns) {
+                        setState(() {
+                          if (turns == 3) {
+                            homePageHeight = 1850.0;
+                          } else {
+                            homePageHeight = 1330.0;
+                          }
+                        });
+                      },
                     ),
                   ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: assignmentWidget(size, context),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: calendarWidget(context),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: todaysClasses(context),
+                  ),
+                  SizedBox(height: 10.0),
                 ],
               ),
             ),
@@ -63,26 +79,5 @@ class _StudentHomePageState extends State<StudentHomePage> {
         ),
       ),
     );
-  }
-
-  List<Widget> homeScreenWidgets(Size size, BuildContext context) {
-    return [
-      announcementWidget(context),
-      AnalyticsWidget(
-        size: size,
-        onTapArrow: (int turns) {
-          setState(() {
-            if (turns == 3) {
-              homePageHeight = 1850.0;
-            } else {
-              homePageHeight = 1330.0;
-            }
-          });
-        },
-      ),
-      assignmentWidget(size, context),
-      calendarWidget(context),
-      todaysClasses(context),
-    ];
   }
 }

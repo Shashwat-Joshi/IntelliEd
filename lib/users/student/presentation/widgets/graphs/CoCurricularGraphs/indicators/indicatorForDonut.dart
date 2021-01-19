@@ -1,4 +1,5 @@
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:flutter/material.dart';
 
 class DonutIndicator extends StatelessWidget {
@@ -46,4 +47,67 @@ class DonutIndicator extends StatelessWidget {
       ],
     );
   }
+}
+
+Widget donutIndicatorWidgets() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          for (int i = 0; i < coCurricularDonut1Data.length - 2; i++)
+            Container(
+              margin: EdgeInsets.only(top: 10),
+              child: Column(
+                children: [
+                  DonutIndicator(
+                    color: colorPalette[i],
+                    text: coCurricularDonut1Data.keys.toList()[i].toString(),
+                    isSquare: false,
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                ],
+              ),
+            ),
+          SizedBox(
+            height: 18,
+          ),
+        ],
+      ),
+      SizedBox(width: 20.0),
+      Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          for (int i = coCurricularDonut1Data.length - 2;
+              i < coCurricularDonut1Data.length;
+              i++)
+            Container(
+              margin: EdgeInsets.only(top: 10.0),
+              child: Column(
+                children: [
+                  DonutIndicator(
+                    color: colorPalette[i],
+                    text: coCurricularDonut1Data.keys.toList()[i].toString(),
+                    isSquare: false,
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                ],
+              ),
+            ),
+          SizedBox(
+            height: 18,
+          ),
+        ],
+      ),
+    ],
+  );
 }

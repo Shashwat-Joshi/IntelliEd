@@ -2,6 +2,7 @@ import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/graphs/CoCurricularGraphs/coCurricularMainGraph.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/graphs/CoCurricularGraphs/donutGraph1.dart';
+import 'package:IntelliEd/users/student/presentation/widgets/graphs/CoCurricularGraphs/indicators/indicatorForDonut.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/graphs/CoCurricularGraphs/pieChartNo2.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/slivers/academicSliverAppBar.dart';
 import 'package:flutter/material.dart';
@@ -64,8 +65,14 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
                         ),
                         SizedBox(height: 26.0),
                         Container(
-                          child: DonutGraph1(
-                            data: coCurricularDonut1Data,
+                          child: Column(
+                            children: [
+                              DonutGraph1(
+                                data: coCurricularDonut1Data,
+                              ),
+                              SizedBox(height: 16.0),
+                              donutIndicatorWidgets(),
+                            ],
                           ),
                         ),
                       ],

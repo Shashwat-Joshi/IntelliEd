@@ -126,7 +126,7 @@ class _MainCoCurricularMainGraphState extends State<MainCoCurricularMainGraph> {
         ),
         Positioned(
           right: 0.0,
-          top: 0.0,
+          top: 2.0,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 30.0),
             child: Container(

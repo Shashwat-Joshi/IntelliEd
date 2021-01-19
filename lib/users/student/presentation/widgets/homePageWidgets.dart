@@ -42,13 +42,13 @@ class AnalyticsWidget extends StatefulWidget {
 
 class _AnalyticsWidgetState extends State<AnalyticsWidget> {
   int turns = 1, listLength = 2;
-  double analyticsHeight = 400.0;
+  double analyticsHeight = 430.0;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: analyticsHeight,
-      padding: EdgeInsets.all(0.0),
+      padding: EdgeInsets.symmetric(vertical: 0.0),
       child: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
         child: Column(
@@ -67,9 +67,9 @@ class _AnalyticsWidgetState extends State<AnalyticsWidget> {
                   onTap: () {
                     setState(() {
                       (turns == 1) ? turns = 3 : turns = 1;
-                      analyticsHeight == 400.0
-                          ? analyticsHeight = 920.0
-                          : analyticsHeight = 400.0;
+                      analyticsHeight == 430.0
+                          ? analyticsHeight = 1000.0
+                          : analyticsHeight = 430.0;
                       widget.onTapArrow(turns);
                       listLength == 2
                           ? listLength = analyticsFeatures.length

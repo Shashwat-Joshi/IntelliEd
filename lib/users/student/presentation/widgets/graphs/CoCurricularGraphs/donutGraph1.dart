@@ -3,8 +3,6 @@ import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import 'indicators/indicatorForDonut.dart';
-
 class DonutGraph1 extends StatefulWidget {
   final Map<String, int> data;
   DonutGraph1({
@@ -57,34 +55,6 @@ class _DonutGraph1State extends State<DonutGraph1> {
                   ),
                 ),
               ),
-            ),
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                for (int i = 0; i < widget.data.length; i++)
-                  Container(
-                    child: Column(
-                      children: [
-                        DonutIndicator(
-                          color: colorPalette[i],
-                          text: widget.data.keys.toList()[i].toString(),
-                          isSquare: false,
-                        ),
-                        SizedBox(
-                          height: 4,
-                        ),
-                      ],
-                    ),
-                  ),
-                SizedBox(
-                  height: 18,
-                ),
-              ],
-            ),
-            const SizedBox(
-              width: 28,
             ),
           ],
         ),
