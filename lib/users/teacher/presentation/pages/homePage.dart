@@ -1,16 +1,15 @@
-import 'package:IntelliEd/users/student/presentation/widgets/homePageWidgets.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/slivers/homePageSliverAppBar.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
+import 'package:IntelliEd/users/teacher/model/teacher.dart';
+import 'package:IntelliEd/users/teacher/presentation/widgets/homePageWidgets.dart';
+import 'package:IntelliEd/users/teacher/presentation/widgets/slivers/homePageSliverAppBar.dart';
 import 'package:flutter/material.dart';
 
-class StudentHomePage extends StatefulWidget {
+class TeacherHomePage extends StatefulWidget {
   @override
-  _StudentHomePageState createState() => _StudentHomePageState();
+  _TeacherHomePageState createState() => _TeacherHomePageState();
 }
 
-class _StudentHomePageState extends State<StudentHomePage> {
+class _TeacherHomePageState extends State<TeacherHomePage> {
   final ScrollController _scrollController = ScrollController();
-  double homePageHeight = 1330.0;
 
   @override
   void dispose() {
@@ -30,11 +29,10 @@ class _StudentHomePageState extends State<StudentHomePage> {
           controller: _scrollController,
           physics: BouncingScrollPhysics(parent: ClampingScrollPhysics()),
           slivers: [
-            sliverAppBarWidget(
+            teacherSliverAppBarWidget(
               size,
-              studentTestAppBar.name,
-              studentTestAppBar.techSummary,
-              studentTestAppBar.imagePath,
+              teacherTestAppBar.name,
+              teacherTestAppBar.imagePath,
               this.context,
             ),
             SliverList(
@@ -42,25 +40,17 @@ class _StudentHomePageState extends State<StudentHomePage> {
                 [
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: announcementWidget(context),
+                    child: teacherAnnouncementWidget(context),
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: AnalyticsWidget(
+                    child: AttendanceAndAnalyticsWidget(
                       size: size,
                     ),
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: assignmentWidget(size, context),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20.0),
                     child: calendarWidget(context),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: todaysClasses(context),
                   ),
                   SizedBox(height: 10.0),
                 ],

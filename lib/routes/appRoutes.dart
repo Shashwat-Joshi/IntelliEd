@@ -7,6 +7,9 @@ import 'package:IntelliEd/users/student/presentation/pages/calendarPage.dart';
 import 'package:IntelliEd/users/student/presentation/pages/coCurricularPage.dart';
 import 'package:IntelliEd/users/student/presentation/pages/homePage.dart';
 import 'package:IntelliEd/users/student/presentation/pages/profilePage.dart';
+import 'package:IntelliEd/users/teacher/presentation/pages/announcementPage.dart';
+import 'package:IntelliEd/users/teacher/presentation/pages/homePage.dart';
+import 'package:IntelliEd/users/teacher/presentation/pages/profilePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -26,11 +29,9 @@ Route onGeneratedRoutes(RouteSettings settings) {
       break;
 
     // Route to student Home Page
-    //make the below route /student
     case '/student':
-      return PageRouteBuilder(
-        transitionDuration: Duration(milliseconds: 0),
-        pageBuilder: (context, _, __) => StudentHomePage(),
+      return CupertinoPageRoute(
+        builder: (context) => StudentHomePage(),
       );
       break;
 
@@ -76,6 +77,27 @@ Route onGeneratedRoutes(RouteSettings settings) {
       return CupertinoPageRoute(
         maintainState: true,
         builder: (context) => CalendarPage(),
+      );
+      break;
+
+    // Change this route to /teacher
+    case '/teacher':
+      return CupertinoPageRoute(
+        builder: (context) => TeacherHomePage(),
+      );
+      break;
+
+    case '/teacher/profile':
+      return PageRouteBuilder(
+        transitionDuration: Duration(milliseconds: 800),
+        reverseTransitionDuration: Duration(milliseconds: 800),
+        pageBuilder: (context, _, __) => TeacherProfilePage(),
+      );
+      break;
+
+    case '/teacher/announcements':
+      return CupertinoPageRoute(
+        builder: (context) => TeacherAnnouncementPage(),
       );
       break;
     default:

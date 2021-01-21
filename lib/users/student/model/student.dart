@@ -10,7 +10,7 @@ class CustomSliverAppBar {
   });
 }
 
-CustomSliverAppBar testAppBar = CustomSliverAppBar(
+CustomSliverAppBar studentTestAppBar = CustomSliverAppBar(
     name: 'Shashwat',
     techSummary: 'Student of class 9th A at ABC School',
     imagePath: 'assets/student/images/appBar-bg.png');

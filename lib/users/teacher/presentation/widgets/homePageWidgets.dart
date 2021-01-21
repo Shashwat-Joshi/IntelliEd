@@ -1,15 +1,14 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/assignmetsCardWidget.dart';
+import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/widgets/rowOfViewAll.dart';
 import 'package:flutter/material.dart';
 import 'analyticsCardWidget.dart';
 
-Widget announcementWidget(BuildContext context) => Container(
+Widget teacherAnnouncementWidget(BuildContext context) => Container(
       child: Column(
         children: [
           SizedBox(height: 27.0),
-          rowofViewAll('Announcements', context, '/student/announcements'),
+          rowofViewAll('Announcements', context, '/teacher/announcements'),
           SizedBox(height: 14.0),
           Text(
             announcementText['0'],
@@ -31,19 +30,22 @@ Widget announcementWidget(BuildContext context) => Container(
       ),
     );
 
-class AnalyticsWidget extends StatefulWidget {
+class AttendanceAndAnalyticsWidget extends StatefulWidget {
   final Size size;
-  AnalyticsWidget({@required this.size});
+  AttendanceAndAnalyticsWidget({@required this.size});
 
   @override
-  _AnalyticsWidgetState createState() => _AnalyticsWidgetState();
+  _AttendanceAndAnalyticsWidgetState createState() =>
+      _AttendanceAndAnalyticsWidgetState();
 }
 
-class _AnalyticsWidgetState extends State<AnalyticsWidget> {
+class _AttendanceAndAnalyticsWidgetState
+    extends State<AttendanceAndAnalyticsWidget> {
   int turns = 1, listLength = 2;
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
       padding: EdgeInsets.symmetric(vertical: 0.0),
       child: SingleChildScrollView(
@@ -53,10 +55,14 @@ class _AnalyticsWidgetState extends State<AnalyticsWidget> {
             SizedBox(height: 27.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  'Analytics',
-                  style: heading2,
+                Container(
+                  width: size.width / 1.5,
+                  child: Text(
+                    'Attendance and Analytics',
+                    style: heading2,
+                  ),
                 ),
                 InkWell(
                   splashColor: Colors.transparent,
@@ -110,44 +116,6 @@ class _AnalyticsWidgetState extends State<AnalyticsWidget> {
   }
 }
 
-Widget assignmentWidget(Size size, BuildContext context) => Container(
-      child: Column(
-        children: [
-          SizedBox(height: 27.0),
-          rowofViewAll('Assignments', context, null),
-          SizedBox(height: 14.0),
-          Container(
-            height: 210.0,
-            child: Column(
-              children: [
-                Container(
-                  height: 100.0,
-                  child: ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 2,
-                    itemBuilder: (context, index) =>
-                        assignmentsCard(size, index),
-                  ),
-                ),
-                SizedBox(height: 10.0),
-                Container(
-                  height: 100.0,
-                  child: ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 2,
-                    itemBuilder: (context, index) =>
-                        assignmentsCard(size, index, 'second'),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-
 Widget calendarWidget(BuildContext context) => Container(
       child: Column(
         children: [
@@ -163,43 +131,6 @@ Widget calendarWidget(BuildContext context) => Container(
           Divider(
             thickness: 1.5,
           ),
-        ],
-      ),
-    );
-
-Widget todaysClasses(BuildContext context) => Container(
-      child: Column(
-        children: [
-          SizedBox(height: 27.0),
-          rowofViewAll('Today’s Classes', context, null),
-          SizedBox(height: 14.0),
-          for (int i = 0; i < sampleTimeTable.length; i++)
-            Container(
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        sampleTimeTable[i].subjectAndTeacherName,
-                        style: viewAllStyle.apply(
-                          color: Color(0xFFACACAC),
-                        ),
-                      ),
-                      Spacer(),
-                      Text(
-                        sampleTimeTable[i].timePeriod,
-                        style: viewAllStyle.apply(
-                          color: Color(0xFFACACAC),
-                        ),
-                      )
-                    ],
-                  ),
-                  Divider(
-                    thickness: 1.5,
-                  ),
-                ],
-              ),
-            ),
         ],
       ),
     );

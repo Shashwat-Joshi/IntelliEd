@@ -3,12 +3,12 @@ import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/widgets/profileIcon.dart';
 import 'package:flutter/material.dart';
 
-class StudentProfilePage extends StatefulWidget {
+class TeacherProfilePage extends StatefulWidget {
   @override
-  _StudentProfilePageState createState() => _StudentProfilePageState();
+  _TeacherProfilePageState createState() => _TeacherProfilePageState();
 }
 
-class _StudentProfilePageState extends State<StudentProfilePage> {
+class _TeacherProfilePageState extends State<TeacherProfilePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -83,22 +83,11 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                       style: heading1,
                     ),
                     SizedBox(height: 10.0),
-                    Row(
-                      children: [
-                        Text(
-                          '12-C',
-                          style: viewAllStyle.copyWith(
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(width: 20.0),
-                        Text(
-                          '3455',
-                          style: viewAllStyle.copyWith(
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
+                    Text(
+                      '12-C',
+                      style: viewAllStyle.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ],
                 ),
@@ -117,18 +106,6 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 30.0),
-                  Text('Summary', style: heading2),
-                  SizedBox(height: 6.0),
-                  Text(
-                    studentTestAppBar.techSummary,
-                    style: heading1.copyWith(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  SizedBox(height: 25.0),
-                  Divider(thickness: 1.5),
                   SizedBox(height: 25.0),
                   Text('Details', style: heading2),
                   SizedBox(height: 25.0),
@@ -184,22 +161,6 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                     fontSize: 14,
                   ),
                 ),
-                SizedBox(height: 18.0),
-                Text(
-                  'Father\'s Name',
-                  style: heading1.copyWith(
-                    color: Color(0xFF6C63FF),
-                    fontSize: 14,
-                  ),
-                ),
-                SizedBox(height: 18.0),
-                Text(
-                  'Mother\'s Name',
-                  style: heading1.copyWith(
-                    color: Color(0xFF6C63FF),
-                    fontSize: 14,
-                  ),
-                ),
               ],
             ),
           ),
@@ -209,22 +170,6 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
             children: [
               Text(
                 studentDetails.age,
-                style: heading1.copyWith(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              SizedBox(height: 18.0),
-              Text(
-                studentDetails.fatherName,
-                style: heading1.copyWith(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              SizedBox(height: 18.0),
-              Text(
-                studentDetails.motherName,
                 style: heading1.copyWith(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
