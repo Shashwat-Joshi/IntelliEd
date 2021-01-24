@@ -15,9 +15,21 @@ class _AuthPage1State extends State<AuthPage1> {
       body: Stack(
         children: [
           Container(
+            margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 55.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0xfff2f2f2),
+                  spreadRadius: 5,
+                  blurRadius: 10,
+                  offset: Offset(0, 5), // changes position of shadow
+                ),
+              ],
+            ),
             height: size.height,
             width: size.width,
-            color: Colors.white,
             child: Center(
               child: SingleChildScrollView(
                 physics: BouncingScrollPhysics(),
@@ -31,7 +43,7 @@ class _AuthPage1State extends State<AuthPage1> {
                         Container(
                           width: size.width / 1.35,
                           child: Text(
-                            'Lorem ipsum dolor sit amet, consectetur\nadipiscing elit.',
+                            tagLine,
                             style: subheading.copyWith(
                               color: Color(0xFFA2A2A2),
                               fontSize: 15.0,

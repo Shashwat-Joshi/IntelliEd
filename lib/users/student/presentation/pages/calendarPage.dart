@@ -13,10 +13,28 @@ class CalendarPage extends StatefulWidget {
 
 class _CalendarPageState extends State<CalendarPage> {
   ScrollController _scrollController = ScrollController();
-  int isSelected = 1;
+  int isSelected;
   DateTime selectedDate;
-  String month;
-  String currentMonth = monthNames[0];
+  String currentMonth;
+
+  @override
+  void initState() {
+    super.initState();
+    currentMonth = monthNames[DateTime.now().month - 1];
+    isSelected = getCurrentWeek();
+  }
+
+  getCurrentWeek() {
+    int date = DateTime.now().day;
+    if (date <= 7)
+      return 1;
+    else if (date > 7 && date <= 14)
+      return 2;
+    else if (date > 14 && date <= 21)
+      return 3;
+    else
+      return 4;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,9 +146,11 @@ class _CalendarPageState extends State<CalendarPage> {
                                     ),
                                     lastDate: DateTime(
                                       DateTime.now().year,
+                                      DateTime.now().month,
                                     ),
                                     initialDate: DateTime(
                                       DateTime.now().year,
+                                      DateTime.now().month,
                                     ),
                                   ).then((date) {
                                     if (date != null) {
@@ -138,11 +158,10 @@ class _CalendarPageState extends State<CalendarPage> {
                                         selectedDate = date;
                                       });
                                     }
-                                    month =
-                                        selectedDate.toString().substring(5, 7);
+
                                     currentMonth =
-                                        monthNames[int.parse(month) - 1];
-                                    print(month);
+                                        monthNames[selectedDate.month - 1];
+                                    print(currentMonth);
                                   });
                                 },
                                 child: Container(

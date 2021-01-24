@@ -47,7 +47,7 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
                 [
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 26.0),
-                    height: 380,
+                    height: 400,
                     child: MainCoCurricularMainGraph(
                       data: coCurricularMainPageData,
                       bgColor: Color(0xffE8F7FF),
@@ -94,6 +94,8 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
                             data: coCurricularPieNo2Data,
                           ),
                         ),
+                        SizedBox(height: 16.0),
+                        pieIndicatorWidgets(),
                       ],
                     ),
                   ),

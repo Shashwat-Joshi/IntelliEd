@@ -10,6 +10,14 @@ Widget assignmentsCard(Size size, int index, [String isSecond]) {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
           color: Color(0xFFD1DEFF),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xfff2f2f2),
+              spreadRadius: 8,
+              blurRadius: 10,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
         ),
         margin: (index % 2 == 0)
             ? EdgeInsets.only(right: 10.0)

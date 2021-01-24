@@ -36,7 +36,12 @@ class _MainCoCurricularMainGraphState extends State<MainCoCurricularMainGraph> {
           ),
           margin: EdgeInsets.symmetric(vertical: 26.0),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+            padding: EdgeInsets.only(
+              left: 20.0,
+              right: 20.0,
+              bottom: 30.0,
+              top: 40.0,
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -78,7 +83,11 @@ class _MainCoCurricularMainGraphState extends State<MainCoCurricularMainGraph> {
                                   : Color(0xff1CAAFA),
                             ),
                             height: barWidth,
-                            width: ((widget.size.width - 52.0 - 50.0 - 100.0) /
+                            width: ((widget.size.width -
+                                        52.0 -
+                                        50.0 -
+                                        100.0 -
+                                        8.0) /
                                     10) *
                                 (widget.data.values.toList()[i].toDouble() /
                                     10),
@@ -125,8 +134,8 @@ class _MainCoCurricularMainGraphState extends State<MainCoCurricularMainGraph> {
           ),
         ),
         Positioned(
-          right: 0.0,
-          top: 2.0,
+          right: 4.0,
+          top: 8.0,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 30.0),
             child: Container(
@@ -141,12 +150,12 @@ class _MainCoCurricularMainGraphState extends State<MainCoCurricularMainGraph> {
                     style: subheading.copyWith(
                       color: Color(0xff7589a2),
                       fontWeight: FontWeight.w900,
-                      fontSize: 12,
+                      fontSize: 10,
                     ),
                   ),
                   Container(
-                    height: 8.0,
-                    width: 1.0,
+                    height: 7.0,
+                    width: 0.7,
                     color: Color(0xff7589a2),
                   ),
                 ],

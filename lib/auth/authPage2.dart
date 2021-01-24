@@ -23,12 +23,9 @@ class _AuthPage2State extends State<AuthPage2> {
         }
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
         body: Container(
-          margin: EdgeInsets.symmetric(horizontal: 30.0),
           height: size.height,
           width: size.width,
-          color: Colors.white,
           child: Center(
             child: SingleChildScrollView(
               physics: BouncingScrollPhysics(),
@@ -37,156 +34,233 @@ class _AuthPage2State extends State<AuthPage2> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Column(
-                      children: [
-                        SizedBox(height: 80.0),
-                        Image(image: AssetImage(logoPath)),
-                        SizedBox(height: 15.0),
-                        Container(
-                          width: size.width / 1.35,
-                          child: Text(
-                            'Lorem ipsum dolor sit amet, consectetur\nadipiscing elit.',
-                            style: subheading.copyWith(
-                              color: Color(0xFFA2A2A2),
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.normal,
-                              decoration: TextDecoration.none,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 35.0),
-                    TextFormField(
-                      style: heading1.copyWith(
-                        color: Color(0xFF1CAAFA),
-                        fontSize: 14.0,
-                      ),
-                      decoration: customInputDecoration(
-                        label: 'School ID',
-                        bgColor: Color(0xFFE1F4FF),
-                        textColor: Color(0xFF1CAAFA),
-                      ),
-                      onSaved: (schoolId) {
-                        _schoolID = schoolId;
-                      },
-                      validator: (val) {
-                        if (val.isEmpty) return 'Field mandatory';
-                      },
-                    ),
-                    SizedBox(height: 20.0),
-                    TextFormField(
-                      style: heading1.copyWith(
-                        fontSize: 14.0,
-                      ),
-                      decoration: customInputDecoration(
-                        label: 'User ID',
-                        bgColor: Color(0xFFF3F3F3),
-                        textColor: Color(0xFF8C8C8C),
-                      ),
-                      onSaved: (userId) {
-                        _userID = userId;
-                      },
-                      validator: (val) {
-                        if (val.isEmpty) return 'Field mandatory';
-                      },
-                    ),
-                    SizedBox(height: 20.0),
-                    TextFormField(
-                      style: heading1.copyWith(
-                        fontSize: 14.0,
-                      ),
-                      obscureText: !isVisible,
-                      decoration: customInputDecoration(
-                        label: 'Password',
-                        bgColor: Color(0xFFF3F3F3),
-                        textColor: Color(0xFF8C8C8C),
-                      ),
-                      onSaved: (pass) {
-                        _password = pass;
-                      },
-                      validator: (val) {
-                        if (val.isEmpty) return 'Field mandatory';
-                      },
-                    ),
-                    SizedBox(height: 40.0),
                     Container(
-                      width: 330.0,
-                      height: 80.0,
+                      margin: EdgeInsets.symmetric(horizontal: 30.0),
+                      child: Column(
+                        children: [
+                          SizedBox(height: 80.0),
+                          Image(image: AssetImage(logoPath)),
+                          SizedBox(height: 15.0),
+                          Container(
+                            width: size.width / 1.35,
+                            child: Text(
+                              tagLine,
+                              style: subheading.copyWith(
+                                color: Color(0xFFA2A2A2),
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.normal,
+                                decoration: TextDecoration.none,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 30.0),
+                      child: Column(
+                        children: [
+                          SizedBox(height: 35.0),
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30.0),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color(0xfff2f2f2).withOpacity(0.5),
+                                  spreadRadius: 8,
+                                  blurRadius: 12,
+                                  offset: Offset(
+                                      0, 5), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            child: Material(
+                              elevation: 0.0,
+                              borderRadius: BorderRadius.circular(30.0),
+                              child: TextFormField(
+                                style: heading1.copyWith(
+                                  color: Color(0xFF1CAAFA),
+                                  fontSize: 14.0,
+                                ),
+                                decoration: customInputDecoration(
+                                  label: 'School ID',
+                                  bgColor: Color(0xFFE1F4FF),
+                                  textColor: Color(0xFF1CAAFA),
+                                ),
+                                onSaved: (schoolId) {
+                                  _schoolID = schoolId;
+                                },
+                                validator: (val) {
+                                  if (val.isEmpty) return 'Field mandatory';
+                                },
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 20.0),
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30.0),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color(0xfff2f2f2).withOpacity(0.5),
+                                  spreadRadius: 8,
+                                  blurRadius: 12,
+                                  offset: Offset(
+                                      0, 5), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            child: Material(
+                              shadowColor: Color(0xfff2f2f2),
+                              elevation: 0.0,
+                              borderRadius: BorderRadius.circular(30.0),
+                              child: TextFormField(
+                                style: heading1.copyWith(
+                                  fontSize: 14.0,
+                                ),
+                                decoration: customInputDecoration(
+                                  label: 'User ID',
+                                  bgColor: Colors.white,
+                                  textColor: Color(0xFF8C8C8C),
+                                ),
+                                onSaved: (userId) {
+                                  _userID = userId;
+                                },
+                                validator: (val) {
+                                  if (val.isEmpty) return 'Field mandatory';
+                                },
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 20.0),
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30.0),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color(0xfff2f2f2).withOpacity(0.5),
+                                  spreadRadius: 8,
+                                  blurRadius: 12,
+                                  offset: Offset(
+                                      0, 5), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            child: Material(
+                              borderRadius: BorderRadius.circular(30.0),
+                              shadowColor: Color(0xfff2f2f2),
+                              elevation: 0.0,
+                              child: TextFormField(
+                                style: heading1.copyWith(
+                                  fontSize: 14.0,
+                                ),
+                                obscureText: !isVisible,
+                                decoration: customInputDecoration(
+                                  label: 'Password',
+                                  bgColor: Colors.white,
+                                  textColor: Color(0xFF8C8C8C),
+                                ),
+                                onSaved: (pass) {
+                                  _password = pass;
+                                },
+                                validator: (val) {
+                                  if (val.isEmpty) return 'Field mandatory';
+                                },
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 40.0),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 30.0),
                       child: Column(
                         children: [
                           Container(
-                            padding: EdgeInsets.only(left: 2.0),
-                            width: size.width,
-                            child: Text(
-                              'User Type',
-                              style: subheading.copyWith(
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w500,
-                                decoration: TextDecoration.none,
+                            width: 330.0,
+                            height: 80.0,
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.only(left: 2.0),
+                                  width: size.width,
+                                  child: Text(
+                                    'User Type',
+                                    style: subheading.copyWith(
+                                      fontSize: 15.0,
+                                      fontWeight: FontWeight.w500,
+                                      decoration: TextDecoration.none,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                                SizedBox(height: 10.0),
+                                Material(
+                                  child: userSelectingWidget(size),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 60.0),
+                          Container(
+                            width: 153.0,
+                            height: 43.0,
+                            child: FlatButton(
+                              splashColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30.0),
                               ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          SizedBox(height: 10.0),
-                          userSelectingWidget(size),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 60.0),
-                    Container(
-                      width: 153.0,
-                      height: 43.0,
-                      child: FlatButton(
-                        splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        color: Color(0xFF1CAAFA),
-                        onPressed: () {
-                          FocusScopeNode currentFocus = FocusScope.of(context);
-                          if (!currentFocus.hasPrimaryFocus) {
-                            currentFocus.unfocus();
-                          }
-                          validator();
-                        },
-                        child: Text(
-                          'Sign In',
-                          style: subheading.copyWith(
-                            color: Colors.white,
-                            fontSize: 17.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 20.0),
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Don’t have an account, ',
-                            style: subheading.copyWith(
-                              color: Color(0xFFA2A2A2),
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.normal,
-                              decoration: TextDecoration.none,
-                            ),
-                          ),
-                          TextSpan(
-                            text: 'CONTACT SUPPORT',
-                            style: heading2.copyWith(
                               color: Color(0xFF1CAAFA),
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.w500,
-                              decoration: TextDecoration.underline,
+                              onPressed: () {
+                                FocusScopeNode currentFocus =
+                                    FocusScope.of(context);
+                                if (!currentFocus.hasPrimaryFocus) {
+                                  currentFocus.unfocus();
+                                }
+                                validator();
+                              },
+                              child: Text(
+                                'Sign In',
+                                style: subheading.copyWith(
+                                  color: Colors.white,
+                                  fontSize: 17.0,
+                                ),
+                              ),
                             ),
                           ),
+                          SizedBox(height: 40.0),
+                          RichText(
+                            textAlign: TextAlign.center,
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Don’t have an account, ',
+                                  style: subheading.copyWith(
+                                    color: Color(0xFFA2A2A2),
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.normal,
+                                    decoration: TextDecoration.none,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: 'CONTACT SUPPORT',
+                                  style: heading2.copyWith(
+                                    color: Color(0xFF1CAAFA),
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.w500,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 40.0),
                         ],
                       ),
                     ),
-                    SizedBox(height: 40.0),
                   ],
                 ),
               ),
@@ -203,6 +277,7 @@ class _AuthPage2State extends State<AuthPage2> {
     @required Color textColor,
   }) {
     return InputDecoration(
+      errorText: null,
       contentPadding: EdgeInsets.all(20.0),
       filled: true,
       fillColor: bgColor,
@@ -236,7 +311,6 @@ class _AuthPage2State extends State<AuthPage2> {
 
   Widget userSelectingWidget(Size size) {
     double width = (size.width - 81.42) < 330.0 ? size.width - 81.42 : 330.0;
-    print(width);
     return Container(
       width: width,
       height: 40.0,

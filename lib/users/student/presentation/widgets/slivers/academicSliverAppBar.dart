@@ -46,8 +46,8 @@ academicsliverAppBar(
         bottomRight: Radius.circular(20.0),
       ),
     ),
-    forceElevated: false,
-    elevation: 0.0,
+    shadowColor: Colors.grey,
+    elevation: 10.0,
     toolbarHeight: 80.0,
     onStretchTrigger: () {
       return;
@@ -63,7 +63,7 @@ academicsliverAppBar(
       titlePadding: EdgeInsetsDirectional.only(start: 10.0, bottom: 10.0),
       collapseMode: CollapseMode.pin,
       title: Container(
-        padding: EdgeInsets.all(7.0),
+        padding: EdgeInsets.only(top: 25.0, left: 7.0, right: 7.0, bottom: 7.0),
         width: size.width - 27 - 9 - profileIconWidth - 10.0,
         child: RichText(
           softWrap: true,

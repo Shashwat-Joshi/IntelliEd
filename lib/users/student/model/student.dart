@@ -480,3 +480,66 @@ List<Color> colorPalette = [
 
 String bigLoremText =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At proin nisi nunc quam. Non sit metus fermentum eget semper non nullam. Placerat orci lorem gravida at purus et. Lectus commodo donec consectetur odio amet, facilisi dolor viverra. Facilisis sit malesuada ultricies scelerisque nec.";
+
+// Data model for time table
+
+Map timeTableSample = {
+  'result': [
+    {
+      'initial': '8:30',
+      'final': '9:30',
+      'subName': 'Chemistry',
+      'subTeacher': 'Ms. Shayna Kapoor',
+      'isAcademic': 1,
+    },
+    {
+      'initial': '9:30',
+      'final': '10:30',
+      'subName': 'CS',
+      'subTeacher': 'Mr. Shashwat Joshi',
+      'isAcademic': 1,
+    },
+    {
+      'initial': '10:30',
+      'final': '11:30',
+      'subName': 'Music',
+      'subTeacher': 'Mr. Aman',
+      'isAcademic': 0,
+    },
+    {
+      'initial': '11:30',
+      'final': '12:30',
+      'subName': 'Maths',
+      'subTeacher': 'Mr. Anant Jakhmola',
+      'isAcademic': 1,
+    },
+    {
+      'initial': '12:30',
+      'final': '1:30',
+      'subName': 'Lunch Break',
+      'subTeacher': '',
+      'isAcademic': '',
+    },
+    {
+      'initial': '1:30',
+      'final': '2:30',
+      'subName': 'Biology',
+      'subTeacher': 'Ms. Ishani Oberoi',
+      'isAcademic': 1,
+    },
+    {
+      'initial': '2:30',
+      'final': '3:30',
+      'subName': 'English',
+      'subTeacher': 'Mr. Kartikay Sawhaney',
+      'isAcademic': 1,
+    },
+    {
+      'initial': '3:30',
+      'final': '4:30',
+      'subName': 'Physics',
+      'subTeacher': 'Mr. Adhyansh',
+      'isAcademic': 1,
+    }
+  ],
+};

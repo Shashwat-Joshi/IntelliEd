@@ -41,8 +41,8 @@ sliverAppBarWidget(
         bottomRight: Radius.circular(20.0),
       ),
     ),
-    forceElevated: false,
-    elevation: 0.0,
+    shadowColor: Colors.grey,
+    elevation: 10.0,
     toolbarHeight: 70.0,
     onStretchTrigger: () {
       return;

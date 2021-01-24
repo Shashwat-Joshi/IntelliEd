@@ -171,7 +171,7 @@ Widget todaysClasses(BuildContext context) => Container(
       child: Column(
         children: [
           SizedBox(height: 27.0),
-          rowofViewAll('Today’s Classes', context, null),
+          rowofViewAll('Today’s Classes', context, '/student/timetable'),
           SizedBox(height: 14.0),
           for (int i = 0; i < sampleTimeTable.length; i++)
             Container(

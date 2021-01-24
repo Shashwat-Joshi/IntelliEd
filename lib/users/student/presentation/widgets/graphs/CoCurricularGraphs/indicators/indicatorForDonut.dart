@@ -34,7 +34,6 @@ class DonutIndicator extends StatelessWidget {
           width: 4,
         ),
         Container(
-          width: 80.0,
           child: Text(
             text,
             style: subheading.copyWith(
@@ -95,6 +94,69 @@ Widget donutIndicatorWidgets() {
                   DonutIndicator(
                     color: colorPalette[i],
                     text: coCurricularDonut1Data.keys.toList()[i].toString(),
+                    isSquare: false,
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                ],
+              ),
+            ),
+          SizedBox(
+            height: 18,
+          ),
+        ],
+      ),
+    ],
+  );
+}
+
+Widget pieIndicatorWidgets() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          for (int i = 0; i < coCurricularPieNo2Data.length - 2; i++)
+            Container(
+              margin: EdgeInsets.only(top: 10),
+              child: Column(
+                children: [
+                  DonutIndicator(
+                    color: colorPalette[i],
+                    text: coCurricularPieNo2Data.keys.toList()[i].toString(),
+                    isSquare: false,
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                ],
+              ),
+            ),
+          SizedBox(
+            height: 18,
+          ),
+        ],
+      ),
+      SizedBox(width: 20.0),
+      Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          for (int i = coCurricularPieNo2Data.length - 2;
+              i < coCurricularPieNo2Data.length;
+              i++)
+            Container(
+              margin: EdgeInsets.only(top: 10.0),
+              child: Column(
+                children: [
+                  DonutIndicator(
+                    color: colorPalette[i],
+                    text: coCurricularPieNo2Data.keys.toList()[i].toString(),
                     isSquare: false,
                   ),
                   SizedBox(
