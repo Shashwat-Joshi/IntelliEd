@@ -77,7 +77,10 @@ academicsliverAppBar(
               ),
               TextSpan(
                 text: '\n$subheadingtext',
-                style: subheading.copyWith(color: Colors.white),
+                style: subheading.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
               TextSpan(text: '\n'),
             ],

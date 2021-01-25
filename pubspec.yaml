@@ -26,6 +26,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   fl_chart: ^0.12.2
   month_picker_dialog: ^0.3.3
+  font_awesome_flutter: ^8.11.0
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +47,7 @@ flutter:
     - assets/student/images/
     - assets/student/images/analyticsVectors/
     - assets/student/images/academicSubjects/
+    - assets/teacher/analyticsVectors/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -29,6 +29,6 @@ List<String> weekDayName = [
 ];
 
 String currentDate =
-    "${DateTime.now().day} ${monthNames[int.parse('${DateTime.now().month}')]} ${DateTime.now().year}";
+    "${DateTime.now().day} ${monthNames[int.parse('${DateTime.now().month - 1}')]} ${DateTime.now().year}";
 
 int weekDay = DateTime.now().weekday - 1;

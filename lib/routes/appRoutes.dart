@@ -1,3 +1,5 @@
+import 'package:IntelliEd/users/teacher/presentation/pages/classDataPage.dart';
+import 'package:IntelliEd/users/teacher/presentation/pages/createAnnouncementPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,12 +20,12 @@ import 'package:IntelliEd/users/teacher/presentation/pages/profilePage.dart';
 
 Route onGeneratedRoutes(RouteSettings settings) {
   switch (settings.name) {
-    case '/':
-      return PageRouteBuilder(
-        transitionDuration: Duration(milliseconds: 0),
-        pageBuilder: (context, _, __) => AuthPage1(),
-      );
-      break;
+    // case '/':
+    //   return PageRouteBuilder(
+    //     transitionDuration: Duration(milliseconds: 0),
+    //     pageBuilder: (context, _, __) => AuthPage1(),
+    //   );
+    //   break;
     case '/login':
       return PageRouteBuilder(
         transitionDuration: Duration(milliseconds: 300),
@@ -91,7 +93,7 @@ Route onGeneratedRoutes(RouteSettings settings) {
       break;
 
     // Change this route to /teacher
-    case '/teacher':
+    case '/':
       return CupertinoPageRoute(
         builder: (context) => TeacherHomePage(),
       );
@@ -110,6 +112,20 @@ Route onGeneratedRoutes(RouteSettings settings) {
         builder: (context) => TeacherAnnouncementPage(),
       );
       break;
+
+    case '/teacher/createAnnouncements':
+      return CupertinoPageRoute(
+        builder: (context) => CreateAnnouncementPage(),
+      );
+      break;
+
+    // Route to class data page
+    case '/teacher/analytics/0':
+      return CupertinoPageRoute(
+        builder: (context) => ClassDataPage(),
+      );
+      break;
+
     default:
       return null;
   }

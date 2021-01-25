@@ -97,7 +97,7 @@ class _AttendanceAndAnalyticsWidgetState
                 onTap: () {
                   Navigator.pushNamed(
                     context,
-                    '/student/analytics/$i',
+                    '/teacher/analytics/$i',
                   );
                 },
                 child: analyticsCardWidget(

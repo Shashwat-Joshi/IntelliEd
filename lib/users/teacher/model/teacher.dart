@@ -10,7 +10,7 @@ class CustomSliverAppBar {
 }
 
 CustomSliverAppBar teacherTestAppBar = CustomSliverAppBar(
-  name: 'Shashwat',
+  name: 'Anant',
   imagePath: 'assets/student/images/appBar-bg.png',
 );
 
@@ -21,6 +21,20 @@ Map<String, String> announcementText = {
   '2': 'New lecture uploaded on platform on Energy and Resources.',
   '3': 'Assignment for Science to be submitted by 26th Jan',
 };
+
+// Teacher other class data
+Map classData = {
+  'main': '7A',
+  'other': [
+    '9C',
+    '10D',
+    '12E',
+    '11G',
+  ],
+};
+
+// Create announcement data
+String announcementData = "";
 
 // For Analytics features
 class AnalyticsFeatures {
@@ -40,7 +54,7 @@ List<AnalyticsFeatures> analyticsFeatures = [
   AnalyticsFeatures(
     heading: 'Class Data',
     subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
-    imagePath: 'assets/student/images/analyticsVectors/1.png',
+    imagePath: 'assets/teacher/analyticsVectors/1.png',
     color: Color(0xFFFFE2C7),
     textColor: Color(0xFFFA861C),
   ),
@@ -76,27 +90,21 @@ List<AnalyticsFeatures> analyticsFeatures = [
 ];
 
 // For Profile Page Details
-class StudentDetails {
-  final String name,
-      age,
-      fatherName,
-      motherName,
-      bloodGroup,
-      email,
-      emergencyContact;
+class TeacherDetails {
+  final String name, age, gender, bloodGroup, email, emergencyContact;
+
   final List<String> phoneNumbers;
 
-  StudentDetails(this.name, this.age, this.fatherName, this.motherName,
-      this.bloodGroup, this.email, this.emergencyContact, this.phoneNumbers);
+  TeacherDetails(this.name, this.age, this.gender, this.bloodGroup, this.email,
+      this.emergencyContact, this.phoneNumbers);
 }
 
-StudentDetails studentDetails = StudentDetails(
-  'Shashwat Joshi',
-  '18',
-  'Mr. J.C Joshi',
-  'Mrs. Monika Joshi',
+TeacherDetails teacherDetails = TeacherDetails(
+  'Anant Jakhmola',
+  '21',
+  'M',
   'A+',
-  'shashwat2002joshi@gmail.com',
+  'anantjakhmola@gmail.com',
   '+91 91345 XXXXX',
   [
     '+91 91345 XXXXX',
@@ -104,9 +112,57 @@ StudentDetails studentDetails = StudentDetails(
   ],
 );
 
+// Data for class data page
+Map classDataStudent = {
+  'result': [
+    {
+      'name': 'Shashwat Joshi',
+      'academicMarks': 86,
+      'cocurricularMarks': 34,
+      'attendance': 89,
+      'cocurricularTotal': 50,
+    },
+    {
+      'name': 'Anant Jakhmola',
+      'academicMarks': 86,
+      'cocurricularMarks': 34,
+      'attendance': 89,
+      'cocurricularTotal': 50,
+    },
+    {
+      'name': 'Anant',
+      'academicMarks': 86,
+      'cocurricularMarks': 34,
+      'attendance': 89,
+      'cocurricularTotal': 50,
+    },
+    {
+      'name': 'A7X',
+      'academicMarks': 86,
+      'cocurricularMarks': 34,
+      'attendance': 89,
+      'cocurricularTotal': 50,
+    },
+    {
+      'name': 'Aman',
+      'academicMarks': 86,
+      'cocurricularMarks': 34,
+      'attendance': 89,
+      'cocurricularTotal': 50,
+    },
+  ],
+};
+
+List<Color> colors = [
+  Color(0xffB692F7),
+  Color(0xffFFA64D),
+  Color(0xff5564FD),
+  Color(0xffF8867E),
+];
+
 // Lorem Ipsum
 String loremIpsum =
-    "Here is the score card for.... Keep learning, keep growing !!";
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At proin nisi nunc quam. ";
 
 // Text for co-curricular page (LOREM)
 String bigLoremText =

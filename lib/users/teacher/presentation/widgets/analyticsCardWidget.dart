@@ -17,6 +17,14 @@ analyticsCardWidget(
     decoration: BoxDecoration(
       color: color,
       borderRadius: BorderRadius.circular(20.0),
+      boxShadow: [
+        BoxShadow(
+          color: Color(0xfff2f2f2).withOpacity(0.5),
+          spreadRadius: 8,
+          blurRadius: 12,
+          offset: Offset(0, 5), // changes position of shadow
+        ),
+      ],
     ),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

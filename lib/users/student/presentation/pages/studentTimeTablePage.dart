@@ -57,10 +57,7 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
                 [
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(40.0),
-                        bottomRight: Radius.circular(40.0),
-                      ),
+                      borderRadius: BorderRadius.circular(30.0),
                       color: Colors.white,
                       boxShadow: [
                         BoxShadow(

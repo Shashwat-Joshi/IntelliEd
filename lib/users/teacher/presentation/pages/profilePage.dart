@@ -1,7 +1,8 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
+import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/widgets/profileIcon.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TeacherProfilePage extends StatefulWidget {
   @override
@@ -123,7 +124,9 @@ class _TeacherProfilePageState extends State<TeacherProfilePage> {
 
   List<Widget> profilePageDetailsWidget(Size size) {
     return [
-      ageAndParentsNames(),
+      ageWidget(),
+      SizedBox(height: 30.0),
+      genderWidget(),
       SizedBox(height: 30.0),
       bloodGroupWidget(),
       SizedBox(height: 30.0),
@@ -138,7 +141,7 @@ class _TeacherProfilePageState extends State<TeacherProfilePage> {
     ];
   }
 
-  Widget ageAndParentsNames() {
+  Widget ageWidget() {
     return Container(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -169,7 +172,54 @@ class _TeacherProfilePageState extends State<TeacherProfilePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                studentDetails.age,
+                teacherDetails.age,
+                style: heading1.copyWith(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget genderWidget() {
+    return Container(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(width: 7.0),
+          FaIcon(
+            teacherDetails.gender.toLowerCase() == 'm'
+                ? FontAwesomeIcons.male
+                : FontAwesomeIcons.female,
+            color: Colors.grey,
+          ),
+          SizedBox(width: 35.0),
+          Container(
+            width: 100.0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 2.0),
+                Text(
+                  'Gender',
+                  style: heading1.copyWith(
+                    color: Colors.grey,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(width: 50.0),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                teacherDetails.gender,
                 style: heading1.copyWith(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -209,7 +259,7 @@ class _TeacherProfilePageState extends State<TeacherProfilePage> {
         ),
         SizedBox(width: 50.0),
         Text(
-          studentDetails.bloodGroup,
+          teacherDetails.bloodGroup,
           style: heading1.copyWith(
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -243,7 +293,7 @@ class _TeacherProfilePageState extends State<TeacherProfilePage> {
         Container(
           width: size.width - 250.0,
           child: Text(
-            studentDetails.email,
+            teacherDetails.email,
             style: heading1.copyWith(
               fontSize: 14,
               fontWeight: FontWeight.w400,
@@ -279,12 +329,12 @@ class _TeacherProfilePageState extends State<TeacherProfilePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              for (int i = 0; i < studentDetails.phoneNumbers.length; i++)
+              for (int i = 0; i < teacherDetails.phoneNumbers.length; i++)
                 Container(
                   margin:
                       i != 0 ? EdgeInsets.only(top: 10.0) : EdgeInsets.all(0.0),
                   child: Text(
-                    studentDetails.phoneNumbers[i],
+                    teacherDetails.phoneNumbers[i],
                     style: heading1.copyWith(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
@@ -321,7 +371,7 @@ class _TeacherProfilePageState extends State<TeacherProfilePage> {
         Container(
           width: size.width - 250.0,
           child: Text(
-            studentDetails.emergencyContact,
+            teacherDetails.emergencyContact,
             style: heading1.copyWith(
               fontSize: 14,
               fontWeight: FontWeight.w400,
