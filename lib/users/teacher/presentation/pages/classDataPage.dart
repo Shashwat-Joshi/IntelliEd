@@ -103,46 +103,6 @@ class _ClassDataPageState extends State<ClassDataPage> {
               bottomRight: Radius.circular(20.0),
             ),
           ),
-          actions: [
-            InkWell(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () {
-                showOtherClassesBottomSheet(size);
-              },
-              child: Container(
-                padding: EdgeInsets.only(left: 20.0),
-                decoration: BoxDecoration(
-                  color: Color(0xff1CAAFA).withOpacity(0.4),
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(20.0),
-                    bottomLeft: Radius.circular(20.0),
-                    topLeft: Radius.circular(20.0),
-                  ),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Class $selectedClass",
-                      style: heading1.copyWith(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(width: 10.0),
-                    Icon(
-                      Icons.school_rounded,
-                      size: 22.0,
-                      color: Colors.white,
-                    ),
-                    SizedBox(width: 15.0),
-                  ],
-                ),
-              ),
-            ),
-          ],
         ),
         body: CupertinoScrollbar(
           controller: _scrollController,
@@ -182,14 +142,9 @@ class _ClassDataPageState extends State<ClassDataPage> {
                         _currentFocus.unfocus();
                       }
                       currentSelectedStudent =
-                          _searchedList[_searchedList[i]['id'] - 1]['data']
-                              ['name'];
-                      showStudentWiseSubjectCards(
-                          size,
-                          _searchedList[i]['id'],
-                          _searchedList[_searchedList[i]['id'] - 1]['data']
-                              ['name'],
-                          context);
+                          _data[_searchedList[i]['id'] - 1]['data']['name'];
+                      showStudentWiseSubjectCards(size, _searchedList[i]['id'],
+                          currentSelectedStudent, context);
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20.0),
