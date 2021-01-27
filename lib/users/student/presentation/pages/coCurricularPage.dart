@@ -1,10 +1,11 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/graphs/CoCurricularGraphs/coCurricularMainGraph.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/graphs/CoCurricularGraphs/donutGraph1.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/graphs/CoCurricularGraphs/indicators/indicatorForDonut.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/graphs/CoCurricularGraphs/pieChartNo2.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/slivers/academicSliverAppBar.dart';
+import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/coCurricularMainGraph.dart';
+import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/donutGraph1.dart';
+import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/indicators/indicatorForDonut.dart';
+import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/pieChartNo2.dart';
+import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CoCurricularPage extends StatefulWidget {
@@ -25,7 +26,7 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Scrollbar(
+      body: CupertinoScrollbar(
         radius: Radius.circular(20.0),
         thickness: 4.0,
         controller: _scrollController,
@@ -33,7 +34,7 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
           controller: _scrollController,
           physics: BouncingScrollPhysics(),
           slivers: [
-            academicsliverAppBar(
+            commanSliverAppBarForStudent(
               size,
               analyticsFeatures[1].heading,
               analyticsFeatures[1].subHeading,

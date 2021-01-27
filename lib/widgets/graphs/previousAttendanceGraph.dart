@@ -1,25 +1,20 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class PreviousAttendanceGraph extends StatefulWidget {
+  final List months;
+  final List monthWiseAttendance;
+
+  PreviousAttendanceGraph({
+    @required this.months,
+    @required this.monthWiseAttendance,
+  });
   @override
   State<StatefulWidget> createState() => PreviousAttendanceGraphState();
 }
 
 class PreviousAttendanceGraphState extends State<PreviousAttendanceGraph> {
-  List<String> months = [];
-  List<double> monthWiseAttendance = [];
-
-  @override
-  void initState() {
-    super.initState();
-
-    months = getPreviousAttendanceData().keys.toList();
-    monthWiseAttendance = getPreviousAttendanceData().values.toList();
-  }
-
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -73,7 +68,7 @@ class PreviousAttendanceGraphState extends State<PreviousAttendanceGraph> {
       minY: 0.0,
       maxY: 100.0,
       minX: 0.0,
-      maxX: months.length.toDouble() - 1,
+      maxX: widget.months.length.toDouble() - 1,
       titlesData: FlTitlesData(
         bottomTitles: SideTitles(
           showTitles: true,
@@ -85,9 +80,9 @@ class PreviousAttendanceGraphState extends State<PreviousAttendanceGraph> {
           ),
           margin: 10,
           getTitles: (value) {
-            for (int i = 0; i < months.length; i++) {
+            for (int i = 0; i < widget.months.length; i++) {
               if (value.toInt() == i) {
-                return months[i];
+                return widget.months[i];
               }
             }
 
@@ -132,10 +127,10 @@ class PreviousAttendanceGraphState extends State<PreviousAttendanceGraph> {
   List<LineChartBarData> linesBarData1() {
     final LineChartBarData classAverageLine = LineChartBarData(
       spots: [
-        for (int i = 0; i < monthWiseAttendance.length; i++)
+        for (int i = 0; i < widget.monthWiseAttendance.length; i++)
           FlSpot(
             i.toDouble(),
-            monthWiseAttendance[i].toDouble(),
+            widget.monthWiseAttendance[i].toDouble(),
           ),
       ],
       isCurved: false,

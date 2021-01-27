@@ -3,7 +3,7 @@ import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/widgets/profileIcon.dart';
 import 'package:flutter/material.dart';
 
-subjectWiseAcademicsliverAppBar(
+subjectWisecommanSliverAppBar(
   Size size,
   String headingText,
   String imagePath,

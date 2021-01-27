@@ -1,3 +1,4 @@
+import 'package:IntelliEd/model/commanModel.dart';
 import 'package:flutter/material.dart';
 
 // For Sliver app bar
@@ -135,14 +136,6 @@ StudentDetails studentDetails = StudentDetails(
   ],
 );
 
-// For Academic Performance page 1
-class StudentAverageMarks {
-  final Map<String, List<double>> studentMarks;
-  StudentAverageMarks({
-    @required this.studentMarks,
-  });
-}
-
 StudentAverageMarks modelStudentAverageMarks = StudentAverageMarks(
   studentMarks: {
     'Maths': [88.5, 80.8],
@@ -158,16 +151,6 @@ StudentAverageMarks modelStudentAverageMarks = StudentAverageMarks(
 
 // To store the final subjects for future use
 List<String> finalSubjects = [];
-
-// SubjectWise Data and Logic
-class SubjectWiseData {
-  final Map<String, List> subjectWiseData;
-  final String subjectName;
-  SubjectWiseData({
-    @required this.subjectWiseData,
-    @required this.subjectName,
-  });
-}
 
 // Main list to store the data as local app time cache
 List<SubjectWiseData> subjectData = [
@@ -466,15 +449,6 @@ Map<String, int> coCurricularPieNo2Data = {
   'Problem Solving': 30,
   'Creativity': 10,
 };
-
-// Color Palette for pie and donut charts
-List<Color> colorPalette = [
-  Color(0xff1CAAFA),
-  Color(0xffFF5252),
-  Color(0xff00C968),
-  Color(0xffFA861C),
-  Color(0xff6C63FF),
-];
 
 // Text for co-curricular page (LOREM)
 

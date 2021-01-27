@@ -1,21 +1,23 @@
+import 'package:IntelliEd/model/commanModel.dart';
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class AttendanceGraphChart extends StatefulWidget {
+class AcademicsBarGraph extends StatefulWidget {
   final StudentAverageMarks studentAverageMarks;
-  AttendanceGraphChart({
+  final List<String> finalSubjects;
+  AcademicsBarGraph({
     @required this.studentAverageMarks,
+    @required this.finalSubjects,
   });
   @override
-  State<StatefulWidget> createState() => AttendanceGraphChartState();
+  State<StatefulWidget> createState() => AcademicsBarGraphState();
 }
 
-class AttendanceGraphChartState extends State<AttendanceGraphChart> {
+class AcademicsBarGraphState extends State<AcademicsBarGraph> {
   final Color leftBarColor = const Color(0xff1CAAFA);
   final Color rightBarColor = const Color(0xff00C968);
-  final double width = 30;
+  final double width = 7;
 
   List<BarChartGroupData> rawBarGroups = [];
   List<BarChartGroupData> showingBarGroups = [];
@@ -26,13 +28,14 @@ class AttendanceGraphChartState extends State<AttendanceGraphChart> {
     super.initState();
     List<BarChartGroupData> items = [];
 
-    items.add(
-      makeGroupData(0, 45.5),
-    );
-
-    items.add(
-      makeGroupData(1, 75.5),
-    );
+    for (int i = 0; i < widget.studentAverageMarks.studentMarks.length; i++) {
+      String key = widget.finalSubjects.elementAt(i);
+      print(widget.studentAverageMarks.studentMarks[key][0]);
+      items.add(makeGroupData(
+          i,
+          widget.studentAverageMarks.studentMarks[key][0],
+          widget.studentAverageMarks.studentMarks[key][1]));
+    }
     rawBarGroups = items;
     showingBarGroups = rawBarGroups;
   }
@@ -47,7 +50,7 @@ class AttendanceGraphChartState extends State<AttendanceGraphChart> {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         color: const Color(0xffE8F7FF),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 26.0, vertical: 16.0),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -59,7 +62,7 @@ class AttendanceGraphChartState extends State<AttendanceGraphChart> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'Your attendance vs Average',
+                    'Your Score vs Average',
                     style: subheading.copyWith(
                         color: Color(0xff1CAAFA), fontSize: 18),
                   ),
@@ -73,8 +76,6 @@ class AttendanceGraphChartState extends State<AttendanceGraphChart> {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: BarChart(
                     BarChartData(
-                      alignment: BarChartAlignment.center,
-                      groupsSpace: 120,
                       maxY: 101,
                       barTouchData: BarTouchData(
                           touchTooltipData: BarTouchTooltipData(
@@ -116,10 +117,19 @@ class AttendanceGraphChartState extends State<AttendanceGraphChart> {
                           ),
                           margin: 20,
                           getTitles: (double value) {
-                            if (value == 0) {
-                              return 'Your Attendance';
-                            } else if (value == 1) {
-                              return 'Class Average';
+                            for (int i = 0;
+                                i < widget.finalSubjects.length;
+                                i++) {
+                              if (value.toInt() == i) {
+                                return (widget.finalSubjects[i]
+                                            .toString()
+                                            .length <=
+                                        3)
+                                    ? widget.finalSubjects[i].toString()
+                                    : widget.finalSubjects[i]
+                                        .toString()
+                                        .substring(0, 3);
+                              }
                             }
                             return '';
                           },
@@ -170,14 +180,19 @@ class AttendanceGraphChartState extends State<AttendanceGraphChart> {
     );
   }
 
-  BarChartGroupData makeGroupData(int x, double y1) {
+  BarChartGroupData makeGroupData(int x, double y1, double y2) {
     return BarChartGroupData(
-      barsSpace: 0,
+      barsSpace: 5,
       x: x,
       barRods: [
         BarChartRodData(
           y: y1,
-          colors: x == 0 ? [leftBarColor] : [rightBarColor],
+          colors: [leftBarColor],
+          width: width,
+        ),
+        BarChartRodData(
+          y: y2,
+          colors: [rightBarColor],
           width: width,
         ),
       ],

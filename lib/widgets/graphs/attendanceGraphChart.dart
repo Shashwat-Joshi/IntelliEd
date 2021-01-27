@@ -1,21 +1,21 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class AcademicsBarGraph extends StatefulWidget {
-  final StudentAverageMarks studentAverageMarks;
-  AcademicsBarGraph({
-    @required this.studentAverageMarks,
+class AttendanceGraphChart extends StatefulWidget {
+  final double classAverage, student;
+  AttendanceGraphChart({
+    @required this.student,
+    @required this.classAverage,
   });
   @override
-  State<StatefulWidget> createState() => AcademicsBarGraphState();
+  State<StatefulWidget> createState() => AttendanceGraphChartState();
 }
 
-class AcademicsBarGraphState extends State<AcademicsBarGraph> {
+class AttendanceGraphChartState extends State<AttendanceGraphChart> {
   final Color leftBarColor = const Color(0xff1CAAFA);
   final Color rightBarColor = const Color(0xff00C968);
-  final double width = 7;
+  final double width = 30;
 
   List<BarChartGroupData> rawBarGroups = [];
   List<BarChartGroupData> showingBarGroups = [];
@@ -26,14 +26,13 @@ class AcademicsBarGraphState extends State<AcademicsBarGraph> {
     super.initState();
     List<BarChartGroupData> items = [];
 
-    for (int i = 0; i < widget.studentAverageMarks.studentMarks.length; i++) {
-      String key = finalSubjects.elementAt(i);
-      print(widget.studentAverageMarks.studentMarks[key][0]);
-      items.add(makeGroupData(
-          i,
-          widget.studentAverageMarks.studentMarks[key][0],
-          widget.studentAverageMarks.studentMarks[key][1]));
-    }
+    items.add(
+      makeGroupData(0, widget.student),
+    );
+
+    items.add(
+      makeGroupData(1, widget.classAverage),
+    );
     rawBarGroups = items;
     showingBarGroups = rawBarGroups;
   }
@@ -48,7 +47,7 @@ class AcademicsBarGraphState extends State<AcademicsBarGraph> {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         color: const Color(0xffE8F7FF),
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.symmetric(horizontal: 26.0, vertical: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -60,7 +59,7 @@ class AcademicsBarGraphState extends State<AcademicsBarGraph> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'Your Score vs Average',
+                    'Your attendance vs Average',
                     style: subheading.copyWith(
                         color: Color(0xff1CAAFA), fontSize: 18),
                   ),
@@ -74,6 +73,8 @@ class AcademicsBarGraphState extends State<AcademicsBarGraph> {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: BarChart(
                     BarChartData(
+                      alignment: BarChartAlignment.center,
+                      groupsSpace: 120,
                       maxY: 101,
                       barTouchData: BarTouchData(
                           touchTooltipData: BarTouchTooltipData(
@@ -115,14 +116,10 @@ class AcademicsBarGraphState extends State<AcademicsBarGraph> {
                           ),
                           margin: 20,
                           getTitles: (double value) {
-                            for (int i = 0; i < finalSubjects.length; i++) {
-                              if (value.toInt() == i) {
-                                return (finalSubjects[i].toString().length <= 3)
-                                    ? finalSubjects[i].toString()
-                                    : finalSubjects[i]
-                                        .toString()
-                                        .substring(0, 3);
-                              }
+                            if (value == 0) {
+                              return 'Your Attendance';
+                            } else if (value == 1) {
+                              return 'Class Average';
                             }
                             return '';
                           },
@@ -173,19 +170,14 @@ class AcademicsBarGraphState extends State<AcademicsBarGraph> {
     );
   }
 
-  BarChartGroupData makeGroupData(int x, double y1, double y2) {
+  BarChartGroupData makeGroupData(int x, double y1) {
     return BarChartGroupData(
-      barsSpace: 5,
+      barsSpace: 0,
       x: x,
       barRods: [
         BarChartRodData(
           y: y1,
-          colors: [leftBarColor],
-          width: width,
-        ),
-        BarChartRodData(
-          y: y2,
-          colors: [rightBarColor],
+          colors: x == 0 ? [leftBarColor] : [rightBarColor],
           width: width,
         ),
       ],

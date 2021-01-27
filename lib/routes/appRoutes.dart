@@ -1,7 +1,8 @@
-import 'package:IntelliEd/users/teacher/presentation/pages/classDataPage.dart';
-import 'package:IntelliEd/users/teacher/presentation/pages/createAnnouncementPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+// Misc. imports
+import 'package:IntelliEd/users/student/model/student.dart';
 
 // Route pages
 import 'package:IntelliEd/auth/authPage1.dart';
@@ -17,11 +18,17 @@ import 'package:IntelliEd/users/student/presentation/pages/studentTimeTablePage.
 import 'package:IntelliEd/users/teacher/presentation/pages/announcementPage.dart';
 import 'package:IntelliEd/users/teacher/presentation/pages/homePage.dart';
 import 'package:IntelliEd/users/teacher/presentation/pages/profilePage.dart';
+import 'package:IntelliEd/users/teacher/presentation/pages/classDataPage.dart';
+import 'package:IntelliEd/users/teacher/presentation/pages/createAnnouncementPage.dart';
+import 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/academicPerformance.dart';
+import 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/attendancePage.dart';
+import 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/coCurricular.dart';
 
 Route onGeneratedRoutes(RouteSettings settings) {
   switch (settings.name) {
     // case '/':
     //   return PageRouteBuilder(
+
     //     transitionDuration: Duration(milliseconds: 0),
     //     pageBuilder: (context, _, __) => AuthPage1(),
     //   );
@@ -75,7 +82,12 @@ Route onGeneratedRoutes(RouteSettings settings) {
     case '/student/analytics/3':
       return CupertinoPageRoute(
         maintainState: true,
-        builder: (context) => AttendancePage(),
+        builder: (context) => StudentAttendancePage(
+          studentAverage: attendanceData['studentAverage'],
+          classAverage: attendanceData['classAverage'],
+          months: getPreviousAttendanceData().keys.toList(),
+          monthWiseAttendance: getPreviousAttendanceData().values.toList(),
+        ),
       );
       break;
 
@@ -126,6 +138,24 @@ Route onGeneratedRoutes(RouteSettings settings) {
       );
       break;
 
+    //Route to student wise academic page
+    case '/teacher/analytics/classData/0':
+      return CupertinoPageRoute(
+        builder: (context) => StudentWiseAcademicPerformance(),
+      );
+      break;
+
+    case '/teacher/analytics/classData/1':
+      return CupertinoPageRoute(
+        builder: (context) => StudentWiseCoCurricularPage(),
+      );
+
+    // Route to student wise attendance page
+    case '/teacher/analytics/classData/3':
+      return CupertinoPageRoute(
+        builder: (context) => StudentWiseAttendancePage(),
+      );
+      break;
     default:
       return null;
   }

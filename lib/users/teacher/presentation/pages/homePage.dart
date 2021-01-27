@@ -1,6 +1,7 @@
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/users/teacher/presentation/widgets/homePageWidgets.dart';
 import 'package:IntelliEd/users/teacher/presentation/widgets/slivers/homePageSliverAppBar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TeacherHomePage extends StatefulWidget {
@@ -21,7 +22,7 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Scrollbar(
+      body: CupertinoScrollbar(
         radius: Radius.circular(20.0),
         thickness: 4.0,
         controller: _scrollController,

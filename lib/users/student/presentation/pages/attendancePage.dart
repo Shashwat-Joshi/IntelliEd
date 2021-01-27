@@ -1,22 +1,34 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/graphs/attendanceGraphChart.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/graphs/previousAttendanceGraph.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/slivers/academicSliverAppBar.dart';
+import 'package:IntelliEd/widgets/graphs/attendanceGraphChart.dart';
+import 'package:IntelliEd/widgets/graphs/previousAttendanceGraph.dart';
+import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AttendancePage extends StatefulWidget {
+class StudentAttendancePage extends StatefulWidget {
+  final double studentAverage, classAverage;
+  final List<String> months;
+  final List<double> monthWiseAttendance;
+
+  StudentAttendancePage({
+    @required this.studentAverage,
+    @required this.classAverage,
+    @required this.months,
+    @required this.monthWiseAttendance,
+  });
+
   @override
-  _AttendancePageState createState() => _AttendancePageState();
+  _StudentAttendancePageState createState() => _StudentAttendancePageState();
 }
 
-class _AttendancePageState extends State<AttendancePage> {
+class _StudentAttendancePageState extends State<StudentAttendancePage> {
   ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Scrollbar(
+      body: CupertinoScrollbar(
         radius: Radius.circular(20.0),
         thickness: 4.0,
         controller: _scrollController,
@@ -24,7 +36,7 @@ class _AttendancePageState extends State<AttendancePage> {
           controller: _scrollController,
           physics: BouncingScrollPhysics(),
           slivers: [
-            academicsliverAppBar(
+            commanSliverAppBarForStudent(
               size,
               analyticsFeatures[3].heading,
               analyticsFeatures[3].subHeading,
@@ -41,14 +53,15 @@ class _AttendancePageState extends State<AttendancePage> {
                     height: 380.0,
                     width: size.width,
                     child: AttendanceGraphChart(
-                      studentAverageMarks: modelStudentAverageMarks,
+                      student: widget.studentAverage,
+                      classAverage: widget.classAverage,
                     ),
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 26.0),
                     height: 15.0,
                     child: Row(
-                      mainAxisSize: MainAxisSize.min,
+                      mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
@@ -98,7 +111,10 @@ class _AttendancePageState extends State<AttendancePage> {
                     margin: EdgeInsets.all(26.0),
                     height: 320.0,
                     width: size.width,
-                    child: PreviousAttendanceGraph(),
+                    child: PreviousAttendanceGraph(
+                      months: widget.months,
+                      monthWiseAttendance: widget.monthWiseAttendance,
+                    ),
                   ),
                 ],
               ),

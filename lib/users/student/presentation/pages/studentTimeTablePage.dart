@@ -1,8 +1,9 @@
 import 'package:IntelliEd/model/commanModel.dart';
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/slivers/academicSliverAppBar.dart';
+import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/timeTableDayNameWidget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class StudentTimeTablePage extends StatefulWidget {
@@ -35,7 +36,7 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Scrollbar(
+      body: CupertinoScrollbar(
         radius: Radius.circular(20.0),
         thickness: 4.0,
         controller: _scrollController,
@@ -43,7 +44,7 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
           controller: _scrollController,
           physics: BouncingScrollPhysics(),
           slivers: [
-            academicsliverAppBar(
+            commanSliverAppBarForStudent(
               size,
               'Timetable',
               bigLoremText.substring(0, 80),

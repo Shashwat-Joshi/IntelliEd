@@ -1,6 +1,7 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/slivers/academicSliverAppBar.dart';
+import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
+import 'package:IntelliEd/users/teacher/presentation/widgets/slivers/commonSliverForTeacher.dart';
 import 'package:flutter/material.dart';
 
 class TeacherAnnouncementPage extends StatefulWidget {
@@ -23,7 +24,7 @@ class _TeacherAnnouncementPageState extends State<TeacherAnnouncementPage> {
         controller: _scrollController,
         physics: BouncingScrollPhysics(),
         slivers: [
-          academicsliverAppBar(
+          commanSliverAppBarForTeacher(
             size,
             'Announcements',
             bigLoremText.substring(0, 70),

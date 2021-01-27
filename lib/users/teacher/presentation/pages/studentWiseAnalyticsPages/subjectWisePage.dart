@@ -1,28 +1,29 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
+import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/widgets/graphs/perExamGraphChart.dart';
 import 'package:IntelliEd/widgets/graphs/perSubjectMainGraph.dart';
 import 'package:IntelliEd/widgets/graphs/subjectWiseSliverAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SubjectWiseAcademicPage extends StatefulWidget {
+class StudentWiseSubjectWiseAcademicPage extends StatefulWidget {
   final int index;
-  SubjectWiseAcademicPage({
+  StudentWiseSubjectWiseAcademicPage({
     @required this.index,
   });
   @override
-  _SubjectWiseAcademicPageState createState() =>
-      _SubjectWiseAcademicPageState();
+  _StudentWiseSubjectWiseAcademicPageState createState() =>
+      _StudentWiseSubjectWiseAcademicPageState();
 }
 
-class _SubjectWiseAcademicPageState extends State<SubjectWiseAcademicPage> {
+class _StudentWiseSubjectWiseAcademicPageState
+    extends State<StudentWiseSubjectWiseAcademicPage> {
   ScrollController _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    List<String> exams = getExamNames(finalSubjects[widget.index]);
+    List<String> exams = getExamNames(studentWisefinalSubjects[widget.index]);
 
     return Scaffold(
       body: CupertinoScrollbar(
@@ -35,7 +36,7 @@ class _SubjectWiseAcademicPageState extends State<SubjectWiseAcademicPage> {
           slivers: [
             subjectWisecommanSliverAppBar(
               size,
-              finalSubjects[widget.index],
+              studentWisefinalSubjects[widget.index],
               analyticsFeatures[0].imagePath,
               Color(0xFFB0E3FF),
               Color(0xFF1CAAFA),
@@ -51,7 +52,7 @@ class _SubjectWiseAcademicPageState extends State<SubjectWiseAcademicPage> {
                       children: [
                         SizedBox(height: 36.0),
                         Text(
-                          'Your performance',
+                          'Performance',
                           style: heading2,
                         ),
                         SizedBox(height: 26.0),
@@ -60,12 +61,12 @@ class _SubjectWiseAcademicPageState extends State<SubjectWiseAcademicPage> {
                           width: size.width,
                           child: LineChartSample1(
                             studentMarks: getStudentAverageAndClassAverageMarks(
-                                finalSubjects[widget.index])[0],
+                                studentWisefinalSubjects[widget.index])[0],
                             classAverageMarks:
                                 getStudentAverageAndClassAverageMarks(
-                                    finalSubjects[widget.index])[1],
-                            examNames:
-                                getExamNames(finalSubjects[widget.index]),
+                                    studentWisefinalSubjects[widget.index])[1],
+                            examNames: getExamNames(
+                                studentWisefinalSubjects[widget.index]),
                           ),
                         ),
                       ],
@@ -144,10 +145,10 @@ class _SubjectWiseAcademicPageState extends State<SubjectWiseAcademicPage> {
                                   width: size.width,
                                   child: PerExamChartGraph(
                                     totalMarks: perExamData(
-                                        finalSubjects[widget.index],
+                                        studentWisefinalSubjects[widget.index],
                                         exams[i])[1],
                                     marksList: perExamData(
-                                        finalSubjects[widget.index],
+                                        studentWisefinalSubjects[widget.index],
                                         exams[i])[0],
                                   ),
                                 ),

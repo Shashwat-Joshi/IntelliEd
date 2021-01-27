@@ -1,7 +1,7 @@
 import 'package:IntelliEd/model/commanModel.dart';
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/slivers/academicSliverAppBar.dart';
+import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:month_picker_dialog/month_picker_dialog.dart';
@@ -40,7 +40,7 @@ class _CalendarPageState extends State<CalendarPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Scrollbar(
+      body: CupertinoScrollbar(
         radius: Radius.circular(20.0),
         thickness: 4.0,
         controller: _scrollController,
@@ -48,7 +48,7 @@ class _CalendarPageState extends State<CalendarPage> {
           controller: _scrollController,
           physics: BouncingScrollPhysics(),
           slivers: [
-            academicsliverAppBar(
+            commanSliverAppBarForStudent(
               size,
               'Calendar',
               'This calender displays the syllabus covered on a weekly basis',

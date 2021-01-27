@@ -80,16 +80,16 @@ class _TeacherProfilePageState extends State<TeacherProfilePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Shashwat Joshi',
+                      teacherDetails.name,
                       style: heading1,
                     ),
-                    SizedBox(height: 10.0),
-                    Text(
-                      '12-C',
-                      style: viewAllStyle.copyWith(
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                    // SizedBox(height: 10.0),
+                    // Text(
+                    //   '12-C',
+                    //   style: viewAllStyle.copyWith(
+                    //     fontWeight: FontWeight.w600,
+                    //   ),
+                    // ),
                   ],
                 ),
                 SizedBox(

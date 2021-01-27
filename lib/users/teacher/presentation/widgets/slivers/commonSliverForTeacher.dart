@@ -1,10 +1,9 @@
 import 'dart:ui';
-
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/widgets/profileIcon.dart';
 import 'package:flutter/material.dart';
 
-academicsliverAppBar(
+commanSliverAppBarForTeacher(
   Size size,
   String headingText,
   String subheadingtext,
@@ -27,7 +26,7 @@ academicsliverAppBar(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () {
-                Navigator.pushNamed(context, '/student/profile');
+                Navigator.pushNamed(context, '/teacher/profile');
               },
               child: profileIcon(),
             ),
