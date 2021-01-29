@@ -62,7 +62,7 @@ List<AnalyticsFeatures> analyticsFeatures = [
   AnalyticsFeatures(
     heading: 'Attendence',
     subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
-    imagePath: 'assets/student/images/analyticsVectors/2.png',
+    imagePath: 'assets/student/images/analyticsVectors/4.png',
     color: Color(0xFFAFFFD9),
     textColor: Color(0xFF00C968),
   ),
@@ -503,7 +503,7 @@ perExamData(String subject, String examName) {
   }
 }
 
-//To check if the data is loaded or not
+// To check if the data is loaded or not
 int isSubjectWisedataAvailable(String subject) {
   // Returns index if data is available, returns -1 is data is not available !
   int index;
@@ -550,6 +550,12 @@ Map<String, int> perStudentcoCurricularPieNo2Data = {
   'Problem Solving': 30,
   'Creativity': 10,
 };
+
+// For student attendance
+List<String> studentNames = [];
+
+// Current selectedClass
+String currentSelectedClassForYourClassData;
 
 // Lorem Ipsum
 String loremIpsum =

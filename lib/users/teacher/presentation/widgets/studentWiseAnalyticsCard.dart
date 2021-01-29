@@ -18,13 +18,19 @@ class StudentWiseAnalyticsWidget extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, '/teacher/analytics/classData/$i');
             },
-            child: analyticsCardWidget(
-              studentWiseAnalyticsFeatures[i].heading,
-              studentWiseAnalyticsFeatures[i].subHeading,
-              studentWiseAnalyticsFeatures[i].imagePath,
-              studentWiseAnalyticsFeatures[i].color,
-              studentWiseAnalyticsFeatures[i].textColor,
-              size,
+            child: Container(
+              padding: EdgeInsets.only(
+                left: 26.0,
+                right: 26.0,
+              ),
+              child: analyticsCardWidget(
+                studentWiseAnalyticsFeatures[i].heading,
+                studentWiseAnalyticsFeatures[i].subHeading,
+                studentWiseAnalyticsFeatures[i].imagePath,
+                studentWiseAnalyticsFeatures[i].color,
+                studentWiseAnalyticsFeatures[i].textColor,
+                size,
+              ),
             ),
           ),
       ],

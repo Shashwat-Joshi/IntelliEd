@@ -5,34 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
 
 // Route pages
-import 'package:IntelliEd/auth/authPage1.dart';
-import 'package:IntelliEd/auth/authPage2.dart';
-import 'package:IntelliEd/users/student/presentation/pages/academicPerformancePage.dart';
-import 'package:IntelliEd/users/student/presentation/pages/announcementPage.dart';
-import 'package:IntelliEd/users/student/presentation/pages/attendancePage.dart';
-import 'package:IntelliEd/users/student/presentation/pages/calendarPage.dart';
-import 'package:IntelliEd/users/student/presentation/pages/coCurricularPage.dart';
-import 'package:IntelliEd/users/student/presentation/pages/homePage.dart';
-import 'package:IntelliEd/users/student/presentation/pages/profilePage.dart';
-import 'package:IntelliEd/users/student/presentation/pages/studentTimeTablePage.dart';
-import 'package:IntelliEd/users/teacher/presentation/pages/announcementPage.dart';
-import 'package:IntelliEd/users/teacher/presentation/pages/homePage.dart';
-import 'package:IntelliEd/users/teacher/presentation/pages/profilePage.dart';
-import 'package:IntelliEd/users/teacher/presentation/pages/classDataPage.dart';
-import 'package:IntelliEd/users/teacher/presentation/pages/createAnnouncementPage.dart';
-import 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/academicPerformance.dart';
-import 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/attendancePage.dart';
-import 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/coCurricular.dart';
+import 'allRoutes.dart';
 
 Route onGeneratedRoutes(RouteSettings settings) {
   switch (settings.name) {
-    // case '/':
-    //   return PageRouteBuilder(
 
-    //     transitionDuration: Duration(milliseconds: 0),
-    //     pageBuilder: (context, _, __) => AuthPage1(),
-    //   );
-    //   break;
+    //TODO: Not a todo a marker: Below are the AUTH PAGE ROUTES
+    case '/':
+      return PageRouteBuilder(
+        transitionDuration: Duration(milliseconds: 0),
+        pageBuilder: (context, _, __) => AuthPage1(),
+      );
+      break;
     case '/login':
       return PageRouteBuilder(
         transitionDuration: Duration(milliseconds: 300),
@@ -40,6 +24,7 @@ Route onGeneratedRoutes(RouteSettings settings) {
       );
       break;
 
+    //TODO: Not a todo a marker: Below are the STUDENT ROUTES
     // Route to student Home Page
     // convert to /student
     case '/student':
@@ -73,7 +58,6 @@ Route onGeneratedRoutes(RouteSettings settings) {
     // Route to co curricular Page
     case '/student/analytics/1':
       return CupertinoPageRoute(
-        maintainState: true,
         builder: (context) => CoCurricularPage(),
       );
       break;
@@ -81,7 +65,6 @@ Route onGeneratedRoutes(RouteSettings settings) {
     // Route to attendance Page
     case '/student/analytics/3':
       return CupertinoPageRoute(
-        maintainState: true,
         builder: (context) => StudentAttendancePage(
           studentAverage: attendanceData['studentAverage'],
           classAverage: attendanceData['classAverage'],
@@ -93,7 +76,6 @@ Route onGeneratedRoutes(RouteSettings settings) {
 
     case '/student/calender':
       return CupertinoPageRoute(
-        maintainState: true,
         builder: (context) => CalendarPage(),
       );
       break;
@@ -104,8 +86,9 @@ Route onGeneratedRoutes(RouteSettings settings) {
       );
       break;
 
+    //TODO: Not a todo a marker: Below are the TEACHER ROUTES
     // Change this route to /teacher
-    case '/':
+    case '/teacher':
       return CupertinoPageRoute(
         builder: (context) => TeacherHomePage(),
       );
@@ -135,6 +118,24 @@ Route onGeneratedRoutes(RouteSettings settings) {
     case '/teacher/analytics/0':
       return CupertinoPageRoute(
         builder: (context) => ClassDataPage(),
+      );
+      break;
+
+    // Route to attendance page
+    case '/teacher/analytics/1':
+      return CupertinoPageRoute(
+        builder: (context) => SubmitAttendancePage(),
+      );
+
+    // Route to your other classes page
+    case '/teacher/analytics/2':
+      return CupertinoPageRoute(
+        builder: (context) => YourOtherClasses(),
+      );
+
+    case '/teacher/otherClasses/marks':
+      return CupertinoPageRoute(
+        builder: (context) => ClassWiseMarksPage(),
       );
       break;
 
