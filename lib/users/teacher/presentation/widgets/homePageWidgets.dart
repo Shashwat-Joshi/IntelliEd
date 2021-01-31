@@ -95,10 +95,14 @@ class _AttendanceAndAnalyticsWidgetState
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/teacher/analytics/$i',
-                  );
+                  if (i == 4) {
+                    showQuizDialog(context, size);
+                  } else {
+                    Navigator.pushNamed(
+                      context,
+                      '/teacher/analytics/$i',
+                    );
+                  }
                 },
                 child: analyticsCardWidget(
                   analyticsFeatures[i].heading,
@@ -114,6 +118,115 @@ class _AttendanceAndAnalyticsWidgetState
       ),
     );
   }
+}
+
+showQuizDialog(BuildContext context, Size size) {
+  return showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return Expanded(
+        child: AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          title: Container(
+            margin: EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              children: [
+                Text(
+                  'Quiz',
+                  style: heading2,
+                ),
+                Spacer(),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.0),
+                    color: Color(0xffFF5252),
+                  ),
+                  child: GestureDetector(
+                    child: Icon(
+                      Icons.close_rounded,
+                      color: Colors.white,
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
+          content: Container(
+            margin: EdgeInsets.symmetric(horizontal: 5.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(height: 15.0),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 30.0),
+                  height: 60.0,
+                  width: size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Color(0xff1CAAFA),
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Create Quiz',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18.0,
+                        ),
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_right_alt_rounded,
+                        color: Colors.white,
+                        size: 26.0,
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: 15.0),
+                InkWell(
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () {},
+                  child: Container(
+                    height: 60.0,
+                    padding: EdgeInsets.symmetric(horizontal: 30.0),
+                    width: size.width,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: Color(0xff00C968),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          'About Students',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                        Spacer(),
+                        Icon(
+                          Icons.arrow_right_alt_rounded,
+                          color: Colors.white,
+                          size: 26.0,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+  );
 }
 
 Widget calendarWidget(BuildContext context) => Container(
