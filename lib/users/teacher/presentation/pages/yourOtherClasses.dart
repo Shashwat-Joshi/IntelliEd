@@ -93,7 +93,7 @@ class _YourOtherClassesState extends State<YourOtherClasses> {
                       ),
                       SizedBox(height: 13.0),
                       Wrap(
-                        alignment: WrapAlignment.center,
+                        alignment: WrapAlignment.start,
                         children: [
                           for (int i = 0; i < classData['other'].length; i++)
                             InkWell(

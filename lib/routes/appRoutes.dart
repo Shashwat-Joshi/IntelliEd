@@ -157,6 +157,12 @@ Route onGeneratedRoutes(RouteSettings settings) {
         builder: (context) => StudentWiseAttendancePage(),
       );
       break;
+
+    case '/teacher/calendar':
+      return CupertinoPageRoute(
+        builder: (context) => TeacherCalendarPage(),
+      );
+      break;
     default:
       return null;
   }

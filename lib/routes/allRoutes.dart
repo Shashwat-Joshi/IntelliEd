@@ -24,3 +24,4 @@ export 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsP
 export 'package:IntelliEd/users/teacher/presentation/pages/submitAttendancePage.dart';
 export 'package:IntelliEd/users/teacher/presentation/pages/yourOtherClasses.dart';
 export 'package:IntelliEd/users/teacher/presentation/pages/classWiseMarksPage.dart';
+export 'package:IntelliEd/users/teacher/presentation/pages/calendarPage.dart';

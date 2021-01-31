@@ -264,16 +264,6 @@ class _CreateAnnouncementPageState extends State<CreateAnnouncementPage> {
                                               : Color(0xff1CAAFA),
                                         ),
                                       ),
-                                      // (classData['main'] == selectedClass)
-                                      //     ? Container(
-                                      //         margin: EdgeInsets.only(left: 10.0),
-                                      //         child: Icon(
-                                      //           Icons.check,
-                                      //           color: Color(0xff00C968),
-                                      //           size: 20.0,
-                                      //         ),
-                                      //       )
-                                      //     : Container(),
                                     ],
                                   ),
                                 ),

@@ -49,6 +49,17 @@ class _SubmitAttendancePageState extends State<SubmitAttendancePage> {
             bottomRight: Radius.circular(20.0),
           ),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 5.0),
+            child: IconButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              icon: Icon(Icons.save_rounded),
+              onPressed: () {},
+            ),
+          ),
+        ],
       ),
       body: Container(
         child: Column(
@@ -241,59 +252,7 @@ class _SubmitAttendancePageState extends State<SubmitAttendancePage> {
                             ],
                           ),
                         ),
-                      SizedBox(height: 30.0),
-                      Container(
-                        child: Row(
-                          children: [
-                            SizedBox(width: 26.0),
-                            Container(
-                              height: 45.0,
-                              width: size.width * 0.4 - 10.0 - 26.0,
-                              child: FlatButton(
-                                color: Colors.blue,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(
-                                    20.0,
-                                  ),
-                                ),
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text(
-                                  'Cancel',
-                                  style: viewAllStyle.copyWith(
-                                    color: Colors.white,
-                                    fontSize: 16.0,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 20.0),
-                            Container(
-                              width: size.width * 0.6 - 10.0 - 26.0,
-                              height: 45.0,
-                              child: FlatButton(
-                                color: Color(0xff00C968),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(
-                                    30.0,
-                                  ),
-                                ),
-                                onPressed: () {},
-                                child: Text(
-                                  'Submit',
-                                  style: viewAllStyle.copyWith(
-                                    color: Colors.white,
-                                    fontSize: 16.0,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 26.0),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 40.0),
+                      SizedBox(height: 20.0),
                     ],
                   ),
                 ),

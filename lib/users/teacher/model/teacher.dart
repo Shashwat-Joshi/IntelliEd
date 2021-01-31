@@ -34,6 +34,11 @@ Map classData = {
   ],
 };
 
+List<String> subjects = [
+  'maths',
+  'cs',
+];
+
 // Create announcement data
 String announcementData = "";
 
@@ -556,6 +561,54 @@ List<String> studentNames = [];
 
 // Current selectedClass
 String currentSelectedClassForYourClassData;
+
+// Map for exam names loading
+Map<String, int> examNames = {
+  'UT1': 1,
+  'UT2': 1,
+  'SA1': 1,
+  'UT3': 0,
+  'UT4': 0,
+};
+
+Map perClassMarks = {
+  'result': [
+    {
+      'name': 'Adhyansh Bharadwaj',
+      'marks': 18,
+    },
+    {
+      'name': 'Anant Jakhmola',
+      'marks': 16,
+    },
+    {
+      'name': 'Shashwat Joshi',
+      'marks': 12,
+    },
+    {
+      'name': 'Shayna Joshi',
+      'marks': 20,
+    },
+    {
+      'name': 'Vaishnavi Aggarwal',
+      'marks': 17,
+    },
+  ],
+  'maxMarks': 20.0,
+};
+
+// Data for calendar Page
+Map calendarData = {
+  'physics':
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+  'maths': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+  'english':
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+  'hindi':
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+  'chemistry':
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+};
 
 // Lorem Ipsum
 String loremIpsum =

@@ -61,3 +61,15 @@ List<Color> colorPalette = [
   Color(0xffFA861C),
   Color(0xff6C63FF),
 ];
+
+getCurrentWeek() {
+  int date = DateTime.now().day;
+  if (date <= 7)
+    return 1;
+  else if (date > 7 && date <= 14)
+    return 2;
+  else if (date > 14 && date <= 21)
+    return 3;
+  else
+    return 4;
+}
