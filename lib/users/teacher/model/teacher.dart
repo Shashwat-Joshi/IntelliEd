@@ -610,6 +610,117 @@ Map calendarData = {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
 };
 
+// Data for quiz
+/*
+  Abbreviations
+  0 -> below
+  1 -> 1
+  2 -> 2
+  3 -> 3
+*/
+Map quizData = {
+  'collaborative': {
+    '0': [
+      'Rarely participates in team/group activities.',
+      'Rarely provides thoughtful ideas in teams or class activities.',
+      'Rarely values and encourages team members.'
+    ],
+    '1': [
+      'Participates minimally and requires some prompting/motivation as a team member.',
+      'Sometimes provide thoughtful ideas in team.',
+      'Sometimes values and encourages all the team members.',
+    ],
+    '2': [
+      'A strong and self – motivated team member.',
+      'Provides thoughtful ideas in team.',
+      'Values and encourages all team members.',
+    ],
+    '3': [
+      'Act as a leader or exemplary team.',
+      'Consistently provides thoughtful ideas in teams.',
+      'Consistently values and encourages all members of teams.',
+    ],
+  },
+  'respect': {
+    '0': [
+      'Usually ignores the opinions and input of others.',
+      'Needs improvement in demonstrating respectful and helpful behavior.',
+      'Disrespectful towards teachers or school management or fellow students.',
+    ],
+    '1': [
+      'Shows growth in accepting others.',
+      'Improvement noticed in demonstrating respectful and helpful behaviors.',
+      'Apologizes and learns from mistakes.',
+    ],
+    '2': [
+      'Listens and accepts the opinion of others.',
+      'Demonstrate both respectful and helpful behavior.',
+      'Is generally polite while having conversation with fellow students and school management.',
+    ],
+    '3': [
+      'Seeks and accepts the opinions and input of others.',
+      'Consistently demonstrates both respectful and helpful behavior.',
+      'Maintains 2 conduct while conversating in school premises.',
+    ],
+  },
+  'initiative': {
+    '0': [
+      'Seldom demonstrates curiosity in learning activities.',
+      'Rarely engages in learning activities.',
+      'Lacks perseverance',
+      'Rarely uses alternate resources to assist with learning new skills.',
+    ],
+    '1': [
+      'Occasionally demonstrates curiosity and interests in learning.',
+      'Sometimes engages in learning activities.',
+      'Occasionally perseveres',
+      'Shows growth in resourcefulness and sometimes seeks assistance.',
+    ],
+    '2': [
+      'Demonstrates curiosity and interests in learning.',
+      'Engage in learning activities.',
+      'Demonstrates perseverance.',
+      'Demonstrates resourcefulness and seeks assistance as necessary.'
+    ],
+    '3': [
+      'Initiates curiosity and interests in learning.',
+      'Independently engages in learning activities.',
+      'Consistently perseveres and problem solving.',
+      'Demonstrates resourcefulness and seeks assistance when crucial.',
+    ],
+  },
+  'workHabits': {
+    '0': [
+      'Seldom punctual and prepared for new things.',
+      'Rarely displays a positive/optimistic attitude.',
+      'Needs to remain focused on task.',
+      'Does not strives to meet full potential.',
+      'Needs to be more punctual in completing tasks and meeting deadlines.',
+    ],
+    '1': [
+      'Occasionally punctual and prepared for new roles.',
+      'Shows improvement in displaying a positive attitude.',
+      'Sometimes completes the task but is late.',
+      'Beginning to strive to meet potential.',
+      'Inconsistent with task completion but improving day by day.',
+    ],
+    '2': [
+      'Punctual and prepared for new activities and tasks.',
+      'Displays a positive and optimistic attitude.',
+      'Completes the task in hand and is generally on time.',
+      'Strives to meet full potential',
+      'Complete tasks and meets deadline on a consistent basis.',
+    ],
+    '3': [
+      'Always punctual and prepared.',
+      'Consistently displays a positive attitude.',
+      'Always completes the tasks and that too before deadline.',
+      'Always strives to achieve full potential.',
+      'Spends extra time and care to ensure tasks are well done.',
+    ],
+  }
+};
+
 // Lorem Ipsum
 String loremIpsum =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At proin nisi nunc quam. ";

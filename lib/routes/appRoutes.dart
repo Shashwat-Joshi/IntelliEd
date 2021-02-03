@@ -11,12 +11,12 @@ Route onGeneratedRoutes(RouteSettings settings) {
   switch (settings.name) {
 
     //TODO: Not a todo a marker: Below are the AUTH PAGE ROUTES
-    case '/':
-      return PageRouteBuilder(
-        transitionDuration: Duration(milliseconds: 0),
-        pageBuilder: (context, _, __) => AuthPage1(),
-      );
-      break;
+    // case '/':
+    //   return PageRouteBuilder(
+    //     transitionDuration: Duration(milliseconds: 0),
+    //     pageBuilder: (context, _, __) => AuthPage1(),
+    //   );
+    //   break;
     case '/login':
       return PageRouteBuilder(
         transitionDuration: Duration(milliseconds: 300),
@@ -88,7 +88,7 @@ Route onGeneratedRoutes(RouteSettings settings) {
 
     //TODO: Not a todo a marker: Below are the TEACHER ROUTES
     // Change this route to /teacher
-    case '/teacher':
+    case '/':
       return CupertinoPageRoute(
         builder: (context) => TeacherHomePage(),
       );
