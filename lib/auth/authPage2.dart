@@ -322,8 +322,8 @@ class _AuthPage2State extends State<AuthPage2> {
         overflow: Overflow.clip,
         children: [
           AnimatedPositioned(
-            curve: Curves.easeIn,
-            duration: Duration(milliseconds: 200),
+            curve: Curves.linear,
+            duration: Duration(milliseconds: 300),
             left: selected == 0
                 ? 0.0
                 : selected == 1
@@ -346,7 +346,9 @@ class _AuthPage2State extends State<AuthPage2> {
           ),
           Row(
             children: [
-              GestureDetector(
+              InkWell(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () {
                   setState(() {
                     selected = 0;
@@ -365,7 +367,9 @@ class _AuthPage2State extends State<AuthPage2> {
                   ),
                 ),
               ),
-              GestureDetector(
+              InkWell(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () {
                   setState(() {
                     selected = 1;
@@ -384,7 +388,9 @@ class _AuthPage2State extends State<AuthPage2> {
                   ),
                 ),
               ),
-              GestureDetector(
+              InkWell(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () {
                   setState(() {
                     selected = 2;
@@ -419,6 +425,9 @@ class _AuthPage2State extends State<AuthPage2> {
           break;
         case 1:
           Navigator.pushNamed(context, '/teacher');
+          break;
+        case 2:
+          Navigator.pushNamed(context, '/parent');
           break;
         default:
       }

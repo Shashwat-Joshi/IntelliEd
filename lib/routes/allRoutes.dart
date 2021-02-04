@@ -25,3 +25,6 @@ export 'package:IntelliEd/users/teacher/presentation/pages/submitAttendancePage.
 export 'package:IntelliEd/users/teacher/presentation/pages/yourOtherClasses.dart';
 export 'package:IntelliEd/users/teacher/presentation/pages/classWiseMarksPage.dart';
 export 'package:IntelliEd/users/teacher/presentation/pages/calendarPage.dart';
+
+// Parent files
+export 'package:IntelliEd/users/parent/presentation/pages/homePage.dart';

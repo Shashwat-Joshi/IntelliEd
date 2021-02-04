@@ -88,7 +88,7 @@ Route onGeneratedRoutes(RouteSettings settings) {
 
     //TODO: Not a todo a marker: Below are the TEACHER ROUTES
     // Change this route to /teacher
-    case '/':
+    case '/teacher':
       return CupertinoPageRoute(
         builder: (context) => TeacherHomePage(),
       );
@@ -161,6 +161,13 @@ Route onGeneratedRoutes(RouteSettings settings) {
     case '/teacher/calendar':
       return CupertinoPageRoute(
         builder: (context) => TeacherCalendarPage(),
+      );
+      break;
+
+    //TODO: Not a todo a marker: Below are the PARENT ROUTES
+    case '/':
+      return CupertinoPageRoute(
+        builder: (context) => ParentHomePage(),
       );
       break;
     default:
