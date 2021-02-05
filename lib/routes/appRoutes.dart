@@ -170,6 +170,26 @@ Route onGeneratedRoutes(RouteSettings settings) {
         builder: (context) => ParentHomePage(),
       );
       break;
+
+    // Student's Academic Performance for Parent
+    case '/parent/childPerformance/classData/0':
+      return CupertinoPageRoute(
+        builder: (context) => StudentAcademicPerformanceForParent(),
+      );
+      break;
+
+    // Student's Academic Performance for Parent
+    case '/parent/childPerformance/classData/1':
+      return CupertinoPageRoute(
+        builder: (context) => StudentCoCurricularPageForParent(),
+      );
+      break;
+
+    case '/parent/childPerformance/classData/3':
+      return CupertinoPageRoute(
+        builder: (context) => StudentAttendancePageForParent(),
+      );
+      break;
     default:
       return null;
   }

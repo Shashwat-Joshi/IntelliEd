@@ -1,17 +1,18 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/teacher/model/teacher.dart';
+import 'package:IntelliEd/users/parent/model/parent.dart';
 import 'package:IntelliEd/widgets/graphs/attendanceGraphChart.dart';
 import 'package:IntelliEd/widgets/graphs/previousAttendanceGraph.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class StudentWiseAttendancePage extends StatefulWidget {
+class StudentAttendancePageForParent extends StatefulWidget {
   @override
-  _StudentWiseAttendancePageState createState() =>
-      _StudentWiseAttendancePageState();
+  _StudentAttendancePageForParentState createState() =>
+      _StudentAttendancePageForParentState();
 }
 
-class _StudentWiseAttendancePageState extends State<StudentWiseAttendancePage> {
+class _StudentAttendancePageForParentState
+    extends State<StudentAttendancePageForParent> {
   ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class _StudentWiseAttendancePageState extends State<StudentWiseAttendancePage> {
       appBar: AppBar(
         backgroundColor: Color(0xFFB0E3FF),
         title: Text(
-          '$currentSelectedStudent',
+          '$studentName',
           style: TextStyle(
             color: Color(0xff1CAAFA),
           ),

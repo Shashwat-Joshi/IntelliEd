@@ -1,18 +1,38 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/teacher/model/teacher.dart';
-import 'package:IntelliEd/widgets/graphs/attendanceGraphChart.dart';
-import 'package:IntelliEd/widgets/graphs/previousAttendanceGraph.dart';
+import 'package:IntelliEd/users/parent/model/parent.dart';
+// import 'package:IntelliEd/users/teacher/model/teacher.dart';
+import 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/subjectWisePage.dart';
+import 'package:IntelliEd/widgets/graphs/AcademicsbarChart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class StudentWiseAttendancePage extends StatefulWidget {
+class StudentAcademicPerformanceForParent extends StatefulWidget {
   @override
-  _StudentWiseAttendancePageState createState() =>
-      _StudentWiseAttendancePageState();
+  _StudentAcademicPerformanceForParentState createState() =>
+      _StudentAcademicPerformanceForParentState();
 }
 
-class _StudentWiseAttendancePageState extends State<StudentWiseAttendancePage> {
+class _StudentAcademicPerformanceForParentState
+    extends State<StudentAcademicPerformanceForParent> {
   ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    if (studentWisefinalSubjects.isNotEmpty) {
+      studentWisefinalSubjects.clear();
+    }
+    modelStudentWiseAverageMarks.studentMarks.keys.forEach((key) {
+      studentWisefinalSubjects.add(key.toString());
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -20,7 +40,7 @@ class _StudentWiseAttendancePageState extends State<StudentWiseAttendancePage> {
       appBar: AppBar(
         backgroundColor: Color(0xFFB0E3FF),
         title: Text(
-          '$currentSelectedStudent',
+          '$studentName',
           style: TextStyle(
             color: Color(0xff1CAAFA),
           ),
@@ -42,21 +62,13 @@ class _StudentWiseAttendancePageState extends State<StudentWiseAttendancePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 30.0),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 26.0 + 7.0),
-                child: Text(
-                  'Average Attendance',
-                  style: heading2,
-                ),
-              ),
               Container(
                 margin: EdgeInsets.all(26.0),
                 height: 380.0,
                 width: size.width,
-                child: AttendanceGraphChart(
-                  student: perStudentAttendanceData['studentAverage'],
-                  classAverage: perStudentAttendanceData['classAverage'],
+                child: AcademicsBarGraph(
+                  studentAverageMarks: modelStudentWiseAverageMarks,
+                  finalSubjects: studentWisefinalSubjects,
                 ),
               ),
               Container(
@@ -101,28 +113,68 @@ class _StudentWiseAttendancePageState extends State<StudentWiseAttendancePage> {
                   ],
                 ),
               ),
-              SizedBox(height: 30.0),
+              SizedBox(height: 50.0),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 26.0 + 7.0),
                 child: Text(
-                  'Your previous attendance',
+                  'Subjects',
                   style: heading2,
                 ),
               ),
+              SizedBox(height: 20.0),
               Container(
-                margin: EdgeInsets.all(26.0),
-                height: 320.0,
-                width: size.width,
-                child: PreviousAttendanceGraph(
-                  months: getPreviousAttendanceData().keys.toList(),
-                  monthWiseAttendance:
-                      getPreviousAttendanceData().values.toList(),
+                margin: EdgeInsets.symmetric(horizontal: 26.0),
+                child: Wrap(
+                  alignment: WrapAlignment.center,
+                  children: createSubjectCardsWidget(size),
                 ),
               ),
+              SizedBox(height: 30.0),
             ],
           ),
         ),
       ),
     );
+  }
+
+  List<Widget> createSubjectCardsWidget(Size size) {
+    List<Widget> finalList = [];
+    for (int i = 0; i < studentWisefinalSubjects.length; i++) {
+      finalList.add(
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25.0),
+            color: Color(0xFFB0E3FF),
+          ),
+          margin: EdgeInsets.all(7.0),
+          height: 50.0,
+          width: size.width / 2 - 40,
+          child: FlatButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onPressed: () {
+              Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => StudentWiseSubjectWiseAcademicPage(
+                    index: i,
+                  ),
+                ),
+              );
+            },
+            child: Center(
+              child: Text(
+                studentWisefinalSubjects[i],
+                style: heading1.copyWith(
+                  fontSize: 18.0,
+                  color: Color(0xff1CAAFA),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+    return finalList;
   }
 }

@@ -28,3 +28,6 @@ export 'package:IntelliEd/users/teacher/presentation/pages/calendarPage.dart';
 
 // Parent files
 export 'package:IntelliEd/users/parent/presentation/pages/homePage.dart';
+export 'package:IntelliEd/users/parent/presentation/pages/childPerformance/academicPerformance.dart';
+export 'package:IntelliEd/users/parent/presentation/pages/childPerformance/coCurricularPage.dart';
+export 'package:IntelliEd/users/parent/presentation/pages/childPerformance/attendancePage.dart';

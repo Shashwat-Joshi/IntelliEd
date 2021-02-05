@@ -4,7 +4,7 @@ import 'package:IntelliEd/users/teacher/presentation/pages/aboutStudentsSkillPag
 import 'package:IntelliEd/widgets/rowOfViewAll.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'analyticsCardWidget.dart';
+import '../../../../widgets/analyticsCardWidget.dart';
 
 Widget teacherAnnouncementWidget(BuildContext context) => Container(
       child: Column(

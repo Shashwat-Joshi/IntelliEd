@@ -1,7 +1,7 @@
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/users/parent/model/parent.dart';
 import 'package:IntelliEd/widgets/graphs/perExamGraphChart.dart';
 import 'package:IntelliEd/widgets/graphs/perSubjectMainGraph.dart';
-import 'package:IntelliEd/users/parent/model/parent.dart';
 import 'package:IntelliEd/widgets/graphs/subjectWiseSliverAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
