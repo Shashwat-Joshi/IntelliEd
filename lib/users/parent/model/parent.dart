@@ -405,6 +405,32 @@ Map getPreviousAttendanceData() {
   return perStudentAttendanceData['previous'];
 }
 
+// Data for calendar Page
+Map calendarData = {
+  'physics':
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+  'maths': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+  'english':
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+  'hindi':
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+  'chemistry':
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+};
+
+// Data for behaviour
+Map<String, Map> behaviourChart = {
+  'result': {
+    'jan': 34.0,
+    'feb': 60.0,
+    'mar': 77.0,
+    'apr': 70.0,
+    'may': 88.0,
+    'jun': 60.0,
+    'jul': 92.0,
+  },
+};
+
 // Lorem Ipsum
 String loremIpsum =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At proin nisi nunc quam. ";

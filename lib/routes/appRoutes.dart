@@ -11,12 +11,12 @@ Route onGeneratedRoutes(RouteSettings settings) {
   switch (settings.name) {
 
     //TODO: Not a todo a marker: Below are the AUTH PAGE ROUTES
-    // case '/':
-    //   return PageRouteBuilder(
-    //     transitionDuration: Duration(milliseconds: 0),
-    //     pageBuilder: (context, _, __) => AuthPage1(),
-    //   );
-    //   break;
+    case '/':
+      return PageRouteBuilder(
+        transitionDuration: Duration(milliseconds: 0),
+        pageBuilder: (context, _, __) => AuthPage1(),
+      );
+      break;
     case '/login':
       return PageRouteBuilder(
         transitionDuration: Duration(milliseconds: 300),
@@ -165,12 +165,18 @@ Route onGeneratedRoutes(RouteSettings settings) {
       break;
 
     //TODO: Not a todo a marker: Below are the PARENT ROUTES
-    case '/':
+    // Change route to /parent
+    case '/parent':
       return CupertinoPageRoute(
         builder: (context) => ParentHomePage(),
       );
       break;
 
+    case '/parent/announcements':
+      return CupertinoPageRoute(
+        builder: (context) => ParentAnnouncementPage(),
+      );
+      break;
     // Student's Academic Performance for Parent
     case '/parent/childPerformance/classData/0':
       return CupertinoPageRoute(
@@ -178,16 +184,29 @@ Route onGeneratedRoutes(RouteSettings settings) {
       );
       break;
 
-    // Student's Academic Performance for Parent
+    // Student's Co-curricular Performance for Parent
     case '/parent/childPerformance/classData/1':
       return CupertinoPageRoute(
         builder: (context) => StudentCoCurricularPageForParent(),
       );
       break;
 
+    // Student's Attendance Performance for Parent
     case '/parent/childPerformance/classData/3':
       return CupertinoPageRoute(
         builder: (context) => StudentAttendancePageForParent(),
+      );
+      break;
+
+    case '/parent/analytics/1':
+      return CupertinoPageRoute(
+        builder: (context) => StudentSummaryForParent(),
+      );
+      break;
+
+    case '/parent/calendar':
+      return CupertinoPageRoute(
+        builder: (context) => ParentCalendarPage(),
       );
       break;
     default:

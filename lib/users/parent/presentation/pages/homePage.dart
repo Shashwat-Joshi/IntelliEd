@@ -1,6 +1,6 @@
 import 'package:IntelliEd/users/parent/model/parent.dart';
 import 'package:IntelliEd/users/parent/presentation/widgets/homePageWidgets.dart';
-import 'package:IntelliEd/users/parent/presentation/widgets/parentSliverAppBar.dart';
+import 'package:IntelliEd/users/parent/presentation/widgets/slivers/parentSliverAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

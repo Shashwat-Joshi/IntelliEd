@@ -1,15 +1,15 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
+import 'package:IntelliEd/users/parent/model/parent.dart';
+import 'package:IntelliEd/users/parent/presentation/widgets/slivers/commanSliverForParent.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AnnouncementPage extends StatefulWidget {
+class ParentAnnouncementPage extends StatefulWidget {
   @override
-  _AnnouncementPageState createState() => _AnnouncementPageState();
+  _ParentAnnouncementPageState createState() => _ParentAnnouncementPageState();
 }
 
-class _AnnouncementPageState extends State<AnnouncementPage> {
+class _ParentAnnouncementPageState extends State<ParentAnnouncementPage> {
   ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class _AnnouncementPageState extends State<AnnouncementPage> {
           controller: _scrollController,
           physics: BouncingScrollPhysics(),
           slivers: [
-            commanSliverAppBarForStudent(
+            commanSliverAppBarForParent(
               size,
               'Announcements',
               bigLoremText.substring(0, 70),

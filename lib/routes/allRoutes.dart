@@ -31,3 +31,6 @@ export 'package:IntelliEd/users/parent/presentation/pages/homePage.dart';
 export 'package:IntelliEd/users/parent/presentation/pages/childPerformance/academicPerformance.dart';
 export 'package:IntelliEd/users/parent/presentation/pages/childPerformance/coCurricularPage.dart';
 export 'package:IntelliEd/users/parent/presentation/pages/childPerformance/attendancePage.dart';
+export 'package:IntelliEd/users/parent/presentation/pages/announcementsPage.dart';
+export 'package:IntelliEd/users/parent/presentation/pages/calendarPage.dart';
+export 'package:IntelliEd/users/parent/presentation/pages/studentSummary.dart';

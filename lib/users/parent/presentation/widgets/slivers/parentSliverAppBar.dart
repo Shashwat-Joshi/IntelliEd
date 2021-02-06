@@ -12,7 +12,7 @@ parentSliverAppBarWidget(
     automaticallyImplyLeading: false,
     actions: [
       Container(
-        margin: EdgeInsets.only(right: 23.0, bottom: 10.0),
+        margin: EdgeInsets.only(right: 7.0, bottom: 8.0),
         child: Hero(
           tag: "profilepic",
           child: Material(
