@@ -24,7 +24,7 @@ class _YourReportPageState extends State<YourReportPage> {
           slivers: [
             commanSliverAppBarForStudent(
               size,
-              'Professional Interests',
+              'My Report',
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue a ut nisl blandit.',
               'assets/student/images/calendar.png',
               Color(0xFFB0E3FF),
@@ -45,7 +45,7 @@ class _YourReportPageState extends State<YourReportPage> {
                         EdgeInsets.symmetric(vertical: 26.0, horizontal: 26.0),
                     child: summaryWidget(
                       'Qualities',
-                      bigLoremText,
+                      "You posses great interpersonal skills. You are doing great with your  academics as well. Maintain a good balance and keep growing.And do remember hardwork pays off.",
                     ),
                   ),
                   Container(
@@ -57,21 +57,21 @@ class _YourReportPageState extends State<YourReportPage> {
                         SizedBox(height: 20.0),
                         summaryWidget(
                           'Professional Interest',
-                          bigLoremText,
+                          "As per the analysis we have found that you have proficiency in science and technology. So we highly recommend you to keep working. You can come with great ideas and bring a positive change in the society.",
                         ),
                         SizedBox(height: 20.0),
                         Divider(thickness: 1.2),
                         SizedBox(height: 20.0),
                         summaryWidget(
                           'Behaviour',
-                          bigLoremText,
+                          "As per the analysis we have found that you are well mannered. So we highly recommend you to keep working on your interpersonal skills. It is a never ending learning process.",
                         ),
                         SizedBox(height: 20.0),
                         Divider(thickness: 1.2),
                         SizedBox(height: 20.0),
                         summaryWidget(
                           'Academics',
-                          bigLoremText,
+                          "As per the analysis we have found that you have worked really hard to achieve good grades and came up with a nice working plan. So we highly recommend you to follow the same in the upcoming semester. You will surely come up with better results in the coming exams also.",
                         ),
                         SizedBox(height: 20.0),
                       ],

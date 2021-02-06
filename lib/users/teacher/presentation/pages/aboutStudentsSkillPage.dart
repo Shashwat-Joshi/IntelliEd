@@ -54,7 +54,7 @@ class _AboutStudentsSkillPageState extends State<AboutStudentsSkillPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'About Students Skill Page',
+                        'Students and their Skill',
                         style: heading2,
                       ),
                     ],

@@ -11,7 +11,7 @@ class CustomSliverAppBar {
 }
 
 CustomSliverAppBar parentTestAppBar = CustomSliverAppBar(
-  name: 'Lorem Ipsum',
+  name: 'Vertika',
   imagePath: 'assets/student/images/appBar-bg.png',
 );
 
@@ -38,19 +38,21 @@ class AnalyticsWidget {
 List<AnalyticsWidget> analyticsWidgetData = [
   AnalyticsWidget(
     heading: 'Child Performance',
-    subheading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subheading: "You can keep a check on your ward's performance here.",
     textColor: Color(0xff1CAAFA),
     bgColor: Color(0xffD0EEFF),
   ),
   AnalyticsWidget(
     heading: 'Student Summary',
-    subheading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subheading:
+        'Here is all you need to know about his progress in academic and extra curricular activities',
     textColor: Color(0xffFA861C),
     bgColor: Color(0xffFFE2C7),
   ),
   AnalyticsWidget(
     heading: 'Teacher Contact',
-    subheading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subheading:
+        'If you want to discuss your child performance with their teachers. Here you go.',
     textColor: Color(0xff477AFF),
     bgColor: Color(0xffD1DEFF),
   ),
@@ -74,28 +76,28 @@ List<StudentWiseAnalyticsFeaturesForParent>
     studentWiseAnalyticsFeaturesForParent = [
   StudentWiseAnalyticsFeaturesForParent(
     heading: 'Academic Performance',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading: "Check Your child's performance",
     imagePath: 'assets/student/images/analyticsVectors/1.png',
     color: Color(0xFFD0EEFF),
     textColor: Color(0xFF1CAAFA),
   ),
   StudentWiseAnalyticsFeaturesForParent(
     heading: 'Co-Curricular and Skills',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading: 'Every Child is unique check their skills and activities',
     imagePath: 'assets/student/images/analyticsVectors/2.png',
     color: Color(0xFFAFFFD9),
     textColor: Color(0xFF00C968),
   ),
   StudentWiseAnalyticsFeaturesForParent(
     heading: 'Behavior',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading: 'Here is the behaviour report of your child',
     imagePath: 'assets/student/images/analyticsVectors/3.png',
     color: Color(0xFFFFF2CA),
     textColor: Color(0xFFE3AE01),
   ),
   StudentWiseAnalyticsFeaturesForParent(
     heading: 'Attendance',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading: 'Is your child Regular to school check here.',
     imagePath: 'assets/student/images/analyticsVectors/4.png',
     color: Color(0xFFFCDCFF),
     textColor: Color(0xFFF14CFF),

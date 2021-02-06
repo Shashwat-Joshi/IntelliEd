@@ -59,28 +59,31 @@ class AnalyticsFeatures {
 List<AnalyticsFeatures> analyticsFeatures = [
   AnalyticsFeatures(
     heading: 'Class Data',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading:
+        ' Check the performance of the individual students of your class.',
     imagePath: 'assets/teacher/analyticsVectors/1.png',
     color: Color(0xFFFFE2C7),
     textColor: Color(0xFFFA861C),
   ),
   AnalyticsFeatures(
     heading: 'Attendence',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading: 'Check whether all the students are regular with the classes',
     imagePath: 'assets/student/images/analyticsVectors/4.png',
     color: Color(0xFFAFFFD9),
     textColor: Color(0xFF00C968),
   ),
   AnalyticsFeatures(
     heading: 'Your Other Classes',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading:
+        'You can keep a check of the performance of all the classes you take.',
     imagePath: 'assets/student/images/analyticsVectors/3.png',
     color: Color(0xFFFFF2CA),
     textColor: Color(0xFFE3AE01),
   ),
   AnalyticsFeatures(
     heading: 'Behaviour',
-    subHeading: 'General Questions For Teachers for Behaviourial Analysis',
+    subHeading:
+        'There is always a scope for improvement. Here you can check for that.',
     imagePath: 'assets/student/images/analyticsVectors/4.png',
     color: Color(0xFFD0EEFF),
     textColor: Color(0xFF1CAAFA),
@@ -225,28 +228,28 @@ class StudentWiseAnalyticsFeatures {
 List<StudentWiseAnalyticsFeatures> studentWiseAnalyticsFeatures = [
   StudentWiseAnalyticsFeatures(
     heading: 'Academic Performance',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading: 'Want to check your student performance? Check here',
     imagePath: 'assets/student/images/analyticsVectors/1.png',
     color: Color(0xFFD0EEFF),
     textColor: Color(0xFF1CAAFA),
   ),
   StudentWiseAnalyticsFeatures(
     heading: 'Co-Curricular and Skills',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading: 'Check out the skillset of your student',
     imagePath: 'assets/student/images/analyticsVectors/2.png',
     color: Color(0xFFAFFFD9),
     textColor: Color(0xFF00C968),
   ),
   StudentWiseAnalyticsFeatures(
-    heading: 'Behavior',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    heading: 'Behaviour',
+    subHeading: 'Your behaviour in all aspects',
     imagePath: 'assets/student/images/analyticsVectors/3.png',
     color: Color(0xFFFFF2CA),
     textColor: Color(0xFFE3AE01),
   ),
   StudentWiseAnalyticsFeatures(
     heading: 'Attendance',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading: "Check out your student's attendence",
     imagePath: 'assets/student/images/analyticsVectors/4.png',
     color: Color(0xFFFCDCFF),
     textColor: Color(0xFFF14CFF),
@@ -599,6 +602,7 @@ Map perClassMarks = {
 
 // Data for calendar Page
 Map calendarData = {
+  //TODO:
   'physics':
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
   'maths': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
@@ -609,7 +613,7 @@ Map calendarData = {
   'chemistry':
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
 };
-
+//TODO :
 // Data for quiz
 /*
   Abbreviations

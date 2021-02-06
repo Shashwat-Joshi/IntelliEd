@@ -27,7 +27,7 @@ class _ProfessionalInterestPageState extends State<ProfessionalInterestPage> {
             commanSliverAppBarForStudent(
               size,
               'Professional Interests',
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue a ut nisl blandit.',
+              'Here you may explore your field of interest with the ease of analysis.',
               'assets/student/images/calendar.png',
               Color(0xFFB0E3FF),
               Color(0xFF1CAAFA),
@@ -47,7 +47,10 @@ class _ProfessionalInterestPageState extends State<ProfessionalInterestPage> {
                     ),
                   ),
                   SizedBox(height: 10.0),
-                  summaryWidget('Summary', bigLoremText),
+                  summaryWidget(
+                      'Summary',
+                      //Todo: Text Changed
+                      "As per the analysis we have found that you have worked really hard to achieve good grades and came up with a nice working plan. So we highly recommend you to follow the same in the upcoming semester. You will surely come up with better results in the coming exams also."),
                   SizedBox(height: 20.0),
                 ],
               ),

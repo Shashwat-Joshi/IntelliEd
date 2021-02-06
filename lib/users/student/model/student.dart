@@ -79,14 +79,15 @@ List<AnalyticsFeatures> analyticsFeatures = [
   ),
   AnalyticsFeatures(
     heading: 'Professional Interests',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    subHeading:
+        'Here you may explore your field of interest with the ease of analysis.',
     imagePath: 'assets/student/images/analyticsVectors/5.png',
     color: Color(0xFFB8F7FF),
     textColor: Color(0xFF00A5BB),
   ),
   AnalyticsFeatures(
-    heading: 'Your Report',
-    subHeading: 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
+    heading: 'My Report',
+    subHeading: 'We have updated the report as per the survey. Do check it.',
     imagePath: 'assets/student/images/analyticsVectors/5.png',
     color: Color(0xFFF3E3A8),
     textColor: Color(0xFFA19361),

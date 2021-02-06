@@ -63,7 +63,9 @@ class _MentalWellnessQuizPageState extends State<MentalWellnessQuizPage> {
                           margin: EdgeInsets.only(
                               left: 30.0, right: size.width * 0.30),
                           child: Text(
-                            bigLoremText.substring(0, 100),
+                            //bigLoremText.substring(0, 100),
+                            //Todo: Change the Text Here
+                            "Here we have a bunch of questions for you to make you realise who you are.",
                             style: viewAllStyle.copyWith(
                               color: Colors.grey,
                               fontWeight: FontWeight.w500,

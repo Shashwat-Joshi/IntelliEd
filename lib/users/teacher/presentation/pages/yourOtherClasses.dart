@@ -44,7 +44,9 @@ class _YourOtherClassesState extends State<YourOtherClasses> {
                 SizedBox(height: 20.0),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 26.0),
-                  child: Text(bigLoremText.substring(0, 120)),
+                  //Todo: Changes Done for future reference
+                  child: Text(
+                      "The page is divided into two groups. Here you can keep a record of marks of all the students you are teaching."),
                 ),
                 SizedBox(height: 20.0),
                 Container(

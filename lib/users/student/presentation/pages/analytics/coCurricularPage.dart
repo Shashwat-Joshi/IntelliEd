@@ -61,7 +61,7 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Lorem ipsum dolor',
+                          'Inter Personal Skills',
                           style: heading2,
                         ),
                         SizedBox(height: 26.0),
@@ -86,7 +86,7 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Lorem ipsum dolor',
+                          'Skillsets',
                           style: heading2,
                         ),
                         SizedBox(height: 26.0),
@@ -107,12 +107,12 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Lorem ipsum dolor',
+                          'Analysis',
                           style: heading2,
                         ),
                         SizedBox(height: 26.0),
                         Text(
-                          bigLoremText,
+                          "Timely check is important when it comes to improvement. Co curricular activities are important in a way or the other to bring some positive changes in your personality and eliminate the negative one. So keep a timely check on the data and keep improving.",
                           style: viewAllStyle.apply(
                             color: Color(0xFFACACAC),
                           ),
