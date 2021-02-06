@@ -1,19 +1,15 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/teacher/model/teacher.dart';
-import 'package:IntelliEd/users/teacher/presentation/pages/takequizForBehaviourPage.dart';
+import 'package:IntelliEd/users/student/model/student.dart';
+import 'package:IntelliEd/users/student/presentation/pages/analytics/takeQuizForMentalWellness.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class BehaviourQuizPage extends StatefulWidget {
-  final int rollNum;
-  BehaviourQuizPage({
-    @required this.rollNum,
-  });
+class MentalWellnessQuizPage extends StatefulWidget {
   @override
-  _BehaviourQuizPageState createState() => _BehaviourQuizPageState();
+  _MentalWellnessQuizPageState createState() => _MentalWellnessQuizPageState();
 }
 
-class _BehaviourQuizPageState extends State<BehaviourQuizPage> {
+class _MentalWellnessQuizPageState extends State<MentalWellnessQuizPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -55,7 +51,7 @@ class _BehaviourQuizPageState extends State<BehaviourQuizPage> {
                           margin: EdgeInsets.only(
                               left: 30.0, right: size.width * 0.20),
                           child: Text(
-                            "${perClassMarks['result'][widget.rollNum - 1]['name']}'s Behaviour Quiz",
+                            "Mental Wellness Quiz",
                             style: heading2.copyWith(
                               fontSize: 24.0,
                               letterSpacing: 1.05,
@@ -103,7 +99,7 @@ class _BehaviourQuizPageState extends State<BehaviourQuizPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => TakeQuizForBehaviourPage(),
+                    builder: (context) => TakeQuizForMentalWellnessPage(),
                   ),
                 );
               },

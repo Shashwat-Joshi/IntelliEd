@@ -3,14 +3,17 @@ export 'package:IntelliEd/auth/authPage1.dart';
 export 'package:IntelliEd/auth/authPage2.dart';
 
 // Student files
-export 'package:IntelliEd/users/student/presentation/pages/academicPerformancePage.dart';
+export 'package:IntelliEd/users/student/presentation/pages/analytics/academicPerformancePage.dart';
 export 'package:IntelliEd/users/student/presentation/pages/announcementPage.dart';
-export 'package:IntelliEd/users/student/presentation/pages/attendancePage.dart';
+export 'package:IntelliEd/users/student/presentation/pages/analytics/attendancePage.dart';
 export 'package:IntelliEd/users/student/presentation/pages/calendarPage.dart';
-export 'package:IntelliEd/users/student/presentation/pages/coCurricularPage.dart';
+export 'package:IntelliEd/users/student/presentation/pages/analytics/coCurricularPage.dart';
 export 'package:IntelliEd/users/student/presentation/pages/homePage.dart';
 export 'package:IntelliEd/users/student/presentation/pages/profilePage.dart';
 export 'package:IntelliEd/users/student/presentation/pages/studentTimeTablePage.dart';
+export 'package:IntelliEd/users/student/presentation/pages/analytics/behaviourPage.dart';
+export 'package:IntelliEd/users/student/presentation/pages/analytics/mentalWellnessQuizPage.dart';
+export 'package:IntelliEd/users/student/presentation/pages/analytics/professionalInterestPage.dart';
 
 // Teacher files
 export 'package:IntelliEd/users/teacher/presentation/pages/announcementPage.dart';

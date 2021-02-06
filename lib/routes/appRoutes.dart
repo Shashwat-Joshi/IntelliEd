@@ -1,3 +1,4 @@
+import 'package:IntelliEd/users/student/presentation/pages/analytics/yourReportPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -62,6 +63,13 @@ Route onGeneratedRoutes(RouteSettings settings) {
       );
       break;
 
+    // Route to Behaviour Page
+    case '/student/analytics/2':
+      return CupertinoPageRoute(
+        builder: (context) => BehaviourPage(),
+      );
+      break;
+
     // Route to attendance Page
     case '/student/analytics/3':
       return CupertinoPageRoute(
@@ -71,6 +79,27 @@ Route onGeneratedRoutes(RouteSettings settings) {
           months: getPreviousAttendanceData().keys.toList(),
           monthWiseAttendance: getPreviousAttendanceData().values.toList(),
         ),
+      );
+      break;
+
+    // Route to quiz Page
+    case '/student/analytics/4':
+      return CupertinoPageRoute(
+        builder: (context) => MentalWellnessQuizPage(),
+      );
+      break;
+
+    // Route to professional interest Page
+    case '/student/analytics/5':
+      return CupertinoPageRoute(
+        builder: (context) => ProfessionalInterestPage(),
+      );
+      break;
+
+    // Route to your report Page
+    case '/student/analytics/6':
+      return CupertinoPageRoute(
+        builder: (context) => YourReportPage(),
       );
       break;
 

@@ -1,26 +1,23 @@
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/users/teacher/model/generateQuizData.dart';
-import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:flutter/material.dart';
 
-class TakeQuizForBehaviourPage extends StatefulWidget {
+class TakeQuizForMentalWellnessPage extends StatefulWidget {
   @override
-  _TakeQuizForBehaviourPageState createState() =>
-      _TakeQuizForBehaviourPageState();
+  _TakeQuizForMentalWellnessPageState createState() =>
+      _TakeQuizForMentalWellnessPageState();
 }
 
-class _TakeQuizForBehaviourPageState extends State<TakeQuizForBehaviourPage> {
-  int totalQues = 4;
+class _TakeQuizForMentalWellnessPageState
+    extends State<TakeQuizForMentalWellnessPage> {
+  int totalQues = questionsForQuiz.length;
   int currentQues = -1;
 
-  var data = [];
-  List softSkills = ['collaborative', 'respect', 'initiative', 'workHabits'];
-  List resultIndex = [-1, -1, -1, -1];
+  List resultIndex = List(optionsForQuiz.length);
 
   double heightOfOptionWidget = 63.0;
   int animationTime = 200;
-
-  Map<String, Map> result = {};
 
   PageController _pageController = PageController(
     viewportFraction: 1.0,
@@ -29,12 +26,12 @@ class _TakeQuizForBehaviourPageState extends State<TakeQuizForBehaviourPage> {
   @override
   void initState() {
     super.initState();
+    resultIndex.fillRange(0, optionsForQuiz.length, -1);
     Future.delayed(Duration(milliseconds: 10), () {
       setState(() {
         currentQues = 1;
       });
     });
-    data = generateQuizData();
   }
 
   @override
@@ -87,7 +84,9 @@ class _TakeQuizForBehaviourPageState extends State<TakeQuizForBehaviourPage> {
                               height: 7.0,
                               width: currentQues == -1
                                   ? 0
-                                  : (size.width - 52.0) / 4 * currentQues,
+                                  : (size.width - 52.0) /
+                                      questionsForQuiz.length *
+                                      currentQues,
                               color: Color(0xff00C968),
                             ),
                           ],
@@ -103,40 +102,43 @@ class _TakeQuizForBehaviourPageState extends State<TakeQuizForBehaviourPage> {
                               borderRadius: BorderRadius.circular(30.0),
                             ),
                             child: Container(
-                              margin: EdgeInsets.only(
-                                top: 75.0,
-                                left: 26.0,
-                                right: 26.0,
-                                bottom: 26.0,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                              height: (heightOfOptionWidget + 24) * 6 + 32,
+                              child: PageView(
+                                physics: NeverScrollableScrollPhysics(),
+                                controller: _pageController,
+                                scrollDirection: Axis.horizontal,
                                 children: [
-                                  Text(
-                                    loremIpsum.substring(0, 50),
-                                    style: heading2.copyWith(
-                                      color: Color(0xff294D77),
-                                    ),
-                                  ),
-                                  SizedBox(height: 10.0),
-                                  Container(
-                                    height:
-                                        (heightOfOptionWidget + 24) * 4 + 14,
-                                    child: PageView(
-                                      physics: NeverScrollableScrollPhysics(),
-                                      controller: _pageController,
-                                      scrollDirection: Axis.horizontal,
-                                      children: [
-                                        for (int page = 0;
-                                            page < data.length;
-                                            page++)
+                                  for (int page = 0;
+                                      page < questionsForQuiz.length;
+                                      page++)
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                        top: 90.0,
+                                        left: 26.0,
+                                        right: 26.0,
+                                        // bottom: 26.0,
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            questionsForQuiz[page],
+                                            style: heading2.copyWith(
+                                              color: Color(0xff294D77),
+                                              fontSize: 19.0,
+                                            ),
+                                          ),
+                                          SizedBox(height: 20.0),
                                           Container(
                                             width: size.width - 52.0,
                                             margin: EdgeInsets.all(7.0),
-                                            child: Column(
+                                            child: Wrap(
+                                              spacing: 16.0,
                                               children: [
                                                 for (int option = 0;
-                                                    option < 4;
+                                                    option < 6;
                                                     option++)
                                                   InkWell(
                                                     splashColor:
@@ -154,14 +156,13 @@ class _TakeQuizForBehaviourPageState extends State<TakeQuizForBehaviourPage> {
                                                           heightOfOptionWidget,
                                                       margin:
                                                           EdgeInsets.symmetric(
-                                                        vertical: 12.0,
+                                                        vertical: 9.0,
                                                       ),
-                                                      width: size.width,
-                                                      padding:
-                                                          EdgeInsets.symmetric(
-                                                        horizontal: 10.0,
-                                                        vertical: 10.0,
-                                                      ),
+                                                      width: (size.width -
+                                                              52.0 -
+                                                              52.0 -
+                                                              40) /
+                                                          2,
                                                       decoration: BoxDecoration(
                                                         borderRadius:
                                                             BorderRadius
@@ -184,11 +185,11 @@ class _TakeQuizForBehaviourPageState extends State<TakeQuizForBehaviourPage> {
                                                             : Colors.white,
                                                       ),
                                                       child: Align(
-                                                        alignment: Alignment
-                                                            .centerLeft,
+                                                        alignment:
+                                                            Alignment.center,
                                                         child: Text(
-                                                          data[page][option]
-                                                              ['option'],
+                                                          optionsForQuiz[
+                                                              option],
                                                           style: viewAllStyle
                                                               .copyWith(
                                                             color: resultIndex[
@@ -207,9 +208,9 @@ class _TakeQuizForBehaviourPageState extends State<TakeQuizForBehaviourPage> {
                                               ],
                                             ),
                                           ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
                                 ],
                               ),
                             ),
@@ -353,11 +354,11 @@ class _TakeQuizForBehaviourPageState extends State<TakeQuizForBehaviourPage> {
                       });
                     } else if (currentQues == totalQues) {
                       // Finish Quiz
-                      for (int i = 0; i < data.length; i++) {
-                        String key = softSkills[i];
-                        result[key] = data[i][resultIndex[i]];
+                      int finalScore = 0;
+                      for (int i = 0; i < questionsForQuiz.length; i++) {
+                        finalScore += optionsForQuiz.length - resultIndex[i];
                       }
-                      print(result);
+                      print(finalScore);
                     }
                   },
                 ),
