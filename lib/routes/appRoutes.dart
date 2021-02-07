@@ -1,4 +1,3 @@
-import 'package:IntelliEd/users/student/presentation/pages/analytics/yourReportPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -178,6 +177,11 @@ Route onGeneratedRoutes(RouteSettings settings) {
     case '/teacher/analytics/classData/1':
       return CupertinoPageRoute(
         builder: (context) => StudentWiseCoCurricularPage(),
+      );
+
+    case '/teacher/analytics/classData/2':
+      return CupertinoPageRoute(
+        builder: (context) => StudentWiseBehaviourPage(),
       );
 
     // Route to student wise attendance page

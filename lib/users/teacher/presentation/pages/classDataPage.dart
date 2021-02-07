@@ -1,4 +1,5 @@
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/users/teacher/model/examData.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/users/teacher/presentation/widgets/notFoundWidget.dart';
 import 'package:IntelliEd/users/teacher/presentation/widgets/studentWiseSubjectCardBottomSheet.dart';
@@ -141,10 +142,15 @@ class _ClassDataPageState extends State<ClassDataPage> {
                       if (!_currentFocus.hasPrimaryFocus) {
                         _currentFocus.unfocus();
                       }
-                      currentSelectedStudent =
-                          _data[_searchedList[i]['id'] - 1]['data']['name'];
-                      showStudentWiseSubjectCards(size, _searchedList[i]['id'],
-                          currentSelectedStudent, context);
+                      currentSelectedStudentId =
+                          _data[_searchedList[i]['id'] - 1]['id'];
+
+                      showStudentWiseSubjectCards(
+                          size,
+                          _searchedList[i]['id'],
+                          classDataStudent['result']
+                              [currentSelectedStudentId - 1]['name'],
+                          context);
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20.0),

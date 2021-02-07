@@ -1,5 +1,4 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/users/teacher/presentation/widgets/slivers/commonSliverForTeacher.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +26,7 @@ class _TeacherAnnouncementPageState extends State<TeacherAnnouncementPage> {
           commanSliverAppBarForTeacher(
             size,
             'Announcements',
-            bigLoremText.substring(0, 70),
+            'Here you can find all the announcements made by your teachers and school\'s management',
             'assets/announcement.png',
             Color(0xFFB0E3FF),
             Color(0xff1CAAFA),
@@ -153,12 +152,17 @@ class _TeacherAnnouncementPageState extends State<TeacherAnnouncementPage> {
                                     physics: BouncingScrollPhysics(),
                                     child: Column(
                                       children: [
-                                        for (int i = 0; i < 15; i++)
+                                        for (int i = 0;
+                                            i <
+                                                higherAuthoritiesAnnouncement
+                                                    .length;
+                                            i++)
                                           Container(
                                             child: Column(
                                               children: [
                                                 Text(
-                                                  announcementText['0'],
+                                                  higherAuthoritiesAnnouncement[
+                                                      i],
                                                   style: viewAllStyle.apply(
                                                     color: Color(0xFF636363),
                                                   ),

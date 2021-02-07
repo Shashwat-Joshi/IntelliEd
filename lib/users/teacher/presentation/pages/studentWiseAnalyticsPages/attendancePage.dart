@@ -1,4 +1,5 @@
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/users/teacher/model/examData.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/widgets/graphs/attendanceGraphChart.dart';
 import 'package:IntelliEd/widgets/graphs/previousAttendanceGraph.dart';
@@ -20,7 +21,7 @@ class _StudentWiseAttendancePageState extends State<StudentWiseAttendancePage> {
       appBar: AppBar(
         backgroundColor: Color(0xFFB0E3FF),
         title: Text(
-          '$currentSelectedStudent',
+          "${classDataStudent['result'][currentSelectedStudentId - 1]['name']}",
           style: TextStyle(
             color: Color(0xff1CAAFA),
           ),

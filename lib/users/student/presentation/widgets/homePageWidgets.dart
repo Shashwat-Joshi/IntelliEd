@@ -89,6 +89,7 @@ class _AnalyticsWidgetState extends State<AnalyticsWidget> {
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () {
+                  selectedCardWidget = i;
                   Navigator.pushNamed(
                     context,
                     '/student/analytics/$i',

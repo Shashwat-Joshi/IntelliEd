@@ -53,10 +53,6 @@ class _StudentHomePageState extends State<StudentHomePage> {
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: assignmentWidget(size, context),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20.0),
                     child: calendarWidget(context),
                   ),
                   Container(

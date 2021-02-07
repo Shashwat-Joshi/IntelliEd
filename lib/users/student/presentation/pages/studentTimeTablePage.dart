@@ -47,7 +47,7 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
             commanSliverAppBarForStudent(
               size,
               'Timetable',
-              bigLoremText.substring(0, 80),
+              'Here you can get the details of the upcoming classes.',
               'assets/student/images/timetable.png',
               Color(0xFFB0E3FF),
               analyticsFeatures[0].textColor,

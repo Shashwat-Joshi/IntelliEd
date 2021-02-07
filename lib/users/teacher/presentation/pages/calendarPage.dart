@@ -1,7 +1,7 @@
 import 'package:IntelliEd/model/commanModel.dart';
 import 'package:IntelliEd/style/theme.dart';
 // import 'package:IntelliEd/users/student/model/student.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
+// import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/users/teacher/presentation/widgets/slivers/commonSliverForTeacher.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,7 +17,7 @@ class TeacherCalendarPage extends StatefulWidget {
 
 class _TeacherCalendarPageState extends State<TeacherCalendarPage> {
   ScrollController _scrollController = ScrollController();
-  int isSelected;
+  int isSelectedWeek;
   DateTime selectedDate;
   String currentMonth;
 
@@ -27,7 +27,7 @@ class _TeacherCalendarPageState extends State<TeacherCalendarPage> {
   void initState() {
     super.initState();
     currentMonth = monthNames[DateTime.now().month - 1];
-    isSelected = getCurrentWeek();
+    isSelectedWeek = getCurrentWeek();
   }
 
   @override
@@ -122,7 +122,7 @@ class _TeacherCalendarPageState extends State<TeacherCalendarPage> {
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
-                                          isSelected = i;
+                                          isSelectedWeek = i;
                                         });
                                       },
                                       child: AnimatedContainer(
@@ -137,7 +137,7 @@ class _TeacherCalendarPageState extends State<TeacherCalendarPage> {
                                         width: 40.0,
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          color: (i == isSelected)
+                                          color: (i == isSelectedWeek)
                                               ? Color(0xff00C968)
                                               : Color(0xffD2D2D2),
                                         ),
@@ -243,33 +243,65 @@ class _TeacherCalendarPageState extends State<TeacherCalendarPage> {
                     ),
                   ),
                   SizedBox(height: 20.0),
-                  for (int i = 0; i < calendarData.length; i++)
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 26.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            calendarData.keys
-                                    .toList()[i][0]
-                                    .toString()
-                                    .toUpperCase() +
-                                calendarData.keys
-                                    .toList()[i]
-                                    .toString()
-                                    .substring(1),
-                            style: heading1.copyWith(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xff1CAAFA),
-                            ),
+                  isSelectedWeek == 2 && currentMonth == "Feb"
+                      ? Column(
+                          children: [
+                            for (int i = 0;
+                                i < calendarDataForTeacher['result'].length;
+                                i++)
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: 26.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      calendarDataForTeacher['result']
+                                              .keys
+                                              .toList()[i][0]
+                                              .toString()
+                                              .toUpperCase() +
+                                          calendarDataForTeacher['result']
+                                              .keys
+                                              .toList()[i]
+                                              .toString()
+                                              .substring(1),
+                                      style: heading1.copyWith(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xff1CAAFA),
+                                      ),
+                                    ),
+                                    SizedBox(height: 8.0),
+                                    Text(calendarDataForTeacher['result']
+                                        .values
+                                        .toList()[i]),
+                                    SizedBox(height: 30.0),
+                                  ],
+                                ),
+                              ),
+                          ],
+                        )
+                      : Container(
+                          height: size.height - 500.0,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: size.width * 0.4,
+                                child: Image(
+                                  image: AssetImage(
+                                    'assets/calendarNotFound.png',
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 20.0),
+                              Text(
+                                'No data found',
+                                style: heading1,
+                              )
+                            ],
                           ),
-                          SizedBox(height: 8.0),
-                          Text(calendarData.values.toList()[i]),
-                          SizedBox(height: 30.0),
-                        ],
-                      ),
-                    ),
+                        ),
                   SizedBox(height: 50.0),
                 ],
               ),

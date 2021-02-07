@@ -13,7 +13,7 @@ class CalendarPage extends StatefulWidget {
 
 class _CalendarPageState extends State<CalendarPage> {
   ScrollController _scrollController = ScrollController();
-  int isSelected;
+  int isSelectedWeek;
   DateTime selectedDate;
   String currentMonth;
 
@@ -21,7 +21,7 @@ class _CalendarPageState extends State<CalendarPage> {
   void initState() {
     super.initState();
     currentMonth = monthNames[DateTime.now().month - 1];
-    isSelected = getCurrentWeek();
+    isSelectedWeek = getCurrentWeek();
   }
 
   getCurrentWeek() {
@@ -87,7 +87,7 @@ class _CalendarPageState extends State<CalendarPage> {
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
-                                          isSelected = i;
+                                          isSelectedWeek = i;
                                         });
                                       },
                                       child: AnimatedContainer(
@@ -102,7 +102,7 @@ class _CalendarPageState extends State<CalendarPage> {
                                         width: 40.0,
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
-                                          color: (i == isSelected)
+                                          color: (i == isSelectedWeek)
                                               ? Color(0xff00C968)
                                               : Color(0xffD2D2D2),
                                         ),
@@ -208,33 +208,59 @@ class _CalendarPageState extends State<CalendarPage> {
                     ),
                   ),
                   SizedBox(height: 20.0),
-                  for (int i = 0; i < calendarData.length; i++)
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 26.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            calendarData.keys
-                                    .toList()[i][0]
-                                    .toString()
-                                    .toUpperCase() +
-                                calendarData.keys
-                                    .toList()[i]
-                                    .toString()
-                                    .substring(1),
-                            style: heading1.copyWith(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xff1CAAFA),
-                            ),
+                  isSelectedWeek == 2 && currentMonth == 'Feb'
+                      ? Column(
+                          children: [
+                            for (int i = 0; i < calendarData.length; i++)
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: 26.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      calendarData.keys
+                                              .toList()[i][0]
+                                              .toString()
+                                              .toUpperCase() +
+                                          calendarData.keys
+                                              .toList()[i]
+                                              .toString()
+                                              .substring(1),
+                                      style: heading1.copyWith(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xff1CAAFA),
+                                      ),
+                                    ),
+                                    SizedBox(height: 8.0),
+                                    Text(calendarData.values.toList()[i]),
+                                    SizedBox(height: 30.0),
+                                  ],
+                                ),
+                              ),
+                          ],
+                        )
+                      : Container(
+                          height: size.height - 405.0,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: size.width * 0.4,
+                                child: Image(
+                                  image: AssetImage(
+                                    'assets/calendarNotFound.png',
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 20.0),
+                              Text(
+                                'No data found',
+                                style: heading1,
+                              )
+                            ],
                           ),
-                          SizedBox(height: 8.0),
-                          Text(calendarData.values.toList()[i]),
-                          SizedBox(height: 30.0),
-                        ],
-                      ),
-                    ),
+                        ),
                 ],
               ),
             ),

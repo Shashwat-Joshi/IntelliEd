@@ -1,5 +1,5 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/teacher/model/teacher.dart';
+import 'package:IntelliEd/users/teacher/model/examData.dart';
 import 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/subjectWisePage.dart';
 import 'package:IntelliEd/widgets/graphs/AcademicsbarChart.dart';
 import 'package:flutter/cupertino.dart';
@@ -21,7 +21,8 @@ class _StudentWiseAcademicPerformanceState
     if (studentWisefinalSubjects.isNotEmpty) {
       studentWisefinalSubjects.clear();
     }
-    modelStudentWiseAverageMarks.studentMarks.keys.forEach((key) {
+
+    modelStudentWiseAverageMarks[0].studentMarks.keys.forEach((key) {
       studentWisefinalSubjects.add(key.toString());
     });
 
@@ -41,7 +42,7 @@ class _StudentWiseAcademicPerformanceState
       appBar: AppBar(
         backgroundColor: Color(0xFFB0E3FF),
         title: Text(
-          '$currentSelectedStudent',
+          "${classDataStudent['result'][currentSelectedStudentId - 1]['name']}",
           style: TextStyle(
             color: Color(0xff1CAAFA),
           ),
@@ -68,7 +69,8 @@ class _StudentWiseAcademicPerformanceState
                 height: 380.0,
                 width: size.width,
                 child: AcademicsBarGraph(
-                  studentAverageMarks: modelStudentWiseAverageMarks,
+                  studentAverageMarks: modelStudentWiseAverageMarks[
+                      currentSelectedStudentId - 1],
                   finalSubjects: studentWisefinalSubjects,
                 ),
               ),

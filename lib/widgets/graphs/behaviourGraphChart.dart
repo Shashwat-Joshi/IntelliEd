@@ -31,9 +31,19 @@ class BehaviourGraphState extends State<BehaviourGraph> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                SizedBox(
-                  height: 26,
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Your Behavioral Score',
+                      style: subheading.copyWith(
+                          color: Color(0xff1CAAFA), fontSize: 18),
+                    ),
+                  ],
                 ),
+                const SizedBox(height: 38),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(right: 16.0, left: 6.0),

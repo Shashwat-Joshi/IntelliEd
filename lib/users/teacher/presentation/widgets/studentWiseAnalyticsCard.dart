@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 class StudentWiseAnalyticsWidget extends StatelessWidget {
   final Size size;
-
   StudentWiseAnalyticsWidget({@required this.size});
 
   @override

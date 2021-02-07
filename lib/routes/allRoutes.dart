@@ -14,6 +14,7 @@ export 'package:IntelliEd/users/student/presentation/pages/studentTimeTablePage.
 export 'package:IntelliEd/users/student/presentation/pages/analytics/behaviourPage.dart';
 export 'package:IntelliEd/users/student/presentation/pages/analytics/mentalWellnessQuizPage.dart';
 export 'package:IntelliEd/users/student/presentation/pages/analytics/professionalInterestPage.dart';
+export 'package:IntelliEd/users/student/presentation/pages/analytics/yourReportPage.dart';
 
 // Teacher files
 export 'package:IntelliEd/users/teacher/presentation/pages/announcementPage.dart';
@@ -28,6 +29,7 @@ export 'package:IntelliEd/users/teacher/presentation/pages/submitAttendancePage.
 export 'package:IntelliEd/users/teacher/presentation/pages/yourOtherClasses.dart';
 export 'package:IntelliEd/users/teacher/presentation/pages/classWiseMarksPage.dart';
 export 'package:IntelliEd/users/teacher/presentation/pages/calendarPage.dart';
+export 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/behaviourPage.dart';
 
 // Parent files
 export 'package:IntelliEd/users/parent/presentation/pages/homePage.dart';

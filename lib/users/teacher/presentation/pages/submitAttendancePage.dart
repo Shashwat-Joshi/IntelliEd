@@ -1,5 +1,8 @@
+import 'package:IntelliEd/routes/allRoutes.dart';
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/users/teacher/model/examData.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
+import 'package:IntelliEd/widgets/successPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,16 +20,17 @@ class _SubmitAttendancePageState extends State<SubmitAttendancePage> {
   int year = DateTime.now().year;
   DateTime selectedDate = DateTime.now();
 
-  List<int> result = [];
+  int classStrength = classDataStudent['result'].length;
+
+  List<int> result = List(classDataStudent['result'].length);
 
   @override
   void initState() {
     super.initState();
     studentNames.clear();
-    // Later replace 50 with the studentNames list length
-    for (int i = 0; i < 50; i++) {
-      studentNames.add('Shashwat Joshi');
-      result.add(0);
+    result.fillRange(0, classStrength, 0);
+    for (int i = 0; i < classStrength; i++) {
+      studentNames.add(classDataStudent['result'][i]['name']);
     }
   }
 
@@ -49,17 +53,6 @@ class _SubmitAttendancePageState extends State<SubmitAttendancePage> {
             bottomRight: Radius.circular(20.0),
           ),
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 5.0),
-            child: IconButton(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              icon: Icon(Icons.save_rounded),
-              onPressed: () {},
-            ),
-          ),
-        ],
       ),
       body: Container(
         child: Column(
@@ -124,6 +117,8 @@ class _SubmitAttendancePageState extends State<SubmitAttendancePage> {
                   child: Column(
                     children: [
                       InkWell(
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () {
                           setState(() {
                             selectAll = !selectAll;
@@ -260,6 +255,31 @@ class _SubmitAttendancePageState extends State<SubmitAttendancePage> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        splashColor: Colors.transparent,
+        backgroundColor: Color(0xff1CAAFA),
+        child: Icon(Icons.save),
+        onPressed: () {
+          print(result);
+          Navigator.push(
+            context,
+            CupertinoPageRoute(
+              builder: (context) => SuccessPage(
+                successMsg: 'Attendance submitted',
+                triggerFunction: () {
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => TeacherHomePage(),
+                    ),
+                    (route) => false,
+                  );
+                },
+              ),
+            ),
+          );
+        },
       ),
     );
   }

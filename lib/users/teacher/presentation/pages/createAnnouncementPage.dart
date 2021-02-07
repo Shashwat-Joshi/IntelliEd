@@ -1,5 +1,6 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
+import 'package:IntelliEd/users/teacher/presentation/widgets/announcementSentPage.dart';
 import 'package:flutter/material.dart';
 
 class CreateAnnouncementPage extends StatefulWidget {
@@ -355,6 +356,13 @@ class _CreateAnnouncementPageState extends State<CreateAnnouncementPage> {
         );
       } else {
         // Announcement valid
+        announcementData = "";
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AnnouncementSentPage(),
+          ),
+        );
       }
     }
   }

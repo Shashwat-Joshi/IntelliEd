@@ -27,6 +27,7 @@ dependencies:
   fl_chart: ^0.12.2
   month_picker_dialog: ^0.3.3
   font_awesome_flutter: ^8.11.0
+  flare_flutter: ^2.0.6
 
 dev_dependencies:
   flutter_test:

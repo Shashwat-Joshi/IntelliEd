@@ -1,16 +1,18 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
+import 'package:IntelliEd/users/teacher/model/examData.dart';
+import 'package:IntelliEd/users/teacher/model/teacher.dart';
+import 'package:IntelliEd/users/teacher/presentation/widgets/slivers/commonSliverForTeacher.dart';
 import 'package:IntelliEd/widgets/graphs/behaviourGraphChart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class BehaviourPage extends StatefulWidget {
+class StudentWiseBehaviourPage extends StatefulWidget {
   @override
-  _BehaviourPageState createState() => _BehaviourPageState();
+  _StudentWiseBehaviourPageState createState() =>
+      _StudentWiseBehaviourPageState();
 }
 
-class _BehaviourPageState extends State<BehaviourPage> {
+class _StudentWiseBehaviourPageState extends State<StudentWiseBehaviourPage> {
   ScrollController _scrollController = ScrollController();
   String bullet = "\u2022 ";
   @override
@@ -23,10 +25,10 @@ class _BehaviourPageState extends State<BehaviourPage> {
           controller: _scrollController,
           physics: BouncingScrollPhysics(),
           slivers: [
-            commanSliverAppBarForStudent(
+            commanSliverAppBarForTeacher(
               size,
               'Behaviour',
-              analyticsFeatures[selectedCardWidget].subHeading,
+              analyticsFeatures[3].subHeading,
               'assets/student/images/calendar.png',
               Color(0xFFB0E3FF),
               Color(0xFF1CAAFA),
@@ -41,8 +43,13 @@ class _BehaviourPageState extends State<BehaviourPage> {
                     margin: EdgeInsets.all(26.0),
                     child: BehaviourGraph(
                       monthWiseAttendance:
-                          behaviourChart['result'].values.toList(),
-                      months: behaviourChart['result'].keys.toList(),
+                          behaviourChart[currentSelectedStudentId - 1]['result']
+                              .values
+                              .toList(),
+                      months: behaviourChart[currentSelectedStudentId - 1]
+                              ['result']
+                          .keys
+                          .toList(),
                     ),
                   ),
                   SizedBox(height: 10.0),

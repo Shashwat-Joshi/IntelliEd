@@ -429,15 +429,20 @@ Map getPreviousAttendanceData() {
 
 // Data for calendar Page
 Map calendarData = {
-  'physics':
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
-  'maths': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
-  'english':
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
-  'hindi':
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
-  'chemistry':
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.',
+  'result': {
+    'chemistry':
+        'Chapter 3 - Atoms and molecules\nName the scientist who coined the term Parmanu, state the law of conservation of mass , state the law of constant proportion with an example, Slove the formula of hydrogen chloride, plate the number of particles in 8kg O2 molecules (no. of molecules from mass)',
+    'maths':
+        'Chapter 2 - polynomial\nExercise 2.2\n1. Find the value of the polynomial (x)=5x−4x2+3\n(i) x = 0,(ii) x = – 1(iii) x = 2Check whether 7+3x is a factor of 3x3+7x., Determine which of the following polynomials has (x + 1) a factoro of 3+x2+x+1,',
+    'english':
+        'Poem - Wind\nWhat are the things the wind does in the first stanza, what does the poem say the wind God winnows, what should we do to make friends with the winds, what do the last four lines of the poem means to you, how does the poem speak to the wind in the anger or with humour? Must also have seen or heard of the wind“crumbling lives."what is your response to this? Is it like the poem',
+    'history':
+        'Chapter 1 - French Revolution .\nWhy was the Bastille hated by all? , Why Did the French government increase the taxes? , Describe the event of 14th July 1789? ,what is Estates general?',
+    'biology':
+        'Chapter 5- The fundamental unit of life\nWho discovered cell and how, the main part of a typical cell, name three uni cellular organisms , why is plasma membrane called the selectively permeable membrane, who presented the cell theory, name the smallest and the largest cell',
+    'computer':
+        'Chapter 6 - Consent teacnology\nWhat is multimedia , Write three advantages of multimedia, Name three places where multimedia is used, list each component of multimedia & explain the purpose of each component ,Data encryption means.',
+  },
 };
 
 // Data for Co-Curricular main graph
@@ -566,9 +571,11 @@ List<String> questionsForQuiz = [
 
 // Data for Co-Curricular main graph
 Map<String, double> professionalInterestsMainPageData = {
-  'Art & Craft': 97.3,
-  'Sports': 77.6,
-  'Music': 97.3,
-  'Club Activity': 25.7,
-  'Others': 95.6,
+  'Space Science': 97.3,
+  'Literature': 77.6,
+  'Theoretical Computer Science': 97.3,
+  'Cyber Security': 25.7,
+  'Public Policy': 95.6,
 };
+
+int selectedCardWidget;

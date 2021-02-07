@@ -97,7 +97,7 @@ class _AttendanceAndAnalyticsWidgetState
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () {
-                  if (i == 4) {
+                  if (i == listLength - 1) {
                     showQuizDialog(context, size);
                   } else {
                     Navigator.pushNamed(

@@ -66,7 +66,7 @@ sliverAppBarWidget(
           text: TextSpan(
             children: [
               TextSpan(
-                text: 'Good Morning, $name',
+                text: 'Hello $name',
                 style: heading1.copyWith(
                   fontWeight: FontWeight.bold,
                 ),

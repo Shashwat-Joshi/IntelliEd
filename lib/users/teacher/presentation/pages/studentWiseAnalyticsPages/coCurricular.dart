@@ -1,4 +1,5 @@
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/users/teacher/model/examData.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/coCurricularMainGraph.dart';
 import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/donutGraph1.dart';
@@ -30,7 +31,7 @@ class _StudentWiseCoCurricularPageState
       appBar: AppBar(
         backgroundColor: Color(0xFFB0E3FF),
         title: Text(
-          '$currentSelectedStudent',
+          "${classDataStudent['result'][currentSelectedStudentId - 1]['name']}",
           style: TextStyle(
             color: Color(0xff1CAAFA),
           ),
@@ -76,7 +77,7 @@ class _StudentWiseCoCurricularPageState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Lorem ipsum dolor',
+                      'Inter Personal Skills',
                       style: heading2,
                     ),
                     SizedBox(height: 26.0),
@@ -101,7 +102,7 @@ class _StudentWiseCoCurricularPageState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Lorem ipsum dolor',
+                      'Skill Sets',
                       style: heading2,
                     ),
                     SizedBox(height: 26.0),
@@ -122,12 +123,12 @@ class _StudentWiseCoCurricularPageState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Lorem ipsum dolor',
+                      'Analysis',
                       style: heading2,
                     ),
                     SizedBox(height: 26.0),
                     Text(
-                      bigLoremText,
+                      'Timely check is important when it comes to improvement. Co curricular activities are important in a way or the other to bring some positive changes in your personality and eliminate the negative one. So keep a timely check on the data and keep improving.',
                       style: viewAllStyle.apply(
                         color: Color(0xFFACACAC),
                       ),

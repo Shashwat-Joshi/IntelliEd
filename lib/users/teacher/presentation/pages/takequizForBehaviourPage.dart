@@ -1,7 +1,11 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/teacher/model/generateQuizData.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
+import 'package:IntelliEd/widgets/successPage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'homePage.dart';
 
 class TakeQuizForBehaviourPage extends StatefulWidget {
   @override
@@ -358,6 +362,23 @@ class _TakeQuizForBehaviourPageState extends State<TakeQuizForBehaviourPage> {
                         result[key] = data[i][resultIndex[i]];
                       }
                       print(result);
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                          builder: (context) => SuccessPage(
+                            successMsg: 'Quiz submitted successfully',
+                            triggerFunction: () {
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                CupertinoPageRoute(
+                                  builder: (context) => TeacherHomePage(),
+                                ),
+                                (route) => false,
+                              );
+                            },
+                          ),
+                        ),
+                      );
                     }
                   },
                 ),

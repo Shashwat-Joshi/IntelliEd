@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 String logoPath = 'assets/student/images/logo.png';
 
-String tagLine =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque in.";
+String tagLine = "The Intelligent Learning Assistance Platform";
 
 List<String> monthNames = [
   'Jan',

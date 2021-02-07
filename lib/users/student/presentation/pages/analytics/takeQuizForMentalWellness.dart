@@ -1,7 +1,11 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/users/teacher/model/generateQuizData.dart';
+import 'package:IntelliEd/widgets/successPage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../homePage.dart';
 
 class TakeQuizForMentalWellnessPage extends StatefulWidget {
   @override
@@ -359,6 +363,24 @@ class _TakeQuizForMentalWellnessPageState
                         finalScore += optionsForQuiz.length - resultIndex[i];
                       }
                       print(finalScore);
+
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (context, _, __) => SuccessPage(
+                            successMsg: 'Quiz was submitted successfully',
+                            triggerFunction: () {
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                CupertinoPageRoute(
+                                  builder: (context) => StudentHomePage(),
+                                ),
+                                (route) => false,
+                              );
+                            },
+                          ),
+                        ),
+                      );
                     }
                   },
                 ),

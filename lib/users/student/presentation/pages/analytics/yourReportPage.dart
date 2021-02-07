@@ -1,5 +1,6 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/parent/model/parent.dart';
+import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class _YourReportPageState extends State<YourReportPage> {
             commanSliverAppBarForStudent(
               size,
               'My Report',
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue a ut nisl blandit.',
+              analyticsFeatures[selectedCardWidget].subHeading,
               'assets/student/images/calendar.png',
               Color(0xFFB0E3FF),
               Color(0xFF1CAAFA),
