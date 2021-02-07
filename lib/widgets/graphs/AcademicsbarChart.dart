@@ -30,7 +30,6 @@ class AcademicsBarGraphState extends State<AcademicsBarGraph> {
 
     for (int i = 0; i < widget.studentAverageMarks.studentMarks.length; i++) {
       String key = widget.finalSubjects.elementAt(i);
-      print(widget.studentAverageMarks.studentMarks[key][0]);
       items.add(makeGroupData(
           i,
           widget.studentAverageMarks.studentMarks[key][0],

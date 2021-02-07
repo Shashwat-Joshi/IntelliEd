@@ -24,6 +24,8 @@ class _StudentWiseAcademicPerformanceState
     modelStudentWiseAverageMarks.studentMarks.keys.forEach((key) {
       studentWisefinalSubjects.add(key.toString());
     });
+
+    print(studentWisefinalSubjects);
   }
 
   @override

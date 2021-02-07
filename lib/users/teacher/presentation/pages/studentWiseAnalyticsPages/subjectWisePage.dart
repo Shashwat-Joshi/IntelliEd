@@ -1,7 +1,7 @@
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/widgets/graphs/perExamGraphChart.dart';
 import 'package:IntelliEd/widgets/graphs/perSubjectMainGraph.dart';
-import 'package:IntelliEd/users/parent/model/parent.dart';
 import 'package:IntelliEd/widgets/graphs/subjectWiseSliverAppBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +37,7 @@ class _StudentWiseSubjectWiseAcademicPageState
             subjectWisecommanSliverAppBar(
               size,
               studentWisefinalSubjects[widget.index],
-              studentWiseAnalyticsFeaturesForParent[0].imagePath,
+              studentWiseAnalyticsFeatures[0].imagePath,
               Color(0xFFB0E3FF),
               Color(0xFF1CAAFA),
               this.context,
