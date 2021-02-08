@@ -67,7 +67,7 @@ class _BehaviourQuizPageState extends State<BehaviourQuizPage> {
                           margin: EdgeInsets.only(
                               left: 30.0, right: size.width * 0.30),
                           child: Text(
-                            bigLoremText.substring(0, 100),
+                            'Here we have a tried and tested approach to provide a personalised review to all the students based on the stats of the quiz.',
                             style: viewAllStyle.copyWith(
                               color: Colors.grey,
                               fontWeight: FontWeight.w500,

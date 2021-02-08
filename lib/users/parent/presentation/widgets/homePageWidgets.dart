@@ -36,7 +36,10 @@ Widget analyticsWidget(BuildContext context, Size size) => Container(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 27.0),
-          rowofViewAll('Analytics', context, '/parent/announcements'),
+          Text(
+            'Analytics',
+            style: heading2,
+          ),
           SizedBox(height: 14.0),
           Wrap(
             alignment: WrapAlignment.spaceBetween,
@@ -59,29 +62,29 @@ Widget analyticsWidget(BuildContext context, Size size) => Container(
                       color: analyticsWidgetData[i].bgColor,
                       borderRadius: BorderRadius.circular(20.0),
                     ),
+                    padding:
+                        EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
                     width: (size.width - 60) / 2,
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 15.0, horizontal: 20.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            analyticsWidgetData[i].heading,
-                            style: heading1.copyWith(
-                              fontSize: 16.0,
-                              color: analyticsWidgetData[i].textColor,
-                              fontWeight: FontWeight.w600,
-                            ),
+                    height: 220.0,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          analyticsWidgetData[i].heading,
+                          style: heading1.copyWith(
+                            fontSize: 16.0,
+                            color: analyticsWidgetData[i].textColor,
+                            fontWeight: FontWeight.w600,
                           ),
-                          SizedBox(height: 7.0),
-                          Text(
-                            analyticsWidgetData[i].subheading,
-                            style:
-                                viewAllStyle.copyWith(color: Color(0xFF717171)),
-                          ),
-                        ],
-                      ),
+                        ),
+                        SizedBox(height: 7.0),
+                        Text(
+                          analyticsWidgetData[i].subheading,
+                          style:
+                              viewAllStyle.copyWith(color: Color(0xFF717171)),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -138,15 +141,12 @@ Widget calendarWidget(BuildContext context) => Container(
         children: [
           SizedBox(height: 27.0),
           rowofViewAll('Calendar', context, '/parent/calendar'),
-          SizedBox(height: 14.0),
+          SizedBox(height: 5.0),
           Text(
-            announcementText['0'],
+            'This calender displays the syllabus covered on a weekly basis',
             style: viewAllStyle.apply(
               color: Color(0xFFACACAC),
             ),
-          ),
-          Divider(
-            thickness: 1.5,
           ),
         ],
       ),

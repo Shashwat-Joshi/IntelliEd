@@ -53,7 +53,7 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
                     child: calendarWidget(context),
                   ),
-                  SizedBox(height: 10.0),
+                  SizedBox(height: 30.0),
                 ],
               ),
             ),

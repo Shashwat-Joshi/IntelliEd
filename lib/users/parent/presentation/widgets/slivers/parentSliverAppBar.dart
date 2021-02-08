@@ -10,25 +10,6 @@ parentSliverAppBarWidget(
 ) {
   return SliverAppBar(
     automaticallyImplyLeading: false,
-    actions: [
-      Container(
-        margin: EdgeInsets.only(right: 7.0, bottom: 8.0),
-        child: Hero(
-          tag: "profilepic",
-          child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () {
-                Navigator.pushNamed(context, '/parent/profile');
-              },
-              child: profileIcon(),
-            ),
-          ),
-        ),
-      ),
-    ],
     pinned: true,
     floating: false,
     snap: false,

@@ -11,12 +11,12 @@ Route onGeneratedRoutes(RouteSettings settings) {
   switch (settings.name) {
 
     //TODO: Not a todo a marker: Below are the AUTH PAGE ROUTES
-    // case '/':
-    //   return PageRouteBuilder(
-    //     transitionDuration: Duration(milliseconds: 0),
-    //     pageBuilder: (context, _, __) => AuthPage1(),
-    //   );
-    //   break;
+    case '/':
+      return PageRouteBuilder(
+        transitionDuration: Duration(milliseconds: 0),
+        pageBuilder: (context, _, __) => AuthPage1(),
+      );
+      break;
     case '/login':
       return PageRouteBuilder(
         transitionDuration: Duration(milliseconds: 300),
@@ -199,7 +199,7 @@ Route onGeneratedRoutes(RouteSettings settings) {
 
     //TODO: Not a todo a marker: Below are the PARENT ROUTES
     // Change route to /parent
-    case '/':
+    case '/parent':
       return CupertinoPageRoute(
         builder: (context) => ParentHomePage(),
       );
@@ -244,11 +244,18 @@ Route onGeneratedRoutes(RouteSettings settings) {
       );
       break;
 
+    case '/parent/analytics/2':
+      return CupertinoPageRoute(
+        builder: (context) => TeacherProfilePage(),
+      );
+      break;
+
     case '/parent/calendar':
       return CupertinoPageRoute(
         builder: (context) => ParentCalendarPage(),
       );
       break;
+
     default:
       return null;
   }

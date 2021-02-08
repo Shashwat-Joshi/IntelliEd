@@ -427,8 +427,8 @@ List<String> higherAuthoritiesAnnouncement = [
 ];
 
 // Lorem Ipsum
-String loremIpsum =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At proin nisi nunc quam. ";
+String scoreCardText =
+    "Here is the score card for.... Keep learning, keep growing !!";
 
 // Text for co-curricular page (LOREM)
 String bigLoremText =

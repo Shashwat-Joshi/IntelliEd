@@ -1,6 +1,7 @@
 import 'package:IntelliEd/model/commanModel.dart';
 import 'package:IntelliEd/style/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AuthPage2 extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class AuthPage2 extends StatefulWidget {
 }
 
 class _AuthPage2State extends State<AuthPage2> {
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   GlobalKey<FormState> _key = GlobalKey<FormState>();
   String _schoolID, _userID, _password;
   bool isVisible = false;
@@ -23,6 +25,7 @@ class _AuthPage2State extends State<AuthPage2> {
         }
       },
       child: Scaffold(
+        key: _scaffoldKey,
         body: Container(
           height: size.height,
           width: size.width,
@@ -232,30 +235,36 @@ class _AuthPage2State extends State<AuthPage2> {
                             ),
                           ),
                           SizedBox(height: 40.0),
-                          RichText(
-                            textAlign: TextAlign.center,
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: 'Don’t have an account, ',
-                                  style: subheading.copyWith(
-                                    color: Color(0xFFA2A2A2),
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.normal,
-                                    decoration: TextDecoration.none,
-                                  ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Don’t have an account ?',
+                                style: subheading.copyWith(
+                                  color: Color(0xFFA2A2A2),
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.normal,
+                                  decoration: TextDecoration.none,
                                 ),
-                                TextSpan(
-                                  text: 'CONTACT SUPPORT',
+                              ),
+                              SizedBox(width: 3),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () {
+                                  openMailApp();
+                                },
+                                child: Text(
+                                  'CONTACT SUPPORT',
                                   style: heading2.copyWith(
                                     color: Color(0xFF1CAAFA),
-                                    fontSize: 15.0,
+                                    fontSize: 13.0,
                                     fontWeight: FontWeight.w500,
                                     decoration: TextDecoration.underline,
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                           SizedBox(height: 40.0),
                         ],
@@ -431,6 +440,27 @@ class _AuthPage2State extends State<AuthPage2> {
           break;
         default:
       }
+    }
+  }
+
+  Future openMailApp() async {
+    String url = "mailto:adhyansh1999@gmail.com";
+    bool _canLaunch = await canLaunch(url);
+    await launch(
+      url,
+    );
+    if (_canLaunch) {
+      await launch(
+        url,
+      );
+    } else {
+      _scaffoldKey.currentState.showSnackBar(
+        SnackBar(
+          content: Text(
+            'Oops something is broken from our end',
+          ),
+        ),
+      );
     }
   }
 }

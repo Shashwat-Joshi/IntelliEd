@@ -51,7 +51,7 @@ class _ParentHomePageState extends State<ParentHomePage> {
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
                     child: calendarWidget(context),
                   ),
-                  SizedBox(height: 10.0),
+                  SizedBox(height: 30.0),
                 ],
               ),
             ),

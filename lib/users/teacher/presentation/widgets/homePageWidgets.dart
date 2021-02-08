@@ -97,7 +97,7 @@ class _AttendanceAndAnalyticsWidgetState
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () {
-                  if (i == listLength - 1) {
+                  if (i == analyticsFeatures.length - 1) {
                     showQuizDialog(context, size);
                   } else {
                     Navigator.pushNamed(
@@ -241,15 +241,12 @@ Widget calendarWidget(BuildContext context) => Container(
         children: [
           SizedBox(height: 27.0),
           rowofViewAll('Calendar', context, '/teacher/calendar'),
-          SizedBox(height: 14.0),
+          SizedBox(height: 5.0),
           Text(
-            announcementText['0'],
+            'This calender displays the syllabus covered on a weekly basis',
             style: viewAllStyle.apply(
               color: Color(0xFFACACAC),
             ),
-          ),
-          Divider(
-            thickness: 1.5,
           ),
         ],
       ),

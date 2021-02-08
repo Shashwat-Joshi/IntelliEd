@@ -117,7 +117,9 @@ class _TakeQuizForBehaviourPageState extends State<TakeQuizForBehaviourPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    loremIpsum.substring(0, 50),
+                                    // '',
+                                    // TODO:
+                                    bigLoremText.substring(0, 50),
                                     style: heading2.copyWith(
                                       color: Color(0xff294D77),
                                     ),

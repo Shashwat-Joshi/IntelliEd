@@ -445,3 +445,12 @@ String loremIpsum =
 // Text for co-curricular page (LOREM)
 String bigLoremText =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At proin nisi nunc quam. Non sit metus fermentum eget semper non nullam. Placerat orci lorem gravida at purus et. Lectus commodo donec consectetur odio amet, facilisi dolor viverra. Facilisis sit malesuada ultricies scelerisque nec.";
+
+// Data for Co-Curricular main graph
+Map<String, double> professionalInterestsMainPageDataForParent = {
+  'Space Science': 97.3,
+  'Literature': 77.6,
+  'Theoretical Computer Science': 97.3,
+  'Cyber Security': 25.7,
+  'Public Policy': 95.6,
+};
