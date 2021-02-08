@@ -39,3 +39,4 @@ export 'package:IntelliEd/users/parent/presentation/pages/childPerformance/atten
 export 'package:IntelliEd/users/parent/presentation/pages/announcementsPage.dart';
 export 'package:IntelliEd/users/parent/presentation/pages/calendarPage.dart';
 export 'package:IntelliEd/users/parent/presentation/pages/studentSummary.dart';
+export 'package:IntelliEd/users/parent/presentation/pages/childPerformance/behaviourPage.dart';

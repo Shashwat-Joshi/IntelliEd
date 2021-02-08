@@ -1,6 +1,6 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
-import 'package:IntelliEd/users/student/presentation/pages/subjectWiseAcademicPage.dart';
+import 'package:IntelliEd/users/student/presentation/pages/analytics/subjectWiseAcademicPage.dart';
 import 'package:IntelliEd/widgets/graphs/AcademicsbarChart.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
 import 'package:flutter/cupertino.dart';

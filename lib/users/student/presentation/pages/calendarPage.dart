@@ -218,11 +218,13 @@ class _CalendarPageState extends State<CalendarPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      calendarData.keys
+                                      calendarData['result']
+                                              .keys
                                               .toList()[i][0]
                                               .toString()
                                               .toUpperCase() +
-                                          calendarData.keys
+                                          calendarData['result']
+                                              .keys
                                               .toList()[i]
                                               .toString()
                                               .substring(1),

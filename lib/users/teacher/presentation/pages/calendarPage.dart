@@ -1,7 +1,5 @@
 import 'package:IntelliEd/model/commanModel.dart';
 import 'package:IntelliEd/style/theme.dart';
-// import 'package:IntelliEd/users/student/model/student.dart';
-// import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/users/teacher/presentation/widgets/slivers/commonSliverForTeacher.dart';
 import 'package:flutter/cupertino.dart';

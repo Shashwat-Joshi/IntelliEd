@@ -26,7 +26,7 @@ class _ParentAnnouncementPageState extends State<ParentAnnouncementPage> {
             commanSliverAppBarForParent(
               size,
               'Announcements',
-              bigLoremText.substring(0, 70),
+              'Here you can find all the announcements made by your teachers and school\'s management',
               'assets/announcement.png',
               Color(0xFFB0E3FF),
               Color(0xFF1CAAFA),
