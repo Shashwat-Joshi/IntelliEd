@@ -137,7 +137,7 @@ class _AcademicPerformanceState extends State<AcademicPerformance> {
       finalList.add(
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25.0),
+            borderRadius: BorderRadius.circular(20.0),
             color: Color(0xFFB0E3FF),
           ),
           margin: EdgeInsets.all(7.0),

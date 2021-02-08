@@ -117,9 +117,7 @@ class _TakeQuizForBehaviourPageState extends State<TakeQuizForBehaviourPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    // '',
-                                    // TODO:
-                                    bigLoremText.substring(0, 50),
+                                    'Choose the statement that best describes the student',
                                     style: heading2.copyWith(
                                       color: Color(0xff294D77),
                                     ),

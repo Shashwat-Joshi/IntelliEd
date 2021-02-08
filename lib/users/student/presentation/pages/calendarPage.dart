@@ -211,7 +211,9 @@ class _CalendarPageState extends State<CalendarPage> {
                   isSelectedWeek == 2 && currentMonth == 'Feb'
                       ? Column(
                           children: [
-                            for (int i = 0; i < calendarData.length; i++)
+                            for (int i = 0;
+                                i < calendarData['result'].length;
+                                i++)
                               Container(
                                 margin: EdgeInsets.symmetric(horizontal: 26.0),
                                 child: Column(
@@ -235,7 +237,9 @@ class _CalendarPageState extends State<CalendarPage> {
                                       ),
                                     ),
                                     SizedBox(height: 8.0),
-                                    Text(calendarData.values.toList()[i]),
+                                    Text(calendarData['result']
+                                        .values
+                                        .toList()[i]),
                                     SizedBox(height: 30.0),
                                   ],
                                 ),

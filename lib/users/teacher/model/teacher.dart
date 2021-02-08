@@ -90,7 +90,7 @@ List<AnalyticsFeatures> analyticsFeatures = [
   AnalyticsFeatures(
     heading: 'Quiz',
     subHeading:
-        'The best way to learn is continuous learning. Try to score well!!',
+        'Create quiz for students or use cognitive assessment to grade their behaviour',
     imagePath: 'assets/student/images/analyticsVectors/5.png',
     color: Color(0xFFD1DEFF),
     textColor: Color(0xFF477AFF),
