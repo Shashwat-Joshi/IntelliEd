@@ -28,9 +28,11 @@ Route onGeneratedRoutes(RouteSettings settings) {
     // Route to student Home Page
     // convert to /student
     case '/student':
-      return CupertinoPageRoute(
-        builder: (context) => StudentHomePage(),
+      return PageRouteBuilder(
+        transitionDuration: Duration(milliseconds: 300),
+        pageBuilder: (context, _, __) => StudentHomePage(),
       );
+
       break;
 
     case '/student/profile':
@@ -117,8 +119,8 @@ Route onGeneratedRoutes(RouteSettings settings) {
     //TODO: Not a todo a marker: Below are the TEACHER ROUTES
     // Change this route to /teacher
     case '/teacher':
-      return CupertinoPageRoute(
-        builder: (context) => TeacherHomePage(),
+      return PageRouteBuilder(
+        pageBuilder: (context, _, __) => TeacherHomePage(),
       );
       break;
 
@@ -200,8 +202,8 @@ Route onGeneratedRoutes(RouteSettings settings) {
     //TODO: Not a todo a marker: Below are the PARENT ROUTES
     // Change route to /parent
     case '/parent':
-      return CupertinoPageRoute(
-        builder: (context) => ParentHomePage(),
+      return PageRouteBuilder(
+        pageBuilder: (context, _, __) => ParentHomePage(),
       );
       break;
 

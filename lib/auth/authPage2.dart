@@ -1,7 +1,13 @@
+import 'dart:convert';
 import 'package:IntelliEd/model/commanModel.dart';
+import 'package:IntelliEd/routes/allRoutes.dart';
 import 'package:IntelliEd/style/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import '../loadingPage.dart';
 
 class AuthPage2 extends StatefulWidget {
   @override
@@ -14,6 +20,37 @@ class _AuthPage2State extends State<AuthPage2> {
   String _schoolID, _userID, _password;
   bool isVisible = false;
   int selected = 1;
+  bool isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    checkSignInStatus();
+  }
+
+  checkSignInStatus() async {
+    await Hive.initFlutter();
+    await Hive.openBox('userData');
+    bool boxExists = await Hive.boxExists('userData');
+    if (boxExists) {
+      var box = Hive.box('userData');
+      var result = box.get('result').toString();
+      box = await Hive.openBox('userData');
+
+      if (result.contains('token')) {
+        Map userData = json.decode(result);
+        String user = userData.keys.toList()[1];
+        if (user == 'student') {
+          Navigator.pushReplacementNamed(context, '/student');
+        } else if (user == 'teacher') {
+          Navigator.pushReplacementNamed(context, '/teacher');
+        } else if (user == 'parent') {
+          Navigator.pushReplacementNamed(context, '/parent');
+        }
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -26,256 +63,265 @@ class _AuthPage2State extends State<AuthPage2> {
       },
       child: Scaffold(
         key: _scaffoldKey,
-        body: Container(
-          height: size.height,
-          width: size.width,
-          child: Center(
-            child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
-              child: Form(
-                key: _key,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 30.0),
+        body: isLoading
+            ? loadingPage(text: 'Signing In', size: size)
+            : Container(
+                height: size.height,
+                width: size.width,
+                child: Center(
+                  child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
+                    child: Form(
+                      key: _key,
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(height: 80.0),
-                          Image(image: AssetImage(logoPath)),
-                          SizedBox(height: 15.0),
                           Container(
-                            width: size.width / 1.35,
-                            child: Text(
-                              tagLine,
-                              style: subheading.copyWith(
-                                color: Color(0xFFA2A2A2),
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.normal,
-                                decoration: TextDecoration.none,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Column(
-                        children: [
-                          SizedBox(height: 35.0),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.0),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color(0xfff2f2f2).withOpacity(0.5),
-                                  spreadRadius: 8,
-                                  blurRadius: 12,
-                                  offset: Offset(
-                                      0, 5), // changes position of shadow
+                            margin: EdgeInsets.symmetric(horizontal: 30.0),
+                            child: Column(
+                              children: [
+                                SizedBox(height: 80.0),
+                                Image(image: AssetImage(logoPath)),
+                                SizedBox(height: 15.0),
+                                Container(
+                                  width: size.width / 1.35,
+                                  child: Text(
+                                    tagLine,
+                                    style: subheading.copyWith(
+                                      color: Color(0xFFA2A2A2),
+                                      fontSize: 15.0,
+                                      fontWeight: FontWeight.normal,
+                                      decoration: TextDecoration.none,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ),
                               ],
                             ),
-                            child: Material(
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(30.0),
-                              child: TextFormField(
-                                style: heading1.copyWith(
-                                  color: Color(0xFF1CAAFA),
-                                  fontSize: 14.0,
-                                ),
-                                decoration: customInputDecoration(
-                                  label: 'School ID',
-                                  bgColor: Color(0xFFE1F4FF),
-                                  textColor: Color(0xFF1CAAFA),
-                                ),
-                                onSaved: (schoolId) {
-                                  _schoolID = schoolId;
-                                },
-                                validator: (val) {
-                                  if (val.isEmpty) return 'Field mandatory';
-                                },
-                              ),
-                            ),
                           ),
-                          SizedBox(height: 20.0),
                           Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.0),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color(0xfff2f2f2).withOpacity(0.5),
-                                  spreadRadius: 8,
-                                  blurRadius: 12,
-                                  offset: Offset(
-                                      0, 5), // changes position of shadow
+                            margin: EdgeInsets.symmetric(horizontal: 30.0),
+                            child: Column(
+                              children: [
+                                SizedBox(height: 35.0),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color:
+                                            Color(0xfff2f2f2).withOpacity(0.5),
+                                        spreadRadius: 8,
+                                        blurRadius: 12,
+                                        offset: Offset(
+                                            0, 5), // changes position of shadow
+                                      ),
+                                    ],
+                                  ),
+                                  child: Material(
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    child: TextFormField(
+                                      style: heading1.copyWith(
+                                        color: Color(0xFF1CAAFA),
+                                        fontSize: 14.0,
+                                      ),
+                                      decoration: customInputDecoration(
+                                        label: 'School ID',
+                                        bgColor: Color(0xFFE1F4FF),
+                                        textColor: Color(0xFF1CAAFA),
+                                      ),
+                                      onSaved: (schoolId) {
+                                        _schoolID = schoolId;
+                                      },
+                                      validator: (val) {
+                                        if (val.isEmpty)
+                                          return 'Field mandatory';
+                                      },
+                                    ),
+                                  ),
                                 ),
+                                SizedBox(height: 20.0),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color:
+                                            Color(0xfff2f2f2).withOpacity(0.5),
+                                        spreadRadius: 8,
+                                        blurRadius: 12,
+                                        offset: Offset(
+                                            0, 5), // changes position of shadow
+                                      ),
+                                    ],
+                                  ),
+                                  child: Material(
+                                    shadowColor: Color(0xfff2f2f2),
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    child: TextFormField(
+                                      style: heading1.copyWith(
+                                        fontSize: 14.0,
+                                      ),
+                                      decoration: customInputDecoration(
+                                        label: 'User ID',
+                                        bgColor: Colors.white,
+                                        textColor: Color(0xFF8C8C8C),
+                                      ),
+                                      onSaved: (userId) {
+                                        _userID = userId;
+                                      },
+                                      validator: (val) {
+                                        if (val.isEmpty)
+                                          return 'Field mandatory';
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 20.0),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color:
+                                            Color(0xfff2f2f2).withOpacity(0.5),
+                                        spreadRadius: 8,
+                                        blurRadius: 12,
+                                        offset: Offset(
+                                            0, 5), // changes position of shadow
+                                      ),
+                                    ],
+                                  ),
+                                  child: Material(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    shadowColor: Color(0xfff2f2f2),
+                                    elevation: 0.0,
+                                    child: TextFormField(
+                                      style: heading1.copyWith(
+                                        fontSize: 14.0,
+                                      ),
+                                      obscureText: !isVisible,
+                                      decoration: customInputDecoration(
+                                        label: 'Password',
+                                        bgColor: Colors.white,
+                                        textColor: Color(0xFF8C8C8C),
+                                      ),
+                                      onSaved: (pass) {
+                                        _password = pass;
+                                      },
+                                      validator: (val) {
+                                        if (val.isEmpty)
+                                          return 'Field mandatory';
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 40.0),
                               ],
                             ),
-                            child: Material(
-                              shadowColor: Color(0xfff2f2f2),
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(30.0),
-                              child: TextFormField(
-                                style: heading1.copyWith(
-                                  fontSize: 14.0,
-                                ),
-                                decoration: customInputDecoration(
-                                  label: 'User ID',
-                                  bgColor: Colors.white,
-                                  textColor: Color(0xFF8C8C8C),
-                                ),
-                                onSaved: (userId) {
-                                  _userID = userId;
-                                },
-                                validator: (val) {
-                                  if (val.isEmpty) return 'Field mandatory';
-                                },
-                              ),
-                            ),
                           ),
-                          SizedBox(height: 20.0),
                           Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.0),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color(0xfff2f2f2).withOpacity(0.5),
-                                  spreadRadius: 8,
-                                  blurRadius: 12,
-                                  offset: Offset(
-                                      0, 5), // changes position of shadow
-                                ),
-                              ],
-                            ),
-                            child: Material(
-                              borderRadius: BorderRadius.circular(30.0),
-                              shadowColor: Color(0xfff2f2f2),
-                              elevation: 0.0,
-                              child: TextFormField(
-                                style: heading1.copyWith(
-                                  fontSize: 14.0,
-                                ),
-                                obscureText: !isVisible,
-                                decoration: customInputDecoration(
-                                  label: 'Password',
-                                  bgColor: Colors.white,
-                                  textColor: Color(0xFF8C8C8C),
-                                ),
-                                onSaved: (pass) {
-                                  _password = pass;
-                                },
-                                validator: (val) {
-                                  if (val.isEmpty) return 'Field mandatory';
-                                },
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 40.0),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 330.0,
-                            height: 80.0,
+                            margin: EdgeInsets.symmetric(horizontal: 30.0),
                             child: Column(
                               children: [
                                 Container(
-                                  padding: EdgeInsets.only(left: 2.0),
-                                  width: size.width,
-                                  child: Text(
-                                    'User Type',
-                                    style: subheading.copyWith(
-                                      fontSize: 15.0,
-                                      fontWeight: FontWeight.w500,
-                                      decoration: TextDecoration.none,
-                                    ),
-                                    textAlign: TextAlign.left,
+                                  width: 330.0,
+                                  height: 80.0,
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.only(left: 2.0),
+                                        width: size.width,
+                                        child: Text(
+                                          'User Type',
+                                          style: subheading.copyWith(
+                                            fontSize: 15.0,
+                                            fontWeight: FontWeight.w500,
+                                            decoration: TextDecoration.none,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                      ),
+                                      SizedBox(height: 10.0),
+                                      Material(
+                                        child: userSelectingWidget(size),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                SizedBox(height: 10.0),
-                                Material(
-                                  child: userSelectingWidget(size),
+                                SizedBox(height: 60.0),
+                                Container(
+                                  width: 153.0,
+                                  height: 43.0,
+                                  child: FlatButton(
+                                    splashColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30.0),
+                                    ),
+                                    color: Color(0xFF1CAAFA),
+                                    onPressed: () {
+                                      FocusScopeNode currentFocus =
+                                          FocusScope.of(context);
+                                      if (!currentFocus.hasPrimaryFocus) {
+                                        currentFocus.unfocus();
+                                      }
+
+                                      validator();
+                                    },
+                                    child: Text(
+                                      'Sign In',
+                                      style: subheading.copyWith(
+                                        color: Colors.white,
+                                        fontSize: 17.0,
+                                      ),
+                                    ),
+                                  ),
                                 ),
+                                SizedBox(height: 40.0),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Don’t have an account ?',
+                                      style: subheading.copyWith(
+                                        color: Color(0xFFA2A2A2),
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.normal,
+                                        decoration: TextDecoration.none,
+                                      ),
+                                    ),
+                                    SizedBox(width: 3),
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () {
+                                        openMailApp();
+                                      },
+                                      child: Text(
+                                        'CONTACT SUPPORT',
+                                        style: heading2.copyWith(
+                                          color: Color(0xFF1CAAFA),
+                                          fontSize: 13.0,
+                                          fontWeight: FontWeight.w500,
+                                          decoration: TextDecoration.underline,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 40.0),
                               ],
                             ),
                           ),
-                          SizedBox(height: 60.0),
-                          Container(
-                            width: 153.0,
-                            height: 43.0,
-                            child: FlatButton(
-                              splashColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0),
-                              ),
-                              color: Color(0xFF1CAAFA),
-                              onPressed: () {
-                                FocusScopeNode currentFocus =
-                                    FocusScope.of(context);
-                                if (!currentFocus.hasPrimaryFocus) {
-                                  currentFocus.unfocus();
-                                }
-                                validator();
-                              },
-                              child: Text(
-                                'Sign In',
-                                style: subheading.copyWith(
-                                  color: Colors.white,
-                                  fontSize: 17.0,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 40.0),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Don’t have an account ?',
-                                style: subheading.copyWith(
-                                  color: Color(0xFFA2A2A2),
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.normal,
-                                  decoration: TextDecoration.none,
-                                ),
-                              ),
-                              SizedBox(width: 3),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () {
-                                  openMailApp();
-                                },
-                                child: Text(
-                                  'CONTACT SUPPORT',
-                                  style: heading2.copyWith(
-                                    color: Color(0xFF1CAAFA),
-                                    fontSize: 13.0,
-                                    fontWeight: FontWeight.w500,
-                                    decoration: TextDecoration.underline,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 40.0),
                         ],
                       ),
                     ),
-                  ],
+                  ),
                 ),
               ),
-            ),
-          ),
-        ),
       ),
     );
   }
@@ -428,18 +474,160 @@ class _AuthPage2State extends State<AuthPage2> {
   validator() {
     if (_key.currentState.validate()) {
       _key.currentState.save();
+      setState(() {
+        isLoading = true;
+      });
       switch (selected) {
         case 0:
-          Navigator.pushNamed(context, '/student');
+          studentSignIn();
           break;
         case 1:
-          Navigator.pushNamed(context, '/teacher');
+          teacherSignIn();
           break;
         case 2:
-          Navigator.pushNamed(context, '/parent');
+          parentSignIn();
           break;
         default:
       }
+    }
+  }
+
+  // TODO: Handle try catch and timeout
+  Future studentSignIn() async {
+    try {
+      var response = await http.post(
+        "$apiUrl/student/signin",
+        body: jsonEncode(<String, String>{
+          "admissionNumber": _userID,
+          "password": _password,
+        }),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+      ).timeout(
+        Duration(seconds: 10),
+      );
+      var result = response.body.toString();
+
+      var box = await Hive.openBox('userData');
+      await box.put('result', result);
+      if (result.contains('token')) {
+        Navigator.pushAndRemoveUntil(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, _, __) => StudentHomePage(),
+          ),
+          (route) => false,
+        );
+      } else {
+        throw Error();
+      }
+    } catch (e) {
+      // Throw error
+      setState(() {
+        isLoading = false;
+      });
+      _scaffoldKey.currentState.showSnackBar(
+        SnackBar(
+          content: Text('Sign In failed'),
+          action: SnackBarAction(
+            label: 'OK',
+            onPressed: () {},
+          ),
+        ),
+      );
+    }
+  }
+
+  Future teacherSignIn() async {
+    try {
+      var response = await http.post(
+        "$apiUrl/teacher/signin",
+        body: jsonEncode(<String, String>{
+          "email": _userID,
+          "password": _password,
+        }),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+      ).timeout(
+        Duration(seconds: 10),
+      );
+      var result = response.body.toString();
+
+      var box = await Hive.openBox('userData');
+      await box.put('result', result);
+      if (result.contains('token')) {
+        Navigator.pushAndRemoveUntil(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, _, __) => TeacherHomePage(),
+          ),
+          (route) => false,
+        );
+      } else {
+        throw Error();
+      }
+    } catch (e) {
+      // Throw error
+      setState(() {
+        isLoading = false;
+      });
+      _scaffoldKey.currentState.showSnackBar(
+        SnackBar(
+          content: Text('Sign In failed'),
+          action: SnackBarAction(
+            label: 'OK',
+            onPressed: () {},
+          ),
+        ),
+      );
+    }
+  }
+
+  Future parentSignIn() async {
+    try {
+      var response = await http.post(
+        "$apiUrl/parent/signin",
+        body: jsonEncode(<String, String>{
+          "studentAdmissionNumber": _userID,
+          "password": _password,
+        }),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+      ).timeout(
+        Duration(seconds: 10),
+      );
+      var result = response.body.toString();
+
+      var box = await Hive.openBox('userData');
+      await box.put('result', result);
+      if (result.contains('token')) {
+        Navigator.pushAndRemoveUntil(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, _, __) => ParentHomePage(),
+          ),
+          (route) => false,
+        );
+      } else {
+        throw Error();
+      }
+    } catch (e) {
+      // Throw error
+      setState(() {
+        isLoading = false;
+      });
+      _scaffoldKey.currentState.showSnackBar(
+        SnackBar(
+          content: Text('Sign In failed'),
+          action: SnackBarAction(
+            label: 'OK',
+            onPressed: () {},
+          ),
+        ),
+      );
     }
   }
 

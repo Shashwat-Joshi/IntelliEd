@@ -1,3 +1,4 @@
+import 'package:IntelliEd/model/commanModel.dart';
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/widgets/profileIcon.dart';
@@ -35,9 +36,11 @@ class _TeacherProfilePageState extends State<TeacherProfilePage> {
             padding: EdgeInsets.only(right: 7.0),
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            onPressed: () {},
+            onPressed: () {
+              logOutUser(context);
+            },
             icon: Icon(
-              Icons.edit_rounded,
+              Icons.logout,
               color: Color(0xFF00C968),
             ),
           ),

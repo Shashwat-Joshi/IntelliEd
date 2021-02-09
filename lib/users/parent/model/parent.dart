@@ -15,14 +15,6 @@ CustomSliverAppBar parentTestAppBar = CustomSliverAppBar(
   imagePath: 'assets/student/images/appBar-bg.png',
 );
 
-// For announcement section
-Map<String, String> announcementText = {
-  '0': 'Winter Vacation Holiday from 25-December-2020 to 20-January-2021',
-  '1': 'Unit Test Will be starting from 30 January 2021.',
-  '2': 'New lecture uploaded on platform on Energy and Resources.',
-  '3': 'Assignment for Science to be submitted by 26th Jan',
-};
-
 // For Analytics Widget section
 class AnalyticsWidget {
   final String heading, subheading;
@@ -454,3 +446,8 @@ Map<String, double> professionalInterestsMainPageDataForParent = {
   'Cyber Security': 25.7,
   'Public Policy': 95.6,
 };
+
+List globalAnnouncementData = [];
+
+// To store all the user data from sign in
+Map userData = {};

@@ -40,16 +40,14 @@ class _ParentAnnouncementPageState extends State<ParentAnnouncementPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        for (int i = 0; i < 15; i++)
+                        for (int i = 0; i < globalAnnouncementData.length; i++)
                           Container(
                             margin: EdgeInsets.symmetric(horizontal: 26.0),
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  announcementText['0'],
-                                  style: viewAllStyle.apply(
-                                    color: Color(0xFFACACAC),
-                                  ),
+                                  globalAnnouncementData[i],
                                   textAlign: TextAlign.start,
                                 ),
                                 Divider(

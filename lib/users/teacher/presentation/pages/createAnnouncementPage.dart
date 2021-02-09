@@ -2,6 +2,9 @@ import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/users/teacher/presentation/widgets/announcementSentPage.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import '../../../../model/commanModel.dart';
+import 'dart:convert';
 
 class CreateAnnouncementPage extends StatefulWidget {
   @override
@@ -62,7 +65,9 @@ class _CreateAnnouncementPageState extends State<CreateAnnouncementPage> {
                   key: _key,
                   child: TextFormField(
                     onChanged: (val) {
-                      announcementData = val;
+                      setState(() {
+                        announcementData = val;
+                      });
                     },
                     validator: (val) {
                       if (val.isEmpty) return 'Field can\'t be empty';
@@ -192,6 +197,10 @@ class _CreateAnnouncementPageState extends State<CreateAnnouncementPage> {
             Icons.send_rounded,
           ),
           onPressed: () {
+            FocusScopeNode currentFocus = FocusScope.of(context);
+            if (!currentFocus.hasPrimaryFocus) {
+              currentFocus.unfocus();
+            }
             validate();
           },
         ),
@@ -356,14 +365,43 @@ class _CreateAnnouncementPageState extends State<CreateAnnouncementPage> {
         );
       } else {
         // Announcement valid
-        announcementData = "";
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => AnnouncementSentPage(),
-          ),
-        );
+        postAnnouncement();
       }
+    }
+  }
+
+  postAnnouncement() async {
+    print(announcementData);
+    try {
+      await http.post(
+        '$apiUrl/announcements/add',
+        body: json.encode({
+          "forStudent": students,
+          "forParent": parents,
+          "studentClass": selectedClass.substring(0, selectedClass.length - 1),
+          "section": selectedClass[selectedClass.length - 1],
+          "announcement": announcementData,
+        }),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': 'Bearer ${userData['token']}',
+        },
+      ).timeout(Duration(seconds: 10));
+      announcementData = "";
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AnnouncementSentPage(),
+        ),
+      );
+    } catch (e) {
+      _scaffoldKey.currentState.showSnackBar(SnackBar(
+        content: Text("Failed to upload announcement"),
+        action: SnackBarAction(
+          label: 'Ok',
+          onPressed: () {},
+        ),
+      ));
     }
   }
 }

@@ -1,3 +1,4 @@
+import 'package:IntelliEd/model/commanModel.dart';
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/widgets/profileIcon.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,17 @@ parentSliverAppBarWidget(
   BuildContext context,
 ) {
   return SliverAppBar(
+    actions: [
+      Padding(
+        padding: const EdgeInsets.only(right: 4.0),
+        child: IconButton(
+          icon: Icon(Icons.logout),
+          onPressed: () {
+            logOutUser(context);
+          },
+        ),
+      ),
+    ],
     automaticallyImplyLeading: false,
     pinned: true,
     floating: false,

@@ -1,6 +1,8 @@
+import 'package:IntelliEd/model/commanModel.dart';
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/widgets/profileIcon.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class StudentProfilePage extends StatefulWidget {
@@ -34,9 +36,11 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
             padding: EdgeInsets.only(right: 7.0),
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            onPressed: () {},
+            onPressed: () {
+              logOutUser(context);
+            },
             icon: Icon(
-              Icons.edit_rounded,
+              Icons.logout,
               color: Color(0xFF00C968),
             ),
           ),

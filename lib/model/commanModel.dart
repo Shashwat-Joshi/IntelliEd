@@ -1,4 +1,6 @@
+import 'package:IntelliEd/auth/authPage1.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 String logoPath = 'assets/student/images/logo.png';
 
@@ -71,4 +73,20 @@ getCurrentWeek() {
     return 3;
   else
     return 4;
+}
+
+//URL
+String apiUrl = "https://intelliedapi.azurewebsites.net";
+
+// Log Out function
+logOutUser(BuildContext context) async {
+  await Hive.deleteBoxFromDisk('userData');
+  await Hive.deleteFromDisk();
+  Navigator.pushAndRemoveUntil(
+    context,
+    MaterialPageRoute(
+      builder: (context) => AuthPage1(),
+    ),
+    (route) => false,
+  );
 }

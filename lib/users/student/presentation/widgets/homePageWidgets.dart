@@ -7,26 +7,47 @@ import 'analyticsCardWidget.dart';
 
 Widget announcementWidget(BuildContext context) => Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 27.0),
           rowofViewAll('Announcements', context, '/student/announcements'),
-          SizedBox(height: 14.0),
-          Text(
-            announcementText['0'],
-            style: viewAllStyle.apply(
-              color: Color(0xFFACACAC),
-            ),
-          ),
-          Divider(
-            thickness: 1.5,
-          ),
-          Text(
-            announcementText['0'],
-            style: viewAllStyle.apply(
-              color: Color(0xFFACACAC),
-            ),
-          ),
-          Divider(thickness: 1.5),
+          SizedBox(height: 8.0),
+          globalAnnouncementData.length == 0
+              ? Text(
+                  'No announcement records found',
+                  textAlign: TextAlign.left,
+                )
+              : globalAnnouncementData.length == 1
+                  ? Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            globalAnnouncementData[0],
+                            textAlign: TextAlign.left,
+                          ),
+                          Divider(thickness: 1.5),
+                        ],
+                      ),
+                    )
+                  : Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          for (int i = 0; i < 2; i++)
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  globalAnnouncementData[i],
+                                  textAlign: TextAlign.left,
+                                ),
+                                Divider(thickness: 1.5),
+                              ],
+                            ),
+                        ],
+                      ),
+                    ),
         ],
       ),
     );
@@ -154,15 +175,9 @@ Widget calendarWidget(BuildContext context) => Container(
         children: [
           SizedBox(height: 27.0),
           rowofViewAll('Calendar', context, '/student/calender'),
-          SizedBox(height: 14.0),
+          SizedBox(height: 5.0),
           Text(
-            announcementText['0'],
-            style: viewAllStyle.apply(
-              color: Color(0xFFACACAC),
-            ),
-          ),
-          Divider(
-            thickness: 1.5,
+            'Here you can find the syllabus covered on a weekly basis',
           ),
         ],
       ),
@@ -182,16 +197,10 @@ Widget todaysClasses(BuildContext context) => Container(
                     children: [
                       Text(
                         sampleTimeTable[i].subjectAndTeacherName,
-                        style: viewAllStyle.apply(
-                          color: Color(0xFFACACAC),
-                        ),
                       ),
                       Spacer(),
                       Text(
                         sampleTimeTable[i].timePeriod,
-                        style: viewAllStyle.apply(
-                          color: Color(0xFFACACAC),
-                        ),
                       )
                     ],
                   ),

@@ -101,13 +101,19 @@ class _TeacherAnnouncementPageState extends State<TeacherAnnouncementPage> {
                                     controller: ScrollController(),
                                     physics: BouncingScrollPhysics(),
                                     child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
-                                        for (int i = 0; i < 15; i++)
+                                        for (int i = 0;
+                                            i < globalAnnouncementData.length;
+                                            i++)
                                           Container(
                                             child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  announcementText['0'],
+                                                  globalAnnouncementData[i],
                                                   style: viewAllStyle.apply(
                                                     color: Color(0xFF636363),
                                                   ),
@@ -151,6 +157,8 @@ class _TeacherAnnouncementPageState extends State<TeacherAnnouncementPage> {
                                   child: SingleChildScrollView(
                                     physics: BouncingScrollPhysics(),
                                     child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         for (int i = 0;
                                             i <

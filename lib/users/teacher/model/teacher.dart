@@ -15,19 +15,16 @@ CustomSliverAppBar teacherTestAppBar = CustomSliverAppBar(
   imagePath: 'assets/student/images/appBar-bg.png',
 );
 
-// For announcement section
-Map<String, String> announcementText = {
-  '0': 'Winter Vacation Holiday from 25-December-2020 to 20-January-2021',
-  '1': 'Unit Test Will be starting from 30 January 2021.',
-  '2': 'New lecture uploaded on platform on Energy and Resources.',
-  '3': 'Assignment for Science to be submitted by 26th Jan',
-};
+List globalAnnouncementData = [];
+
+// To store all the user data from sign in
+Map userData = {};
 
 // Teacher other class data
 Map classData = {
-  'main': '7A',
+  'main': '9A',
   'other': [
-    '9C',
+    '7C',
     '10D',
     '12E',
   ],
@@ -39,7 +36,7 @@ List<String> subjects = [
 ];
 
 // Create announcement data
-String announcementData = "";
+String announcementData;
 
 // For Analytics features
 class AnalyticsFeatures {
@@ -195,6 +192,7 @@ List<String> getExamNames(String subject) {
   List<String> result = [];
   for (int i = 0; i < subjectData.length; i++) {
     if (subjectData[i].subjectName.toLowerCase() == subject.toLowerCase()) {
+      print('Found');
       subjectData[i].subjectWiseData.keys.forEach((key) {
         result.add(key);
       });

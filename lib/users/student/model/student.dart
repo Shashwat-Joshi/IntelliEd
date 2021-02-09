@@ -17,12 +17,7 @@ CustomSliverAppBar studentTestAppBar = CustomSliverAppBar(
     imagePath: 'assets/student/images/appBar-bg.png');
 
 // For announcement section
-Map<String, String> announcementText = {
-  '0': 'Winter Vacation Holiday from 25-December-2020 to 20-January-2021',
-  '1': 'Unit Test Will be starting from 30 January 2021.',
-  '2': 'New lecture uploaded on platform on Energy and Resources.',
-  '3': 'Assignment for Science to be submitted by 26th Jan',
-};
+List globalAnnouncementData = [];
 
 // For Analytics features
 class AnalyticsFeatures {
@@ -136,6 +131,8 @@ class StudentDetails {
   StudentDetails(this.name, this.age, this.fatherName, this.motherName,
       this.bloodGroup, this.email, this.emergencyContact, this.phoneNumbers);
 }
+
+Map userData = {};
 
 StudentDetails studentDetails = StudentDetails(
   'Shashwat Joshi',

@@ -73,13 +73,16 @@ commanSliverAppBarForStudent(
               TextSpan(text: '\n'),
               TextSpan(
                 text: '$headingText',
-                style: heading1.copyWith(color: textColor),
+                style: heading1.copyWith(
+                  color: textColor,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               TextSpan(
                 text: '\n$subheadingtext',
                 style: subheading.copyWith(
                   color: Colors.white,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               TextSpan(text: '\n'),
@@ -97,9 +100,9 @@ commanSliverAppBarForStudent(
             ),
           ),
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
+            filter: ImageFilter.blur(sigmaX: 50.0, sigmaY: 25.0),
             child: Container(
-              decoration: BoxDecoration(color: Colors.white.withOpacity(0.2)),
+              decoration: BoxDecoration(color: Colors.grey.withOpacity(0.2)),
             ),
           ),
         ),

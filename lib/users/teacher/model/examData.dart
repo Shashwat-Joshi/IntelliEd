@@ -214,6 +214,69 @@ List<SubjectWiseData> subjectData = [
     },
     subjectName: "CS",
   ),
+  SubjectWiseData(
+    subjectWiseData: {
+      "general": [
+        [82, 77, 95],
+        [88, 86, 84],
+      ],
+      "UT1": [
+        [28, 19, 20, 19, 21, 20],
+        40
+      ],
+      "UT2": [
+        [27, 22, 21, 19, 22, 21],
+        40
+      ],
+      "SA1": [
+        [57, 36, 36, 38, 33, 35],
+        70
+      ],
+    },
+    subjectName: "Language",
+  ),
+  SubjectWiseData(
+    subjectWiseData: {
+      "general": [
+        [68, 77, 89],
+        [73, 83, 71],
+      ],
+      "UT1": [
+        [33, 21, 20, 19, 22, 23],
+        40
+      ],
+      "UT2": [
+        [33, 19, 18, 18, 21, 21],
+        40
+      ],
+      "SA1": [
+        [22, 31, 35, 34, 34, 33],
+        70
+      ],
+    },
+    subjectName: "Biology",
+  ),
+  SubjectWiseData(
+    subjectWiseData: {
+      "general": [
+        [88, 73, 95],
+        [90, 87, 77],
+      ],
+      "UT1": [
+        [23, 20, 19, 20, 22, 19],
+        40
+      ],
+      "UT2": [
+        [23, 20, 20, 21, 22, 18],
+        40
+      ],
+      "SA1": [
+        [4, 36, 38, 31, 30, 38],
+        70
+      ],
+    },
+    subjectName: "Chemistry",
+  ),
 ];
 
 // Data for class data page
