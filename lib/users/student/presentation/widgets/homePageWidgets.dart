@@ -16,6 +16,9 @@ Widget announcementWidget(BuildContext context) => Container(
               ? Text(
                   'No announcement records found',
                   textAlign: TextAlign.left,
+                  style: viewAllStyle.copyWith(
+                    color: Colors.grey,
+                  ),
                 )
               : globalAnnouncementData.length == 1
                   ? Container(
@@ -25,6 +28,9 @@ Widget announcementWidget(BuildContext context) => Container(
                           Text(
                             globalAnnouncementData[0],
                             textAlign: TextAlign.left,
+                            style: viewAllStyle.copyWith(
+                              color: Colors.grey,
+                            ),
                           ),
                           Divider(thickness: 1.5),
                         ],
@@ -41,6 +47,9 @@ Widget announcementWidget(BuildContext context) => Container(
                                 Text(
                                   globalAnnouncementData[i],
                                   textAlign: TextAlign.left,
+                                  style: viewAllStyle.copyWith(
+                                    color: Colors.grey,
+                                  ),
                                 ),
                                 Divider(thickness: 1.5),
                               ],
@@ -178,6 +187,9 @@ Widget calendarWidget(BuildContext context) => Container(
           SizedBox(height: 5.0),
           Text(
             'Here you can find the syllabus covered on a weekly basis',
+            style: viewAllStyle.copyWith(
+              color: Colors.grey,
+            ),
           ),
         ],
       ),
@@ -197,10 +209,16 @@ Widget todaysClasses(BuildContext context) => Container(
                     children: [
                       Text(
                         sampleTimeTable[i].subjectAndTeacherName,
+                        style: viewAllStyle.copyWith(
+                          color: Colors.grey,
+                        ),
                       ),
                       Spacer(),
                       Text(
                         sampleTimeTable[i].timePeriod,
+                        style: viewAllStyle.copyWith(
+                          color: Colors.grey,
+                        ),
                       )
                     ],
                   ),

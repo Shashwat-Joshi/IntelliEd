@@ -472,8 +472,13 @@ class _AuthPage2State extends State<AuthPage2> {
   }
 
   validator() {
+    _key.currentState.save();
+
+    _schoolID = _schoolID.trim();
+    _userID = _userID.trim();
+    _password = _password.trim();
+
     if (_key.currentState.validate()) {
-      _key.currentState.save();
       setState(() {
         isLoading = true;
       });

@@ -21,7 +21,7 @@ class _AuthPage1State extends State<AuthPage1> {
   }
 
   checkSignInStatus() {
-    Future.delayed(Duration(seconds: 3), () async {
+    Future.delayed(Duration(seconds: 2), () async {
       await Hive.initFlutter();
       await Hive.openBox('userData');
 

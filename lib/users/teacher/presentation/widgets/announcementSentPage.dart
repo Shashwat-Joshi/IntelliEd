@@ -15,8 +15,8 @@ class _AnnouncementSentPageState extends State<AnnouncementSentPage> {
     Future.delayed(Duration(milliseconds: 2000), () {
       Navigator.pushAndRemoveUntil(
         context,
-        CupertinoPageRoute(
-          builder: (context) => TeacherHomePage(),
+        PageRouteBuilder(
+          pageBuilder: (context, _, __) => TeacherHomePage(),
         ),
         (route) => false,
       );

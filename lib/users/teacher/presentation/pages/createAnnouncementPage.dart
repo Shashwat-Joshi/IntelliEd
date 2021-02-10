@@ -1,3 +1,4 @@
+import 'package:IntelliEd/loadingPage.dart';
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/users/teacher/presentation/widgets/announcementSentPage.dart';
@@ -18,6 +19,8 @@ class _CreateAnnouncementPageState extends State<CreateAnnouncementPage> {
   String selectedClass;
   bool students, parents;
 
+  bool isLoading = false;
+
   @override
   void initState() {
     super.initState();
@@ -35,176 +38,182 @@ class _CreateAnnouncementPageState extends State<CreateAnnouncementPage> {
           currentFocus.unfocus();
         }
       },
-      child: Scaffold(
-        key: _scaffoldKey,
-        appBar: AppBar(
-          backgroundColor: Color(0xFFB0E3FF),
-          title: Text(
-            'Create Announcement',
-            style: TextStyle(
-              color: Color(0xff1CAAFA),
-            ),
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20.0),
-              bottomRight: Radius.circular(20.0),
-            ),
-          ),
-        ),
-        body: Container(
-          height: size.height - 56.0,
-          margin: EdgeInsets.symmetric(horizontal: 26.0),
-          child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 26.0),
-                Form(
-                  key: _key,
-                  child: TextFormField(
-                    onChanged: (val) {
-                      setState(() {
-                        announcementData = val;
-                      });
-                    },
-                    validator: (val) {
-                      if (val.isEmpty) return 'Field can\'t be empty';
-                    },
-                    initialValue: announcementData,
-                    minLines: 10,
-                    maxLines: 10,
-                    maxLength: 250,
-                    scrollPhysics: BouncingScrollPhysics(),
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(20.0),
-                      hintText: 'Type your message here...',
-                      alignLabelWithHint: true,
-                      filled: true,
-                      fillColor: Color(0xffF1F1F1),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        borderSide: BorderSide.none,
-                      ),
-                    ),
+      child: isLoading
+          ? Scaffold(
+              body: loadingPage(text: 'Processing', size: size),
+            )
+          : Scaffold(
+              key: _scaffoldKey,
+              appBar: AppBar(
+                backgroundColor: Color(0xFFB0E3FF),
+                title: Text(
+                  'Create Announcement',
+                  style: TextStyle(
+                    color: Color(0xff1CAAFA),
                   ),
                 ),
-                SizedBox(height: 30.0),
-                Row(
-                  children: [
-                    SizedBox(width: 2.0),
-                    Text(
-                      'Send To',
-                      style: heading1.copyWith(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Spacer(),
-                    InkWell(
-                      splashColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () {
-                        showOtherClassesBottomSheet(size);
-                      },
-                      child: Container(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Class $selectedClass",
-                              style: heading1.copyWith(
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff1CAAFA),
-                              ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20.0),
+                    bottomRight: Radius.circular(20.0),
+                  ),
+                ),
+              ),
+              body: Container(
+                height: size.height - 56.0,
+                margin: EdgeInsets.symmetric(horizontal: 26.0),
+                child: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 26.0),
+                      Form(
+                        key: _key,
+                        child: TextFormField(
+                          onChanged: (val) {
+                            setState(() {
+                              announcementData = val;
+                            });
+                          },
+                          validator: (val) {
+                            if (val.isEmpty) return 'Field can\'t be empty';
+                            if (val.length >= 250) return 'Word limit exceeded';
+                          },
+                          initialValue: announcementData,
+                          minLines: 10,
+                          maxLines: 10,
+                          maxLength: 250,
+                          scrollPhysics: BouncingScrollPhysics(),
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(20.0),
+                            hintText: 'Type your message here...',
+                            alignLabelWithHint: true,
+                            filled: true,
+                            fillColor: Color(0xffF1F1F1),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                              borderSide: BorderSide.none,
                             ),
-                            SizedBox(width: 15.0),
-                            Icon(
-                              Icons.cast_for_education_rounded,
-                              size: 22.0,
-                              color: Color(0xff1CAAFA),
-                            )
-                          ],
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 2.0),
-                  ],
-                ),
-                SizedBox(height: 30.0),
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  children: [
-                    Container(
-                      width: size.width / 2 - 52.0,
-                      child: Row(
+                      SizedBox(height: 30.0),
+                      Row(
                         children: [
-                          Checkbox(
-                            activeColor: Color(0xff1CAAFA),
-                            value: students,
-                            onChanged: (val) {
-                              setState(() {
-                                students = val;
-                              });
-                            },
-                          ),
+                          SizedBox(width: 2.0),
                           Text(
-                            'Students',
-                            style: subheading.copyWith(
-                              fontSize: 15.0,
+                            'Send To',
+                            style: heading1.copyWith(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Spacer(),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () {
+                              showOtherClassesBottomSheet(size);
+                            },
+                            child: Container(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Class $selectedClass",
+                                    style: heading1.copyWith(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xff1CAAFA),
+                                    ),
+                                  ),
+                                  SizedBox(width: 15.0),
+                                  Icon(
+                                    Icons.cast_for_education_rounded,
+                                    size: 22.0,
+                                    color: Color(0xff1CAAFA),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 2.0),
+                        ],
+                      ),
+                      SizedBox(height: 30.0),
+                      Wrap(
+                        alignment: WrapAlignment.center,
+                        children: [
+                          Container(
+                            width: size.width / 2 - 52.0,
+                            child: Row(
+                              children: [
+                                Checkbox(
+                                  activeColor: Color(0xff1CAAFA),
+                                  value: students,
+                                  onChanged: (val) {
+                                    setState(() {
+                                      students = val;
+                                    });
+                                  },
+                                ),
+                                Text(
+                                  'Students',
+                                  style: subheading.copyWith(
+                                    fontSize: 15.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: size.width / 2,
+                            child: Row(
+                              children: [
+                                Checkbox(
+                                  activeColor: Color(0xff1CAAFA),
+                                  value: parents,
+                                  onChanged: (val) {
+                                    setState(() {
+                                      parents = val;
+                                    });
+                                  },
+                                ),
+                                Text(
+                                  'Parents',
+                                  style: subheading.copyWith(
+                                    fontSize: 15.0,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
-                    ),
-                    Container(
-                      width: size.width / 2,
-                      child: Row(
-                        children: [
-                          Checkbox(
-                            activeColor: Color(0xff1CAAFA),
-                            value: parents,
-                            onChanged: (val) {
-                              setState(() {
-                                parents = val;
-                              });
-                            },
-                          ),
-                          Text(
-                            'Parents',
-                            style: subheading.copyWith(
-                              fontSize: 15.0,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                      SizedBox(height: 26.0),
+                    ],
+                  ),
                 ),
-                SizedBox(height: 26.0),
-              ],
+              ),
+              floatingActionButton: FloatingActionButton(
+                splashColor: Colors.transparent,
+                highlightElevation: 0.0,
+                elevation: 0.0,
+                backgroundColor: Color(0xff1CAAFA),
+                child: Icon(
+                  Icons.send_rounded,
+                ),
+                onPressed: () {
+                  FocusScopeNode currentFocus = FocusScope.of(context);
+                  if (!currentFocus.hasPrimaryFocus) {
+                    currentFocus.unfocus();
+                  }
+
+                  validate();
+                },
+              ),
             ),
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          splashColor: Colors.transparent,
-          highlightElevation: 0.0,
-          elevation: 0.0,
-          backgroundColor: Color(0xff1CAAFA),
-          child: Icon(
-            Icons.send_rounded,
-          ),
-          onPressed: () {
-            FocusScopeNode currentFocus = FocusScope.of(context);
-            if (!currentFocus.hasPrimaryFocus) {
-              currentFocus.unfocus();
-            }
-            validate();
-          },
-        ),
-      ),
     );
   }
 
@@ -371,7 +380,9 @@ class _CreateAnnouncementPageState extends State<CreateAnnouncementPage> {
   }
 
   postAnnouncement() async {
-    print(announcementData);
+    setState(() {
+      isLoading = true;
+    });
     try {
       await http.post(
         '$apiUrl/announcements/add',
@@ -390,11 +401,14 @@ class _CreateAnnouncementPageState extends State<CreateAnnouncementPage> {
       announcementData = "";
       Navigator.push(
         context,
-        MaterialPageRoute(
-          builder: (context) => AnnouncementSentPage(),
+        PageRouteBuilder(
+          pageBuilder: (context, _, __) => AnnouncementSentPage(),
         ),
       );
     } catch (e) {
+      setState(() {
+        isLoading = false;
+      });
       _scaffoldKey.currentState.showSnackBar(SnackBar(
         content: Text("Failed to upload announcement"),
         action: SnackBarAction(

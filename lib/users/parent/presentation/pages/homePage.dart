@@ -135,6 +135,9 @@ class _ParentHomePageState extends State<ParentHomePage> {
               thickness: 4.0,
               controller: _scrollController,
               child: RefreshIndicator(
+                backgroundColor: Color(0xff43A978),
+                color: Colors.white,
+                displacement: 40.0,
                 onRefresh: () {
                   setState(() {
                     isLoading = true;

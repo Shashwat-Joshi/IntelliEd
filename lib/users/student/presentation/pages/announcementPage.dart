@@ -1,3 +1,4 @@
+import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
 import 'package:flutter/cupertino.dart';
@@ -48,6 +49,9 @@ class _AnnouncementPageState extends State<AnnouncementPage> {
                                 Text(
                                   globalAnnouncementData[i],
                                   textAlign: TextAlign.left,
+                                  style: viewAllStyle.copyWith(
+                                    color: Colors.grey,
+                                  ),
                                 ),
                                 Divider(
                                   thickness: 1.5,

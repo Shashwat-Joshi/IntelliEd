@@ -17,6 +17,9 @@ Widget teacherAnnouncementWidget(BuildContext context) => Container(
               ? Text(
                   'No announcement records found',
                   textAlign: TextAlign.left,
+                  style: viewAllStyle.copyWith(
+                    color: Colors.grey,
+                  ),
                 )
               : globalAnnouncementData.length == 1
                   ? Container(
@@ -26,6 +29,9 @@ Widget teacherAnnouncementWidget(BuildContext context) => Container(
                           Text(
                             globalAnnouncementData[0],
                             textAlign: TextAlign.left,
+                            style: viewAllStyle.copyWith(
+                              color: Colors.grey,
+                            ),
                           ),
                           Divider(thickness: 1.5),
                         ],
@@ -42,6 +48,9 @@ Widget teacherAnnouncementWidget(BuildContext context) => Container(
                                 Text(
                                   globalAnnouncementData[i],
                                   textAlign: TextAlign.left,
+                                  style: viewAllStyle.copyWith(
+                                    color: Colors.grey,
+                                  ),
                                 ),
                                 Divider(thickness: 1.5),
                               ],
