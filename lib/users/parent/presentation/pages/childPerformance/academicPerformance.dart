@@ -1,7 +1,6 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/parent/model/parent.dart';
-// import 'package:IntelliEd/users/teacher/model/teacher.dart';
-import 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/subjectWisePage.dart';
+import 'package:IntelliEd/users/parent/presentation/pages/childPerformance/subjectWisePage.dart';
 import 'package:IntelliEd/widgets/graphs/AcademicsbarChart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
