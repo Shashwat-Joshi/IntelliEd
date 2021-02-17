@@ -17,7 +17,7 @@ class AuthPage2 extends StatefulWidget {
 class _AuthPage2State extends State<AuthPage2> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   GlobalKey<FormState> _key = GlobalKey<FormState>();
-  String _schoolID, _userID, _password;
+  String _schoolID = "", _userID = "", _password = "";
   bool isVisible = false;
   int selected = 1;
   bool isLoading = false;
@@ -126,6 +126,7 @@ class _AuthPage2State extends State<AuthPage2> {
                                         color: Color(0xFF1CAAFA),
                                         fontSize: 14.0,
                                       ),
+                                      initialValue: _schoolID,
                                       decoration: customInputDecoration(
                                         label: 'School ID',
                                         bgColor: Color(0xFFE1F4FF),
@@ -164,6 +165,7 @@ class _AuthPage2State extends State<AuthPage2> {
                                       style: heading1.copyWith(
                                         fontSize: 14.0,
                                       ),
+                                      initialValue: _userID,
                                       decoration: customInputDecoration(
                                         label: 'User ID',
                                         bgColor: Colors.white,
@@ -203,6 +205,7 @@ class _AuthPage2State extends State<AuthPage2> {
                                         fontSize: 14.0,
                                       ),
                                       obscureText: !isVisible,
+                                      initialValue: _password,
                                       decoration: customInputDecoration(
                                         label: 'Password',
                                         bgColor: Colors.white,

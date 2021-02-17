@@ -33,6 +33,7 @@ class _StudentHomePageState extends State<StudentHomePage> {
       await Hive.initFlutter();
       await Hive.openBox('userData');
       bool boxExists = await Hive.boxExists('userData');
+      print(boxExists);
       if (boxExists) {
         var box = Hive.box('userData');
         var result = box.get('result').toString();
@@ -44,6 +45,7 @@ class _StudentHomePageState extends State<StudentHomePage> {
     globalAnnouncementData.clear();
     var response;
     try {
+      print('HI');
       response = await http.post(
         '$apiUrl/announcements/get',
         body: jsonEncode(<String, String>{
@@ -56,6 +58,8 @@ class _StudentHomePageState extends State<StudentHomePage> {
         },
       ).timeout(Duration(seconds: 10));
       announcementResult = json.decode(response.body.toString());
+      print(announcementResult);
+
       addAnnouncementsToGlobalData();
     } catch (e) {
       setState(() {

@@ -34,6 +34,7 @@ class _ParentHomePageState extends State<ParentHomePage> {
       await Hive.initFlutter();
       await Hive.openBox('userData');
       bool boxExists = await Hive.boxExists('userData');
+      print(boxExists);
       if (boxExists) {
         var box = Hive.box('userData');
         var result = box.get('result').toString();

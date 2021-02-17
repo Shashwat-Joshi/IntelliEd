@@ -261,11 +261,10 @@ class _SubmitAttendancePageState extends State<SubmitAttendancePage> {
         backgroundColor: Color(0xff1CAAFA),
         child: Icon(Icons.save),
         onPressed: () {
-          print(result);
           Navigator.push(
             context,
-            CupertinoPageRoute(
-              builder: (context) => SuccessPage(
+            PageRouteBuilder(
+              pageBuilder: (context, _, __) => SuccessPage(
                 successMsg: 'Attendance submitted',
                 triggerFunction: () {
                   Navigator.pushAndRemoveUntil(

@@ -1,8 +1,13 @@
 import 'package:IntelliEd/model/commanModel.dart';
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
+import 'package:IntelliEd/widgets/successPage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:month_picker_dialog/month_picker_dialog.dart';
+
+import '../../../../loadingPage.dart';
+import 'homePage.dart';
 
 class AddDataToCalendarPage extends StatefulWidget {
   final String selectedClass;
@@ -339,10 +344,27 @@ class _AddDataToCalendarPageState extends State<AddDataToCalendarPage> {
           elevation: 0.0,
           backgroundColor: Color(0xff1CAAFA),
           child: Icon(
-            Icons.send_rounded,
+            Icons.save,
           ),
           onPressed: () {
             validate();
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, _, __) => SuccessPage(
+                  successMsg: 'Academic Calender Updated',
+                  triggerFunction: () {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => TeacherHomePage(),
+                      ),
+                      (route) => false,
+                    );
+                  },
+                ),
+              ),
+            );
           },
         ),
       ),

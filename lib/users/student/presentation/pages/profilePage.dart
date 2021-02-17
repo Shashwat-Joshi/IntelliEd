@@ -37,6 +37,7 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onPressed: () {
+              userData.clear();
               logOutUser(context);
             },
             icon: Icon(

@@ -80,12 +80,13 @@ String apiUrl = "https://intelliedapi.azurewebsites.net";
 
 // Log Out function
 logOutUser(BuildContext context) async {
+  await Hive.close();
   await Hive.deleteBoxFromDisk('userData');
   await Hive.deleteFromDisk();
   Navigator.pushAndRemoveUntil(
     context,
-    MaterialPageRoute(
-      builder: (context) => AuthPage1(),
+    PageRouteBuilder(
+      pageBuilder: (context, _, __) => AuthPage1(),
     ),
     (route) => false,
   );

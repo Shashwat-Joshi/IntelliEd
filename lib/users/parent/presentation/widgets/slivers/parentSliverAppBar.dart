@@ -1,5 +1,6 @@
 import 'package:IntelliEd/model/commanModel.dart';
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/users/parent/model/parent.dart';
 import 'package:IntelliEd/widgets/profileIcon.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,7 @@ parentSliverAppBarWidget(
         child: IconButton(
           icon: Icon(Icons.logout),
           onPressed: () {
+            userData.clear();
             logOutUser(context);
           },
         ),

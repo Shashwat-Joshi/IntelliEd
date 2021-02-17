@@ -37,6 +37,7 @@ class _TeacherProfilePageState extends State<TeacherProfilePage> {
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onPressed: () {
+              userData.clear();
               logOutUser(context);
             },
             icon: Icon(

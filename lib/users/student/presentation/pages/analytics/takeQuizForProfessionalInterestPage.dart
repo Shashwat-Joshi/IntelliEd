@@ -412,7 +412,7 @@ class _TakeQuizForProfessionalInterestPageState
                             child: Align(
                               alignment: Alignment.center,
                               child: Text(
-                                customOptions1[option],
+                                customOptions2[option],
                                 style: viewAllStyle.copyWith(
                                   color: resultIndex[page] == option
                                       ? Colors.white
@@ -423,6 +423,7 @@ class _TakeQuizForProfessionalInterestPageState
                             ),
                           ),
                         ),
+                      SizedBox(height: 20.0),
                     ],
                   )
                 : Wrap(
