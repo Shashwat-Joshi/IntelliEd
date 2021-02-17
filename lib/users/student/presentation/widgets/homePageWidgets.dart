@@ -1,6 +1,7 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/users/student/presentation/pages/analytics/mentalWellnessQuizPage.dart';
+import 'package:IntelliEd/users/student/presentation/pages/analytics/professionalInterestQuiz.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/assignmetsCardWidget.dart';
 import 'package:IntelliEd/widgets/rowOfViewAll.dart';
 import 'package:flutter/cupertino.dart';
@@ -231,13 +232,12 @@ showQuizDialog(BuildContext context, Size size) {
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () {
-                  // TODO: Add route to professional Interest quiz
-                  //  Navigator.push(
-                  //   context,
-                  //   CupertinoPageRoute(
-                  //     builder: (context) => MentalWellnessQuizPage(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => ProfessionalInterestQuizPage(),
+                    ),
+                  );
                 },
                 child: Container(
                   height: 60.0,

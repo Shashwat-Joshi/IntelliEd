@@ -808,13 +808,28 @@ List<String> optionsForQuiz = [
 ];
 
 // Questions for quiz
-List<String> questionsForQuiz = [
+List<String> questionsForMentalHealthQuiz = [
   'How often  do you value and practice self-exploration and self-improvement ?',
   'How often does it happens that sometime you are greatly interested in being with people and at other times I just want to be left alone with my thoughts.',
   'Do you find it hard to concentrate at one thing at a time ?',
   'Have you lost interests in many things that used to be fun and important to you ?',
   'Do you think that your sleep is disturbed - too little, too much, or broken sleep ?',
   'Without intentional dieting, have you lost , or gained weight with big margins ?',
+];
+
+List<String> questionsForProfessionalInterestQuiz = [
+  'Do you like Physical Activities that requires physical strength rather than sitting and watching ?',
+  'Do you enjoy repairing, fixing a home appliance, machines etc ?',
+  'Do you enjoy opening gadgets or toys to see the mechanism and how it works ?',
+  'Do you enjoy travelling, exploring new places and learning about other cultures ?',
+  'Do you learn the best by practicing skills by yourself rather than having someone show you ?',
+  'Do you like to participate in social events, debates, presentations, community services and volunteering ?',
+  'How often are you interested in finding out how humans think and behave ?',
+  'Do you see yourself helping people in educating them about their basic rights in society ?',
+  'How often are you interested in exploring about how politics influence business and public policy decisions?',
+  'How often are you updated and keep the near ones updated about things happening around the globe ?',
+  'How do you plan your work ?',
+  'How do you take crucial decisions ? Imagine a situation and select the best suited option.'
 ];
 
 // Data for Co-Curricular main graph

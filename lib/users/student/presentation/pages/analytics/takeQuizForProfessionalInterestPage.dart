@@ -3,21 +3,20 @@ import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/widgets/successPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../homePage.dart';
 
-class TakeQuizForMentalWellnessPage extends StatefulWidget {
+class TakeQuizForProfessionalInterestPage extends StatefulWidget {
   @override
-  _TakeQuizForMentalWellnessPageState createState() =>
-      _TakeQuizForMentalWellnessPageState();
+  _TakeQuizForProfessionalInterestPageState createState() =>
+      _TakeQuizForProfessionalInterestPageState();
 }
 
-class _TakeQuizForMentalWellnessPageState
-    extends State<TakeQuizForMentalWellnessPage> {
-  int totalQues = questionsForMentalHealthQuiz.length;
+class _TakeQuizForProfessionalInterestPageState
+    extends State<TakeQuizForProfessionalInterestPage> {
+  int totalQues = questionsForProfessionalInterestQuiz.length;
   int currentQues = -1;
 
-  List resultIndex = List(questionsForMentalHealthQuiz.length);
+  List resultIndex = List(questionsForProfessionalInterestQuiz.length);
 
   double heightOfOptionWidget = 63.0;
   int animationTime = 200;
@@ -29,7 +28,7 @@ class _TakeQuizForMentalWellnessPageState
   @override
   void initState() {
     super.initState();
-    resultIndex.fillRange(0, questionsForMentalHealthQuiz.length, -1);
+    resultIndex.fillRange(0, questionsForProfessionalInterestQuiz.length, -1);
     Future.delayed(Duration(milliseconds: 10), () {
       setState(() {
         currentQues = 1;
@@ -88,7 +87,8 @@ class _TakeQuizForMentalWellnessPageState
                               width: currentQues == -1
                                   ? 0
                                   : (size.width - 52.0) /
-                                      questionsForMentalHealthQuiz.length *
+                                      questionsForProfessionalInterestQuiz
+                                          .length *
                                       currentQues,
                               color: Color(0xff00C968),
                             ),
@@ -113,14 +113,14 @@ class _TakeQuizForMentalWellnessPageState
                                 children: [
                                   for (int page = 0;
                                       page <
-                                          questionsForMentalHealthQuiz.length;
+                                          questionsForProfessionalInterestQuiz
+                                              .length;
                                       page++)
                                     Container(
                                       margin: EdgeInsets.only(
                                         top: 90.0,
                                         left: 26.0,
                                         right: 26.0,
-                                        // bottom: 26.0,
                                       ),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
@@ -128,90 +128,15 @@ class _TakeQuizForMentalWellnessPageState
                                             CrossAxisAlignment.center,
                                         children: [
                                           Text(
-                                            questionsForMentalHealthQuiz[page],
+                                            questionsForProfessionalInterestQuiz[
+                                                page],
                                             style: heading2.copyWith(
                                               color: Color(0xff294D77),
                                               fontSize: 19.0,
                                             ),
                                           ),
                                           SizedBox(height: 20.0),
-                                          Container(
-                                            width: size.width - 52.0,
-                                            margin: EdgeInsets.all(7.0),
-                                            child: Wrap(
-                                              spacing: 16.0,
-                                              children: [
-                                                for (int option = 0;
-                                                    option < 6;
-                                                    option++)
-                                                  InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () {
-                                                      setState(() {
-                                                        resultIndex[page] =
-                                                            option;
-                                                      });
-                                                    },
-                                                    child: Container(
-                                                      height:
-                                                          heightOfOptionWidget,
-                                                      margin:
-                                                          EdgeInsets.symmetric(
-                                                        vertical: 9.0,
-                                                      ),
-                                                      width: (size.width -
-                                                              52.0 -
-                                                              52.0 -
-                                                              40) /
-                                                          2,
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        border: Border.all(
-                                                          color: resultIndex[
-                                                                      page] ==
-                                                                  option
-                                                              ? Color(
-                                                                  0xff00C968)
-                                                              : Color(0xff294D77)
-                                                                  .withOpacity(
-                                                                      0.6),
-                                                          width: 1,
-                                                        ),
-                                                        color: resultIndex[
-                                                                    page] ==
-                                                                option
-                                                            ? Color(0xff00C968)
-                                                            : Colors.white,
-                                                      ),
-                                                      child: Align(
-                                                        alignment:
-                                                            Alignment.center,
-                                                        child: Text(
-                                                          optionsForQuiz[
-                                                              option],
-                                                          style: viewAllStyle
-                                                              .copyWith(
-                                                            color: resultIndex[
-                                                                        page] ==
-                                                                    option
-                                                                ? Colors.white
-                                                                : Color(0xff294D77)
-                                                                    .withOpacity(
-                                                                        0.6),
-                                                            fontSize: 14.0,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                              ],
-                                            ),
-                                          ),
+                                          optionsWidget(size, page),
                                         ],
                                       ),
                                     ),
@@ -360,10 +285,11 @@ class _TakeQuizForMentalWellnessPageState
                       // Finish Quiz
                       int finalScore = 0;
                       for (int i = 0;
-                          i < questionsForMentalHealthQuiz.length;
+                          i < questionsForProfessionalInterestQuiz.length;
                           i++) {
-                        finalScore += questionsForMentalHealthQuiz.length -
-                            resultIndex[i];
+                        finalScore +=
+                            questionsForProfessionalInterestQuiz.length -
+                                resultIndex[i];
                       }
                       print(finalScore);
 
@@ -375,8 +301,10 @@ class _TakeQuizForMentalWellnessPageState
                             triggerFunction: () {
                               Navigator.pushAndRemoveUntil(
                                 context,
-                                CupertinoPageRoute(
-                                  builder: (context) => StudentHomePage(),
+                                PageRouteBuilder(
+                                  pageBuilder: (context, _, __) =>
+                                      StudentHomePage(),
+                                  transitionDuration: Duration(seconds: 0),
                                 ),
                                 (route) => false,
                               );
@@ -394,4 +322,53 @@ class _TakeQuizForMentalWellnessPageState
       ),
     );
   }
+
+  Widget optionsWidget(Size size, int page) => Container(
+        width: size.width - 52.0,
+        margin: EdgeInsets.all(7.0),
+        child: Wrap(
+          spacing: 16.0,
+          children: [
+            for (int option = 0; option < 6; option++)
+              InkWell(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () {
+                  setState(() {
+                    resultIndex[page] = option;
+                  });
+                },
+                child: Container(
+                  height: heightOfOptionWidget,
+                  margin: EdgeInsets.symmetric(vertical: 9.0),
+                  width: (size.width - 52.0 - 52.0 - 40) / 2,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    border: Border.all(
+                      color: resultIndex[page] == option
+                          ? Color(0xff00C968)
+                          : Color(0xff294D77).withOpacity(0.6),
+                      width: 1,
+                    ),
+                    color: resultIndex[page] == option
+                        ? Color(0xff00C968)
+                        : Colors.white,
+                  ),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      optionsForQuiz[option],
+                      style: viewAllStyle.copyWith(
+                        color: resultIndex[page] == option
+                            ? Colors.white
+                            : Color(0xff294D77).withOpacity(0.6),
+                        fontSize: 14.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      );
 }

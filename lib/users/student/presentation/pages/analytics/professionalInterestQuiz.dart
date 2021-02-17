@@ -1,14 +1,18 @@
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/users/student/presentation/pages/analytics/takeQuizForMentalWellness.dart';
+import 'package:IntelliEd/users/student/presentation/pages/analytics/takeQuizForProfessionalInterestPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MentalWellnessQuizPage extends StatefulWidget {
+class ProfessionalInterestQuizPage extends StatefulWidget {
   @override
-  _MentalWellnessQuizPageState createState() => _MentalWellnessQuizPageState();
+  _ProfessionalInterestQuizPageState createState() =>
+      _ProfessionalInterestQuizPageState();
 }
 
-class _MentalWellnessQuizPageState extends State<MentalWellnessQuizPage> {
+class _ProfessionalInterestQuizPageState
+    extends State<ProfessionalInterestQuizPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -50,7 +54,7 @@ class _MentalWellnessQuizPageState extends State<MentalWellnessQuizPage> {
                           margin: EdgeInsets.only(
                               left: 30.0, right: size.width * 0.20),
                           child: Text(
-                            "Mental Wellness Quiz",
+                            "Professional Interest Quiz",
                             style: heading2.copyWith(
                               fontSize: 24.0,
                               letterSpacing: 1.05,
@@ -62,9 +66,8 @@ class _MentalWellnessQuizPageState extends State<MentalWellnessQuizPage> {
                           margin: EdgeInsets.only(
                               left: 30.0, right: size.width * 0.30),
                           child: Text(
-                            //bigLoremText.substring(0, 100),
-                            //Todo: Change the Text Here
-                            "Here we have a bunch of questions for you to make you realise who you are.",
+                            bigLoremText.substring(0, 100),
+                            //TODO: Change the Text Here
                             style: viewAllStyle.copyWith(
                               color: Colors.grey,
                               fontWeight: FontWeight.w500,
@@ -100,7 +103,7 @@ class _MentalWellnessQuizPageState extends State<MentalWellnessQuizPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => TakeQuizForMentalWellnessPage(),
+                    builder: (context) => TakeQuizForProfessionalInterestPage(),
                   ),
                 );
               },
