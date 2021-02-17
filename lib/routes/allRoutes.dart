@@ -12,7 +12,6 @@ export 'package:IntelliEd/users/student/presentation/pages/homePage.dart';
 export 'package:IntelliEd/users/student/presentation/pages/profilePage.dart';
 export 'package:IntelliEd/users/student/presentation/pages/studentTimeTablePage.dart';
 export 'package:IntelliEd/users/student/presentation/pages/analytics/behaviourPage.dart';
-export 'package:IntelliEd/users/student/presentation/pages/analytics/mentalWellnessQuizPage.dart';
 export 'package:IntelliEd/users/student/presentation/pages/analytics/professionalInterestPage.dart';
 export 'package:IntelliEd/users/student/presentation/pages/analytics/yourReportPage.dart';
 
@@ -30,6 +29,8 @@ export 'package:IntelliEd/users/teacher/presentation/pages/yourOtherClasses.dart
 export 'package:IntelliEd/users/teacher/presentation/pages/classWiseMarksPage.dart';
 export 'package:IntelliEd/users/teacher/presentation/pages/calendarPage.dart';
 export 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/behaviourPage.dart';
+export 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/professionalInterestPage.dart';
+export 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/studentReport.dart';
 
 // Parent files
 export 'package:IntelliEd/users/parent/presentation/pages/homePage.dart';

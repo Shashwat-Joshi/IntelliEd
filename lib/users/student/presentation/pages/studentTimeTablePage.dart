@@ -125,7 +125,10 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
                     child: Column(
                       children: [
                         for (int i = 0;
-                            i < timeTableSample['result'].length;
+                            i <
+                                timeTableSample['result']
+                                        [selectedWeekDay.toString()]
+                                    .length;
                             i++)
                           Container(
                             height: 80.0,
@@ -137,7 +140,12 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
                                       topLeft: Radius.circular(20.0),
                                       topRight: Radius.circular(20.0),
                                     )
-                                  : i == timeTableSample['result'].length - 1
+                                  : i ==
+                                          timeTableSample['result'][
+                                                      selectedWeekDay
+                                                          .toString()]
+                                                  .length -
+                                              1
                                       ? BorderRadius.only(
                                           bottomLeft: Radius.circular(20.0),
                                           bottomRight: Radius.circular(20.0),
@@ -163,7 +171,9 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
                                             topLeft: Radius.circular(20.0),
                                           )
                                         : i ==
-                                                timeTableSample['result']
+                                                timeTableSample['result'][
+                                                            selectedWeekDay
+                                                                .toString()]
                                                         .length -
                                                     1
                                             ? BorderRadius.only(
@@ -179,14 +189,18 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
                                         CrossAxisAlignment.center,
                                     children: [
                                       Text(
-                                        timeTableSample['result'][i]['initial'],
+                                        timeTableSample['result']
+                                                [selectedWeekDay.toString()][i]
+                                            ['initial'],
                                         style: subheading.copyWith(
                                           color: Colors.black54,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                       Text(
-                                        timeTableSample['result'][i]['final'],
+                                        timeTableSample['result']
+                                                [selectedWeekDay.toString()][i]
+                                            ['final'],
                                         style: subheading.copyWith(
                                           color: Colors.black54,
                                           fontWeight: FontWeight.w500,
@@ -200,11 +214,14 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
                                   width: 3.0,
                                   height: 50.0,
                                   decoration: BoxDecoration(
-                                    color: (timeTableSample['result'][i]
-                                                ['isAcademic'] ==
+                                    color: (timeTableSample['result']
+                                                    [selectedWeekDay.toString()]
+                                                [i]['isAcademic'] ==
                                             1)
                                         ? Color(0xff1CAAFA).withOpacity(0.8)
-                                        : (timeTableSample['result'][i]
+                                        : (timeTableSample['result'][
+                                                        selectedWeekDay
+                                                            .toString()][i]
                                                     ['isAcademic'] ==
                                                 0)
                                             ? Color(0xffaa4cfc).withOpacity(0.7)
@@ -219,19 +236,24 @@ class _StudentTimeTablePageState extends State<StudentTimeTablePage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      timeTableSample['result'][i]['subName'],
+                                      timeTableSample['result']
+                                              [selectedWeekDay.toString()][i]
+                                          ['subName'],
                                       style: heading2.copyWith(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    timeTableSample['result'][i]['subTeacher']
+                                    timeTableSample['result'][selectedWeekDay
+                                                        .toString()][i]
+                                                    ['subTeacher']
                                                 .toString()
                                                 .length !=
                                             0
                                         ? Text(
-                                            timeTableSample['result'][i]
-                                                ['subTeacher'],
+                                            timeTableSample['result']
+                                                    [selectedWeekDay.toString()]
+                                                [i]['subTeacher'],
                                             style: subheading.copyWith(
                                               fontSize: 12.0,
                                             ),

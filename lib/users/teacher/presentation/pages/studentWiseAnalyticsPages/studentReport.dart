@@ -1,15 +1,14 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
+import 'package:IntelliEd/users/teacher/presentation/widgets/slivers/commonSliverForTeacher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class YourReportPage extends StatefulWidget {
+class StudentWiseReportPage extends StatefulWidget {
   @override
-  _YourReportPageState createState() => _YourReportPageState();
+  _StudentWiseReportPageState createState() => _StudentWiseReportPageState();
 }
 
-class _YourReportPageState extends State<YourReportPage> {
+class _StudentWiseReportPageState extends State<StudentWiseReportPage> {
   ScrollController _scrollController = ScrollController();
   String bullet = "\u2022 ";
   @override
@@ -22,10 +21,10 @@ class _YourReportPageState extends State<YourReportPage> {
           controller: _scrollController,
           physics: BouncingScrollPhysics(),
           slivers: [
-            commanSliverAppBarForStudent(
+            commanSliverAppBarForTeacher(
               size,
               'My Report',
-              analyticsFeatures[selectedCardWidget].subHeading,
+              'We have updated the report as per the survey. Do check it.',
               'assets/student/images/calendar.png',
               Color(0xFFB0E3FF),
               Color(0xFF1CAAFA),

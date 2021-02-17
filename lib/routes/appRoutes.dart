@@ -83,13 +83,6 @@ Route onGeneratedRoutes(RouteSettings settings) {
       );
       break;
 
-    // Route to quiz Page
-    case '/student/analytics/4':
-      return CupertinoPageRoute(
-        builder: (context) => MentalWellnessQuizPage(),
-      );
-      break;
-
     // Route to professional interest Page
     case '/student/analytics/5':
       return CupertinoPageRoute(
@@ -190,6 +183,18 @@ Route onGeneratedRoutes(RouteSettings settings) {
     case '/teacher/analytics/classData/3':
       return CupertinoPageRoute(
         builder: (context) => StudentWiseAttendancePage(),
+      );
+      break;
+
+    case '/teacher/analytics/classData/4':
+      return CupertinoPageRoute(
+        builder: (context) => StudentWiseProfessionalInterestPage(),
+      );
+      break;
+
+    case '/teacher/analytics/classData/5':
+      return CupertinoPageRoute(
+        builder: (context) => StudentWiseReportPage(),
       );
       break;
 

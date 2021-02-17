@@ -167,6 +167,21 @@ List<StudentWiseAnalyticsFeatures> studentWiseAnalyticsFeatures = [
     color: Color(0xFFFCDCFF),
     textColor: Color(0xFFF14CFF),
   ),
+  StudentWiseAnalyticsFeatures(
+    heading: 'Professional Interests',
+    subHeading:
+        'Here you may explore your field of interest with the ease of analysis.',
+    imagePath: 'assets/student/images/analyticsVectors/5.png',
+    color: Color(0xFFB8F7FF),
+    textColor: Color(0xFF00A5BB),
+  ),
+  StudentWiseAnalyticsFeatures(
+    heading: 'My Report',
+    subHeading: 'We have updated the report as per the survey. Do check it.',
+    imagePath: 'assets/student/images/analyticsVectors/5.png',
+    color: Color(0xFFF3E3A8),
+    textColor: Color(0xFFA19361),
+  ),
 ];
 
 // For student wise attendance
@@ -449,3 +464,22 @@ Map calendarDataForTeacher = {
         'Chapter 6 - Consent teacnology\nWhat is multimedia , Write three advantages of multimedia, Name three places where multimedia is used, list each component of multimedia & explain the purpose of each component ,Data encryption means.',
   },
 };
+
+// Data for Co-Curricular main graph
+Map<String, double> professionalInterestsMainPageData = {
+  'Space science': 97.3,
+  'Astrophysics': 77.6,
+  'Computer science': 97.3,
+  'Literature': 25.7,
+  'Mathematics': 95.6,
+};
+
+int selectedCardWidget;
+
+List<String> skills = [
+  "Space Science",
+  "Astrophysics",
+  "Computer science",
+  "Literature",
+  "Mathematics",
+];

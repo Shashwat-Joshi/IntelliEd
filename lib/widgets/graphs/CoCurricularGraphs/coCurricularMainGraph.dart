@@ -34,7 +34,7 @@ class _MainCoCurricularMainGraphState extends State<MainCoCurricularMainGraph> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
           ),
-          margin: EdgeInsets.symmetric(vertical: 26.0),
+          margin: EdgeInsets.only(top: 26.0),
           child: Padding(
             padding: EdgeInsets.only(
               left: 20.0,

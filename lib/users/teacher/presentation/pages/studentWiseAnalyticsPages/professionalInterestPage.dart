@@ -1,17 +1,18 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
+import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/coCurricularMainGraph.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ProfessionalInterestPage extends StatefulWidget {
+class StudentWiseProfessionalInterestPage extends StatefulWidget {
   @override
-  _ProfessionalInterestPageState createState() =>
-      _ProfessionalInterestPageState();
+  _StudentWiseProfessionalInterestPageState createState() =>
+      _StudentWiseProfessionalInterestPageState();
 }
 
-class _ProfessionalInterestPageState extends State<ProfessionalInterestPage> {
+class _StudentWiseProfessionalInterestPageState
+    extends State<StudentWiseProfessionalInterestPage> {
   ScrollController _scrollController = ScrollController();
   String bullet = "\u2022 ";
   @override

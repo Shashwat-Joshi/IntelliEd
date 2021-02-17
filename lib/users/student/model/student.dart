@@ -486,66 +486,317 @@ String bigLoremText =
 
 // Data model for time table
 Map timeTableSample = {
-  'result': [
-    {
-      'initial': '8:30',
-      'final': '9:30',
-      'subName': 'Chemistry',
-      'subTeacher': 'Ms. Shayna Kapoor',
-      'isAcademic': 1,
-    },
-    {
-      'initial': '9:30',
-      'final': '10:30',
-      'subName': 'CS',
-      'subTeacher': 'Mr. Shashwat Joshi',
-      'isAcademic': 1,
-    },
-    {
-      'initial': '10:30',
-      'final': '11:30',
-      'subName': 'Music',
-      'subTeacher': 'Mr. Aman',
-      'isAcademic': 0,
-    },
-    {
-      'initial': '11:30',
-      'final': '12:30',
-      'subName': 'Maths',
-      'subTeacher': 'Mr. Anant Jakhmola',
-      'isAcademic': 1,
-    },
-    {
-      'initial': '12:30',
-      'final': '1:30',
-      'subName': 'Lunch Break',
-      'subTeacher': '',
-      'isAcademic': '',
-    },
-    {
-      'initial': '1:30',
-      'final': '2:30',
-      'subName': 'Biology',
-      'subTeacher': 'Ms. Ishani Oberoi',
-      'isAcademic': 1,
-    },
-    {
-      'initial': '2:30',
-      'final': '3:30',
-      'subName': 'English',
-      'subTeacher': 'Mr. Kartikay Sawhaney',
-      'isAcademic': 1,
-    },
-    {
-      'initial': '3:30',
-      'final': '4:30',
-      'subName': 'Physics',
-      'subTeacher': 'Mr. Adhyansh',
-      'isAcademic': 1,
-    }
-  ],
+  'result': {
+    '0': [
+      {
+        'initial': '9:30',
+        'final': '10:10',
+        'subName': 'Hindi',
+        'subTeacher': 'Ms. Shayna Kapoor',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '10:10',
+        'final': '10:50',
+        'subName': 'Maths',
+        'subTeacher': 'Mr. Shashwat Joshi',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '10:50',
+        'final': '11:30',
+        'subName': 'Geography',
+        'subTeacher': 'Mr. Aman',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '11:30',
+        'final': '11:45',
+        'subName': 'Lunch Break',
+        'subTeacher': '',
+        'isAcademic': '',
+      },
+      {
+        'initial': '11:45',
+        'final': '12:25',
+        'subName': 'English',
+        'subTeacher': 'Mr. Anant Jakhmola',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '12:25',
+        'final': '1:00',
+        'subName': 'Biology',
+        'subTeacher': 'Ms. Ishani Oberoi',
+        'isAcademic': 1,
+      }
+    ],
+    '1': [
+      {
+        'initial': '9:30',
+        'final': '10:10',
+        'subName': 'Hindi',
+        'subTeacher': 'Ms. Shayna Kapoor',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '10:10',
+        'final': '10:50',
+        'subName': 'Maths',
+        'subTeacher': 'Mr. Shashwat Joshi',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '10:50',
+        'final': '11:30',
+        'subName': 'His/Civics/Eco',
+        'subTeacher': 'Mrs. Sunita',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '11:30',
+        'final': '11:45',
+        'subName': 'Lunch Break',
+        'subTeacher': '',
+        'isAcademic': '',
+      },
+      {
+        'initial': '11:45',
+        'final': '12:25',
+        'subName': 'English',
+        'subTeacher': 'Mr.Anant Jakhmola',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '12:25',
+        'final': '1:00',
+        'subName': 'Chemistry',
+        'subTeacher': 'Mr. Amit Arora',
+        'isAcademic': 1,
+      }
+    ],
+    '2': [
+      {
+        'initial': '9:30',
+        'final': '10:10',
+        'subName': 'Computer',
+        'subTeacher': 'Mr. Adhyansh Bharadwaj',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '10:10',
+        'final': '10:50',
+        'subName': 'Maths',
+        'subTeacher': 'Mr. Shashwat Joshi',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '10:50',
+        'final': '11:30',
+        'subName': 'His/Civics/Eco',
+        'subTeacher': 'Mrs. Sunita',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '11:30',
+        'final': '11:45',
+        'subName': 'Lunch Break',
+        'subTeacher': '',
+        'isAcademic': '',
+      },
+      {
+        'initial': '11:45',
+        'final': '12:25',
+        'subName': 'English',
+        'subTeacher': 'Mr.Anant Jakhmola',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '12:25',
+        'final': '1:00',
+        'subName': 'Physics',
+        'subTeacher': 'Mr. Manoj Kumar',
+        'isAcademic': 1,
+      }
+    ],
+    '3': [
+      {
+        'initial': '9:30',
+        'final': '10:30',
+        'subName': 'Hindi',
+        'subTeacher': 'Ms. Shayna Kapoor',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '10:30',
+        'final': '11:30',
+        'subName': 'Maths',
+        'subTeacher': 'Mr. Shashwat Joshi',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '11:30',
+        'final': '12:30',
+        'subName': 'Geography',
+        'subTeacher': 'Mr. Aman',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '11:30',
+        'final': '11:45',
+        'subName': 'Lunch Break',
+        'subTeacher': '',
+        'isAcademic': '',
+      },
+      {
+        'initial': '11:45',
+        'final': '12:25',
+        'subName': 'English',
+        'subTeacher': 'Mr. Anant Jakhmola',
+        'isAcademic': '1',
+      },
+      {
+        'initial': '12:25',
+        'final': '1:00',
+        'subName': 'Biology',
+        'subTeacher': 'Ms. Ishani Oberoi',
+        'isAcademic': 1,
+      }
+    ],
+    '4': [
+      {
+        'initial': '9:30',
+        'final': '10:10',
+        'subName': 'Hindi',
+        'subTeacher': 'Ms. Shayna Kapoor',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '10:10',
+        'final': '10:50',
+        'subName': 'Maths',
+        'subTeacher': 'Mr. Shashwat Joshi',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '10:50',
+        'final': '11:30',
+        'subName': 'His/Civics/Eco',
+        'subTeacher': 'Mrs. Sunita',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '11:30',
+        'final': '11:45',
+        'subName': 'Lunch Break',
+        'subTeacher': '',
+        'isAcademic': '',
+      },
+      {
+        'initial': '11:45',
+        'final': '12:25',
+        'subName': 'English',
+        'subTeacher': 'Mr.Anant Jakhmola',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '12:25',
+        'final': '1:00',
+        'subName': 'Chemistry',
+        'subTeacher': 'Mr. Amit Arora',
+        'isAcademic': 1,
+      }
+    ],
+    '5': [
+      {
+        'initial': '9:30',
+        'final': '10:10',
+        'subName': 'Computer',
+        'subTeacher': 'Mr. Adhyansh Bharadwaj',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '10:10',
+        'final': '10:50',
+        'subName': 'Maths',
+        'subTeacher': 'Mr. Shashwat Joshi',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '10:50',
+        'final': '11:30',
+        'subName': 'His/Civics/Eco',
+        'subTeacher': 'Mrs. Sunita',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '11:30',
+        'final': '11:45',
+        'subName': 'Lunch Break',
+        'subTeacher': '',
+        'isAcademic': '',
+      },
+      {
+        'initial': '11:45',
+        'final': '12:25',
+        'subName': 'English',
+        'subTeacher': 'Mr.Anant Jakhmola',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '12:25',
+        'final': '1:00',
+        'subName': 'Physics',
+        'subTeacher': 'Mr. Manoj Kumar',
+        'isAcademic': 1,
+      }
+    ],
+    '6': [
+      {
+        'initial': '9:30',
+        'final': '10:30',
+        'subName': 'Hindi',
+        'subTeacher': 'Ms. Shayna Kapoor',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '10:30',
+        'final': '11:30',
+        'subName': 'Maths',
+        'subTeacher': 'Mr. Shashwat Joshi',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '11:30',
+        'final': '12:30',
+        'subName': 'Geography',
+        'subTeacher': 'Mr. Aman',
+        'isAcademic': 1,
+      },
+      {
+        'initial': '11:30',
+        'final': '11:45',
+        'subName': 'Lunch Break',
+        'subTeacher': '',
+        'isAcademic': '',
+      },
+      {
+        'initial': '11:45',
+        'final': '12:25',
+        'subName': 'English',
+        'subTeacher': 'Mr. Anant Jakhmola',
+        'isAcademic': '1',
+      },
+      {
+        'initial': '12:25',
+        'final': '1:00',
+        'subName': 'Biology',
+        'subTeacher': 'Ms. Ishani Oberoi',
+        'isAcademic': 1,
+      }
+    ],
+  },
 };
-
 // Quiz options
 List<String> optionsForQuiz = [
   'Very much',
@@ -568,11 +819,19 @@ List<String> questionsForQuiz = [
 
 // Data for Co-Curricular main graph
 Map<String, double> professionalInterestsMainPageData = {
-  'Space Science': 97.3,
-  'Literature': 77.6,
-  'Theoretical Computer Science': 97.3,
-  'Cyber Security': 25.7,
-  'Public Policy': 95.6,
+  'Space science': 97.3,
+  'Astrophysics': 77.6,
+  'Computer science': 97.3,
+  'Literature': 25.7,
+  'Mathematics': 95.6,
 };
 
 int selectedCardWidget;
+
+List<String> skills = [
+  "Space Science",
+  "Astrophysics",
+  "Computer science",
+  "Literature",
+  "Mathematics",
+];

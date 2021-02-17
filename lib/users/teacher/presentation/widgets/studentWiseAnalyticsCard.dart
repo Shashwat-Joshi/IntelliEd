@@ -12,7 +12,7 @@ class StudentWiseAnalyticsWidget extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Column(
       children: [
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < studentWiseAnalyticsFeatures.length; i++)
           GestureDetector(
             onTap: () {
               Navigator.pushNamed(context, '/teacher/analytics/classData/$i');

@@ -47,7 +47,7 @@ class _BehaviourPageState extends State<BehaviourPage> {
                   ),
                   SizedBox(height: 10.0),
                   behaviourSummaryWidget('Summary',
-                      "As per the analysis we have found that you are doing great. Although you have seen several ups and downs in the past but you have came up with great solutions. Go with the flow"),
+                      "Based upon your response and our analysis, you just have few mild symptoms associated with depression. For most people, this kind of response is likely an indication of normal ups and downs associated with life. It is unlikely for a person in this response range to qualify for a diagnosis of clinical depression. However, you may benefit from a consultation with a trianed professional if in case you experience difficulties in daily functioning in near future."),
                   SizedBox(height: 30.0),
                   behaviourSummaryWidget('Recommendation',
                       "First of all, Smile. Believe or not it's the best remedy you will ever found. You might think you are not keeping the pace with your peers, but that's not the permanent situation. So keep it up"),
