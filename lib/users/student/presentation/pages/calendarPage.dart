@@ -208,11 +208,14 @@ class _CalendarPageState extends State<CalendarPage> {
                     ),
                   ),
                   SizedBox(height: 20.0),
-                  isSelectedWeek == 2 && currentMonth == 'Feb'
+                  (isSelectedWeek == 1 || isSelectedWeek == 2) &&
+                          currentMonth == 'Feb'
                       ? Column(
                           children: [
                             for (int i = 0;
-                                i < calendarData['result'].length;
+                                i <
+                                    calendarData['result'][isSelectedWeek - 1]
+                                        .length;
                                 i++)
                               Container(
                                 margin: EdgeInsets.symmetric(horizontal: 26.0),
@@ -220,12 +223,13 @@ class _CalendarPageState extends State<CalendarPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      calendarData['result']
+                                      calendarData['result'][isSelectedWeek - 1]
                                               .keys
                                               .toList()[i][0]
                                               .toString()
                                               .toUpperCase() +
                                           calendarData['result']
+                                                  [isSelectedWeek - 1]
                                               .keys
                                               .toList()[i]
                                               .toString()
@@ -238,6 +242,7 @@ class _CalendarPageState extends State<CalendarPage> {
                                     ),
                                     SizedBox(height: 8.0),
                                     Text(calendarData['result']
+                                            [isSelectedWeek - 1]
                                         .values
                                         .toList()[i]),
                                     SizedBox(height: 30.0),

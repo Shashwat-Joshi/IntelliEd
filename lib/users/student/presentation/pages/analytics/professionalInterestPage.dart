@@ -80,7 +80,7 @@ class _ProfessionalInterestPageState extends State<ProfessionalInterestPage> {
           Text(
             subheading,
             style: viewAllStyle.apply(
-              color: Color(0xFFACACAC),
+              color: Colors.grey[500],
             ),
           )
         ],

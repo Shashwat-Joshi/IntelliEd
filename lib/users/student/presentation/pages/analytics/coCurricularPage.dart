@@ -86,7 +86,7 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Skillsets',
+                          'Soft Skills',
                           style: heading2,
                         ),
                         SizedBox(height: 26.0),

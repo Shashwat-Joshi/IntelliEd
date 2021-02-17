@@ -356,8 +356,8 @@ class _AddDataToCalendarPageState extends State<AddDataToCalendarPage> {
                   triggerFunction: () {
                     Navigator.pushAndRemoveUntil(
                       context,
-                      CupertinoPageRoute(
-                        builder: (context) => TeacherHomePage(),
+                      PageRouteBuilder(
+                        pageBuilder: (context, _, __) => TeacherHomePage(),
                       ),
                       (route) => false,
                     );
