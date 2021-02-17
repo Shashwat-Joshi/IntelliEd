@@ -122,22 +122,25 @@ class _TakeQuizForProfessionalInterestPageState
                                         left: 26.0,
                                         right: 26.0,
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            questionsForProfessionalInterestQuiz[
-                                                page],
-                                            style: heading2.copyWith(
-                                              color: Color(0xff294D77),
-                                              fontSize: 19.0,
+                                      child: SingleChildScrollView(
+                                        physics: BouncingScrollPhysics(),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              questionsForProfessionalInterestQuiz[
+                                                  page],
+                                              style: heading2.copyWith(
+                                                color: Color(0xff294D77),
+                                                fontSize: 19.0,
+                                              ),
                                             ),
-                                          ),
-                                          SizedBox(height: 20.0),
-                                          optionsWidget(size, page),
-                                        ],
+                                            SizedBox(height: 20.0),
+                                            optionsWidget(size, page),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                 ],
@@ -326,49 +329,145 @@ class _TakeQuizForProfessionalInterestPageState
   Widget optionsWidget(Size size, int page) => Container(
         width: size.width - 52.0,
         margin: EdgeInsets.all(7.0),
-        child: Wrap(
-          spacing: 16.0,
-          children: [
-            for (int option = 0; option < 6; option++)
-              InkWell(
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () {
-                  setState(() {
-                    resultIndex[page] = option;
-                  });
-                },
-                child: Container(
-                  height: heightOfOptionWidget,
-                  margin: EdgeInsets.symmetric(vertical: 9.0),
-                  width: (size.width - 52.0 - 52.0 - 40) / 2,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    border: Border.all(
-                      color: resultIndex[page] == option
-                          ? Color(0xff00C968)
-                          : Color(0xff294D77).withOpacity(0.6),
-                      width: 1,
-                    ),
-                    color: resultIndex[page] == option
-                        ? Color(0xff00C968)
-                        : Colors.white,
-                  ),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      optionsForQuiz[option],
-                      style: viewAllStyle.copyWith(
-                        color: resultIndex[page] == option
-                            ? Colors.white
-                            : Color(0xff294D77).withOpacity(0.6),
-                        fontSize: 14.0,
+        child: page == questionsForProfessionalInterestQuiz.length - 2
+            ? Column(
+                children: [
+                  for (int option = 0; option < customOptions1.length; option++)
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () {
+                        setState(() {
+                          resultIndex[page] = option;
+                        });
+                      },
+                      child: Container(
+                        height: heightOfOptionWidget,
+                        margin: EdgeInsets.symmetric(
+                          vertical: 10.0,
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 10.0),
+                        width: (size.width - 52.0 - 52.0 - 40),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(
+                            color: resultIndex[page] == option
+                                ? Color(0xff00C968)
+                                : Color(0xff294D77).withOpacity(0.6),
+                            width: 1,
+                          ),
+                          color: resultIndex[page] == option
+                              ? Color(0xff00C968)
+                              : Colors.white,
+                        ),
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            customOptions1[option],
+                            style: viewAllStyle.copyWith(
+                              color: resultIndex[page] == option
+                                  ? Colors.white
+                                  : Color(0xff294D77).withOpacity(0.6),
+                              fontSize: 14.0,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
+                ],
+              )
+            : page == questionsForProfessionalInterestQuiz.length - 1
+                ? Column(
+                    children: [
+                      for (int option = 0;
+                          option < customOptions1.length;
+                          option++)
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () {
+                            setState(() {
+                              resultIndex[page] = option;
+                            });
+                          },
+                          child: Container(
+                            height: heightOfOptionWidget,
+                            margin: EdgeInsets.symmetric(
+                              vertical: 10.0,
+                            ),
+                            padding: EdgeInsets.symmetric(horizontal: 10.0),
+                            width: (size.width - 52.0 - 52.0 - 40),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              border: Border.all(
+                                color: resultIndex[page] == option
+                                    ? Color(0xff00C968)
+                                    : Color(0xff294D77).withOpacity(0.6),
+                                width: 1,
+                              ),
+                              color: resultIndex[page] == option
+                                  ? Color(0xff00C968)
+                                  : Colors.white,
+                            ),
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                customOptions1[option],
+                                style: viewAllStyle.copyWith(
+                                  color: resultIndex[page] == option
+                                      ? Colors.white
+                                      : Color(0xff294D77).withOpacity(0.6),
+                                  fontSize: 14.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  )
+                : Wrap(
+                    spacing: 16.0,
+                    children: [
+                      for (int option = 0; option < 6; option++)
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () {
+                            setState(() {
+                              resultIndex[page] = option;
+                            });
+                          },
+                          child: Container(
+                            height: heightOfOptionWidget,
+                            margin: EdgeInsets.symmetric(vertical: 9.0),
+                            width: (size.width - 52.0 - 52.0 - 40) / 2,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              border: Border.all(
+                                color: resultIndex[page] == option
+                                    ? Color(0xff00C968)
+                                    : Color(0xff294D77).withOpacity(0.6),
+                                width: 1,
+                              ),
+                              color: resultIndex[page] == option
+                                  ? Color(0xff00C968)
+                                  : Colors.white,
+                            ),
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                optionsForQuiz[option],
+                                style: viewAllStyle.copyWith(
+                                  color: resultIndex[page] == option
+                                      ? Colors.white
+                                      : Color(0xff294D77).withOpacity(0.6),
+                                  fontSize: 14.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
                   ),
-                ),
-              ),
-          ],
-        ),
       );
 }

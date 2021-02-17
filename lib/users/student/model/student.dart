@@ -807,6 +807,20 @@ List<String> optionsForQuiz = [
   'Not at all',
 ];
 
+List<String> customOptions1 = [
+  'I always make a last moment plan',
+  'Sometimes I make plan when time is very limited',
+  'I always make schedule before staring my work.',
+  'As a matter of principle, I don’t. I think it is waste of time.',
+];
+
+List<String> customOptions2 = [
+  'My decision goes with majority of people.',
+  'I always take crucial decisions my won.',
+  'I prefer to take advice from others before taking decisions.',
+  'I usually follow decisions of others.',
+];
+
 // Questions for quiz
 List<String> questionsForMentalHealthQuiz = [
   'How often  do you value and practice self-exploration and self-improvement ?',
