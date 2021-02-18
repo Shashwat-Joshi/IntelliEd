@@ -1,5 +1,4 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:flutter/material.dart';
 
 class MainCoCurricularMainGraph extends StatefulWidget {
@@ -21,8 +20,13 @@ class MainCoCurricularMainGraph extends StatefulWidget {
 class _MainCoCurricularMainGraphState extends State<MainCoCurricularMainGraph> {
   double barWidth = 6.0;
   int isSelectedIndex = 0;
-  String selectedSkill = coCurricularMainPageData.keys.toList()[0];
-  double skillPercentage = coCurricularMainPageData.values.toList()[0];
+  String selectedSkill, skillPercentage;
+  @override
+  void initState() {
+    super.initState();
+    selectedSkill = widget.data.keys.toList()[0].toString();
+    skillPercentage = widget.data.values.toList()[0].toString();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +56,9 @@ class _MainCoCurricularMainGraphState extends State<MainCoCurricularMainGraph> {
                     onTap: () {
                       setState(() {
                         this.isSelectedIndex = i;
-                        selectedSkill = widget.data.keys.toList()[i];
-                        skillPercentage = widget.data.values.toList()[i];
+                        selectedSkill = widget.data.keys.toList()[i].toString();
+                        skillPercentage =
+                            widget.data.values.toList()[i].toString();
                         print(selectedSkill);
                       });
                     },

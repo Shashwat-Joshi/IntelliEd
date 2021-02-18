@@ -40,8 +40,7 @@ class _BehaviourPageState extends State<BehaviourPage> {
                     width: size.width,
                     margin: EdgeInsets.all(26.0),
                     child: BehaviourGraph(
-                      monthWiseAttendance:
-                          behaviourChart['result'].values.toList(),
+                      score: behaviourChart['result'].values.toList(),
                       months: behaviourChart['result'].keys.toList(),
                     ),
                   ),

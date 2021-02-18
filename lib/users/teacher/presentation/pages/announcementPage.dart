@@ -85,6 +85,63 @@ class _TeacherAnnouncementPageState extends State<TeacherAnnouncementPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
+                                  'Risk Notifications',
+                                  style: heading2,
+                                ),
+                                SizedBox(height: 10.0),
+                                Container(
+                                  padding: EdgeInsets.all(26.0),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    color: Color(0xffB5E5FF),
+                                  ),
+                                  width: size.width,
+                                  child: riskNotifications.length == 0
+                                      ? Center(child: Text('No notifications'))
+                                      : SingleChildScrollView(
+                                          physics: BouncingScrollPhysics(),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              for (int i = 0;
+                                                  i < riskNotifications.length;
+                                                  i++)
+                                                Container(
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        riskNotifications[i],
+                                                        style:
+                                                            viewAllStyle.apply(
+                                                          color:
+                                                              Color(0xFF636363),
+                                                        ),
+                                                      ),
+                                                      Divider(
+                                                        thickness: 1.5,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: size.width,
+                            margin: EdgeInsets.symmetric(
+                              vertical: 20.0,
+                              horizontal: 26.0,
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
                                   'Your Class',
                                   style: heading2,
                                 ),

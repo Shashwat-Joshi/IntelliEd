@@ -81,8 +81,8 @@ List<StudentWiseAnalyticsFeaturesForParent>
     textColor: Color(0xFF00C968),
   ),
   StudentWiseAnalyticsFeaturesForParent(
-    heading: 'Behavior',
-    subHeading: 'Here is the behaviour report of your child',
+    heading: 'Wellness',
+    subHeading: 'Here is the wellness report of your child',
     imagePath: 'assets/student/images/analyticsVectors/3.png',
     color: Color(0xFFFFF2CA),
     textColor: Color(0xFFE3AE01),

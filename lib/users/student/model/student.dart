@@ -50,9 +50,9 @@ List<AnalyticsFeatures> analyticsFeatures = [
     textColor: Color(0xFF00C968),
   ),
   AnalyticsFeatures(
-    heading: 'Behavior',
+    heading: 'Wellness',
     subHeading:
-        'Your behaviour is your identity and your character is your certificate. Keep it up!!',
+        'Your wellness is your identity and your character is your certificate. Keep it up!!',
     imagePath: 'assets/student/images/analyticsVectors/3.png',
     color: Color(0xFFFFF2CA),
     textColor: Color(0xFFE3AE01),
@@ -458,11 +458,11 @@ Map calendarData = {
 
 // Data for Co-Curricular main graph
 Map<String, double> coCurricularMainPageData = {
-  'Art & Craft': 97.3,
-  'Sports': 77.6,
-  'Music': 97.3,
-  'Club Activity': 25.7,
-  'Others': 95.6,
+  'Space Science': 97.3,
+  'Astrophysics': 77.6,
+  'Computer Science': 97.3,
+  'Literature': 25.7,
+  'Mathematics': 95.6,
 };
 
 // Data for Co-curricular donut graph
@@ -762,50 +762,6 @@ Map timeTableSample = {
         'final': '1:00',
         'subName': 'Physics',
         'subTeacher': 'Mr. Manoj Kumar',
-        'isAcademic': 1,
-      }
-    ],
-    '6': [
-      {
-        'initial': '9:30',
-        'final': '10:30',
-        'subName': 'Hindi',
-        'subTeacher': 'Ms. Shayna Kapoor',
-        'isAcademic': 1,
-      },
-      {
-        'initial': '10:30',
-        'final': '11:30',
-        'subName': 'Maths',
-        'subTeacher': 'Mr. Shashwat Joshi',
-        'isAcademic': 1,
-      },
-      {
-        'initial': '11:30',
-        'final': '12:30',
-        'subName': 'Geography',
-        'subTeacher': 'Mr. Aman',
-        'isAcademic': 1,
-      },
-      {
-        'initial': '11:30',
-        'final': '11:45',
-        'subName': 'Lunch Break',
-        'subTeacher': '',
-        'isAcademic': '',
-      },
-      {
-        'initial': '11:45',
-        'final': '12:25',
-        'subName': 'English',
-        'subTeacher': 'Mr. Anant Jakhmola',
-        'isAcademic': '1',
-      },
-      {
-        'initial': '12:25',
-        'final': '1:00',
-        'subName': 'Biology',
-        'subTeacher': 'Ms. Ishani Oberoi',
         'isAcademic': 1,
       }
     ],

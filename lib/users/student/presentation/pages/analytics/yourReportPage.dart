@@ -147,7 +147,7 @@ class _YourReportPageState extends State<YourReportPage> {
           SizedBox(height: 20.0),
           summaryWidget3(
             'Performance Projection',
-            "As per the analysis we have found that you are an all rounder student. You are doing great in Mathematics and physics and we really appreciate your efforts. You are also a good sports person. We want you to make a schedule and give required attention to specific tasks.",
+            "We have checked your overall response of the quiz and other responses and gathered that your academic performance is going pretty well and you are doing great with co curricular activities. Keep it up",
           ),
           SizedBox(height: 30.0),
         ],

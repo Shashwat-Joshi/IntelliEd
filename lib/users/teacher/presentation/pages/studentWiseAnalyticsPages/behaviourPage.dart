@@ -27,8 +27,8 @@ class _StudentWiseBehaviourPageState extends State<StudentWiseBehaviourPage> {
           slivers: [
             commanSliverAppBarForTeacher(
               size,
-              'Behaviour',
-              analyticsFeatures[3].subHeading,
+              'Wellness',
+              studentWiseAnalyticsFeatures[2].subHeading,
               'assets/student/images/calendar.png',
               Color(0xFFB0E3FF),
               Color(0xFF1CAAFA),
@@ -42,10 +42,10 @@ class _StudentWiseBehaviourPageState extends State<StudentWiseBehaviourPage> {
                     width: size.width,
                     margin: EdgeInsets.all(26.0),
                     child: BehaviourGraph(
-                      monthWiseAttendance:
-                          behaviourChart[currentSelectedStudentId - 1]['result']
-                              .values
-                              .toList(),
+                      score: behaviourChart[currentSelectedStudentId - 1]
+                              ['result']
+                          .values
+                          .toList(),
                       months: behaviourChart[currentSelectedStudentId - 1]
                               ['result']
                           .keys
@@ -53,11 +53,17 @@ class _StudentWiseBehaviourPageState extends State<StudentWiseBehaviourPage> {
                     ),
                   ),
                   SizedBox(height: 10.0),
-                  behaviourSummaryWidget('Summary',
-                      "Based upon your response and our analysis, you just have few mild symptoms associated with depression. For most people, this kind of response is likely an indication of normal ups and downs associated with life. It is unlikely for a person in this response range to qualify for a diagnosis of clinical depression. However, you may benefit from a consultation with a trianed professional if in case you experience difficulties in daily functioning in near future."),
+                  behaviourSummaryWidget(
+                      'Summary',
+                      currentSelectedStudentId == 2
+                          ? "Based upon your response and our analysis, you just have few mild symptoms associated with depression. For most people, this kind of response is likely an indication of normal ups and downs associated with life. It is unlikely for a person in this response range to qualify for a diagnosis of clinical depression. However, you may benefit from a consultation with a trianed professional if in case you experience difficulties in daily functioning in near future."
+                          : "Based upon your response and our analysis, you are doing great in both academics and Co curricular activities. For most people, this kind of response is likely to bring happiness and peace. However, you may benefit from a consultation with a trianed professional if in case you experience difficulties in daily functioning in near future."),
                   SizedBox(height: 30.0),
-                  behaviourSummaryWidget('Recommendation',
-                      "You might suppose that you just don't seem to be keeping pace together with your peers, however, that is not the permanent scenario. We recommend you to eat alimental food, take eight hours of sleep and exercise daily so as maintain a healthy lifestyle. Create a routine for your daily activities as following a routine might help you in bringing things back on track. Lastly, don't forget to smile, as a result of it is the best remedy that you're going to ever notice."),
+                  behaviourSummaryWidget(
+                      'Recommendation',
+                      currentSelectedStudentId == 2
+                          ? "You might suppose that you just don't seem to be keeping pace together with your peers, however, that is not the permanent scenario. We recommend you to eat alimental food, take eight hours of sleep and exercise daily so as maintain a healthy lifestyle. Create a routine for your daily activities as following a routine might help you in bringing things back on track. Lastly, don't forget to smile, as a result of it is the best remedy that you're going to ever notice."
+                          : "If you ever feel like you are not keeping pace together with your peers, remember that is not the permanent scenario.In such scenario we recommend  you to eat alimental food, take eight hours of sleep and exercise daily so as maintain a healthy lifestyle. Create a routine for your daily activities as following a routine might help you in bringing things back on track. Lastly, don't forget to smile, as a result of it is the best remedy that you're going to ever notice."),
                   SizedBox(height: 20.0),
                 ],
               ),

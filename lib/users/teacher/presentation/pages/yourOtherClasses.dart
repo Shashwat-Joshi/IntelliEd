@@ -102,6 +102,7 @@ class _YourOtherClassesState extends State<YourOtherClasses> {
                               splashColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () {
+                                //TODO: Use this to show different data acc. to selected class
                                 currentSelectedClassForYourClassData =
                                     classData['other'][i];
                                 Navigator.pushNamed(

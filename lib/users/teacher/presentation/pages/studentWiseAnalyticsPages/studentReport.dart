@@ -1,4 +1,5 @@
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/users/teacher/model/examData.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/users/teacher/presentation/widgets/slivers/commonSliverForTeacher.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,11 +12,13 @@ class StudentWiseReportPage extends StatefulWidget {
 
 class _StudentWiseReportPageState extends State<StudentWiseReportPage> {
   ScrollController _scrollController = ScrollController();
+  GlobalKey<ScaffoldState> _scaffoldState = GlobalKey<ScaffoldState>();
   String bullet = "\u2022 ";
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      key: _scaffoldState,
       body: CupertinoScrollbar(
         controller: _scrollController,
         child: CustomScrollView(
@@ -82,7 +85,10 @@ class _StudentWiseReportPageState extends State<StudentWiseReportPage> {
                               SizedBox(height: 20.0),
                               summaryWidget2(
                                 'Behaviour',
-                                "As per the analysis we have found that you are well mannered. So we highly recommend you to keep working on your interpersonal skills. It is a never ending learning process.",
+                                currentSelectedStudentId == 2
+                                    ? "As per the analysis we have found that your your behaviour towards your peers and other faculties is inappropriate. So we highly recommend you to keep working on your interpersonal skills. It is a never ending learning process."
+                                    : "As per the analysis we have found that you are well mannered. So we highly recommend you to keep working on your interpersonal skills. It is a never ending learning process.",
+                                currentSelectedStudentId == 2 ? true : false,
                               ),
                               SizedBox(height: 20.0),
                               Divider(thickness: 1.2),
@@ -90,6 +96,7 @@ class _StudentWiseReportPageState extends State<StudentWiseReportPage> {
                               summaryWidget2(
                                 'Academics',
                                 "As per the analysis we have found that you have worked really hard to achieve good grades and came up with a nice working plan. So we highly recommend you to follow the same in the upcoming semester. You will surely come up with better results in the coming exams also.",
+                                false,
                               ),
                               SizedBox(height: 20.0),
                             ],
@@ -141,13 +148,17 @@ class _StudentWiseReportPageState extends State<StudentWiseReportPage> {
           summaryWidget3(
             'Learning Style',
             "As per the analysis we have found that you are an all rounder student. You are doing great in Mathematics and physics and we really appreciate your efforts. You are also a good sports person. We want you to make a schedule and give required attention to specific tasks.",
+            false,
           ),
           SizedBox(height: 20.0),
           Divider(thickness: 1.2),
           SizedBox(height: 20.0),
           summaryWidget3(
-            'Performance Projection',
-            "As per the analysis we have found that you are an all rounder student. You are doing great in Mathematics and physics and we really appreciate your efforts. You are also a good sports person. We want you to make a schedule and give required attention to specific tasks.",
+            'Performance\n    Projection',
+            currentSelectedStudentId == 2
+                ? "We have checked your overall response of the quiz and other responses and gathered that your academic performance is not going pretty well and also you need to focus on extra co-curricular activities."
+                : "We have checked your overall response of the quiz and other responses and gathered that your academic performance is going pretty well and you are doing great with co curricular activities. Keep it up",
+            currentSelectedStudentId == 2 ? true : false,
           ),
           SizedBox(height: 30.0),
         ],
@@ -179,17 +190,52 @@ class _StudentWiseReportPageState extends State<StudentWiseReportPage> {
     );
   }
 
-  Widget summaryWidget2(String heading, String subheading) {
+  Widget summaryWidget2(String heading, String subheading, bool showConcern) {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            bullet + ' $heading',
-            style: heading2.copyWith(
-              color: Color(0xFF00C968),
-              fontSize: 20.0,
-            ),
+          Row(
+            children: [
+              Text(
+                bullet + ' $heading',
+                style: heading2.copyWith(
+                  color: Color(0xFF00C968),
+                  fontSize: 20.0,
+                ),
+              ),
+              SizedBox(width: 10.0),
+              showConcern
+                  ? InkWell(
+                      onTap: () {
+                        _scaffoldState.currentState.showSnackBar(
+                          SnackBar(
+                            action: SnackBarAction(
+                              label: 'Ok',
+                              textColor: Colors.white,
+                              onPressed: () {},
+                            ),
+                            backgroundColor: Colors.redAccent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20.0),
+                                topRight: Radius.circular(20.0),
+                              ),
+                            ),
+                            content: Text(
+                              'Note: Please look into this! We found something unusual',
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        );
+                      },
+                      child: Icon(
+                        Icons.info,
+                        color: Colors.redAccent,
+                      ),
+                    )
+                  : Container(),
+            ],
           ),
           SizedBox(height: 10.0),
           Text(
@@ -203,17 +249,51 @@ class _StudentWiseReportPageState extends State<StudentWiseReportPage> {
     );
   }
 
-  Widget summaryWidget3(String heading, String subheading) {
+  Widget summaryWidget3(String heading, String subheading, bool showConcern) {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            bullet + ' $heading',
-            style: heading2.copyWith(
-              color: Color(0xFFE3AE01),
-              fontSize: 20.0,
-            ),
+          Row(
+            children: [
+              Text(
+                bullet + ' $heading',
+                style: heading2.copyWith(
+                  color: Color(0xFFE3AE01),
+                  fontSize: 20.0,
+                ),
+              ),
+              SizedBox(width: 20.0),
+              showConcern
+                  ? InkWell(
+                      onTap: () {
+                        _scaffoldState.currentState.showSnackBar(
+                          SnackBar(
+                            action: SnackBarAction(
+                              label: 'Ok',
+                              onPressed: () {},
+                            ),
+                            backgroundColor: Colors.redAccent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20.0),
+                                topRight: Radius.circular(20.0),
+                              ),
+                            ),
+                            content: Text(
+                              'Note: Please look into this! We found something unusual',
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        );
+                      },
+                      child: Icon(
+                        Icons.info,
+                        color: Colors.redAccent,
+                      ),
+                    )
+                  : Container(),
+            ],
           ),
           SizedBox(height: 10.0),
           Text(

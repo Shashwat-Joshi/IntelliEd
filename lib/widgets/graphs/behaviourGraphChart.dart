@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 
 class BehaviourGraph extends StatefulWidget {
   final List months;
-  final List monthWiseAttendance;
+  final List score;
 
   BehaviourGraph({
     @required this.months,
-    @required this.monthWiseAttendance,
+    @required this.score,
   });
   @override
   State<StatefulWidget> createState() => BehaviourGraphState();
@@ -137,10 +137,10 @@ class BehaviourGraphState extends State<BehaviourGraph> {
   List<LineChartBarData> linesBarData1() {
     final LineChartBarData classAverageLine = LineChartBarData(
       spots: [
-        for (int i = 0; i < widget.monthWiseAttendance.length; i++)
+        for (int i = 0; i < widget.score.length; i++)
           FlSpot(
             i.toDouble(),
-            widget.monthWiseAttendance[i].toDouble(),
+            widget.score[i].toDouble(),
           ),
       ],
       isCurved: false,

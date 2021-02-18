@@ -154,8 +154,8 @@ List<StudentWiseAnalyticsFeatures> studentWiseAnalyticsFeatures = [
     textColor: Color(0xFF00C968),
   ),
   StudentWiseAnalyticsFeatures(
-    heading: 'Behaviour',
-    subHeading: 'Your behaviour in all aspects',
+    heading: 'Wellness',
+    subHeading: 'Your wellness in all aspects',
     imagePath: 'assets/student/images/analyticsVectors/3.png',
     color: Color(0xFFFFF2CA),
     textColor: Color(0xFFE3AE01),
@@ -439,6 +439,11 @@ List<String> higherAuthoritiesAnnouncement = [
   'Timely check is important when it comes to improvement. Co curricular activities are important in a way or the other to bring some positive changes in your personality and eliminate the negative one. So keep a timely check on the data and keep improving.',
 ];
 
+List<String> riskNotifications = [
+  'We found that there is a significant drop in Anant Jakmola\'s(9A) behavioral performance',
+  'We found that there is a significant drop in Anant Jakmola\'s(9A) performance'
+];
+
 // Lorem Ipsum
 String scoreCardText =
     "Here is the score card for.... Keep learning, keep growing !!";
@@ -492,8 +497,6 @@ int selectedCardWidget;
 
 List<String> skills = [
   "Space Science",
-  "Astrophysics",
   "Computer science",
-  "Literature",
   "Mathematics",
 ];

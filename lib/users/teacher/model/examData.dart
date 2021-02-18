@@ -346,9 +346,9 @@ List<Map<String, Map>> behaviourChart = [
       'feb': 60.0,
       'mar': 77.0,
       'apr': 70.0,
-      'may': 88.0,
-      'jun': 60.0,
-      'jul': 92.0,
+      'may': 72.0,
+      'jun': 40.0,
+      'jul': 28.0,
     },
   },
   {

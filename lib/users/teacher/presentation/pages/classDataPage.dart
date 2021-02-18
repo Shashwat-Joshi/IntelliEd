@@ -146,11 +146,12 @@ class _ClassDataPageState extends State<ClassDataPage> {
                           _data[_searchedList[i]['id'] - 1]['id'];
 
                       showStudentWiseSubjectCards(
-                          size,
-                          _searchedList[i]['id'],
-                          classDataStudent['result']
-                              [currentSelectedStudentId - 1]['name'],
-                          context);
+                        size,
+                        _searchedList[i]['id'],
+                        classDataStudent['result'][currentSelectedStudentId - 1]
+                            ['name'],
+                        context,
+                      );
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20.0),

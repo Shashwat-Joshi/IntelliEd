@@ -78,12 +78,13 @@ class _CreateAnnouncementPageState extends State<CreateAnnouncementPage> {
                           },
                           validator: (val) {
                             if (val.isEmpty) return 'Field can\'t be empty';
-                            if (val.length >= 250) return 'Word limit exceeded';
+                            if (val.length >= 1000)
+                              return 'Word limit exceeded';
                           },
                           initialValue: announcementData,
                           minLines: 10,
                           maxLines: 10,
-                          maxLength: 250,
+                          maxLength: 1000,
                           scrollPhysics: BouncingScrollPhysics(),
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(20.0),
