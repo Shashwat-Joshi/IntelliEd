@@ -55,6 +55,7 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
                       size: size,
                     ),
                   ),
+                  SizedBox(height: 30.0),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 26.0),
                     child: Column(

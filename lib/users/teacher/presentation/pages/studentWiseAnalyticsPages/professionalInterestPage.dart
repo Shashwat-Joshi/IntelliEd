@@ -1,6 +1,6 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
+import 'package:IntelliEd/users/teacher/presentation/widgets/slivers/commonSliverForTeacher.dart';
 import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/coCurricularMainGraph.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ class _StudentWiseProfessionalInterestPageState
           controller: _scrollController,
           physics: BouncingScrollPhysics(),
           slivers: [
-            commanSliverAppBarForStudent(
+            commanSliverAppBarForTeacher(
               size,
               'Professional Interests',
               'Here you may explore your field of interest with the ease of analysis.',

@@ -370,8 +370,10 @@ class _TakeQuizForBehaviourPageState extends State<TakeQuizForBehaviourPage> {
                             triggerFunction: () {
                               Navigator.pushAndRemoveUntil(
                                 context,
-                                CupertinoPageRoute(
-                                  builder: (context) => TeacherHomePage(),
+                                PageRouteBuilder(
+                                  transitionDuration: Duration(seconds: 0),
+                                  pageBuilder: (context, _, __) =>
+                                      TeacherHomePage(),
                                 ),
                                 (route) => false,
                               );
