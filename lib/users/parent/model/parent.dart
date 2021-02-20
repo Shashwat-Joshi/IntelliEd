@@ -96,24 +96,45 @@ List<StudentWiseAnalyticsFeaturesForParent>
   ),
 ];
 
+StudentAverageMarks modelStudentAverageMarks;
+
+// To save model student data and to fetch class Average and student Average
+createModelMarksForAcademicPerformancePage() {
+  modelStudentAverageMarks = StudentAverageMarks(
+    studentMarks: {
+      'Maths': [40.5, 80.8],
+      'Physics': [30.4, 95.1],
+      'Chemistry': [85.2, 88.6],
+      'Biology': [81.7, 88.4],
+      'CS': [97.3, 92.2],
+      'English': [55.6, 90.3],
+      'Hindi': [87.9, 91.4],
+      'SST': [15.3, 84.6],
+    },
+  );
+}
+
+List<double> getStudentAverageMarks() {
+  List<double> result = [];
+  modelStudentAverageMarks.studentMarks.values.toList().forEach((element) {
+    result.add(element[0]);
+  });
+  return result;
+}
+
+List<double> getClassAverageMarks() {
+  List<double> result = [];
+  modelStudentAverageMarks.studentMarks.values.toList().forEach((element) {
+    result.add(element[1]);
+  });
+  return result;
+}
+
 // To store the final subjects for future use
 List<String> studentWisefinalSubjects = [];
 
 // For student wise academic performance
 // For Academic Performance page 1
-
-StudentAverageMarks modelStudentWiseAverageMarks = StudentAverageMarks(
-  studentMarks: {
-    'Maths': [88.5, 80.8],
-    'Physics': [92.4, 95.1],
-    'Chemistry': [85.2, 88.6],
-    'Biology': [81.7, 88.4],
-    'CS': [97.3, 92.2],
-    'English': [81.6, 90.3],
-    'Hindi': [87.9, 91.4],
-    'SST': [78.3, 84.6],
-  },
-);
 
 // Student Name
 String studentName = 'Shashwat Joshi';

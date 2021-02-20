@@ -1,5 +1,6 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/teacher/model/examData.dart';
+import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/users/teacher/presentation/pages/studentWiseAnalyticsPages/subjectWisePage.dart';
 import 'package:IntelliEd/widgets/graphs/AcademicsbarChart.dart';
 import 'package:flutter/cupertino.dart';
@@ -66,12 +67,12 @@ class _StudentWiseAcademicPerformanceState
             children: [
               Container(
                 margin: EdgeInsets.all(26.0),
-                height: 380.0,
+                height: 300.0,
                 width: size.width,
                 child: AcademicsBarGraph(
-                  studentAverageMarks: modelStudentWiseAverageMarks[
-                      currentSelectedStudentId - 1],
-                  finalSubjects: studentWisefinalSubjects,
+                  studentMarks: getStudentAverageMarksPerStudent(),
+                  examNames: studentWisefinalSubjects,
+                  classAverageMarks: getClassAverageMarksPerStudent(),
                 ),
               ),
               Container(

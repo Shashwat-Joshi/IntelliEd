@@ -1,217 +1,187 @@
-import 'package:IntelliEd/model/commanModel.dart';
 import 'package:IntelliEd/style/theme.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class AcademicsBarGraph extends StatefulWidget {
-  final StudentAverageMarks studentAverageMarks;
-  final List<String> finalSubjects;
+  final List<double> studentMarks, classAverageMarks;
+  final List<String> examNames;
   AcademicsBarGraph({
-    @required this.studentAverageMarks,
-    @required this.finalSubjects,
+    @required this.studentMarks,
+    @required this.classAverageMarks,
+    @required this.examNames,
   });
   @override
   State<StatefulWidget> createState() => AcademicsBarGraphState();
 }
 
 class AcademicsBarGraphState extends State<AcademicsBarGraph> {
-  final Color leftBarColor = const Color(0xff1CAAFA);
-  final Color rightBarColor = const Color(0xff00C968);
-  final double width = 7;
-
-  List<BarChartGroupData> rawBarGroups = [];
-  List<BarChartGroupData> showingBarGroups = [];
-  int touchedGroupIndex;
-
-  @override
-  void initState() {
-    super.initState();
-    List<BarChartGroupData> items = [];
-
-    for (int i = 0; i < widget.studentAverageMarks.studentMarks.length; i++) {
-      String key = widget.finalSubjects.elementAt(i);
-      items.add(makeGroupData(
-          i,
-          widget.studentAverageMarks.studentMarks[key][0],
-          widget.studentAverageMarks.studentMarks[key][1]));
-    }
-    rawBarGroups = items;
-    showingBarGroups = rawBarGroups;
-  }
-
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1,
-      child: Stack(
-        children: [
-          Card(
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0)),
-            color: const Color(0xffE8F7FF),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'Your Score vs Average',
-                        style: subheading.copyWith(
-                            color: Color(0xff1CAAFA), fontSize: 18),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 38,
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: BarChart(
-                        BarChartData(
-                          maxY: 101,
-                          barTouchData: BarTouchData(
-                              touchTooltipData: BarTouchTooltipData(
-                                  tooltipBgColor: Colors.white,
-                                  getTooltipItem: (
-                                    BarChartGroupData group,
-                                    int groupIndex,
-                                    BarChartRodData rod,
-                                    int rodIndex,
-                                  ) {
-                                    return BarTooltipItem(
-                                      rod.y.toString(),
-                                      TextStyle(
-                                        color: Color(0xFF1CAAFA),
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    );
-                                  }),
-                              touchCallback: (response) {
-                                if (response.spot == null) {
-                                  setState(() {
-                                    touchedGroupIndex = -1;
-                                    showingBarGroups = List.of(rawBarGroups);
-                                  });
-                                  return;
-                                }
-
-                                touchedGroupIndex =
-                                    response.spot.touchedBarGroupIndex;
-                              }),
-                          titlesData: FlTitlesData(
-                            show: true,
-                            bottomTitles: SideTitles(
-                              showTitles: true,
-                              getTextStyles: (value) => subheading.copyWith(
-                                color: Color(0xff7589a2),
-                                fontWeight: FontWeight.w900,
-                                fontSize: 14,
-                              ),
-                              margin: 20,
-                              getTitles: (double value) {
-                                for (int i = 0;
-                                    i < widget.finalSubjects.length;
-                                    i++) {
-                                  if (value.toInt() == i) {
-                                    return (widget.finalSubjects[i]
-                                                .toString()
-                                                .length <=
-                                            3)
-                                        ? widget.finalSubjects[i].toString()
-                                        : widget.finalSubjects[i]
-                                            .toString()
-                                            .substring(0, 3);
-                                  }
-                                }
-                                return '';
-                              },
-                            ),
-                            leftTitles: SideTitles(
-                              showTitles: true,
-                              getTextStyles: (value) => subheading.copyWith(
-                                color: Color(0xff7589a2),
-                                fontWeight: FontWeight.w900,
-                                fontSize: 14,
-                              ),
-                              margin: 32,
-                              reservedSize: 14,
-                              getTitles: (value) {
-                                if (value == 0) {
-                                  return '0';
-                                } else if (value == 20) {
-                                  return '20';
-                                } else if (value == 40) {
-                                  return '40';
-                                } else if (value == 60) {
-                                  return '60';
-                                } else if (value == 80) {
-                                  return '80';
-                                } else if (value == 100) {
-                                  return '100';
-                                } else {
-                                  return '';
-                                }
-                              },
-                            ),
-                          ),
-                          borderData: FlBorderData(
-                            show: false,
-                          ),
-                          barGroups: showingBarGroups,
-                        ),
-                      ),
+      aspectRatio: 1.0,
+      child: Container(
+        padding: EdgeInsets.only(right: 20.0, left: 5.0, bottom: 5.0, top: 5.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          color: Color(0xffE8F7FF),
+        ),
+        child: Stack(
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                SizedBox(
+                  height: 16,
+                ),
+                Text(
+                  'Your Score vs Average',
+                  style: subheading.copyWith(
+                      color: Color(0xff1CAAFA), fontSize: 18),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 37,
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 16.0, left: 6.0),
+                    child: LineChart(
+                      sampleData1(),
                     ),
                   ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                ],
-              ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+              ],
             ),
-          ),
-          Positioned(
-            right: 23.0,
-            top: 23.0,
-            child: InkWell(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () {},
-              child: Icon(
-                Icons.fullscreen,
-                color: Color(0xff00C968),
-              ),
-            ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
 
-  BarChartGroupData makeGroupData(int x, double y1, double y2) {
-    return BarChartGroupData(
-      barsSpace: 5,
-      x: x,
-      barRods: [
-        BarChartRodData(
-          y: y1,
-          colors: [leftBarColor],
-          width: width,
+  LineChartData sampleData1() {
+    return LineChartData(
+      lineTouchData: LineTouchData(
+        touchTooltipData: LineTouchTooltipData(
+          tooltipBgColor: Colors.white.withOpacity(0.8),
         ),
-        BarChartRodData(
-          y: y2,
-          colors: [rightBarColor],
-          width: width,
+        touchCallback: (LineTouchResponse touchResponse) {},
+        handleBuiltInTouches: true,
+      ),
+      gridData: FlGridData(
+        show: false,
+      ),
+      minY: 0.0,
+      maxY: 100.0,
+      minX: 0.0,
+      maxX: widget.examNames.length.toDouble() - 1,
+      titlesData: FlTitlesData(
+        bottomTitles: SideTitles(
+          showTitles: true,
+          reservedSize: 22,
+          getTextStyles: (value) => subheading.copyWith(
+            color: Color(0xff7589a2),
+            fontWeight: FontWeight.w900,
+            fontSize: 14,
+          ),
+          margin: 10,
+          getTitles: (value) {
+            for (int i = 0; i < widget.examNames.length; i++) {
+              if (value.toInt() == i) {
+                return (widget.examNames[i].toString().length <= 3)
+                    ? widget.examNames[i].toString()
+                    : widget.examNames[i].toString().substring(0, 3);
+              }
+            }
+
+            return '';
+          },
         ),
-      ],
+        leftTitles: SideTitles(
+          showTitles: true,
+          getTextStyles: (value) => subheading.copyWith(
+            color: Color(0xff7589a2),
+            fontWeight: FontWeight.w900,
+            fontSize: 14,
+          ),
+          getTitles: (value) {
+            switch (value.toInt()) {
+              case 0:
+                return '0';
+              case 20:
+                return '20';
+              case 40:
+                return '40';
+              case 60:
+                return '60';
+              case 80:
+                return '80';
+              case 100:
+                return '100';
+            }
+            return '';
+          },
+          margin: 20,
+          reservedSize: 30,
+        ),
+      ),
+      borderData: FlBorderData(
+        show: false,
+      ),
+      lineBarsData: linesBarData1(),
     );
+  }
+
+  List<LineChartBarData> linesBarData1() {
+    final LineChartBarData classAverageLine = LineChartBarData(
+      spots: [
+        for (int i = 0; i < widget.classAverageMarks.length; i++)
+          FlSpot(i.toDouble(), widget.classAverageMarks[i]),
+      ],
+      isCurved: true,
+      colors: [
+        const Color(0xff00C968),
+      ],
+      barWidth: 3,
+      isStrokeCapRound: false,
+      dotData: FlDotData(
+        show: false,
+      ),
+      belowBarData: BarAreaData(
+        show: true,
+        colors: [
+          Color(0xff00C968).withOpacity(0.3),
+        ],
+      ),
+    );
+    final LineChartBarData studentMarksLine = LineChartBarData(
+      spots: [
+        for (int i = 0; i < widget.studentMarks.length; i++)
+          FlSpot(i.toDouble(), widget.studentMarks[i]),
+      ],
+      isCurved: true,
+      colors: [
+        const Color(0xff1CAAFA),
+      ],
+      barWidth: 3,
+      isStrokeCapRound: false,
+      dotData: FlDotData(
+        show: false,
+      ),
+      belowBarData: BarAreaData(
+        show: true,
+        colors: [
+          const Color(0xff1CAAFA).withOpacity(0.3),
+        ],
+      ),
+    );
+
+    return [
+      classAverageLine,
+      studentMarksLine,
+    ];
   }
 }

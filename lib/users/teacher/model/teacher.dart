@@ -237,6 +237,28 @@ int isSubjectWisedataAvailable(String subject) {
   return index;
 }
 
+List<double> getStudentAverageMarksPerStudent() {
+  List<double> result = [];
+  modelStudentWiseAverageMarks[currentSelectedStudentId - 1]
+      .studentMarks
+      .values
+      .forEach((element) {
+    result.add(element[0]);
+  });
+  return result;
+}
+
+List<double> getClassAverageMarksPerStudent() {
+  List<double> result = [];
+  modelStudentWiseAverageMarks[currentSelectedStudentId - 1]
+      .studentMarks
+      .values
+      .forEach((element) {
+    result.add(element[1]);
+  });
+  return result;
+}
+
 // To simplify the json
 getStudentAverageAndClassAverageMarks(String subject) {
   var result = [];

@@ -3,7 +3,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class LineChartSample1 extends StatefulWidget {
-  final List<int> studentMarks, classAverageMarks;
+  final List studentMarks, classAverageMarks;
   final List<String> examNames;
   LineChartSample1({
     @required this.studentMarks,

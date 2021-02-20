@@ -5,7 +5,6 @@ int currentSelectedStudentId;
 
 // For student wise academic performance
 // For Academic Performance page 1
-
 List<StudentAverageMarks> modelStudentWiseAverageMarks = [
   StudentAverageMarks(
     studentMarks: {

@@ -18,7 +18,7 @@ class MainCoCurricularMainGraph extends StatefulWidget {
 }
 
 class _MainCoCurricularMainGraphState extends State<MainCoCurricularMainGraph> {
-  double barWidth = 6.0;
+  double barWidth = 8.0;
   int isSelectedIndex = 0;
   String selectedSkill, skillPercentage;
   @override

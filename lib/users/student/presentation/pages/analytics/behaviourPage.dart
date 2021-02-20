@@ -49,7 +49,7 @@ class _BehaviourPageState extends State<BehaviourPage> {
                       "Based upon your response and our analysis, you just have few mild symptoms associated with depression. For most people, this kind of response is likely an indication of normal ups and downs associated with life. It is unlikely for a person in this response range to qualify for a diagnosis of clinical depression. However, you may benefit from a consultation with a trianed professional if in case you experience difficulties in daily functioning in near future."),
                   SizedBox(height: 30.0),
                   behaviourSummaryWidget('Recommendation',
-                      "First of all, Smile. Believe or not it's the best remedy you will ever found. You might think you are not keeping the pace with your peers, but that's not the permanent situation. So keep it up"),
+                      "If you ever feel like you are not keeping pace together with your peers, remember that is not the permanent scenario.In such scenario we recommend  you to eat alimental food, take eight hours of sleep and exercise daily so as maintain a healthy lifestyle. Create a routine for your daily activities as following a routine might help you in bringing things back on track. Lastly, don't forget to smile, as a result of it is the best remedy that you're going to ever notice."),
                   SizedBox(height: 20.0),
                 ],
               ),
@@ -77,7 +77,7 @@ class _BehaviourPageState extends State<BehaviourPage> {
           Text(
             subheading,
             style: viewAllStyle.apply(
-              color: Color(0xFFACACAC),
+              color: Color(0xff717171),
             ),
           )
         ],

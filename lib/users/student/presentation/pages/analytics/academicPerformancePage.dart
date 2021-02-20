@@ -17,7 +17,9 @@ class _AcademicPerformanceState extends State<AcademicPerformance> {
   @override
   void initState() {
     super.initState();
+
     if (finalSubjects.isEmpty) {
+      createModelMarksForAcademicPerformancePage();
       modelStudentAverageMarks.studentMarks.keys.forEach((key) {
         finalSubjects.add(key.toString());
       });
@@ -56,10 +58,11 @@ class _AcademicPerformanceState extends State<AcademicPerformance> {
                 [
                   Container(
                     margin: EdgeInsets.all(26.0),
-                    height: 405.0,
+                    height: 300.0,
                     child: AcademicsBarGraph(
-                      studentAverageMarks: modelStudentAverageMarks,
-                      finalSubjects: finalSubjects,
+                      studentMarks: getStudentAverageMarks(),
+                      classAverageMarks: getClassAverageMarks(),
+                      examNames: finalSubjects,
                     ),
                   ),
                   Container(

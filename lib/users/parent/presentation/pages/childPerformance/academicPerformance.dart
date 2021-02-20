@@ -18,12 +18,12 @@ class _StudentAcademicPerformanceForParentState
   @override
   void initState() {
     super.initState();
-    if (studentWisefinalSubjects.isNotEmpty) {
-      studentWisefinalSubjects.clear();
+    if (studentWisefinalSubjects.isEmpty) {
+      createModelMarksForAcademicPerformancePage();
+      modelStudentAverageMarks.studentMarks.keys.forEach((key) {
+        studentWisefinalSubjects.add(key.toString());
+      });
     }
-    modelStudentWiseAverageMarks.studentMarks.keys.forEach((key) {
-      studentWisefinalSubjects.add(key.toString());
-    });
   }
 
   @override
@@ -66,8 +66,9 @@ class _StudentAcademicPerformanceForParentState
                 height: 380.0,
                 width: size.width,
                 child: AcademicsBarGraph(
-                  studentAverageMarks: modelStudentWiseAverageMarks,
-                  finalSubjects: studentWisefinalSubjects,
+                  studentMarks: getStudentAverageMarks(),
+                  classAverageMarks: getClassAverageMarks(),
+                  examNames: studentWisefinalSubjects,
                 ),
               ),
               Container(
