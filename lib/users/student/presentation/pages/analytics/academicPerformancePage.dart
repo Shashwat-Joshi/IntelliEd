@@ -56,8 +56,7 @@ class _AcademicPerformanceState extends State<AcademicPerformance> {
                 [
                   Container(
                     margin: EdgeInsets.all(26.0),
-                    height: 380.0,
-                    width: size.width,
+                    height: 405.0,
                     child: AcademicsBarGraph(
                       studentAverageMarks: modelStudentAverageMarks,
                       finalSubjects: finalSubjects,
@@ -149,7 +148,7 @@ class _AcademicPerformanceState extends State<AcademicPerformance> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
+                CupertinoPageRoute(
                   builder: (context) => SubjectWiseAcademicPage(
                     index: i,
                   ),
