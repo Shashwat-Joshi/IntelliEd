@@ -94,7 +94,7 @@ class _StudentWiseBehaviourPageState extends State<StudentWiseBehaviourPage> {
           Text(
             subheading,
             style: viewAllStyle.apply(
-              color: Color(0xFFACACAC),
+              color: Color(0xFF717171),
             ),
           )
         ],

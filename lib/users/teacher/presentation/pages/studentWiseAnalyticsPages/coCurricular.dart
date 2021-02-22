@@ -103,7 +103,7 @@ class _StudentWiseCoCurricularPageState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Skill Sets',
+                      'Soft Skills',
                       style: heading2,
                     ),
                     SizedBox(height: 26.0),

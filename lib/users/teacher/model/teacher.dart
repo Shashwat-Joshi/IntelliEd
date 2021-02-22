@@ -22,11 +22,10 @@ Map userData = {};
 
 // Teacher other class data
 Map classData = {
-  'main': '9A',
+  'main': '9B',
   'other': [
-    '7C',
+    '10C',
     '10D',
-    '12E',
   ],
 };
 
