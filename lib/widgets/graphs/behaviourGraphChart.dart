@@ -123,7 +123,7 @@ class BehaviourGraphState extends State<BehaviourGraph> {
             }
             return '';
           },
-          margin: 50,
+          margin: 25,
           reservedSize: 30,
         ),
       ),

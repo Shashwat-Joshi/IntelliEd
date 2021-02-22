@@ -113,7 +113,7 @@ class PreviousAttendanceGraphState extends State<PreviousAttendanceGraph> {
             }
             return '';
           },
-          margin: 50,
+          margin: 25,
           reservedSize: 30,
         ),
       ),
