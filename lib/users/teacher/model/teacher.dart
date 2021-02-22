@@ -88,7 +88,7 @@ List<AnalyticsFeatures> analyticsFeatures = [
     heading: 'Quiz',
     subHeading:
         'Create quiz for students or use cognitive assessment to grade their behaviour',
-    imagePath: 'assets/student/images/analyticsVectors/5.png',
+    imagePath: 'assets/teacher/analyticsVectors/4.png',
     color: Color(0xFFD1DEFF),
     textColor: Color(0xFF477AFF),
   ),
@@ -171,14 +171,14 @@ List<StudentWiseAnalyticsFeatures> studentWiseAnalyticsFeatures = [
     heading: 'Professional Interests',
     subHeading:
         'Here you may explore your field of interest with the ease of analysis.',
-    imagePath: 'assets/student/images/analyticsVectors/5.png',
+    imagePath: 'assets/student/images/analyticsVectors/6.png',
     color: Color(0xFFB8F7FF),
     textColor: Color(0xFF00A5BB),
   ),
   StudentWiseAnalyticsFeatures(
     heading: 'My Report',
     subHeading: 'We have updated the report as per the survey. Do check it.',
-    imagePath: 'assets/student/images/analyticsVectors/5.png',
+    imagePath: 'assets/student/images/analyticsVectors/7.png',
     color: Color(0xFFF3E3A8),
     textColor: Color(0xFFA19361),
   ),
@@ -505,20 +505,3 @@ Map calendarDataForTeacher = {
     },
   ]
 };
-
-// Data for Co-Curricular main graph
-Map<String, double> professionalInterestsMainPageData = {
-  'Space science': 97.3,
-  'Astrophysics': 77.6,
-  'Computer science': 97.3,
-  'Literature': 25.7,
-  'Mathematics': 95.6,
-};
-
-int selectedCardWidget;
-
-List<String> skills = [
-  "Space Science",
-  "Computer science",
-  "Mathematics",
-];

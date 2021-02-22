@@ -1,4 +1,5 @@
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/model/analyticsLocalDB.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
 import 'package:flutter/cupertino.dart';
@@ -53,14 +54,14 @@ class _YourReportPageState extends State<YourReportPage> {
                               SizedBox(height: 26.0),
                               summaryWidget1(
                                 'Qualities',
-                                "You posses great interpersonal skills. You are doing great with your  academics as well. Maintain a good balance and keep growing.And do remember hardwork pays off.",
+                                qualitiesSummary,
                               ),
                               SizedBox(height: 20.0),
                               Divider(thickness: 1.2),
                               SizedBox(height: 20.0),
                               summaryWidget1(
                                 'Professional Interest',
-                                "As per the analysis we have found that you have proficiency in science and technology. So we highly recommend you to keep working. You can come with great ideas and bring a positive change in the society.",
+                                professionalInterestSummary,
                               ),
                               SizedBox(height: 20.0),
                             ],
@@ -82,14 +83,14 @@ class _YourReportPageState extends State<YourReportPage> {
                               SizedBox(height: 20.0),
                               summaryWidget2(
                                 'Behaviour',
-                                "As per the analysis we have found that you are well mannered. So we highly recommend you to keep working on your interpersonal skills. It is a never ending learning process.",
+                                behaviorSummary,
                               ),
                               SizedBox(height: 20.0),
                               Divider(thickness: 1.2),
                               SizedBox(height: 20.0),
                               summaryWidget2(
                                 'Academics',
-                                "As per the analysis we have found that you have worked really hard to achieve good grades and came up with a nice working plan. So we highly recommend you to follow the same in the upcoming semester. You will surely come up with better results in the coming exams also.",
+                                academicsSummary,
                               ),
                               SizedBox(height: 20.0),
                             ],
@@ -140,14 +141,14 @@ class _YourReportPageState extends State<YourReportPage> {
           SizedBox(height: 30.0),
           summaryWidget3(
             'Learning Style',
-            "As per the analysis we have found that you are an all rounder student. You are doing great in Mathematics and physics and we really appreciate your efforts. You are also a good sports person. We want you to make a schedule and give required attention to specific tasks.",
+            learningStyleSummary,
           ),
           SizedBox(height: 20.0),
           Divider(thickness: 1.2),
           SizedBox(height: 20.0),
           summaryWidget3(
             'Performance Projection',
-            "We have checked your overall response of the quiz and other responses and gathered that your academic performance is going pretty well and you are doing great with co curricular activities. Keep it up",
+            performanceProjectionSummary,
           ),
           SizedBox(height: 30.0),
         ],

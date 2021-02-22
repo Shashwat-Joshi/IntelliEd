@@ -77,7 +77,7 @@ class _BehaviourPageForParentState extends State<BehaviourPageForParent> {
           Text(
             subheading,
             style: viewAllStyle.apply(
-              color: Color(0xFFACACAC),
+              color: Color(0xff717171),
             ),
           )
         ],

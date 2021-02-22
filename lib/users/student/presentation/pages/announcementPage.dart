@@ -50,7 +50,7 @@ class _AnnouncementPageState extends State<AnnouncementPage> {
                                   globalAnnouncementData[i],
                                   textAlign: TextAlign.left,
                                   style: viewAllStyle.copyWith(
-                                    color: Colors.grey,
+                                    color: Color(0xff717171),
                                   ),
                                 ),
                                 Divider(

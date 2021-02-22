@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:month_picker_dialog/month_picker_dialog.dart';
 
+import 'addDataToCalendar.dart';
+
 class TeacherCalendarPage extends StatefulWidget {
   @override
   _TeacherCalendarPageState createState() => _TeacherCalendarPageState();
@@ -16,6 +18,8 @@ class _TeacherCalendarPageState extends State<TeacherCalendarPage> {
   int isSelectedWeek;
   DateTime selectedDate;
   String currentMonth;
+
+  String selectedClass = classData['main'];
 
   @override
   void initState() {
@@ -279,6 +283,20 @@ class _TeacherCalendarPageState extends State<TeacherCalendarPage> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        backgroundColor: Color(0xff1CAAFA),
+        onPressed: () {
+          Navigator.push(
+            context,
+            CupertinoPageRoute(
+              builder: (context) => AddDataToCalendarPage(
+                selectedClass: selectedClass,
+              ),
+            ),
+          );
+        },
       ),
     );
   }

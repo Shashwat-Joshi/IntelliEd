@@ -1,5 +1,5 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/model/student.dart';
+import 'package:IntelliEd/model/analyticsLocalDB.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
 import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/coCurricularMainGraph.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,6 +14,15 @@ class ProfessionalInterestPage extends StatefulWidget {
 class _ProfessionalInterestPageState extends State<ProfessionalInterestPage> {
   ScrollController _scrollController = ScrollController();
   String bullet = "\u2022 ";
+  List<String> skills = [];
+
+  @override
+  void initState() {
+    super.initState();
+    skills.clear();
+    skills = getSkills();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -50,9 +59,9 @@ class _ProfessionalInterestPageState extends State<ProfessionalInterestPage> {
                   keyInterestsWidget(),
                   SizedBox(height: 16.0),
                   summaryWidget(
-                      'Summary',
-                      //TODO: Text Changed
-                      "As per the analysis we have found that you have proficiency in physics. So we highly recommend you to keep working and have deep study of Astrophysics . You can come with great ideas and bring a positive change in the society."),
+                    'Summary',
+                    professionalInterestSummary,
+                  ),
                   SizedBox(height: 20.0),
                 ],
               ),

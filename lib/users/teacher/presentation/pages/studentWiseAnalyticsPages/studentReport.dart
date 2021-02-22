@@ -1,3 +1,4 @@
+import 'package:IntelliEd/model/analyticsLocalDB.dart';
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/teacher/model/examData.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
@@ -56,14 +57,14 @@ class _StudentWiseReportPageState extends State<StudentWiseReportPage> {
                               SizedBox(height: 26.0),
                               summaryWidget1(
                                 'Qualities',
-                                "You posses great interpersonal skills. You are doing great with your  academics as well. Maintain a good balance and keep growing.And do remember hardwork pays off.",
+                                qualitiesSummary,
                               ),
                               SizedBox(height: 20.0),
                               Divider(thickness: 1.2),
                               SizedBox(height: 20.0),
                               summaryWidget1(
                                 'Professional Interest',
-                                "As per the analysis we have found that you have proficiency in science and technology. So we highly recommend you to keep working. You can come with great ideas and bring a positive change in the society.",
+                                professionalInterestSummary,
                               ),
                               SizedBox(height: 20.0),
                             ],
@@ -87,7 +88,7 @@ class _StudentWiseReportPageState extends State<StudentWiseReportPage> {
                                 'Behaviour',
                                 currentSelectedStudentId == 2
                                     ? "As per the analysis we have found that your your behaviour towards your peers and other faculties is inappropriate. So we highly recommend you to keep working on your interpersonal skills. It is a never ending learning process."
-                                    : "As per the analysis we have found that you are well mannered. So we highly recommend you to keep working on your interpersonal skills. It is a never ending learning process.",
+                                    : behaviorSummary,
                                 currentSelectedStudentId == 2 ? true : false,
                               ),
                               SizedBox(height: 20.0),
@@ -95,7 +96,7 @@ class _StudentWiseReportPageState extends State<StudentWiseReportPage> {
                               SizedBox(height: 20.0),
                               summaryWidget2(
                                 'Academics',
-                                "As per the analysis we have found that you have worked really hard to achieve good grades and came up with a nice working plan. So we highly recommend you to follow the same in the upcoming semester. You will surely come up with better results in the coming exams also.",
+                                academicsSummary,
                                 false,
                               ),
                               SizedBox(height: 20.0),
@@ -147,7 +148,7 @@ class _StudentWiseReportPageState extends State<StudentWiseReportPage> {
           SizedBox(height: 30.0),
           summaryWidget3(
             'Learning Style',
-            "As per the analysis we have found that you are an all rounder student. You are doing great in Mathematics and physics and we really appreciate your efforts. You are also a good sports person. We want you to make a schedule and give required attention to specific tasks.",
+            learningStyleSummary,
             false,
           ),
           SizedBox(height: 20.0),
@@ -157,7 +158,7 @@ class _StudentWiseReportPageState extends State<StudentWiseReportPage> {
             'Performance\n    Projection',
             currentSelectedStudentId == 2
                 ? "We have checked your overall response of the quiz and other responses and gathered that your academic performance is not going pretty well and also you need to focus on extra co-curricular activities."
-                : "We have checked your overall response of the quiz and other responses and gathered that your academic performance is going pretty well and you are doing great with co curricular activities. Keep it up",
+                : performanceProjectionSummary,
             currentSelectedStudentId == 2 ? true : false,
           ),
           SizedBox(height: 30.0),

@@ -1,3 +1,4 @@
+import 'package:IntelliEd/model/analyticsLocalDB.dart';
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/parent/model/parent.dart';
 import 'package:IntelliEd/users/parent/presentation/widgets/slivers/commanSliverForParent.dart';
@@ -47,49 +48,89 @@ class _StudentSummaryForParentState extends State<StudentSummaryForParent> {
                       size: size,
                     ),
                   ),
+                  SizedBox(height: 20.0),
+                  Divider(thickness: 1.0),
+                  SizedBox(height: 20.0),
                   Container(
-                    // margin: EdgeInsets.symmetric(horizontal: 16.0),
                     child: Column(
                       children: [
-                        Divider(thickness: 1.2),
-                        SizedBox(height: 20.0),
-                        summaryWidget(
-                            'Summary',
-                            //Todo: Text Changed
-                            "As per the analysis we have found that you have worked really hard to achieve good grades and came up with a nice working plan. So we highly recommend you to follow the same in the upcoming semester. You will surely come up with better results in the coming exams also."),
-                        SizedBox(height: 20.0),
-                        Divider(thickness: 1.2),
-                        SizedBox(height: 20.0),
-                        summaryWidget(
-                          'Qualities',
-                          "You posses great interpersonal skills. You are doing great with your  academics as well. Maintain a good balance and keep growing.And do remember hardwork pays off.",
+                        Container(
+                          margin: EdgeInsets.only(right: 40.0),
+                          decoration: BoxDecoration(
+                            color: Color(0xffE8F7FF),
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(50.0),
+                              bottomRight: Radius.circular(50.0),
+                            ),
+                          ),
+                          padding: EdgeInsets.symmetric(horizontal: 26.0),
+                          child: Column(
+                            children: [
+                              SizedBox(height: 26.0),
+                              summaryWidget1(
+                                'Qualities',
+                                qualitiesSummary,
+                              ),
+                              SizedBox(height: 20.0),
+                              Divider(thickness: 1.2),
+                              SizedBox(height: 20.0),
+                              summaryWidget1(
+                                'Professional Interest',
+                                professionalInterestSummary,
+                              ),
+                              SizedBox(height: 20.0),
+                            ],
+                          ),
                         ),
-                        SizedBox(height: 20.0),
-                        Divider(thickness: 1.2),
-                        SizedBox(height: 20.0),
-                        summaryWidget(
-                          'Professional Interest',
-                          "As per the analysis we have found that you have proficiency in science and technology. So we highly recommend you to keep working. You can come with great ideas and bring a positive change in the society.",
+                        SizedBox(height: 30.0),
+                        Container(
+                          margin: EdgeInsets.only(left: 40.0),
+                          decoration: BoxDecoration(
+                            color: Color(0xffAFFFD9),
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(50.0),
+                              bottomLeft: Radius.circular(50.0),
+                            ),
+                          ),
+                          padding: EdgeInsets.symmetric(horizontal: 26.0),
+                          child: Column(
+                            children: [
+                              SizedBox(height: 20.0),
+                              summaryWidget2(
+                                'Behaviour',
+                                behaviorSummary,
+                              ),
+                              SizedBox(height: 20.0),
+                              Divider(thickness: 1.2),
+                              SizedBox(height: 20.0),
+                              summaryWidget2(
+                                'Academics',
+                                academicsSummary,
+                              ),
+                              SizedBox(height: 20.0),
+                            ],
+                          ),
                         ),
-                        SizedBox(height: 20.0),
-                        Divider(thickness: 1.2),
-                        SizedBox(height: 20.0),
-                        summaryWidget(
-                          'Behaviour',
-                          "As per the analysis we have found that you are well mannered. So we highly recommend you to keep working on your interpersonal skills. It is a never ending learning process.",
-                        ),
-                        SizedBox(height: 20.0),
-                        Divider(thickness: 1.2),
-                        SizedBox(height: 20.0),
-                        summaryWidget(
-                          'Academics',
-                          "As per the analysis we have found that you have worked really hard to achieve good grades and came up with a nice working plan. So we highly recommend you to follow the same in the upcoming semester. You will surely come up with better results in the coming exams also.",
-                        ),
-                        SizedBox(height: 20.0),
                       ],
                     ),
                   ),
-                  SizedBox(height: 10.0),
+                  SizedBox(height: 30.0),
+                  mainFeaturesCard(),
+                  SizedBox(height: 20.0),
+                  Container(
+                    width: size.width,
+                    child: Text(
+                      '© Copyright | Team intelli-ed | 2020',
+                      style: subheading.copyWith(
+                        color: Color(0xFFA2A2A2),
+                        fontSize: 13.0,
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.none,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  SizedBox(height: 20.0),
                 ],
               ),
             ),
@@ -117,6 +158,109 @@ class _StudentSummaryForParentState extends State<StudentSummaryForParent> {
             subheading,
             style: viewAllStyle.apply(
               color: Color(0xFFACACAC),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget mainFeaturesCard() {
+    return Container(
+      margin: EdgeInsets.only(right: 40.0),
+      decoration: BoxDecoration(
+        color: Color(0xffFFF2CA),
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(50.0),
+          bottomRight: Radius.circular(50.0),
+        ),
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 26.0),
+      child: Column(
+        children: [
+          SizedBox(height: 30.0),
+          summaryWidget3(
+            'Learning Style',
+            learningStyleSummary,
+          ),
+          SizedBox(height: 20.0),
+          Divider(thickness: 1.2),
+          SizedBox(height: 20.0),
+          summaryWidget3(
+            'Performance Projection',
+            performanceProjectionSummary,
+          ),
+          SizedBox(height: 30.0),
+        ],
+      ),
+    );
+  }
+
+  Widget summaryWidget1(String heading, String subheading) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            bullet + ' $heading',
+            style: heading2.copyWith(
+              color: Color(0xFF1CAAFA),
+              fontSize: 20.0,
+            ),
+          ),
+          SizedBox(height: 10.0),
+          Text(
+            subheading,
+            style: viewAllStyle.apply(
+              color: Color(0xff717171),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget summaryWidget2(String heading, String subheading) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            bullet + ' $heading',
+            style: heading2.copyWith(
+              color: Color(0xFF00C968),
+              fontSize: 20.0,
+            ),
+          ),
+          SizedBox(height: 10.0),
+          Text(
+            subheading,
+            style: viewAllStyle.apply(
+              color: Color(0xff717171),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget summaryWidget3(String heading, String subheading) {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            bullet + ' $heading',
+            style: heading2.copyWith(
+              color: Color(0xFFE3AE01),
+              fontSize: 20.0,
+            ),
+          ),
+          SizedBox(height: 10.0),
+          Text(
+            subheading,
+            style: viewAllStyle.apply(
+              color: Color(0xff717171),
             ),
           )
         ],

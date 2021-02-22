@@ -1,5 +1,6 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
+import 'package:IntelliEd/widgets/clipperWidgetsAndScrollBehavior.dart';
 import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/coCurricularMainGraph.dart';
 import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/donutGraph1.dart';
 import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/indicators/indicatorForDonut.dart';
@@ -116,43 +117,22 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
                     Divider(
                       thickness: 1,
                     ),
-                    SizedBox(height: 15.0),
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 26.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Analysis',
-                            style: heading2,
-                          ),
-                          SizedBox(height: 16.0),
-                          Text(
-                            "Timely check is important when it comes to improvement. Co curricular activities are important in a way or the other to bring some positive changes in your personality and eliminate the negative one. So keep a timely check on the data and keep improving.",
-                            style: viewAllStyle.apply(
-                              color: Color(0xFFACACAC),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 5.0),
                     Stack(
                       children: [
                         ClipPath(
                           clipper: CustomCliperDesign1(),
                           child: Container(
                             width: size.width,
-                            height: 200.0,
                             color: Color(0xFF1CAAFA).withOpacity(0.9),
+                            child: analysisWidget(),
                           ),
                         ),
                         ClipPath(
-                          clipper: ,
+                          clipper: CustomCliperDesign2(),
                           child: Container(
                             width: size.width,
-                            height: 200.0,
-                            color: Color(0xFF1CAAFA).withOpacity(0.9),
+                            color: Colors.blue.withOpacity(0.9),
+                            child: analysisWidget(),
                           ),
                         ),
                       ],
@@ -166,31 +146,29 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
       ),
     );
   }
-}
 
-class MyBehavior extends ScrollBehavior {
-  @override
-  Widget buildViewportChrome(
-      BuildContext context, Widget child, AxisDirection axisDirection) {
-    return child;
-  }
-}
-
-class CustomCliperDesign1 extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-    path.moveTo(0.0, size.height * 0.3);
-    path.quadraticBezierTo(
-        size.width * 0.25, 0.0, size.width * 0.5, size.height * 0.3);
-    path.quadraticBezierTo(
-        size.width * 0.75, size.height * 0.6, size.width, size.height * 0.3);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0.0, size.height);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
+  Widget analysisWidget() => Padding(
+        padding: const EdgeInsets.only(top: 110.0, bottom: 20.0),
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 26.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Analysis',
+                style: heading2.copyWith(
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(height: 10.0),
+              Text(
+                "Timely check is important when it comes to improvement. Co curricular activities are important in a way or the other to bring some positive changes in your personality and eliminate the negative one. So keep a timely check on the data and keep improving.",
+                style: viewAllStyle.apply(
+                  color: Colors.white70,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
 }

@@ -50,7 +50,7 @@ class _ParentAnnouncementPageState extends State<ParentAnnouncementPage> {
                                   globalAnnouncementData[i],
                                   textAlign: TextAlign.start,
                                   style: viewAllStyle.copyWith(
-                                    color: Colors.grey,
+                                    color: Color(0xff717171),
                                   ),
                                 ),
                                 Divider(

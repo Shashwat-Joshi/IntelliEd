@@ -1,4 +1,5 @@
 import 'package:IntelliEd/style/theme.dart';
+import 'package:IntelliEd/model/analyticsLocalDB.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/users/student/presentation/widgets/slivers/commanStudentSliverAppBar.dart';
 import 'package:IntelliEd/widgets/graphs/behaviourGraphChart.dart';
@@ -45,11 +46,10 @@ class _BehaviourPageState extends State<BehaviourPage> {
                     ),
                   ),
                   SizedBox(height: 10.0),
-                  behaviourSummaryWidget('Summary',
-                      "Based upon your response and our analysis, you just have few mild symptoms associated with depression. For most people, this kind of response is likely an indication of normal ups and downs associated with life. It is unlikely for a person in this response range to qualify for a diagnosis of clinical depression. However, you may benefit from a consultation with a trianed professional if in case you experience difficulties in daily functioning in near future."),
+                  behaviourSummaryWidget('Summary', behaviorSummary),
                   SizedBox(height: 30.0),
-                  behaviourSummaryWidget('Recommendation',
-                      "If you ever feel like you are not keeping pace together with your peers, remember that is not the permanent scenario.In such scenario we recommend  you to eat alimental food, take eight hours of sleep and exercise daily so as maintain a healthy lifestyle. Create a routine for your daily activities as following a routine might help you in bringing things back on track. Lastly, don't forget to smile, as a result of it is the best remedy that you're going to ever notice."),
+                  behaviourSummaryWidget(
+                      'Recommendation', behaviorRecommendationForStudent),
                   SizedBox(height: 20.0),
                 ],
               ),
