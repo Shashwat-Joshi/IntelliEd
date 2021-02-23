@@ -53,13 +53,16 @@ commanSliverAppBarForParent(
               TextSpan(text: '\n'),
               TextSpan(
                 text: '$headingText',
-                style: heading1.copyWith(color: textColor),
+                style: heading1.copyWith(
+                  color: textColor,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               TextSpan(
                 text: '\n$subheadingtext',
                 style: subheading.copyWith(
                   color: Colors.white,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               TextSpan(text: '\n'),

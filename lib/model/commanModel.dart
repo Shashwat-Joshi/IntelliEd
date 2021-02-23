@@ -76,7 +76,8 @@ getCurrentWeek() {
 }
 
 //URL
-String apiUrl = "https://intelliedapi.azurewebsites.net";
+// String apiUrl = "https://intelliedapi.azurewebsites.net";
+String apiUrl = "https://intellied.herokuapp.com";
 
 // Log Out function
 logOutUser(BuildContext context) async {

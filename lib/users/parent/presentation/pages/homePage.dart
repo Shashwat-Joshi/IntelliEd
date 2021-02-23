@@ -20,7 +20,6 @@ class _ParentHomePageState extends State<ParentHomePage> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   bool isLoading = true;
-  Map studentDetails = {};
   Map result = {};
 
   @override
@@ -39,6 +38,7 @@ class _ParentHomePageState extends State<ParentHomePage> {
         var box = Hive.box('userData');
         var result = box.get('result').toString();
         userData = json.decode(result);
+        print(userData);
       } else {
         logOutUser(context);
       }
@@ -52,8 +52,9 @@ class _ParentHomePageState extends State<ParentHomePage> {
           'Authorization': userData['token'],
         },
       ).timeout(Duration(seconds: 10));
-      // print(response.body);
+
       studentDetails = json.decode(response.body.toString());
+      // print(studentDetails["response"]["currentSection"]);
       fetchAnnouncementData();
     } catch (e) {
       setState(() {
