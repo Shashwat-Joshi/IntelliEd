@@ -403,7 +403,9 @@ class _CreateAnnouncementPageState extends State<CreateAnnouncementPage> {
       Navigator.push(
         context,
         PageRouteBuilder(
-          pageBuilder: (context, _, __) => AnnouncementSentPage(),
+          pageBuilder: (context, _, __) => SentPage(
+            text: 'Announcement sent successfully',
+          ),
         ),
       );
     } catch (e) {

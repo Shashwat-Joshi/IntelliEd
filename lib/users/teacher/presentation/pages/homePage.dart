@@ -40,9 +40,9 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
         logOutUser(context);
       }
     }
+    print(userData);
     globalAnnouncementData.clear();
     var response;
-
     try {
       response = await http.post(
         '$apiUrl/announcements/getTeacher',
@@ -81,7 +81,6 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
       globalAnnouncementData
           .add(announcementResult['response'][i]['announcement']);
     }
-    print(globalAnnouncementData);
     setState(() {
       isLoading = false;
     });

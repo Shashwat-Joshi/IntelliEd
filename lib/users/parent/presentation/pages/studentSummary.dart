@@ -3,7 +3,6 @@ import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/parent/model/parent.dart';
 import 'package:IntelliEd/users/parent/presentation/widgets/slivers/commanSliverForParent.dart';
 import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/coCurricularMainGraph.dart';
-import 'package:IntelliEd/widgets/graphs/behaviourGraphChart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 

@@ -1,6 +1,7 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/teacher/model/examData.dart';
 import 'package:IntelliEd/users/teacher/model/teacher.dart';
+import 'package:IntelliEd/widgets/clipperWidgetsAndScrollBehavior.dart';
 import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/coCurricularMainGraph.dart';
 import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/donutGraph1.dart';
 import 'package:IntelliEd/widgets/graphs/CoCurricularGraphs/indicators/indicatorForDonut.dart';
@@ -47,101 +48,143 @@ class _StudentWiseCoCurricularPageState
         radius: Radius.circular(20.0),
         thickness: 4.0,
         controller: _scrollController,
-        child: SingleChildScrollView(
-          controller: _scrollController,
-          physics: BouncingScrollPhysics(),
-          child: Column(
-            children: [
-              SizedBox(height: 26.0),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 26.0),
-                width: size.width,
-                child: Text(
-                  'Co-Curricular',
-                  style: heading2,
-                  textAlign: TextAlign.left,
+        child: ScrollConfiguration(
+          behavior: CustomScrollBehavior(),
+          child: SingleChildScrollView(
+            controller: _scrollController,
+            physics: AlwaysScrollableScrollPhysics(),
+            child: Column(
+              children: [
+                SizedBox(height: 26.0),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 26.0),
+                  width: size.width,
+                  child: Text(
+                    'Co-Curricular',
+                    style: heading2,
+                    textAlign: TextAlign.left,
+                  ),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 26.0),
-                height: 400,
-                child: MainCoCurricularMainGraph(
-                  data: perStudentCoCurricularMainPageData,
-                  bgColor: Color(0xffE8F7FF),
-                  size: size,
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 26.0),
+                  height: 400,
+                  child: MainCoCurricularMainGraph(
+                    data: perStudentCoCurricularMainPageData,
+                    bgColor: Color(0xffE8F7FF),
+                    size: size,
+                  ),
                 ),
-              ),
-              SizedBox(height: 30.0),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 26.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                SizedBox(height: 25.0),
+                Divider(
+                  thickness: 1,
+                ),
+                SizedBox(height: 15.0),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 26.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Inter Personal Skills',
+                        style: heading2,
+                      ),
+                      SizedBox(height: 26.0),
+                      Container(
+                        child: Column(
+                          children: [
+                            DonutGraph1(
+                              data: perStudentCoCurricularDonut1Data,
+                            ),
+                            SizedBox(height: 16.0),
+                            donutIndicatorWidgets(),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 5.0),
+                Divider(
+                  thickness: 1,
+                ),
+                SizedBox(height: 15.0),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 26.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Soft Skills',
+                        style: heading2,
+                      ),
+                      SizedBox(height: 26.0),
+                      Container(
+                        child: PieChartNo2(
+                          data: perStudentcoCurricularPieNo2Data,
+                        ),
+                      ),
+                      SizedBox(height: 16.0),
+                      pieIndicatorWidgets(),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 5.0),
+                Divider(
+                  thickness: 1,
+                ),
+                Stack(
                   children: [
-                    Text(
-                      'Inter Personal Skills',
-                      style: heading2,
+                    ClipPath(
+                      clipper: CustomCliperDesign1(),
+                      child: Container(
+                        width: size.width,
+                        color: Color(0xFF1CAAFA).withOpacity(0.7),
+                        child: analysisWidget(),
+                      ),
                     ),
-                    SizedBox(height: 26.0),
-                    Container(
-                      child: Column(
-                        children: [
-                          DonutGraph1(
-                            data: perStudentCoCurricularDonut1Data,
-                          ),
-                          SizedBox(height: 16.0),
-                          donutIndicatorWidgets(),
-                        ],
+                    ClipPath(
+                      clipper: CustomCliperDesign2(),
+                      child: Container(
+                        width: size.width,
+                        color: Colors.blue.withOpacity(0.7),
+                        child: analysisWidget(),
                       ),
                     ),
                   ],
                 ),
-              ),
-              SizedBox(height: 26.0),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 26.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Soft Skills',
-                      style: heading2,
-                    ),
-                    SizedBox(height: 26.0),
-                    Container(
-                      child: PieChartNo2(
-                        data: perStudentcoCurricularPieNo2Data,
-                      ),
-                    ),
-                    SizedBox(height: 16.0),
-                    pieIndicatorWidgets(),
-                  ],
-                ),
-              ),
-              SizedBox(height: 26.0),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 26.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Analysis',
-                      style: heading2,
-                    ),
-                    SizedBox(height: 26.0),
-                    Text(
-                      'Timely check is important when it comes to improvement. Co curricular activities are important in a way or the other to bring some positive changes in your personality and eliminate the negative one. So keep a timely check on the data and keep improving.',
-                      style: viewAllStyle.apply(
-                        color: Color(0xFFACACAC),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 26.0),
-            ],
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+
+  Widget analysisWidget() => Padding(
+        padding: const EdgeInsets.only(top: 110.0, bottom: 20.0),
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 26.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Analysis',
+                style: heading2.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(height: 10.0),
+              Text(
+                "Timely check is important when it comes to improvement. Co curricular activities are important in a way or the other to bring some positive changes in your personality and eliminate the negative one. So keep a timely check on the data and keep improving.",
+                style: viewAllStyle.copyWith(
+                  color: Colors.white70,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              SizedBox(height: 10.0),
+            ],
+          ),
+        ),
+      );
 }

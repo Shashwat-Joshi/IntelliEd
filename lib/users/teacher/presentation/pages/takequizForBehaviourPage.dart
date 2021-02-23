@@ -1,6 +1,5 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/teacher/model/generateQuizData.dart';
-import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/widgets/successPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

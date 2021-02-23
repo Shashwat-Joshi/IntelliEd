@@ -1,6 +1,5 @@
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
-import 'package:IntelliEd/users/student/presentation/pages/analytics/takeQuizForMentalWellness.dart';
 import 'package:IntelliEd/users/student/presentation/pages/analytics/takeQuizForProfessionalInterestPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

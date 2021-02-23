@@ -500,7 +500,6 @@ class _AuthPage2State extends State<AuthPage2> {
     }
   }
 
-  // TODO: Handle try catch and timeout
   Future studentSignIn() async {
     try {
       var response = await http.post(

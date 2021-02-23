@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MyBehavior extends ScrollBehavior {
+class CustomScrollBehavior extends ScrollBehavior {
   @override
   Widget buildViewportChrome(
       BuildContext context, Widget child, AxisDirection axisDirection) {
@@ -8,6 +8,7 @@ class MyBehavior extends ScrollBehavior {
   }
 }
 
+// For co-curricular page
 class CustomCliperDesign1 extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
@@ -36,6 +37,26 @@ class CustomCliperDesign2 extends CustomClipper<Path> {
         size.width * 0.5, size.height * 0.25);
     path.quadraticBezierTo(
         size.width * 0.75, size.height * 0.1, size.width, size.height * 0.2);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0.0, size.height);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
+}
+
+// For Behavior Page
+class CustomBehaviorPageDesign extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.moveTo(0.0, size.height * 0.05);
+    path.quadraticBezierTo(
+        size.width * 0.25, 0.0, size.width * 0.5, size.height * 0.05);
+    path.quadraticBezierTo(
+        size.width * 0.75, size.height * 0.1, size.width, size.height * 0.01);
     path.lineTo(size.width, size.height);
     path.lineTo(0.0, size.height);
     path.close();

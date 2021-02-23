@@ -56,11 +56,15 @@ class _StudentWiseProfessionalInterestPageState
                       size: size,
                     ),
                   ),
-                  SizedBox(height: 26.0),
-                  keyInterestsWidget(),
-                  SizedBox(height: 16.0),
-                  summaryWidget('Summary', professionalInterestSummary),
+                  SizedBox(height: 30.0),
+                  Divider(thickness: 1.0),
                   SizedBox(height: 20.0),
+                  keyInterestsWidget(),
+                  SizedBox(height: 20.0),
+                  Divider(thickness: 1.0),
+                  SizedBox(height: 20.0),
+                  summaryWidget('Summary', professionalInterestSummary),
+                  SizedBox(height: 30.0),
                 ],
               ),
             ),
@@ -79,7 +83,7 @@ class _StudentWiseProfessionalInterestPageState
           Text(
             bullet + ' $heading',
             style: heading2.copyWith(
-              color: Colors.black54,
+              color: Colors.black,
               fontSize: 20.0,
             ),
           ),
@@ -87,7 +91,7 @@ class _StudentWiseProfessionalInterestPageState
           Text(
             subheading,
             style: viewAllStyle.apply(
-              color: Color(0xFFACACAC),
+              color: Color(0xff717171),
             ),
           )
         ],
@@ -104,7 +108,7 @@ class _StudentWiseProfessionalInterestPageState
           Text(
             bullet + ' Key Interest',
             style: heading2.copyWith(
-              color: Colors.black54,
+              color: Colors.black,
               fontSize: 20.0,
             ),
           ),

@@ -63,7 +63,7 @@ class _StudentAcademicPerformanceForParentState
             children: [
               Container(
                 margin: EdgeInsets.all(26.0),
-                height: 380.0,
+                height: 300.0,
                 width: size.width,
                 child: AcademicsBarGraph(
                   studentMarks: getStudentAverageMarks(),

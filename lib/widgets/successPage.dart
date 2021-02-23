@@ -1,5 +1,4 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/student/presentation/pages/homePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';

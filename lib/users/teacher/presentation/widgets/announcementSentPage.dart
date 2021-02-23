@@ -3,12 +3,14 @@ import 'package:IntelliEd/users/teacher/presentation/pages/homePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AnnouncementSentPage extends StatefulWidget {
+class SentPage extends StatefulWidget {
+  final String text;
+  SentPage({@required this.text});
   @override
-  _AnnouncementSentPageState createState() => _AnnouncementSentPageState();
+  _SentPageState createState() => _SentPageState();
 }
 
-class _AnnouncementSentPageState extends State<AnnouncementSentPage> {
+class _SentPageState extends State<SentPage> {
   @override
   void initState() {
     super.initState();
@@ -49,7 +51,7 @@ class _AnnouncementSentPageState extends State<AnnouncementSentPage> {
               Container(
                 width: size.width * 0.8,
                 child: Text(
-                  'Announcement sent successfully',
+                  widget.text,
                   style: heading1,
                   textAlign: TextAlign.center,
                 ),

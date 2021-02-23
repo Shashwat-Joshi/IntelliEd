@@ -7,18 +7,18 @@ String logoPath = 'assets/student/images/logo.png';
 String tagLine = "The Intelligent Learning Assistance Platform";
 
 List<String> monthNames = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
+  'January',
+  'February',
+  'March',
+  'April',
   'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
 ];
 
 List<String> weekDayName = [

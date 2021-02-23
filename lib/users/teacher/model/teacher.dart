@@ -22,7 +22,7 @@ Map userData = {};
 
 // Teacher other class data
 Map classData = {
-  'main': '9B',
+  'main': '9A',
   'other': [
     '10C',
     '10D',
@@ -474,33 +474,33 @@ String bigLoremText =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At proin nisi nunc quam. Non sit metus fermentum eget semper non nullam. Placerat orci lorem gravida at purus et. Lectus commodo donec consectetur odio amet, facilisi dolor viverra. Facilisis sit malesuada ultricies scelerisque nec.";
 
 // Data for calendar Page
-Map calendarDataForTeacher = {
-  'result': [
-    {
-      'english':
-          'Chapter 1\nHow old are Margie and Tommy?,Where was Margie’s school? Did she have any classmates?,What subjects did Margie and Tommy learn?,wouldn’t throw it away.”\n\nWho says these words?\nWhat does ‘it’ refer to?\nWhat is it being compared with by the speaker?',
-      'history':
-          'Chapter 3\nDescribe the problems faced by the Weimar Republic,Discuss why Nazism became popular in Germany by 1930,What are the peculiar features of Nazi thinking,Explain why Nazi propaganda was effective in creating a hatred for Jews.,Explain the role of women in Nazi society. Return to Chapter 1 on the French Revolution. Write a paragraph comparing and contrasting the role of women in the two periods.',
-      'hindi':
-          'Chapter 3\nBook Kristina\nरामस्वरूप और गोपाल प्रसाद बात-बात पर ”एक हमारा ज़माना था…” कहकर अपने समय की तुलना वर्तमान समय से करते हैं। इस प्रकार की तुलना करना कहाँ तक तर्कसंगत है?,रामस्वरूप की अपनी बेटी को उच्च शिक्षा दिलवाना और विवाह के लिए छिपाना, यह विरोधाभास उनकी किस विवशता को उजागर करता है?,अपनी बेटी का रिश्ता तय करने के लिए रामस्वरूप उमा से जिस प्रकार के व्यवहार की अपेक्षा कर रहे हैं, वह उचित क्यों नहीं है?',
-      'maths':
-          'Chapter 10- Circles\nRecall that two circles are congruent if they have the same radii. Prove that equal chords of congruent circles subtend equal angles at their ,Prove that if chords of congruent circles subtend equal angles at their centres, then the chords are equal,Suppose you are given a circle. Give a construction to find its centre.',
-      'physics':
-          'Chapter- gravitational\nWhat happens to the force between two objects, if (i) The mass of one object is doubled?(ii) The distance between the objects is doubled and tripled?(iii) The masses of both objects are doubled?Amit buys few grams of gold at the poles as per the instruction of one of his friends. He hands over the same when he meets him at the equator. Will the friend agree with the weight of gold bought? If not, why? [Hint: The value of g is greater at the poles than at the equator.',
-    },
-    {
-      'chemistry':
-          'Chapter 3 - Atoms and molecules\nName the scientist who coined the term Parmanu, state the law of conservation of mass , state the law of constant proportion with an example, Slove the formula of hydrogen chloride, plate the number of particles in 8kg O2 molecules (no. of molecules from mass)',
-      'maths':
-          'Chapter 2 - polynomial\nExercise 2.2\n1. Find the value of the polynomial (x)=5x−4x2+3\n(i) x = 0,(ii) x = – 1(iii) x = 2Check whether 7+3x is a factor of 3x3+7x., Determine which of the following polynomials has (x + 1) a factoro of 3+x2+x+1,',
-      'english':
-          'Poem - Wind\nWhat are the things the wind does in the first stanza, what does the poem say the wind God winnows, what should we do to make friends with the winds, what do the last four lines of the poem means to you, how does the poem speak to the wind in the anger or with humour? Must also have seen or heard of the wind“crumbling lives."what is your response to this? Is it like the poem',
-      'history':
-          'Chapter 1 - French Revolution .\nWhy was the Bastille hated by all? , Why Did the French government increase the taxes? , Describe the event of 14th July 1789? ,what is Estates general?',
-      'biology':
-          'Chapter 5- The fundamental unit of life\nWho discovered cell and how, the main part of a typical cell, name three uni cellular organisms , why is plasma membrane called the selectively permeable membrane, who presented the cell theory, name the smallest and the largest cell',
-      'computer':
-          'Chapter 6 - Consent teacnology\nWhat is multimedia , Write three advantages of multimedia, Name three places where multimedia is used, list each component of multimedia & explain the purpose of each component ,Data encryption means.',
-    },
-  ]
-};
+List calendarDataForTeacher = [
+  // 'result': [
+  //   {
+  //     'english':
+  //         'Chapter 1\nHow old are Margie and Tommy?,Where was Margie’s school? Did she have any classmates?,What subjects did Margie and Tommy learn?,wouldn’t throw it away.”\n\nWho says these words?\nWhat does ‘it’ refer to?\nWhat is it being compared with by the speaker?',
+  //     'history':
+  //         'Chapter 3\nDescribe the problems faced by the Weimar Republic,Discuss why Nazism became popular in Germany by 1930,What are the peculiar features of Nazi thinking,Explain why Nazi propaganda was effective in creating a hatred for Jews.,Explain the role of women in Nazi society. Return to Chapter 1 on the French Revolution. Write a paragraph comparing and contrasting the role of women in the two periods.',
+  //     'hindi':
+  //         'Chapter 3\nBook Kristina\nरामस्वरूप और गोपाल प्रसाद बात-बात पर ”एक हमारा ज़माना था…” कहकर अपने समय की तुलना वर्तमान समय से करते हैं। इस प्रकार की तुलना करना कहाँ तक तर्कसंगत है?,रामस्वरूप की अपनी बेटी को उच्च शिक्षा दिलवाना और विवाह के लिए छिपाना, यह विरोधाभास उनकी किस विवशता को उजागर करता है?,अपनी बेटी का रिश्ता तय करने के लिए रामस्वरूप उमा से जिस प्रकार के व्यवहार की अपेक्षा कर रहे हैं, वह उचित क्यों नहीं है?',
+  //     'maths':
+  //         'Chapter 10- Circles\nRecall that two circles are congruent if they have the same radii. Prove that equal chords of congruent circles subtend equal angles at their ,Prove that if chords of congruent circles subtend equal angles at their centres, then the chords are equal,Suppose you are given a circle. Give a construction to find its centre.',
+  //     'physics':
+  //         'Chapter- gravitational\nWhat happens to the force between two objects, if (i) The mass of one object is doubled?(ii) The distance between the objects is doubled and tripled?(iii) The masses of both objects are doubled?Amit buys few grams of gold at the poles as per the instruction of one of his friends. He hands over the same when he meets him at the equator. Will the friend agree with the weight of gold bought? If not, why? [Hint: The value of g is greater at the poles than at the equator.',
+  //   },
+  //   {
+  //     'chemistry':
+  //         'Chapter 3 - Atoms and molecules\nName the scientist who coined the term Parmanu, state the law of conservation of mass , state the law of constant proportion with an example, Slove the formula of hydrogen chloride, plate the number of particles in 8kg O2 molecules (no. of molecules from mass)',
+  //     'maths':
+  //         'Chapter 2 - polynomial\nExercise 2.2\n1. Find the value of the polynomial (x)=5x−4x2+3\n(i) x = 0,(ii) x = – 1(iii) x = 2Check whether 7+3x is a factor of 3x3+7x., Determine which of the following polynomials has (x + 1) a factoro of 3+x2+x+1,',
+  //     'english':
+  //         'Poem - Wind\nWhat are the things the wind does in the first stanza, what does the poem say the wind God winnows, what should we do to make friends with the winds, what do the last four lines of the poem means to you, how does the poem speak to the wind in the anger or with humour? Must also have seen or heard of the wind“crumbling lives."what is your response to this? Is it like the poem',
+  //     'history':
+  //         'Chapter 1 - French Revolution .\nWhy was the Bastille hated by all? , Why Did the French government increase the taxes? , Describe the event of 14th July 1789? ,what is Estates general?',
+  //     'biology':
+  //         'Chapter 5- The fundamental unit of life\nWho discovered cell and how, the main part of a typical cell, name three uni cellular organisms , why is plasma membrane called the selectively permeable membrane, who presented the cell theory, name the smallest and the largest cell',
+  //     'computer':
+  //         'Chapter 6 - Consent teacnology\nWhat is multimedia , Write three advantages of multimedia, Name three places where multimedia is used, list each component of multimedia & explain the purpose of each component ,Data encryption means.',
+  //   },
+  // ]
+];

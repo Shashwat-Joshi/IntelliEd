@@ -1,3 +1,4 @@
+import 'package:IntelliEd/model/analyticsLocalDB.dart';
 import 'package:IntelliEd/style/theme.dart';
 import 'package:IntelliEd/users/student/model/student.dart';
 import 'package:IntelliEd/widgets/clipperWidgetsAndScrollBehavior.dart';
@@ -33,7 +34,7 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
         thickness: 4.0,
         controller: _scrollController,
         child: ScrollConfiguration(
-          behavior: MyBehavior(),
+          behavior: CustomScrollBehavior(),
           child: CustomScrollView(
             controller: _scrollController,
             physics: AlwaysScrollableScrollPhysics(),
@@ -123,7 +124,7 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
                           clipper: CustomCliperDesign1(),
                           child: Container(
                             width: size.width,
-                            color: Color(0xFF1CAAFA).withOpacity(0.9),
+                            color: Color(0xFF1CAAFA).withOpacity(0.7),
                             child: analysisWidget(),
                           ),
                         ),
@@ -131,7 +132,7 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
                           clipper: CustomCliperDesign2(),
                           child: Container(
                             width: size.width,
-                            color: Colors.blue.withOpacity(0.9),
+                            color: Colors.blue.withOpacity(0.7),
                             child: analysisWidget(),
                           ),
                         ),
@@ -148,7 +149,7 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
   }
 
   Widget analysisWidget() => Padding(
-        padding: const EdgeInsets.only(top: 110.0, bottom: 20.0),
+        padding: const EdgeInsets.only(top: 100.0, bottom: 20.0),
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 26.0),
           child: Column(
@@ -158,15 +159,18 @@ class _CoCurricularPageState extends State<CoCurricularPage> {
                 'Analysis',
                 style: heading2.copyWith(
                   color: Colors.white,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               SizedBox(height: 10.0),
               Text(
-                "Timely check is important when it comes to improvement. Co curricular activities are important in a way or the other to bring some positive changes in your personality and eliminate the negative one. So keep a timely check on the data and keep improving.",
-                style: viewAllStyle.apply(
+                behaviorSummary,
+                style: viewAllStyle.copyWith(
                   color: Colors.white70,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
+              SizedBox(height: 10.0),
             ],
           ),
         ),

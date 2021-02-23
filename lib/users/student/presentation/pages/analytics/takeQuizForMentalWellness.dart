@@ -375,8 +375,10 @@ class _TakeQuizForMentalWellnessPageState
                             triggerFunction: () {
                               Navigator.pushAndRemoveUntil(
                                 context,
-                                CupertinoPageRoute(
-                                  builder: (context) => StudentHomePage(),
+                                PageRouteBuilder(
+                                  transitionDuration: Duration(seconds: 0),
+                                  pageBuilder: (context, _, __) =>
+                                      StudentHomePage(),
                                 ),
                                 (route) => false,
                               );
