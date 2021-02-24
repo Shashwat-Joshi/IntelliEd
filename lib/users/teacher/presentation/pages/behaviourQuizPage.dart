@@ -1,13 +1,12 @@
 import 'package:IntelliEd/style/theme.dart';
-import 'package:IntelliEd/users/teacher/model/teacher.dart';
 import 'package:IntelliEd/users/teacher/presentation/pages/takequizForBehaviourPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BehaviourQuizPage extends StatefulWidget {
-  final int rollNum;
+  final Map studentData;
   BehaviourQuizPage({
-    @required this.rollNum,
+    @required this.studentData,
   });
   @override
   _BehaviourQuizPageState createState() => _BehaviourQuizPageState();
@@ -55,7 +54,7 @@ class _BehaviourQuizPageState extends State<BehaviourQuizPage> {
                           margin: EdgeInsets.only(
                               left: 30.0, right: size.width * 0.20),
                           child: Text(
-                            "${perClassMarks['result'][widget.rollNum - 1]['name']}'s Behaviour Quiz",
+                            "${widget.studentData["name"]}'s Behaviour Quiz",
                             style: heading2.copyWith(
                               fontSize: 24.0,
                               letterSpacing: 1.05,
@@ -103,7 +102,9 @@ class _BehaviourQuizPageState extends State<BehaviourQuizPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => TakeQuizForBehaviourPage(),
+                    builder: (context) => TakeQuizForBehaviourPage(
+                      studentData: widget.studentData,
+                    ),
                   ),
                 );
               },

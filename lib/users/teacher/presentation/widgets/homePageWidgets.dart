@@ -194,33 +194,33 @@ showQuizDialog(BuildContext context, Size size) {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: 15.0),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 30.0),
-                    height: 60.0,
-                    width: size.width,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Color(0xff1CAAFA),
-                    ),
-                    child: Row(
-                      children: [
-                        Text(
-                          'Create Quiz',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18.0,
-                          ),
-                        ),
-                        Spacer(),
-                        Icon(
-                          Icons.arrow_right_alt_rounded,
-                          color: Colors.white,
-                          size: 26.0,
-                        )
-                      ],
-                    ),
-                  ),
+                  // SizedBox(height: 15.0),
+                  // Container(
+                  //   padding: EdgeInsets.symmetric(horizontal: 30.0),
+                  //   height: 60.0,
+                  //   width: size.width,
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(10.0),
+                  //     color: Color(0xff1CAAFA),
+                  //   ),
+                  //   child: Row(
+                  //     children: [
+                  //       Text(
+                  //         'Create Quiz',
+                  //         style: TextStyle(
+                  //           color: Colors.white,
+                  //           fontSize: 18.0,
+                  //         ),
+                  //       ),
+                  //       Spacer(),
+                  //       Icon(
+                  //         Icons.arrow_right_alt_rounded,
+                  //         color: Colors.white,
+                  //         size: 26.0,
+                  //       )
+                  //     ],
+                  //   ),
+                  // ),
                   SizedBox(height: 15.0),
                   InkWell(
                     splashColor: Colors.transparent,
