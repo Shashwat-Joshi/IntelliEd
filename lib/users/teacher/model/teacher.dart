@@ -30,8 +30,8 @@ Map classData = {
 };
 
 List<String> subjects = [
-  'maths',
-  'cs',
+  'Maths',
+  'English',
 ];
 
 // Create announcement data

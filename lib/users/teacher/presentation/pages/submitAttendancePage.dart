@@ -66,6 +66,21 @@ class _SubmitAttendancePageState extends State<SubmitAttendancePage> {
     }
   }
 
+  Future getAttendanceData() async {
+    try {
+      var response = await http.post(
+        '$apiUrl/attendance/getAttendanceAll',
+        body: jsonEncode(<String, Object>{
+          "studentClass": 9,
+          "section": "A",
+          "date": 23,
+          "month": 3,
+          "year": 2021
+        }),
+      );
+    } catch (e) {}
+  }
+
   showErrorAndPopScreen() {
     _scaffoldKey.currentState.showSnackBar(
       SnackBar(

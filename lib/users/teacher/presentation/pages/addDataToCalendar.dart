@@ -93,7 +93,7 @@ class _AddDataToCalendarPageState extends State<AddDataToCalendarPage> {
                           initialValue: calenderData,
                           minLines: 10,
                           maxLines: 10,
-                          maxLength: 250,
+                          maxLength: 1000,
                           scrollPhysics: BouncingScrollPhysics(),
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(20.0),
