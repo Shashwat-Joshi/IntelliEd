@@ -85,7 +85,6 @@ class _TeacherCalendarPageState extends State<TeacherCalendarPage> {
       "week3",
       "week4",
     ];
-
     for (int i = 0; i < weeks.length; i++) {
       List weekWiseData = result['response'][weeks[i].toString()];
       calendarDataForTeacher.add(weekWiseData);

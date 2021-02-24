@@ -99,54 +99,58 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
       key: _scaffoldKey,
       body: isLoading
           ? loadingPage(size: size, text: 'Fetching Data')
-          : CupertinoScrollbar(
-              radius: Radius.circular(20.0),
-              thickness: 4.0,
-              controller: _scrollController,
-              child: RefreshIndicator(
-                backgroundColor: Color(0xff43A978),
-                color: Colors.white,
-                displacement: 40.0,
-                onRefresh: () {
-                  setState(() {
-                    isLoading = true;
-                    getAnnouncements();
-                  });
-                  return Future.value(true);
-                },
-                child: CustomScrollView(
-                  controller: _scrollController,
-                  physics:
-                      BouncingScrollPhysics(parent: ClampingScrollPhysics()),
-                  slivers: [
-                    teacherSliverAppBarWidget(
-                      size,
-                      teacherTestAppBar.name,
-                      teacherTestAppBar.imagePath,
-                      this.context,
-                    ),
-                    SliverList(
-                      delegate: SliverChildListDelegate(
-                        [
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: 20.0),
-                            child: teacherAnnouncementWidget(context),
-                          ),
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: 20.0),
-                            child: AttendanceAndAnalyticsWidget(
-                              size: size,
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: 20.0),
-                            child: calendarWidget(context),
-                          ),
-                          SizedBox(height: 30.0),
-                        ],
+          : Container(
+              height: size.height,
+              width: size.width,
+              child: CupertinoScrollbar(
+                radius: Radius.circular(20.0),
+                thickness: 4.0,
+                controller: _scrollController,
+                child: RefreshIndicator(
+                  backgroundColor: Color(0xff43A978),
+                  color: Colors.white,
+                  displacement: 40.0,
+                  onRefresh: () {
+                    setState(() {
+                      isLoading = true;
+                      getAnnouncements();
+                    });
+                    return Future.value(true);
+                  },
+                  child: CustomScrollView(
+                    controller: _scrollController,
+                    physics:
+                        BouncingScrollPhysics(parent: ClampingScrollPhysics()),
+                    slivers: [
+                      teacherSliverAppBarWidget(
+                        size,
+                        teacherTestAppBar.name,
+                        teacherTestAppBar.imagePath,
+                        this.context,
                       ),
-                    ),
-                  ],
+                      SliverList(
+                        delegate: SliverChildListDelegate(
+                          [
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 20.0),
+                              child: teacherAnnouncementWidget(context),
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 20.0),
+                              child: AttendanceAndAnalyticsWidget(
+                                size: size,
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 20.0),
+                              child: calendarWidget(context),
+                            ),
+                            SizedBox(height: 30.0),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

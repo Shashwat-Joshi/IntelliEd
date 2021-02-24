@@ -28,7 +28,7 @@ class _StudentHomePageState extends State<StudentHomePage> {
     getAnnouncements();
   }
 
-  getAnnouncements() async {
+  Future getAnnouncements() async {
     if (userData.isEmpty) {
       await Hive.initFlutter();
       await Hive.openBox('userData');
@@ -43,7 +43,8 @@ class _StudentHomePageState extends State<StudentHomePage> {
       }
     }
     globalAnnouncementData.clear();
-
+    quizData.clear();
+    print(userData);
     var response;
     try {
       response = await http.post(
@@ -58,24 +59,39 @@ class _StudentHomePageState extends State<StudentHomePage> {
         },
       ).timeout(Duration(seconds: 10));
       announcementResult = json.decode(response.body.toString());
-
       addAnnouncementsToGlobalData();
     } catch (e) {
-      setState(() {
-        isLoading = false;
-        _scaffoldKey.currentState.showSnackBar(SnackBar(
-          content: Text('Connection to the servers failed'),
-          action: SnackBarAction(
-            label: 'Retry',
-            onPressed: () {
-              setState(() {
-                isLoading = true;
-                getAnnouncements();
-              });
-            },
-          ),
-        ));
-      });
+      setState(
+        () {
+          isLoading = false;
+          _scaffoldKey.currentState.showSnackBar(
+            SnackBar(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15.0),
+                  topRight: Radius.circular(15.0),
+                ),
+              ),
+              backgroundColor: Colors.redAccent,
+              content: Text(
+                'Connection to the servers failed',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              action: SnackBarAction(
+                label: 'Retry',
+                onPressed: () {
+                  setState(() {
+                    isLoading = true;
+                    getAnnouncements();
+                  });
+                },
+              ),
+            ),
+          );
+        },
+      );
     }
   }
 
@@ -86,9 +102,32 @@ class _StudentHomePageState extends State<StudentHomePage> {
             .add(announcementResult['response'][i]['announcement']);
       }
     }
-    setState(() {
-      isLoading = false;
-    });
+
+    getQuizData();
+  }
+
+  Future getQuizData() async {
+    try {
+      var response = await http.post(
+        '$apiUrl/quizTaken/getForStudent',
+        body: jsonEncode(
+          <String, Object>{
+            "admissionNumber": userData["student"]["admissionNumber"],
+          },
+        ),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': 'Bearer ${userData['token']}'
+        },
+      );
+      quizData = json.decode(response.body);
+      print(quizData);
+      setState(() {
+        isLoading = false;
+      });
+    } catch (e) {
+      Navigator.pop(context);
+    }
   }
 
   @override
@@ -142,6 +181,7 @@ class _StudentHomePageState extends State<StudentHomePage> {
                             margin: EdgeInsets.symmetric(horizontal: 20.0),
                             child: AnalyticsWidget(
                               size: size,
+                              scaffoldKey: _scaffoldKey,
                             ),
                           ),
                           Container(

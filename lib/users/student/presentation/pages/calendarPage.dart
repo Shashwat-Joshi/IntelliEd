@@ -359,7 +359,14 @@ class _CalendarPageState extends State<CalendarPage> {
                                               children: [
                                                 Text(
                                                   calendarData[isSelectedWeek -
-                                                      1][i]["subName"],
+                                                              1][i]["subName"]
+                                                          .toString()[0]
+                                                          .toUpperCase() +
+                                                      calendarData[
+                                                              isSelectedWeek -
+                                                                  1][i]["subName"]
+                                                          .toString()
+                                                          .substring(1),
                                                   style: heading1.copyWith(
                                                     fontSize: 18.0,
                                                     fontWeight: FontWeight.bold,

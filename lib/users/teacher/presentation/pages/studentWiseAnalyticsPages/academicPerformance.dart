@@ -43,7 +43,7 @@ class _StudentWiseAcademicPerformanceState
       appBar: AppBar(
         backgroundColor: Color(0xFFB0E3FF),
         title: Text(
-          "${classDataStudent['result'][currentSelectedStudentId - 1]['name']}",
+          "${classDataStudent[currentSelectedStudentId - 1]['name']}",
           style: TextStyle(
             color: Color(0xff1CAAFA),
           ),

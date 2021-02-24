@@ -279,52 +279,52 @@ List<SubjectWiseData> subjectData = [
 ];
 
 // Data for class data page
-Map classDataStudent = {
-  'result': [
-    {
-      'name': 'Adhyansh',
-      'academicMarks': 86,
-      'cocurricularMarks': 34,
-      'attendance': 89,
-      'cocurricularTotal': 50,
-    },
-    {
-      'name': 'Anant Jakhmola',
-      'academicMarks': 86,
-      'cocurricularMarks': 34,
-      'attendance': 89,
-      'cocurricularTotal': 50,
-    },
-    {
-      'name': 'Kartikay Sawhaney',
-      'academicMarks': 86,
-      'cocurricularMarks': 34,
-      'attendance': 89,
-      'cocurricularTotal': 50,
-    },
-    {
-      'name': 'Shashwat Joshi',
-      'academicMarks': 86,
-      'cocurricularMarks': 34,
-      'attendance': 89,
-      'cocurricularTotal': 50,
-    },
-    {
-      'name': 'Shayna Joshi',
-      'academicMarks': 86,
-      'cocurricularMarks': 34,
-      'attendance': 89,
-      'cocurricularTotal': 50,
-    },
-    {
-      'name': 'Vaishnavi Aggarwal',
-      'academicMarks': 86,
-      'cocurricularMarks': 34,
-      'attendance': 89,
-      'cocurricularTotal': 50,
-    },
-  ],
-};
+List classDataStudent = [];
+// 'result': [
+// {
+//   'name': 'Adhyansh',
+//   'academicMarks': 86,
+//   'cocurricularMarks': 34,
+//   'attendance': 89,
+//   'cocurricularTotal': 50,
+// },
+// {
+//   'name': 'Anant Jakhmola',
+//   'academicMarks': 86,
+//   'cocurricularMarks': 34,
+//   'attendance': 89,
+//   'cocurricularTotal': 50,
+// },
+// {
+//   'name': 'Kartikay Sawhaney',
+//   'academicMarks': 86,
+//   'cocurricularMarks': 34,
+//   'attendance': 89,
+//   'cocurricularTotal': 50,
+// },
+// {
+//   'name': 'Shashwat Joshi',
+//   'academicMarks': 86,
+//   'cocurricularMarks': 34,
+//   'attendance': 89,
+//   'cocurricularTotal': 50,
+// },
+// {
+//   'name': 'Shayna Joshi',
+//   'academicMarks': 86,
+//   'cocurricularMarks': 34,
+//   'attendance': 89,
+//   'cocurricularTotal': 50,
+// },
+// {
+//   'name': 'Vaishnavi Aggarwal',
+//   'academicMarks': 86,
+//   'cocurricularMarks': 34,
+//   'attendance': 89,
+//   'cocurricularTotal': 50,
+// },
+// ],
+// };
 
 // Data for behaviour
 List<Map<String, Map>> behaviourChart = [
